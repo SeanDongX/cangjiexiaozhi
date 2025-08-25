@@ -1,0 +1,1640 @@
+# 仓颉编程语言标准库 API 索引
+
+- [仓颉编程语言扩展库 API](libs_overview.md)
+    - [stdx.aspectCJ](aspectCJ/aspectCJ_package_overview.md)
+        - [类](aspectCJ/aspectCJ_package_api/aspectCJ_package_classes.md)
+          - class InsertAtEntry
+            - const init(String, String, String, Bool, String, Bool)
+          - class InsertAtExit
+            - const init(String, String, String, Bool, String, Bool)
+          - class ReplaceFuncBody
+            - const init(String, String, String, Bool, Bool)
+            - [aspecjCJ 使用](aspectCJ/aspectCJ_samples/aspectCJ_sample.md)
+    - [stdx.compress.zlib](compress/zlib/zlib_package_overview.md)
+        - [类](compress/zlib/zlib_package_api/zlib_package_classes.md)
+          - class CompressInputStream
+            - init(InputStream, WrapType, CompressLevel, Int64)
+            - func close()
+            - func read(Array\<Byte>)
+          - class CompressOutputStream
+            - init(OutputStream, WrapType, CompressLevel, Int64)
+            - func close()
+            - func flush()
+            - func write(Array\<Byte>)
+          - class DecompressInputStream
+            - init(InputStream, WrapType, Int64)
+            - func close()
+            - func read(Array\<Byte>)
+          - class DecompressOutputStream
+            - init(OutputStream, WrapType, Int64)
+            - func close()
+            - func flush()
+            - func write(Array\<Byte>)
+        - [枚举](compress/zlib/zlib_package_api/zlib_package_enums.md)
+          - enum CompressLevel
+            - BestCompression
+            - BestSpeed
+            - DefaultCompression
+          - enum WrapType
+            - DeflateFormat
+            - GzipFormat
+        - [异常类](compress/zlib/zlib_package_api/zlib_package_exceptions.md)
+          - class ZlibException
+            - init(String)
+            - [Deflate 格式数据的压缩和解压](compress/zlib/zlib_samples/deflate_compress_decompress.md)
+            - [Gzip 格式数据的压缩和解压](compress/zlib/zlib_samples/gzip_compress_decompress.md)
+    - [stdx.crypto.crypto](crypto/crypto/crypto_package_overview.md)
+        - [类](crypto/crypto/crypto_package_api/crypto_package_classes.md)
+          - class SecureRandom
+            - init(Bool)
+            - func nextBits(UInt64)
+            - func nextBool()
+            - func nextBytes(Array\<Byte>)
+            - func nextBytes(Int32)
+            - func nextFloat16()
+            - func nextFloat32()
+            - func nextFloat64()
+            - func nextGaussianFloat16(Float16, Float16)
+            - func nextGaussianFloat32(Float32, Float32)
+            - func nextGaussianFloat64(Float64, Float64)
+            - func nextInt16()
+            - func nextInt32()
+            - func nextInt16(Int16)
+            - func nextInt32(Int32)
+            - func nextInt64()
+            - func nextInt64(Int64)
+            - func nextInt8()
+            - func nextInt8(Int8)
+            - func nextUInt16()
+            - func nextUInt16(UInt16)
+            - func nextUInt32()
+            - func nextUInt32(UInt32)
+            - func nextUInt64()
+            - func nextUInt64(UInt64)
+            - func nextUInt8()
+            - func nextUInt8(UInt8)
+          - class SM4
+            - init(OperationMode, Array\<Byte>, Array\<Byte>, PaddingMode, Array\<Byte>, Int64)
+            - prop aad
+            - prop algorithm
+            - prop blockSize
+            - prop keySize
+            - prop key
+            - prop optMode
+            - prop paddingMode
+            - prop iv
+            - prop ivSize
+            - prop tagSize
+            - func encrypt(Array\<Byte>)
+            - func encrypt(Array\<Byte>, Array\<Byte>)
+            - func encrypt(InputStream, OutputStream)
+            - func decrypt(Array\<Byte>)
+            - func decrypt(Array\<Byte>, Array\<Byte>)
+            - func decrypt(InputStream, OutputStream)
+        - [结构体](crypto/crypto/crypto_package_api/crypto_package_structs.md)
+          - struct OperationMode
+            - static let ECB
+            - static let CBC
+            - static let OFB
+            - static let CFB
+            - static let CTR
+            - static let GCM
+            - let mode
+            - func toString()
+            - func ==(OperationMode)
+            - func !=(OperationMode)
+          - struct PaddingMode
+            - static let NoPadding
+            - static let PKCS7Padding
+            - let paddingType
+            - func ==(PaddingMode)
+            - func !=(PaddingMode)
+        - [异常类](crypto/crypto/crypto_package_api/crypto_package_exceptions.md)
+          - class SecureRandomException
+            - init()
+            - init(String)
+            - [SecureRandom 使用](crypto/crypto/crypto_samples/sample_secure_random.md)
+            - [SM4 使用](crypto/crypto/crypto_samples/sample_crypto.md)
+    - [stdx.crypto.digest](crypto/digest/crypto_digest_package_overview.md)
+        - [类](crypto/digest/digest_package_api/digest_package_classes.md)
+          - class HMAC
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - init(Array\<Byte>, () -> Digest)
+            - init(Array\<Byte>, HashType)
+            - static func equal(Array\<Byte>, Array\<Byte>)
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+          - class MD5
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - init()
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+          - class SHA1
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - init()
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+          - class SHA224
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - init()
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+          - class SHA256
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - init()
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+          - class SHA384
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - init()
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+          - class SHA512
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - init()
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+          - class SM3
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - init()
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+        - [结构体](crypto/digest/digest_package_api/digest_package_structs.md)
+          - struct HashType
+            - prop MD5
+            - prop SHA1
+            - prop SHA224
+            - prop SHA256
+            - prop SHA384
+            - prop SHA512
+            - prop SM3
+            - func toString()
+            - operator func ==(HashType)
+            - operator func !=(HashType)
+        - [异常类](crypto/digest/digest_package_api/digest_package_exceptions.md)
+          - class CryptoException
+            - init()
+            - init(String)
+            - [digest 使用](crypto/digest/digest_samples/sample_digest.md)
+    - [stdx.crypto.keys](crypto/keys/keys_package_overview.md)
+        - [类](crypto/keys/keys_package_api/keys_package_classes.md)
+          - class ECDSAPrivateKey
+            - init(Curve)
+            - static func decodeDer(DerBlob)
+            - static func decodeDer(DerBlob, ?String)
+            - static func decodeFromPem(String)
+            - static func decodeFromPem(String, ?String)
+            - func encodeToDer()
+            - func encodeToDer(?String)
+            - func encodeToPem()
+            - func sign(Array\<Byte>)
+            - func toString()
+          - class ECDSAPublicKey
+            - init(ECDSAPrivateKey)
+            - static func decodeDer(DerBlob)
+            - static func decodeFromPem(String)
+            - func encodeToDer()
+            - func encodeToPem()
+            - func toString()
+            - func verify(Array\<Byte>, Array\<Byte>)
+          - class RSAPrivateKey
+            - init(Int32)
+            - init(Int32, BigInt)
+            - static func decodeDer(DerBlob)
+            - static func decodeDer(DerBlob, ?String)
+            - static func decodeFromPem(String)
+            - static func decodeFromPem(String, ?String)
+            - func decrypt(InputStream, OutputStream, PadOption)
+            - func encodeToDer()
+            - func encodeToDer(?String)
+            - func encodeToPem()
+            - func sign(Digest, Array\<Byte>, PadOption)
+            - func toString()
+          - class RSAPublicKey
+            - init(RSAPrivateKey)
+            - static func decodeDer(DerBlob)
+            - static func decodeFromPem(String)
+            - func encodeToDer()
+            - func encodeToPem()
+            - func encrypt(InputStream, OutputStream, PadOption)
+            - func toString()
+            - func verify(Digest, Array\<Byte>, Array\<Byte>, PadOption)
+          - class SM2PrivateKey
+            - init()
+            - static func decodeDer(DerBlob)
+            - static func decodeDer(DerBlob, ?String)
+            - static func decodeFromPem(String)
+            - static func decodeFromPem(String, ?String)
+            - func decrypt(Array\<Byte>)
+            - func encodeToDer()
+            - func encodeToDer(?String)
+            - func encodeToPem(?String)
+            - func encodeToPem()
+            - func sign(Array\<Byte>)
+            - func toString()
+          - class SM2PublicKey
+            - init(SM2PrivateKey)
+            - static func decodeDer(DerBlob)
+            - static func decodeFromPem(String)
+            - func encodeToDer()
+            - func encodeToPem()
+            - func encrypt(Array\<Byte>)
+            - func toString()
+            - func verify(Array\<Byte>, Array\<Byte>)
+        - [枚举](crypto/keys/keys_package_api/keys_package_enums.md)
+          - enum Curve
+            - BP256
+            - BP320
+            - BP384
+            - BP512
+            - P224
+            - P256
+            - P384
+            - P521
+          - enum PadOption
+            - OAEP(OAEPOption)
+            - PKCS1
+            - PSS(PSSOption)
+        - [结构体](crypto/keys/keys_package_api/keys_package_structs.md)
+          - struct OAEPOption
+            - init(Digest, Digest, String)
+          - struct PSSOption
+            - init(Int32)
+            - [keys 使用](crypto/keys/keys_samples/sample_keys.md)
+    - [stdx.crypto.x509](crypto/x509/x509_package_overview.md)
+        - [类型别名](crypto/x509/x509_package_api/x509_package_type.md)
+          - type IP
+        - [接口](crypto/x509/x509_package_api/x509_package_interfaces.md)
+          - interface DHParameters
+            - static func decodeDer(DerBlob)
+            - static func decodeFromPem(String)
+            - func encodeToPem()
+          - interface Key
+            - static func decodeDer(DerBlob)
+            - static func decodeFromPem(String)
+            - func encodeToDer()
+            - func encodeToPem()
+          - interface PrivateKey
+            - static func decodeDer(DerBlob)
+            - static func decodeDer(DerBlob, ?String)
+            - static func decodeFromPem(String)
+            - static func decodeFromPem(String, ?String)
+            - func encodeToDer(?String)
+            - func encodeToPem()
+            - func encodeToPem(?String)
+          - interface PublicKey
+            - static func decodeDer(DerBlob)
+            - static func decodeFromPem(String)
+            - func encodeToPem()
+        - [类](crypto/x509/x509_package_api/x509_package_classes.md)
+          - class X509Certificate
+            - prop dnsNames
+            - prop emailAddresses
+            - prop extKeyUsage
+            - prop issuer
+            - prop IPAddresses
+            - prop keyUsage
+            - prop notAfter
+            - prop notBefore
+            - prop publicKey
+            - prop publicKeyAlgorithm
+            - prop serialNumber
+            - prop signature
+            - prop signatureAlgorithm
+            - prop subject
+            - init(X509CertificateInfo, X509Certificate, PublicKey, PrivateKey, ?SignatureAlgorithm)
+            - static func decodeFromDer(DerBlob)
+            - static func decodeFromPem(String)
+            - func encodeToDer()
+            - func encodeToPem()
+            - func hashCode()
+            - static func systemRootCerts()
+            - func toString()
+            - func verify(VerifyOption)
+            - operator func !=(X509Certificate)
+            - operator func ==(X509Certificate)
+          - class X509CertificateRequest
+            - prop IPAddresses
+            - prop dnsNames
+            - prop emailAddresses
+            - prop publicKey
+            - prop publicKeyAlgorithm
+            - prop signature
+            - prop signatureAlgorithm
+            - prop subject
+            - init(PrivateKey, ?X509CertificateRequestInfo, ?SignatureAlgorithm)
+            - static func decodeFromDer(DerBlob)
+            - static func decodeFromPem(String)
+            - func encodeToDer()
+            - func encodeToPem()
+            - func hashCode()
+            - func toString()
+          - class X509Name
+            - prop commonName
+            - prop countryName
+            - prop email
+            - prop localityName
+            - prop organizationName
+            - prop organizationalUnitName
+            - prop provinceName
+            - init(?String, ?String, ?String, ?String, ?String, ?String, ?String)
+            - func toString()
+        - [枚举](crypto/x509/x509_package_api/x509_package_enums.md)
+          - enum PublicKeyAlgorithm
+            - DSA
+            - ECDSA
+            - RSA
+            - UnknownPublicKeyAlgorithm
+            - func toString()
+            - operator func !=(PublicKeyAlgorithm)
+            - operator func ==(PublicKeyAlgorithm)
+          - enum SignatureAlgorithm
+            - DSAWithSHA1
+            - DSAWithSHA256
+            - ECDSAWithSHA1
+            - ECDSAWithSHA256
+            - ECDSAWithSHA384
+            - ECDSAWithSHA512
+            - MD2WithRSA
+            - MD5WithRSA
+            - SHA1WithRSA
+            - SHA256WithRSA
+            - SHA384WithRSA
+            - SHA512WithRSA
+            - UnknownSignatureAlgorithm
+            - func toString()
+            - operator func != (SignatureAlgorithm)
+            - operator func == (SignatureAlgorithm)
+        - [结构体](crypto/x509/x509_package_api/x509_package_structs.md)
+          - struct DerBlob
+            - prop body
+            - prop size
+            - init(Array\<Byte>)
+            - func hashCode()
+            - operator func !=(DerBlob)
+            - operator func ==(DerBlob)
+          - struct ExtKeyUsage
+            - static let AnyKey
+            - static let ClientAuth
+            - static let CodeSigning
+            - static let EmailProtection
+            - static let OCSPSigning
+            - static let ServerAuth
+            - static let TimeStamping
+            - init(Array\<UInt16>)
+            - func toString()
+          - struct KeyUsage
+            - static let CRLSign
+            - static let CertSign
+            - static let DataEncipherment
+            - static let DecipherOnly
+            - static let DigitalSignature
+            - static let EncipherOnly
+            - static let KeyAgreement
+            - static let KeyEncipherment
+            - static let NonRepudiation
+            - init(UInt16)
+            - func toString()
+          - struct Pem
+            - prop size
+            - Pem(Array\<PemEntry>)
+            - static func decode(String)
+            - func encode()
+            - func isEmpty()
+            - func iterator()
+            - func toString()
+          - struct PemEntry
+            - static let LABEL_CERTIFICATE
+            - static let LABEL_CERTIFICATE_REQUEST
+            - static let LABEL_DH_PARAMETERS
+            - static let LABEL_EC_PARAMETERS
+            - static let LABEL_EC_PRIVATE_KEY
+            - static let LABEL_ENCRYPTED_PRIVATE_KEY
+            - static let LABEL_PRIVATE_KEY
+            - static let LABEL_PUBLIC_KEY
+            - static let LABEL_RSA_PRIVATE_KEY
+            - static let LABEL_SM2_PRIVATE_KEY
+            - static let LABEL_X509_CRL
+            - let body
+            - let headers
+            - let label
+            - PemEntry(String, Array\<(String, String)>, ?DerBlob)
+            - init(String, DerBlob)
+            - func encode()
+            - func header(String)
+            - func toString()
+          - struct SerialNumber
+            - init(UInt8)
+            - func hashCode()
+            - func toString()
+            - operator func !=(SerialNumber)
+            - operator func ==(SerialNumber)
+          - struct Signature
+            - prop signatureValue
+            - func hashCode()
+            - operator func !=(Signature)
+            - operator func ==(Signature)
+          - struct VerifyOption
+            - var dnsName
+            - var intermediates
+            - var roots
+            - var time
+          - struct X509CertificateInfo
+            - var IPAddresses
+            - var dnsNames
+            - var emailAddresses
+            - var extKeyUsage
+            - var keyUsage
+            - var notAfter
+            - var notBefore
+            - var serialNumber
+            - var subject
+            - init(?SerialNumber, ?DateTime, ?DateTime, ?X509Name, Array\<String>, Array\<String>, Array\<IP>, ?KeyUsage, ?ExtKeyUsage)
+          - struct X509CertificateRequestInfo
+            - var IPAddresses
+            - var dnsNames
+            - var emailAddresses
+            - var subject
+            - init(?X509Name, Array\<String>, Array\<String>, Array\<IP>)
+        - [异常类](crypto/x509/x509_package_api/x509_package_exceptions.md)
+          - class X509Exception
+            - init()
+            - init(String)
+            - [x509 使用](crypto/x509/x509_samples/sample_x509.md)
+    - [stdx.encoding.base64](encoding/base64/base64_package_overview.md)
+        - [函数](encoding/base64/base64_package_api/base64_package_funcs.md)
+          - func fromBase64String(String)
+          - func toBase64String(Array\<Byte>)
+            - [Byte 数组和 Base64 互转](encoding/base64/base64_samples/base64.md)
+    - [stdx.encoding.hex](encoding/hex/hex_package_overview.md)
+        - [函数](encoding/hex/hex_package_api/hex_package_funcs.md)
+          - func fromHexString(String)
+          - func toHexString(Array\<Byte>)
+            - [Byte 数组和 Hex 互转](encoding/hex/hex_samples/hex.md)
+    - [stdx.encoding.json](encoding/json/json_package_overview.md)
+        - [接口](encoding/json/json_package_api/encoding_json_package_interfaces.md)
+          - interface ToJson
+            - static func fromJson(JsonValue)
+            - func toJson()
+            - extend DataModel <: ToJson
+              - static func fromJson(JsonValue)
+              - func toJson()
+        - [类](encoding/json/json_package_api/encoding_json_package_classes.md)
+          - class JsonArray
+            - init()
+            - init(ArrayList\<JsonValue>)
+            - init(Array\<JsonValue>)
+            - func add(JsonValue)
+            - func get(Int64)
+            - func getItems()
+            - func kind()
+            - func size()
+            - func toJsonString()
+            - func toJsonString(Int64, Bool, String)
+            - func toString()
+            - operator func [](Int64)
+          - class JsonBool
+            - init(Bool)
+            - func getValue()
+            - func kind()
+            - func toJsonString()
+            - func toString()
+          - class JsonFloat
+            - init(Float64)
+            - init(Int64)
+            - func getValue()
+            - func kind()
+            - func toJsonString()
+            - func toString()
+          - class JsonInt
+            - init(Int64)
+            - func getValue()
+            - func kind()
+            - func toJsonString()
+            - func toString()
+          - class JsonNull
+            - func kind()
+            - func toJsonString()
+            - func toString()
+          - class JsonObject
+            - init()
+            - init(HashMap\<String, JsonValue>)
+            - func containsKey(String)
+            - func get(String)
+            - func getFields()
+            - func kind()
+            - func put(String, JsonValue)
+            - func size()
+            - func toJsonString()
+            - func toJsonString(Int64, Bool, String)
+            - func toString()
+            - operator func [](String)
+          - class JsonString
+            - init(String)
+            - func getValue()
+            - func kind()
+            - func toJsonString()
+            - func toString()
+          - class JsonValue
+            - static func fromStr(String)
+            - func asArray()
+            - func asBool()
+            - func asFloat()
+            - func asInt()
+            - func asNull()
+            - func asObject()
+            - func asString()
+            - func kind()
+            - func toJsonString()
+            - func toString()
+        - [枚举](encoding/json/json_package_api/encoding_json_package_enums.md)
+          - enum JsonKind
+            - JsArray
+            - JsBool
+            - JsFloat
+            - JsInt
+            - JsNull
+            - JsObject
+            - JsString
+        - [异常类](encoding/json/json_package_api/encoding_json_package_exceptions.md)
+          - class JsonException
+            - init()
+            - init(String)
+            - [JsonArray 使用示例](encoding/json/json_samples/json_array_sample.md)
+            - [JsonValue 和 String 互相转换](encoding/json/json_samples/json_value_sample.md)
+            - [JsonValue 与 DataModel 的转换](encoding/json/json_samples/to_json_sample.md)
+    - [stdx.encoding.json.stream](encoding/json_stream/json_stream_package_overview.md)
+        - [接口](encoding/json_stream/json_stream_package_api/encoding_json_stream_package_interfaces.md)
+          - interface JsonDeserializable\<T>
+            - static func fromJson(JsonReader)
+            - extend BigInt <: JsonDeserializable\<BigInt>
+              - static func fromJson(JsonReader)
+            - extend Bool <: JsonDeserializable\<Bool>
+              - static func fromJson(JsonReader)
+            - extend DateTime <: JsonDeserializable\<DateTime>
+              - static func fromJson(JsonReader)
+            - extend Decimal <: JsonDeserializable\<Decimal>
+              - static func fromJson(JsonReader)
+            - extend Float16 <: JsonDeserializable\<Float16>
+              - static func fromJson(JsonReader)
+            - extend Float32 <: JsonDeserializable\<Float32>
+              - static func fromJson(JsonReader)
+            - extend Float64 <: JsonDeserializable\<Float64>
+              - static func fromJson(JsonReader)
+            - extend String <: JsonDeserializable\<String>
+              - static func fromJson(JsonReader)
+            - extend Int16 <: JsonDeserializable\<Int16>
+              - static func fromJson(JsonReader)
+            - extend Int32 <: JsonDeserializable\<Int32>
+              - static func fromJson(JsonReader)
+            - extend Int64 <: JsonDeserializable\<Int64>
+              - static func fromJson(JsonReader)
+            - extend Int8 <: JsonDeserializable\<Int8>
+              - static func fromJson(JsonReader)
+            - extend IntNative <: JsonDeserializable\<IntNative>
+              - static func fromJson(JsonReader)
+            - extend UInt16 <: JsonDeserializable\<UInt16>
+              - static func fromJson(JsonReader)
+            - extend UInt32 <: JsonDeserializable\<UInt32>
+              - static func fromJson(JsonReader)
+            - extend UInt64 <: JsonDeserializable\<UInt64 >
+              - static func fromJson(JsonReader)
+            - extend UInt8 <: JsonDeserializable\<UInt8>
+              - static func fromJson(JsonReader)
+            - extend UIntNative <: JsonDeserializable\<UIntNative>
+              - static func fromJson(JsonReader)
+            - extend\<T> Array\<T> <: JsonDeserializable\<Array\<T>> where T <: JsonDeserializable\<T>
+              - static func fromJson(JsonReader)
+            - extend\<T> ArrayList\<T> <: JsonDeserializable\<ArrayList\<T>> where T <: JsonDeserializable\<T>
+              - static func fromJson(JsonReader)
+            - extend\<T> Option \<T> <: JsonDeserializable\<Option\<T>> where T <: JsonDeserializable\<T>
+              - static func fromJson(JsonReader)
+            - extend\<T> HashMap\<String, T> <: JsonDeserializable\<HashMap\<String, T>> where T <: JsonDeserializable\<T>
+              - static func fromJson(JsonReader)
+          - interface JsonSerializable
+            - func toJson(JsonWriter)
+            - extend BigInt <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Bool <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend DateTime <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Decimal <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Float16 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Float32 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Float64 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend String <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Int16 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Int32 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Int64 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend Int8 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend IntNative <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend UInt16 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend UInt32 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend UInt64 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend UInt8 <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend UIntNative <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend\<T> Array\<T> <: JsonSerializable where T <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend\<T> ArrayList\<T> <: JsonSerializable where T <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend\<T> Option\<T> <: JsonSerializable where T <: JsonSerializable
+              - func toJson(JsonWriter)
+            - extend\<V> HashMap\<String, V> <: JsonSerializable where V <: JsonSerializable
+              - func toJson(JsonWriter)
+        - [类](encoding/json_stream/json_stream_package_api/encoding_json_stream_package_classes.md)
+          - class JsonReader
+            - init(InputStream)
+            - func endArray()
+            - func endObject()
+            - func peek()
+            - func readName()
+            - func readValue\<T>() where T <: JsonDeserializable\<T>
+            - func readValueBytes()
+            - func skip()
+            - func startArray()
+            - func startObject()
+          - class JsonWriter
+            - var writeConfig
+            - init(OutputStream)
+            - func endArray()
+            - func endObject()
+            - func flush()
+            - func jsonValue(String)
+            - func startArray()
+            - func startObject()
+            - func writeName(String)
+            - func writeNullValue()
+            - func writeValue\<T>(T) where T <: JsonSerializable
+        - [枚举](encoding/json_stream/json_stream_package_api/encoding_json_stream_package_enums.md)
+          - enum JsonToken
+            - BeginArray
+            - BeginObject
+            - EndArray
+            - EndObject
+            - JsonBool
+            - JsonNull
+            - JsonNumber
+            - JsonString
+            - Name
+            - func hashCode()
+            - operator func !=(JsonToken)
+            - operator func ==(JsonToken)
+        - [结构体](encoding/json_stream/json_stream_package_api/encoding_json_stream_package_structs.md)
+          - struct WriteConfig
+            - static let compact
+            - static let pretty
+            - prop dateTimeFormat
+            - prop htmlSafe
+            - prop indent
+            - prop newline
+            - prop useSpaceAfterSeparators
+            - [使用 Json Stream 进行反序列化](encoding/json_stream/json_stream_samples/sample_json_reader.md)
+            - [使用 Json Stream 进行序列化](encoding/json_stream/json_stream_samples/sample_json_writer.md)
+            - [WriteConfig 使用示例](encoding/json_stream/json_stream_samples/sample_json_writeconfig.md)
+    - [stdx.encoding.url](encoding/url/url_package_overview.md)
+        - [类](encoding/url/url_package_api/url_package_classes.md)
+          - class Form
+            - init()
+            - init(String)
+            - func add(String, String)
+            - func clone()
+            - func get(String)
+            - func getAll(String)
+            - func isEmpty()
+            - func remove(String)
+            - func set(String, String)
+            - func toEncodeString()
+          - class URL
+            - prop fragment
+            - prop host
+            - prop hostName
+            - prop opaque
+            - prop path
+            - prop port
+            - prop query
+            - prop queryForm
+            - prop rawFragment
+            - prop rawPath
+            - prop rawQuery
+            - prop rawUserInfo
+            - prop scheme
+            - prop userInfo
+            - init(String, String, String)
+            - static func mergePaths(String, String)
+            - static func parse(String)
+            - func isAbsoluteURL()
+            - func replace(Option\<String>, Option\<String>, Option\<String>, Option\<String>, Option\<String>, Option\<String>, Option\<String>)
+            - func resolveURL(URL)
+            - func toString()
+          - class UserInfo
+            - init()
+            - init(String)
+            - init(String, Option\<String>)
+            - init(String, String)
+            - func password()
+            - func toString()
+            - func username()
+        - [异常类](encoding/url/url_package_api/url_package_exceptions.md)
+          - class UrlSyntaxException
+            - init(String)
+            - init(String, String)
+            - init(String, String, String)
+            - [Form 的构造使用](encoding/url/url_samples/form.md)
+            - [URL 解析函数 parse 的使用](encoding/url/url_samples/url_parse.md)
+    - [stdx.fuzz.fuzz](fuzz/fuzz_package_overview.md)
+        - [常量变量](fuzz/fuzz_package_api/fuzz_package_constants_vars.md)
+          - let FUZZ_VERSION
+        - [类](fuzz/fuzz_package_api/fuzz_package_classes.md)
+          - class DebugDataProvider
+            - func consumeAll()
+            - func consumeAllAsAscii()
+            - func consumeAllAsString()
+            - func consumeAsciiString(Int64)
+            - func consumeBool()
+            - func consumeBools(Int64)
+            - func consumeByte()
+            - func consumeBytes(Int64)
+            - func consumeFloat32()
+            - func consumeFloat64()
+            - func consumeInt16()
+            - func consumeInt16s(Int64)
+            - func consumeInt32()
+            - func consumeInt32s(Int64)
+            - func consumeInt64()
+            - func consumeInt64s(Int64)
+            - func consumeInt8()
+            - func consumeInt8s(Int64)
+            - func consumeRune()
+            - func consumeString(Int64)
+            - func consumeUInt16()
+            - func consumeUInt16s(Int64)
+            - func consumeUInt32()
+            - func consumeUInt32s(Int64)
+            - func consumeUInt64()
+            - func consumeUInt64s(Int64)
+            - func consumeUInt8()
+            - func consumeUInt8s(Int64)
+            - func wrap(FuzzDataProvider)
+          - class Fuzzer
+            - init((Array\<UInt8>) -> Int32)
+            - init((Array\<UInt8>) -> Int32, Array\<String>)
+            - init((FuzzDataProvider) -> Int32)
+            - init((FuzzDataProvider) -> Int32, Array\<String>)
+            - func disableDebugDataProvider()
+            - func disableFakeCoverage()
+            - func enableDebugDataProvider()
+            - func enableFakeCoverage()
+            - func getArgs()
+            - func setArgs(Array\<String>)
+            - func setTargetFunction((Array\<UInt8>) -> Int32)
+            - func setTargetFunction((FuzzDataProvider) -> Int32)
+            - func startFuzz()
+          - class FuzzerBuilder
+            - init((Array\<UInt8>) -> Int32)
+            - init((FuzzDataProvider) -> Int32)
+            - func build()
+            - func setArgs(Array\<String>)
+            - func setTargetFunction((Array\<UInt8>) -> Int32)
+            - func setTargetFunction((FuzzDataProvider) -> Int32)
+          - class FuzzDataProvider
+            - let data
+            - var offset
+            - var remainingBytes
+            - func consumeAll()
+            - func consumeAllAsAscii()
+            - func consumeAllAsString()
+            - func consumeAsciiString(Int64)
+            - func consumeBool()
+            - func consumeBools(Int64)
+            - func consumeByte()
+            - func consumeBytes(Int64)
+            - func consumeFloat32()
+            - func consumeFloat64()
+            - func consumeInt16()
+            - func consumeInt16s(Int64)
+            - func consumeInt32()
+            - func consumeInt32s(Int64)
+            - func consumeInt64()
+            - func consumeInt64s(Int64)
+            - func consumeInt8()
+            - func consumeInt8s(Int64)
+            - func consumeRune()
+            - func consumeString(Int64)
+            - func consumeUInt16()
+            - func consumeUInt16s(Int64)
+            - func consumeUInt32()
+            - func consumeUInt32s(Int64)
+            - func consumeUInt64()
+            - func consumeUInt64s(Int64)
+            - func consumeUInt8()
+            - func consumeUInt8s(Int64)
+            - static func withCangjieData(Array\<UInt8>)
+            - static func withNativeData(CPointer\<UInt8>, Int64)
+        - [异常类](fuzz/fuzz_package_api/fuzz_package_exceptions.md)
+          - class ExhaustedException
+            - init()
+            - init(String)
+            - [测试猜测字符功能](fuzz/fuzz_samples/basic_fuzzing_test.md)
+            - [使用 DataProvider 功能进行测试](fuzz/fuzz_samples/dataprovider_usage.md)
+            - [使用 FakeCoverage 避免 DataProvider 模式下 Fuzz 异常终止](fuzz/fuzz_samples/fake_coverage_usage.md)
+            - [打印 fuzz 使用方法](fuzz/fuzz_samples/print_cj-fuzz_usage.md)
+            - [实验性特性-覆盖率信息打印](fuzz/fuzz_samples/print_coverage.md)
+            - [栈回溯缺失的处理方案](fuzz/fuzz_samples/stack_backtrace_missing_solution.md)
+    - [stdx.log](log/log_package_overview.md)
+        - [类型别名](log/log_package_api/log_package_types.md)
+          - type Attr
+        - [函数](log/log_package_api/log_package_funcs.md)
+          - func getGlobalLogger(Array\<Attr>)
+          - func setGlobalLogger(Logger)
+        - [接口](log/log_package_api/log_package_interfaces.md)
+          - interface LogValue
+            - func writeTo(LogWriter)
+            - extend Bool <: LogValue
+              - func writeTo(LogWriter)
+            - extend Exception <: LogValue
+              - func writeTo(LogWriter)
+            - extend Int64 <: LogValue
+              - func writeTo(LogWriter)
+            - extend Float64 <: LogValue
+              - func writeTo(LogWriter)
+            - extend String <: LogValue
+              - func writeTo(LogWriter)
+            - extend DateTime <: LogValue
+              - func writeTo(LogWriter)
+            - extend Duration <: LogValue
+              - func writeTo(LogWriter)
+            - extend\<T> Array\<T> <: LogValue where T <: LogValue
+              - func writeTo(LogWriter)
+            - extend\<V> HashMap\<String, V> <: LogValue where V <: LogValue
+              - func writeTo(LogWriter)
+            - extend\<V> TreeMap\<String, V> <: LogValue where V <: LogValue
+              - func writeTo(LogWriter)
+            - extend\<T> Option\<T> <: LogValue where T <: LogValue
+              - func writeTo(LogWriter)
+        - [类](log/log_package_api/log_package_classes.md)
+          - class Logger
+            - prop level
+            - func debug(String, Array\<Attr>)
+            - func debug(() -> String, Array\<Attr>)
+            - func enabled(LogLevel)
+            - func error(String, Array\<Attr>)
+            - func error(() -> String, Array\<Attr>)
+            - func fatal(String, Array\<Attr>)
+            - func fatal(() -> String, Array\<Attr>)
+            - func info(String, Array\<Attr>)
+            - func info(() -> String, Array\<Attr>)
+            - func log(LogLevel, String, Array\<Attr>)
+            - func log(LogLevel, () -> String, Array\<Attr>)
+            - func log(LogRecord)
+            - func trace(String, Array\<Attr>)
+            - func trace(() -> String, Array\<Attr>)
+            - func warn(String, Array\<Attr>)
+            - func warn(() -> String, Array\<Attr>)
+            - func withAttrs(Array\<Attr>)
+          - class LogRecord
+            - init(DateTime, LogLevel, String, Array\<Attr>)
+            - prop attrs
+            - prop level
+            - prop message
+            - prop time
+            - func clone()
+          - class LogWriter
+            - func endArray()
+            - func endObject()
+            - func startArray()
+            - func startObject()
+            - func writeBool(Bool)
+            - func writeFloat(Float64)
+            - func writeDateTime(DateTime)
+            - func writeDuration(Duration)
+            - func writeException(Exception)
+            - func writeInt(Int64)
+            - func writeKey(String)
+            - func writeNone()
+            - func writeString(String)
+            - func writeValue(LogValue)
+          - class NoopLogger
+            - init()
+            - prop level
+            - func close()
+            - func isClosed()
+            - func log(LogLevel, String, Array\<Attr>)
+            - func log(LogLevel, () -> String, Array\<Attr>)
+            - func log(LogRecord)
+            - func withAttrs(Array\<Attr>)
+        - [结构体](log/log_package_api/log_package_structs.md)
+          - struct LogLevel
+            - static const ALL
+            - static const DEBUG
+            - static const ERROR
+            - static const FATAL
+            - static const INFO
+            - static const OFF
+            - static const TRACE
+            - static const WARN
+            - let name
+            - let value
+            - const init(String, Int32)
+            - func compare(LogLevel)
+            - func toString()
+            - operator func ==(LogLevel)
+            - operator func !=(LogLevel)
+            - operator func >=(LogLevel)
+            - operator func <=(LogLevel)
+            - operator func >(LogLevel)
+            - operator func <(LogLevel)
+        - [异常类](log/log_package_api/log_package_exceptions.md)
+          - class LogException
+            - init()
+            - init(String)
+            - func getClassName()
+            - [日志打印示例](log/log_samples/log_sample.md)
+    - [stdx.logger](logger/logger_package_overview.md)
+        - [类](logger/logger_package_api/logger_package_classes.md)
+          - class JsonLogger
+            - init(OutputStream)
+            - prop level
+            - func close()
+            - func isClosed()
+            - func log(LogRecord)
+            - func withAttrs(Array\<Attr>)
+          - class SimpleLogger
+            - init(OutputStream)
+            - prop level
+            - func close()
+            - func isClosed()
+            - func log(LogRecord)
+            - func withAttrs(Array\<Attr>)
+          - class TextLogger
+            - init(OutputStream)
+            - prop level
+            - func close()
+            - func isClosed()
+            - func log(LogRecord)
+            - func withAttrs(Array\<Attr>)
+            - [日志打印示例](logger/logger_samples/logger_sample.md)
+    - [stdx.net.http](net/http/http_package_overview.md)
+        - [函数](net/http/http_package_api/http_package_funcs.md)
+          - func handleError(HttpContext, UInt16)
+          - func notFound(HttpContext)
+          - func upgrade(HttpContext)
+        - [接口](net/http/http_package_api/http_package_interfaces.md)
+          - interface CookieJar
+            - prop isHttp
+            - prop rejectPublicSuffixes
+            - static func createDefaultCookieJar(ArrayList\<String>, Bool)
+            - static func parseSetCookieHeader(HttpResponse)
+            - static func toCookieString(ArrayList\<Cookie>)
+            - func clear()
+            - func getCookies(URL)
+            - func removeCookies(String)
+            - func storeCookies(URL, ArrayList\<Cookie>)
+          - interface HttpRequestDistributor
+            - func distribute(String)
+            - func register(String, (HttpContext) -> Unit)
+            - func register(String, HttpRequestHandler)
+          - interface HttpRequestHandler
+            - func handle(HttpContext)
+          - interface ProtocolServiceFactory
+            - func create(Protocol, StreamingSocket)
+        - [类](net/http/http_package_api/http_package_classes.md)
+          - class Client
+            - prop autoRedirect
+            - prop connector
+            - prop cookieJar
+            - prop enablePush
+            - prop headerTableSize
+            - prop httpProxy
+            - prop httpsProxy
+            - prop initialWindowSize
+            - prop logger
+            - prop maxConcurrentStreams
+            - prop maxFrameSize
+            - prop maxHeaderListSize
+            - prop poolSize
+            - prop readTimeout
+            - prop writeTimeout
+            - func close()
+            - func connect(String, HttpHeaders, Protocol)
+            - func delete(String)
+            - func get(String)
+            - func getTlsConfig()
+            - func head(String)
+            - func options(String)
+            - func post(String, Array\<UInt8>)
+            - func post(String, InputStream)
+            - func post(String, String)
+            - func put(String, Array\<UInt8>)
+            - func put(String, InputStream)
+            - func put(String, String)
+            - func send(HttpRequest)
+            - func upgrade(HttpRequest)
+          - class ClientBuilder
+            - init()
+            - func autoRedirect(Bool)
+            - func build()
+            - func connector((SocketAddress)->StreamingSocket)
+            - func cookieJar(?CookieJar)
+            - func enablePush(Bool)
+            - func headerTableSize(UInt32)
+            - func httpProxy(String)
+            - func httpsProxy(String)
+            - func initialWindowSize(UInt32)
+            - func logger(Logger)
+            - func maxConcurrentStreams(UInt32)
+            - func maxFrameSize(UInt32)
+            - func maxHeaderListSize(UInt32)
+            - func noProxy()
+            - func poolSize(Int64)
+            - func readTimeout(Duration)
+            - func tlsConfig(TlsClientConfig)
+            - func writeTimeout(Duration)
+          - class Cookie
+            - prop cookieName
+            - prop cookieValue
+            - prop domain
+            - prop expires
+            - prop httpOnly
+            - prop maxAge
+            - prop others
+            - prop path
+            - prop secure
+            - init(String, String, ?DateTime, ?Int64, String, String, Bool, Bool)
+            - func toSetCookieString()
+          - class FileHandler
+            - init(String, FileHandlerType, Int64)
+            - func handle(HttpContext)
+          - class FuncHandler
+            - FuncHandler((HttpContext) -> Unit)
+            - func handle(HttpContext)
+          - class HttpContext
+            - prop clientCertificate
+            - prop request
+            - prop responseBuilder
+          - class HttpHeaders
+            - func add(String, String)
+            - func del(String)
+            - func get(String)
+            - func getFirst(String)
+            - func isEmpty()
+            - func iterator()
+            - func set(String, String)
+          - class HttpRequest
+            - prop body
+            - prop bodySize
+            - prop close
+            - prop form
+            - prop headers
+            - prop method
+            - prop readTimeout
+            - prop remoteAddr
+            - prop trailers
+            - prop url
+            - prop version
+            - prop writeTimeout
+            - func toString()
+          - class HttpRequestBuilder
+            - init()
+            - init(HttpRequest)
+            - func addHeaders(HttpHeaders)
+            - func addTrailers(HttpHeaders)
+            - func body(Array\<UInt8>)
+            - func body(InputStream)
+            - func body(String)
+            - func build()
+            - func connect()
+            - func delete()
+            - func get()
+            - func head()
+            - func header(String, String)
+            - func method(String)
+            - func options()
+            - func post()
+            - func priority(Int64, Bool)
+            - func put()
+            - func readTimeout(Duration)
+            - func setHeaders(HttpHeaders)
+            - func setTrailers(HttpHeaders)
+            - func trace()
+            - func trailer(String, String)
+            - func url(String)
+            - func url(URL)
+            - func version(Protocol)
+            - func writeTimeout(Duration)
+          - class HttpResponse
+            - prop body
+            - prop bodySize
+            - prop close
+            - prop headers
+            - prop request
+            - prop status
+            - prop trailers
+            - prop version
+            - func toString()
+            - extend HttpResponse
+              - func getPush()
+          - class HttpResponseBuilder
+            - init()
+            - func addHeaders(HttpHeaders)
+            - func addTrailers(HttpHeaders)
+            - func body(Array\<UInt8>)
+            - func body(InputStream)
+            - func body(String)
+            - func build()
+            - func header(String, String)
+            - func request(HttpRequest)
+            - func setHeaders(HttpHeaders)
+            - func setTrailers(HttpHeaders)
+            - func status(UInt16)
+            - func trailer(String, String)
+            - func version(Protocol)
+          - class HttpResponsePusher
+            - static func getPusher(HttpContext)
+            - func push(String, String, HttpHeaders)
+          - class HttpResponseWriter
+            - HttpResponseWriter(HttpContext)
+            - func write(Array\<Byte>)
+          - class NotFoundHandler
+            - func handle(HttpContext)
+          - class OptionsHandler
+            - func handle(HttpContext)
+          - class ProtocolService
+            - prop server
+            - func serve()
+            - func closeGracefully()
+            - func close()
+          - class RedirectHandler
+            - init(String, UInt16)
+            - func handle(HttpContext)
+          - class Server
+            - prop addr
+            - prop distributor
+            - prop enableConnectProtocol
+            - prop headerTableSize
+            - prop httpKeepAliveTimeout
+            - prop initialWindowSize
+            - prop listener
+            - prop logger
+            - prop maxConcurrentStreams
+            - prop maxFrameSize
+            - prop maxHeaderListSize
+            - prop maxRequestBodySize
+            - prop maxRequestHeaderSize
+            - prop port
+            - prop protocolServiceFactory
+            - prop readHeaderTimeout
+            - prop readTimeout
+            - prop servicePoolConfig
+            - prop transportConfig
+            - prop writeTimeout
+            - func afterBind(() -> Unit)
+            - func close()
+            - func closeGracefully()
+            - func getTlsConfig()
+            - func onShutdown(() -> Unit)
+            - func serve()
+            - func updateCA(Array\<X509Certificate>)
+            - func updateCA(String)
+            - func updateCert(Array\<X509Certificate>, PrivateKey)
+            - func updateCert(String, String)
+          - class ServerBuilder
+            - init()
+            - func addr(String)
+            - func afterBind(()->Unit)
+            - func build()
+            - func distributor(HttpRequestDistributor)
+            - func enableConnectProtocol(Bool)
+            - func headerTableSize(UInt32)
+            - func httpKeepAliveTimeout(Duration)
+            - func initialWindowSize(UInt32)
+            - func listener(ServerSocket)
+            - func logger(Logger)
+            - func maxConcurrentStreams(UInt32)
+            - func maxFrameSize(UInt32)
+            - func maxHeaderListSize(UInt32)
+            - func maxRequestBodySize(Int64)
+            - func maxRequestHeaderSize(Int64)
+            - func onShutdown(() -> Unit)
+            - func port(UInt16)
+            - func protocolServiceFactory(ProtocolServiceFactory)
+            - func readHeaderTimeout(Duration)
+            - func readTimeout(Duration)
+            - func servicePoolConfig(ServicePoolConfig)
+            - func tlsConfig(TlsServerConfig)
+            - func transportConfig(TransportConfig)
+            - func writeTimeout(Duration)
+          - class WebSocket
+            - prop logger
+            - prop subProtocol
+            - static func upgradeFromClient(Client, URL, Protocol, ArrayList\<String>, HttpHeaders)
+            - static func upgradeFromServer(HttpContext, ArrayList\<String>, ArrayList\<String>, (HttpRequest) -> HttpHeaders)
+            - func closeConn()
+            - func read()
+            - func write(WebSocketFrameType, Array\<UInt8>, Int64)
+            - func writeCloseFrame(?UInt16, String)
+            - func writePingFrame(Array\<UInt8>)
+            - func writePongFrame(Array\<UInt8>)
+          - class WebSocketFrame
+            - prop fin
+            - prop frameType
+            - prop payload
+        - [枚举](net/http/http_package_api/http_package_enums.md)
+          - enum FileHandlerType
+            - DownLoad
+            - UpLoad
+          - enum Protocol
+            - HTTP1_0
+            - HTTP1_1
+            - HTTP2_0
+            - UnknownProtocol(String)
+            - func toString()
+            - operator func != (Protocol)
+            - operator func == (Protocol)
+          - enum WebSocketFrameType
+            - ContinuationWebFrame
+            - TextWebFrame
+            - BinaryWebFrame
+            - CloseWebFrame
+            - PingWebFrame
+            - PongWebFrame
+            - UnknownWebFrame
+            - func toString()
+            - operator func != (WebSocketFrameType)
+            - operator func == (WebSocketFrameType)
+        - [结构体](net/http/http_package_api/http_package_structs.md)
+          - struct HttpStatusCode
+            - static const STATUS_ACCEPTED
+            - static const STATUS_ALREADY_REPORTED
+            - static const STATUS_BAD_GATEWAY
+            - static const STATUS_BAD_REQUEST
+            - static const STATUS_CONFLICT
+            - static const STATUS_CONTINUE
+            - static const STATUS_CREATED
+            - static const STATUS_EARLY_HINTS
+            - static const STATUS_EXPECTATION_FAILED
+            - static const STATUS_FAILED_DEPENDENCY
+            - static const STATUS_FORBIDDEN
+            - static const STATUS_FOUND
+            - static const STATUS_GATEWAY_TIMEOUT
+            - static const STATUS_GONE
+            - static const STATUS_HTTP_VERSION_NOT_SUPPORTED
+            - static const STATUS_IM_USED
+            - static const STATUS_INSUFFICIENT_STORAGE
+            - static const STATUS_INTERNAL_SERVER_ERROR
+            - static const STATUS_LENGTH_REQUIRED
+            - static const STATUS_LOCKED
+            - static const STATUS_LOOP_DETECTED
+            - static const STATUS_METHOD_NOT_ALLOWED
+            - static const STATUS_MISDIRECTED_REQUEST
+            - static const STATUS_MOVED_PERMANENTLY
+            - static const STATUS_MULTIPLE_CHOICES
+            - static const STATUS_MULTI_STATUS
+            - static const STATUS_NETWORK_AUTHENTICATION_REQUIRED
+            - static const STATUS_NON_AUTHORITATIVE_INFO
+            - static const STATUS_NOT_ACCEPTABLE
+            - static const STATUS_NOT_EXTENDED
+            - static const STATUS_NOT_FOUND
+            - static const STATUS_NOT_IMPLEMENTED
+            - static const STATUS_NOT_MODIFIED
+            - static const STATUS_NO_CONTENT
+            - static const STATUS_OK
+            - static const STATUS_PARTIAL_CONTENT
+            - static const STATUS_PAYMENT_REQUIRED
+            - static const STATUS_PERMANENT_REDIRECT
+            - static const STATUS_PRECONDITION_FAILED
+            - static const STATUS_PRECONDITION_REQUIRED
+            - static const STATUS_PROCESSING
+            - static const STATUS_PROXY_AUTH_REQUIRED
+            - static const STATUS_REQUESTED_RANGE_NOT_SATISFIABLE
+            - static const STATUS_REQUEST_CONTENT_TOO_LARGE
+            - static const STATUS_REQUEST_HEADER_FIELDS_TOO_LARGE
+            - static const STATUS_REQUEST_TIMEOUT
+            - static const STATUS_REQUEST_URI_TOO_LONG
+            - static const STATUS_RESET_CONTENT
+            - static const STATUS_SEE_OTHER
+            - static const STATUS_SERVICE_UNAVAILABLE
+            - static const STATUS_SWITCHING_PROTOCOLS
+            - static const STATUS_TEAPOT
+            - static const STATUS_TEMPORARY_REDIRECT
+            - static const STATUS_TOO_EARLY
+            - static const STATUS_TOO_MANY_REQUESTS
+            - static const STATUS_UNAUTHORIZED
+            - static const STATUS_UNAVAILABLE_FOR_LEGAL_REASONS
+            - static const STATUS_UNPROCESSABLE_ENTITY
+            - static const STATUS_UNSUPPORTED_MEDIA_TYPE
+            - static const STATUS_UPGRADE_REQUIRED
+            - static const STATUS_USE_PROXY
+            - static const STATUS_VARIANT_ALSO_NEGOTIATES
+          - struct ServicePoolConfig
+            - let capacity
+            - let preheat
+            - let queueCapacity
+            - init(Int64, Int64, Int64)
+          - struct TransportConfig
+            - prop keepAliveConfig
+            - prop readBufferSize
+            - prop readTimeout
+            - prop writeBufferSize
+            - prop writeTimeout
+        - [异常类](net/http/http_package_api/http_package_exceptions.md)
+          - class ConnectionException
+            - init(String)
+          - class CoroutinePoolRejectException
+            - init(String)
+          - class HttpException
+            - init(String)
+          - class HttpStatusException
+            - init(UInt16, String)
+          - class HttpTimeoutException
+            - init(String)
+          - class WebSocketException
+            - init(String)
+            - [client](net/http/http_samples/http_client.md)
+            - [cookie](net/http/http_samples/cookie.md)
+            - [log](net/http/http_samples/log.md)
+            - [server](net/http/http_samples/http_server.md)
+            - [webSocket](net/http/http_samples/webSocket.md)
+    - [stdx.net.tls](net/tls/tls_package_overview.md)
+        - [类](net/tls/tls_package_api/tls_package_classes.md)
+          - class TlsSessionContext
+            - static func fromName(String)
+            - func toString()
+            - operator func !=(TlsSessionContext)
+            - operator func ==(TlsSessionContext)
+          - class TlsSocket
+            - prop alpnProtocolName
+            - prop cipherSuite
+            - prop clientCertificate
+            - prop domain
+            - prop localAddress
+            - prop peerCertificate
+            - prop readTimeout
+            - prop remoteAddress
+            - prop serverCertificate
+            - prop session
+            - prop socket
+            - prop tlsVersion
+            - prop writeTimeout
+            - static func client(StreamingSocket, ?TlsSession, TlsClientConfig)
+            - static func server(StreamingSocket, ?TlsSessionContext, TlsServerConfig)
+            - func close()
+            - func handshake(?Duration)
+            - func hashCode()
+            - func isClosed()
+            - func read(Array\<Byte>)
+            - func toString()
+            - func write(Array\<Byte>)
+            - operator func !=(TlsSocket)
+            - operator func ==(TlsSocket)
+        - [枚举](net/tls/tls_package_api/tls_package_enums.md)
+          - enum CertificateVerifyMode
+            - CustomCA(Array\<X509Certificate>)
+            - Default
+            - TrustAll
+          - enum SignatureAlgorithm
+            - SignatureAndHashAlgorithm(SignatureType, HashType)
+            - SignatureScheme(SignatureSchemeType)
+            - func toString()
+            - operator func !=(SignatureAlgorithm)
+            - operator func ==(SignatureAlgorithm)
+          - enum SignatureSchemeType
+            - ECDSA_SECP256R1_SHA256
+            - ECDSA_SECP384R1_SHA384
+            - ECDSA_SECP521R1_SHA512
+            - ED25519
+            - ED448
+            - RSA_PKCS1_SHA256
+            - RSA_PKCS1_SHA384
+            - RSA_PKCS1_SHA512
+            - RSA_PSS_PSS_SHA256
+            - RSA_PSS_PSS_SHA384
+            - RSA_PSS_PSS_SHA512
+            - RSA_PSS_RSAE_SHA256
+            - RSA_PSS_RSAE_SHA384
+            - RSA_PSS_RSAE_SHA512
+            - func toString()
+            - operator func !=(SignatureSchemeType)
+            - operator func ==(SignatureSchemeType)
+          - enum SignatureType
+            - DSA
+            - ECDSA
+            - RSA
+            - func toString()
+            - operator func !=(SignatureType)
+            - operator func ==(SignatureType)
+          - enum TlsClientIdentificationMode
+            - Disabled
+            - Optional
+            - Required
+          - enum TlsVersion
+            - Unknown
+            - V1_2
+            - V1_3
+            - func toString()
+        - [结构体](net/tls/tls_package_api/tls_package_structs.md)
+          - struct CipherSuite
+            - static prop allSupported
+            - func toString()
+            - operator func !=(CipherSuite)
+            - operator func ==(CipherSuite)
+          - struct TlsClientConfig
+            - var keylogCallback
+            - var verifyMode
+            - prop alpnProtocolsList
+            - prop cipherSuitesV1_2
+            - prop cipherSuitesV1_3
+            - prop clientCertificate
+            - prop domain
+            - prop maxVersion
+            - prop minVersion
+            - prop securityLevel
+            - prop signatureAlgorithms
+            - init()
+          - struct TlsServerConfig
+            - var clientIdentityRequired
+            - var keylogCallback
+            - var verifyMode
+            - prop cipherSuitesV1_2
+            - prop cipherSuitesV1_3
+            - prop dhParameters
+            - prop maxVersion
+            - prop minVersion
+            - prop securityLevel
+            - prop serverCertificate(Array\<X509Certificate>, PrivateKey)
+            - prop supportedAlpnProtocols
+            - init(Array\<X509Certificate>, PrivateKey)
+          - struct TlsSession
+            - func hashCode()
+            - func toString()
+            - operator func !=(TlsSession)
+            - operator func ==(TlsSession)
+        - [异常类](net/tls/tls_package_api/tls_package_exceptions.md)
+          - class TlsException
+            - init()
+            - init(String)
+            - [服务端证书及公钥在一份文件中](net/tls/tls_samples/cert_key.md)
+            - [客户端示例](net/tls/tls_samples/client.md)
+            - [证书热更新](net/tls/tls_samples/hot_update_cert.md)
+            - [服务端示例](net/tls/tls_samples/server.md)
+    - [stdx.serialization.serialization](serialization/serialization_package_overview.md)
+        - [函数](serialization/serialization_package_api/serialization_package_functions.md)
+          - func field\<T>(String, T) where T <: Serializable\<T>
+        - [接口](serialization/serialization_package_api/serialization_package_interfaces.md)
+          - interface Serializable
+            - static func deserialize(DataModel)
+            - func serialize()
+            - extend\<T> Array\<T> <: Serializable\<Array\<T>> where T <: Serializable\<T>
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend\<T> ArrayList\<T> <: Serializable\<ArrayList\<T>> where T <: Serializable\<T>
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Bool <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Float16 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Float32 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Float64 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend\<K, V> HashMap\<K, V> <: Serializable\<HashMap\<K, V>> where K <: Serializable\<K> & Hashable & Equatable\<K>, V <: Serializable\<V>
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend\<T> HashSet\<T> <: Serializable\<HashSet\<T>> where T <: Serializable\<T> & Hashable & Equatable\<T>
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Int16 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Int32 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Int64 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Int8 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend\<T> Option\<T> <: Serializable\<Option\<T>> where T <: Serializable\<T>
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend Rune <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend String <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend UInt16 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend UInt32 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend UInt64 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+            - extend UInt8 <: Serializable
+              - static func deserialize(DataModel)
+              - func serialize()
+        - [类](serialization/serialization_package_api/serialization_package_classes.md)
+          - class DataModel
+          - class DataModelBool
+            - init(Bool)
+            - func getValue()
+          - class DataModelFloat
+            - init(Float64)
+            - init(Int64)
+            - func getValue()
+          - class DataModelInt
+            - init(Int64)
+            - func getValue()
+          - class DataModelNull
+          - class DataModelSeq
+            - init()
+            - init(ArrayList\<DataModel>)
+            - func add(DataModel)
+            - func getItems()
+          - class DataModelString
+            - init(String)
+            - func getValue()
+          - class DataModelStruct
+            - init()
+            - init(ArrayList\<Field>)
+            - func add(Field)
+            - func get(String)
+            - func getFields()
+          - class Field
+            - init(String, DataModel)
+            - func getData()
+            - func getName()
+        - [异常类](serialization/serialization_package_api/serialization_package_exceptions.md)
+          - class DataModelException
+            - init()
+            - init(String)
+            - [class 序列化和反序列化](serialization/serialization_samples/serialize_and_deserialize_class.md)
+            - [HashSet 和 HashMap 序列化](serialization/serialization_samples/serialize_hashmap_and_hashset.md)
+    - [stdx.unittest.data](unittest/data/data_package_overview.md)
+        - [函数](unittest/data/data_package_api/data_package_functions.md)
+          - func csv\<T>(String, Rune, Rune, Rune, Option\<Rune>, Option\<Array\<String>>, Array\<UInt64>, Array\<UInt64>, Bool) where T <: Serializable\<T>
+          - func json\<T>(String) where T <: Serializable\<T>
+          - func tsv\<T>(String, Rune, Rune, Option\<Rune>, Option\<Array\<String>>, Array\<UInt64>, Array\<UInt64>, Bool) where T <: Serializable\<T>
+        - [类](unittest/data/data_package_api/data_package_classes.md)
+          - class CsvStrategy
+            - func provider(Configuration)
+          - class JsonStrategy
+            - func provider(Configuration)
+          - class SerializableProvider
+            - prop isInfinite
+            - func provide()

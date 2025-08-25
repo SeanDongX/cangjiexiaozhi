@@ -1,0 +1,22503 @@
+- [API参考概述]()
+    - [开发说明](source_zh_cn/cj-development-intro.md)
+    API索引列表:
+    - 开发说明
+        - 版本说明
+        - 系统能力说明
+        - 接口使用说明
+        - 仓颉示例代码说明
+        - 权限说明
+        - 应用模型说明
+        - 废弃接口说明
+    - [系统能力SystemCapability使用指南](source_zh_cn/cj-syscap.md)
+    API索引列表:
+    - 系统能力SystemCapability使用指南
+        - 概述
+            - 系统能力与 API
+            - 支持能力集，联想能力集与要求能力集
+            - 设备与支持能力集
+            - 设备与SDK能力的对应
+        - SysCap开发指导
+            - PCID获取
+            - PCID导入
+            - 配置联想能力集和要求能力集
+            - 单设备应用开发
+            - 跨设备应用开发
+            - 判断API是否可以使用
+            - 不同设备相同能力的差异检查
+            - 设备间的SysCap差异如何产生的
+    - [系统能力SystemCapability列表]()
+        - [手机](source_zh_cn/cj-phone-syscap-list.md)
+    API索引列表:
+    - 手机
+        - [PC/2in1](source_zh_cn/cj-2in1-syscap-list.md)
+    API索引列表:
+    - PC/2in1
+        - [平板](source_zh_cn/cj-tablet-syscap-list.md)
+    API索引列表:
+    - 平板
+        - [Car](source_zh_cn/cj-car-syscap-list.md)
+    API索引列表:
+    - Car
+        - [智能穿戴](source_zh_cn/cj-wearable-syscap-list.md)
+    API索引列表:
+    - 智能穿戴
+        - [轻量级智能穿戴](source_zh_cn/cj-litewearable-syscap-list.md)
+    API索引列表:
+    - 轻量级智能穿戴
+    - [API标签化管控](source_zh_cn/cj-ifavailable.md)
+    API索引列表:
+    - API标签化管控
+        - 概述
+        - `@IfAvailable` 的语法
+        - `@IfAvailable` 的语义
+            - `level` 检查
+            - `syscap` 检查
+        - `@IfAvailable` 使用示例
+            - 使用 `IfAvailable` 控制 `APILevel`
+            - 使用 `IfAvailable` 控制 `syscap`
+    - [通用错误码](source_zh_cn/errorcodes/cj-errorcode-universal.md)
+    API索引列表:
+    - 通用错误码
+        - 201 权限校验失败
+        - 202 系统API权限校验失败
+        - 401 参数检查失败
+        - 801 该设备不支持此API
+- [应用框架]()
+    - [Ability Kit（程序框架服务）]()
+        - [仓颉API]()
+            - [ohos.ability（Ability）](source_zh_cn/apis/AbilityKit/cj-apis-ability.md)
+    API索引列表:
+    - ohos.ability（Ability）
+        - 导入模块
+                import kit.AbilityKit.*
+        - 权限列表
+                ohos.permission.DISTRIBUTED_DATASYNC
+                ohos.permission.PREPARE_APP_TERMINATE
+                ohos.permission.PRIVACY_WINDOW
+        - 使用说明
+        - func cancel(WantAgent)
+        - func createModuleContext(Context, String)
+        - func enableAppRecovery(RestartFlag, SaveOccasionFlag, SaveModeFlag)
+        - func equal(WantAgent, WantAgent)
+        - func getAppMemorySize()
+        - func getBundleName(WantAgent)
+        - func getNapiValue(CPointer\<Unit>, StageContext)
+        - func getOperationType(WantAgent)
+        - func getRunningProcessInformation()
+        - func getStageContext(UIAbilityContext)
+        - func getUid(WantAgent)
+        - func getWantAgent(WantAgentInfo)
+        - func isRamConstrainedDevice()
+        - func isRunningInStabilityTest()
+        - func restartApp()
+        - func saveAppState(?UIAbilityContext)
+        - func setRestartWant(Want)
+        - func trigger(WantAgent, TriggerInfo, (CompleteData) -> Unit)
+        - class AbilityConfiguration
+            - var colorMode
+            - var direction
+            - var displayId
+            - var fontSizeScale
+            - var fontWeightScale
+            - var hasPointerDevice
+            - var language
+            - var mcc
+            - var mnc
+            - var screenDensity
+            - AbilityConfiguration(String, ConfigurationColorMode, ConfigurationDirection, ConfigurationScreenDensity, Int32, Bool, Float64, Float64, String, String)
+        - class AbilityLifecycleCallback
+            - let onAbilityBackground
+            - let onAbilityContinue
+            - let onAbilityCreate
+            - let onAbilityDestroy
+            - let onAbilityForeground
+            - let onAbilitySaveState
+            - let onAbilityWillBackground
+            - let onAbilityWillContinue
+            - let onAbilityWillCreate
+            - let onAbilityWillDestroy
+            - let onAbilityWillForeground
+            - let onAbilityWillSaveState
+            - let onNewWant
+            - let onWillNewWant
+            - let onWindowStageActive
+            - let onWindowStageCreate
+            - let onWindowStageDestroy
+            - let onWindowStageInactive
+            - let onWindowStageRestore
+            - let onWindowStageWillCreate
+            - let onWindowStageWillDestroy
+            - let onWindowStageWillRestore
+            - AbilityLifecycleCallback(...)
+        - class AbilityStage
+            - prop context
+            - static func registerCreator(String, () -> AbilityStage)
+            - func onAcceptWant(Want)
+            - func onConfigurationUpdate(AbilityConfiguration)
+            - func onCreate()
+            - func onDestroy()
+            - func onMemoryLevel(MemoryLevel)
+        - class AbilityStageContext
+            - prop config
+            - prop currentHapModuleInfo
+            - var hapModuleInfo
+        - class AbilityStartCallback
+            - let onError
+            - let onResult
+            - AbilityStartCallback((Int32,String,String) -> Unit, ?(AbilityResult) -> Unit)
+        - class ActionExtensionAbility
+            - func onCreate()
+        - class ApplicationContext
+            - func clearUpApplicationData()
+            - func getApplicationInfo()
+            - func getArea()
+            - func getCurrentAppCloneIndex()
+            - func getRunningProcessInformation()
+            - func killAllProcesses(Bool)
+            - func off(ApplicationContextType, Int32)
+            - func off(ApplicationContextType, ?ApplicationStateChangeCallback)
+            - func on(ApplicationContextType, EnvironmentCallback)
+            - func on(ApplicationContextType, AbilityLifecycleCallback)
+            - func on(ApplicationContextType, ApplicationStateChangeCallback)
+            - func restartApp(Want)
+            - func setColorMode(ConfigurationColorMode)
+            - func setFont(String)
+            - func setFontSizeScale(Float64)
+            - func setLanguage(String)
+            - func setSupportedProcessCache(Bool)
+        - class ApplicationStateChangeCallback
+            - let onApplicationBackground
+            - let onApplicationForeground
+            - ApplicationStateChangeCallback(() -> Unit, () -> Unit)
+        - class AtomicServiceOptions
+            - var flags
+            - var parameters
+            - init()
+        - class BaseAbility
+            - Ability的继承关系说明
+            - static func registerCreator(String, () -> BaseAbility)
+            - func onConfigurationUpdate(AbilityConfiguration)
+            - func onMemoryLevel(MemoryLevel)
+        - class Callee
+            - func off(String)
+            - func on(String, CalleeCallback)
+        - class CalleeCallback
+            - CalleeCallback((MessageSequence) -> Parcelable)
+            - func invoke(MessageSequence)
+        - class Caller
+            - func call(String, Parcelable, Callback0Argument)
+            - func callWithResult(String, Parcelable, Callback1Argument\<MessageSequence>)
+            - func off(CallerType, OnRemoteStateChangeCallback)
+            - func off(CallerType)
+            - func on(CallerType, OnReleaseCallback)
+            - func onRelease(OnReleaseCallback)
+            - func onRemoteStateChange(OnRemoteStateChangeCallback)
+            - func release()
+        - class CompleteData
+            - let extraInfo
+            - let finalCode
+            - let finalData
+            - let info
+            - let want
+            - CompleteData(WantAgent, Want, Int32, String, String)
+        - class ConnectOptions
+            - var onConnect
+            - var onDisconnect
+            - var onFailed
+            - init((ElementName) -> Unit, (Int32) -> Unit)
+            - init((ElementName,IRemoteObject) -> Unit, (ElementName) -> Unit, (Int32) -> Unit)
+        - class Context
+            - prop applicationInfo
+            - prop area
+            - prop bundleCodeDir
+            - prop cacheDir
+            - prop cloudFileDir
+            - prop databaseDir
+            - prop distributedFilesDir
+            - prop filesDirectory
+            - prop preferencesDir
+            - prop resourceDir
+            - prop resourceManager
+            - prop tempDir
+            - let eventhub
+            - func createModuleContext(String)
+            - func getApplicationContext()
+            - func getGroupDir(String)
+        - class CurrentHapInfo
+            - prop description
+            - prop descriptionId
+            - prop hashValue
+            - prop icon
+            - prop iconId
+            - prop installationFree
+            - prop label
+            - prop labelId
+            - prop mainElementName
+            - prop name
+        - class DataUriUtils
+            - static func attachId(String, Int64)
+            - static func deleteId(String)
+            - static func getId(String)
+            - static func updateId(String, Int64)
+        - class DialogRequestResult
+            - var resultCode
+            - var want
+        - class ElementName
+            - prop abilityName
+            - prop bundleName
+            - prop deviceId
+            - prop moduleName
+            - init(String, String, String, String)
+            - init(String, String, String)
+        - class EmbeddableUIAbility
+        - class EmbeddableUIAbilityContext
+        - class EmbeddedUIExtensionAbility
+            - func onCreate()
+        - class EnvironmentCallback
+            - let onConfigurationUpdated
+            - let onMemoryLevel
+            - EnvironmentCallback((AbilityConfiguration) -> Unit, (MemoryLevel) -> Unit)
+        - class ErrorManager
+            - static func off(String, Int32)
+            - static func off(String, ?LoopObserver)
+            - static func on(String, ErrorObserver)
+            - static func on(String, Int64, LoopObserver)
+        - class ExecuteResult
+            - var code
+            - var flags
+            - var result
+            - var uris
+            - init(Int32, String, Array\<String>, Int32)
+        - class ExtensionAbility
+        - class ExtensionContext
+            - prop config
+            - prop currentHapModuleInfo
+            - prop extensionAbilityInfo
+        - class InsightIntentContext
+            - func startAbility(Want)
+        - class InsightIntentExecutor
+            - prop context
+            - static func registerCreator(String, () -> InsightIntentExecutor)
+            - func onExecuteInUIAbilityBackgroundMode(String, String)
+            - func onExecuteInUIAbilityForegroundMode(String, String, WindowStage)
+        - class LaunchParam
+            - var lastExitMessage
+            - var lastExitReason
+            - var launchReason
+            - init(LaunchReason, LastExitReason)
+            - init(String, LaunchReason, LastExitReason)
+        - class LoopObserver
+            - LoopObserver(?(Int64) -> Unit)
+        - class OnReleaseCallback
+            - OnReleaseCallback((String) -> Unit)
+            - func invoke(String)
+        - class OnRemoteStateChangeCallback
+            - OnRemoteStateChangeCallback((String) -> Unit)
+            - func invoke(String)
+        - class OpenLinkOptions
+            - let appLinkingOnly
+            - let parameters
+            - OpenLinkOptions(Bool, String)
+        - class PermissionRequestResult
+            - var authResults
+            - var dialogShownResults
+            - var permissions
+            - init(Array\<String>, Array\<Int32>)
+        - class PhotoEditorExtensionAbility
+            - prop context
+            - func onBackground()
+            - func onCreate()
+            - func onDestroy()
+            - func onForeground()
+            - func onStartContentEditing(String, Want, UIExtensionContentSession)
+        - class PhotoEditorExtensionContext
+            - func saveEditedContentWithImage(PixelMap, PackingOption)
+            - func saveEditedContentWithUri(String)
+        - class ProcessInformation
+            - let appCloneIndex
+            - let bundleNames
+            - let bundleType
+            - let pid
+            - let processName
+            - let state
+            - let uid
+            - ProcessInformation(Int32, Int32, String, Array\<String>, ProcessState, BundleType, Int32)
+        - class ShareExtensionAbility
+            - func onCreate()
+        - class StartOptions
+            - var windowMode
+            - var displayId
+            - var processMode
+            - var startupVisibility
+            - var windowHeight
+            - var windowLeft
+            - var windowTop
+            - var windowWidth
+            - let withAnimation
+            - init(WindowMode, Int32)
+        - class TriggerInfo
+            - let code
+            - let extraInfos
+            - let permission
+            - let want
+            - TriggerInfo(Int32, ?Want, String, ?String)
+        - class UIAbility
+            - prop callee
+            - prop context
+            - prop lastRequestWant
+            - prop launchWant
+            - func onBackPressed()
+            - func onBackground()
+            - func onContinue(String)
+            - func onCreate(Want, LaunchParam)
+            - func onDestroy()
+            - func onDump(Array\<String>)
+            - func onForeground()
+            - func onNewWant(Want, LaunchParam)
+            - func onPrepareToTerminate()
+            - func onSaveState(StateType, String)
+            - func onShare(String)
+            - func onWindowStageCreate(WindowStage)
+            - func onWindowStageDestroy()
+            - func onWindowStageWillDestroy(WindowStage)
+        - class UIAbilityContext
+            - prop abilityInfo
+            - prop config
+            - prop currentHapModuleInfo
+            - prop windowStage
+            - prop filesDir
+            - func backToCallerAbilityWithResult(AbilityResult, String)
+            - func hideAbility()
+            - func isTerminating()
+            - func moveAbilityToBackground()
+            - func openAtomicService(String, ?AtomicServiceOptions, AsyncCallback\<AbilityResult>)
+            - func openLink(String, ?OpenLinkOptions, ?AsyncCallback\<AbilityResult>)
+            - func reportDrawnCompleted(AsyncCallback\<Unit>)
+            - func requestDialogService(Want, AsyncCallback\<DialogRequestResult>)
+            - func requestDialogService(Want)
+            - func setMissionContinueState(ContinueState)
+            - func setMissionLabel(String)
+            - func setRestoreEnabled(Bool)
+            - func showAbility()
+            - func startAbility(Want)
+            - func startAbility(Want, StartOptions)
+            - func startAbilityByCall(Want)
+            - func startAbilityByType(String, String, AbilityStartCallback)
+            - func startAbilityForResult(Want, AsyncCallback\<AbilityResult>)
+            - func startAbilityForResult(Want, StartOptions, AsyncCallback\<AbilityResult>)
+            - func terminateSelf()
+            - func terminateSelfWithResult(AbilityResult)
+        - class UIExtensionAbility
+            - prop context
+            - func onBackground()
+            - func onCreate(LaunchParam)
+            - func onDestroy()
+            - func onForeground()
+            - func onSessionCreate(Want, UIExtensionContentSession)
+            - func onSessionDestroy(UIExtensionContentSession)
+        - class UIExtensionContentSession
+            - func loadContent(String)
+            - func setWindowPrivacyMode(Bool)
+            - func startAbilityByType(String, String, AbilityStartCallback)
+            - func terminateSelf()
+            - func terminateSelfWithResult(AbilityResult)
+        - class UIExtensionContext
+            - func openAtomicService(String, ?AtomicServiceOptions, AsyncCallback\<AbilityResult>)
+            - func openLink(String, ?OpenLinkOptions, ?AsyncCallback\<AbilityResult>)
+            - func reportDrawnCompleted(AsyncCallback\<Unit>)
+            - func startAbility(Want)
+            - func startAbility(Want, StartOptions)
+            - func startAbilityForResult(Want, AsyncCallback\<AbilityResult>)
+            - func startAbilityForResult(Want, StartOptions, AsyncCallback\<AbilityResult>)
+            - func terminateSelf()
+            - func terminateSelfWithResult(AbilityResult)
+        - class Want
+            - prop `type`
+            - prop abilityName
+            - prop action
+            - prop bundleName
+            - prop deviceId
+            - prop entities
+            - prop flags
+            - prop moduleName
+            - prop parameters
+            - prop uri
+            - init(String, String, String, String, UInt32, String, String, Array\<String>, String, String)
+        - class WantAgent
+        - class WantAgentInfo
+            - let actionFlags
+            - let actionType
+            - let extraInfos
+            - let requestCode
+            - let wants
+            - WantAgentInfo(Array\<Want>, OperationType, Int32, Array\<WantAgentFlags>, String)
+        - struct AbilityResult
+            - let resultCode
+            - let want
+            - AbilityResult(Int32, Want)
+        - struct ErrorObject
+            - let message
+            - let name
+            - let stack
+            - init(String, String, Option\<String>)
+        - struct ErrorObserver
+            - let onException
+            - let onUnhandledException
+            - init((String) -> Unit, Option\<(ErrorObject) -> Unit>)
+        - enum ApplicationContextType
+            - ABILITY_LIFE_CYCLE
+            - APPLICATION_STATE_CHANGE
+            - ENVIRONMENT
+            - func !=(ApplicationContextType)
+            - func ==(ApplicationContextType)
+        - enum AreaMode
+            - EL1
+            - EL2
+            - EL3
+            - EL4
+            - EL5
+            - func !=(AreaMode)
+            - func ==(AreaMode)
+            - func toString()
+        - enum CallerType
+            - RELEASE
+            - func !=(CallerType)
+            - func ==(CallerType)
+        - enum ConfigurationColorMode
+            - COLOR_MODE_DARK
+            - COLOR_MODE_LIGHT
+            - COLOR_MODE_NOT_SET
+            - func !=(ConfigurationColorMode)
+            - func ==(ConfigurationColorMode)
+            - func toString()
+        - enum ConfigurationDirection
+            - DIRECTION_HORIZONTAL
+            - DIRECTION_NOT_SET
+            - DIRECTION_VERTICAL
+            - func !=(ConfigurationDirection)
+            - func ==(ConfigurationDirection)
+            - func toString()
+        - enum ConfigurationScreenDensity
+            - SCREEN_DENSITY_LDPI
+            - SCREEN_DENSITY_MDPI
+            - SCREEN_DENSITY_NOT_SET
+            - SCREEN_DENSITY_SDPI
+            - SCREEN_DENSITY_XLDPI
+            - SCREEN_DENSITY_XXLDPI
+            - SCREEN_DENSITY_XXXLDPI
+            - func !=(ConfigurationScreenDensity)
+            - func ==(ConfigurationScreenDensity)
+            - func toString()
+        - enum ContinueState
+            - ACTIVE
+            - INACTIVE
+            - func !=(ContinueState)
+            - func ==(ContinueState)
+            - func toString()
+        - enum ExecuteMode
+            - UIAbilityBackground
+            - UIAbilityForeground
+            - UIExtensionAbility
+            - func !=(ExecuteMode)
+            - func ==(ExecuteMode)
+            - func toString()
+        - enum Flags
+            - FLAG_AUTH_PERSISTABLE_URI_PERMISSION
+            - FLAG_AUTH_READ_URI_PERMISSION
+            - FLAG_AUTH_WRITE_URI_PERMISSION
+            - FLAG_INSTALL_ON_DEMAND
+            - FLAG_START_WITHOUT_TIPS
+            - func !=(Flags)
+            - func ==(Flags)
+            - func getValue()
+            - func toString()
+        - enum LastExitReason
+            - ABILITY_NOT_RESPONDING
+            - APP_FREEZE
+            - CJ_ERROR
+            - CPP_CRASH
+            - NORMAL
+            - PERFORMANCE_CONTROL
+            - RESOURCE_CONTROL
+            - UNKNOWN
+            - UPGRADE
+        - enum LaunchReason
+            - APP_RECOVERY
+            - AUTO_STARTUP
+            - CALL
+            - CONTINUATION
+            - INSIGHT_INTENT
+            - PREPARE_CONTINUATION
+            - SHARE
+            - START_ABILITY
+            - UNKNOWN
+        - enum MemoryLevel
+            - MEMORY_LEVEL_CRITICAL
+            - MEMORY_LEVEL_LOW
+            - MEMORY_LEVEL_MODERATE
+            - func !=(MemoryLevel)
+            - func ==(MemoryLevel)
+            - func toString()
+        - enum OnContinueResult
+            - AGREE
+            - MISMATCH
+            - REJECT
+        - enum OnSaveResult
+            - ALL_AGREE
+            - ALL_REJECT
+            - CONTINUATION_MISMATCH
+            - CONTINUATION_REJECT
+            - RECOVERY_AGREE
+            - RECOVERY_REJECT
+            - func !=(OnSaveResult)
+            - func ==(OnSaveResult)
+            - func toString()
+        - enum OperationType
+            - SEND_COMMON_EVENT
+            - START_ABILITIES
+            - START_ABILITY
+            - START_SERVICE
+            - UNKNOWN_TYPE
+            - func !=(OperationType)
+            - func ==(OperationType)
+            - func toString()
+        - enum Params
+            - ABILITY_BACK_TO_OTHER_MISSION_STACK
+            - ABILITY_RECOVERY_RESTART
+            - APP_CLONE_INDEX_KEY
+            - BUILD_FUNCTION
+            - CALLER_REQUEST_CODE
+            - CONTENT_TITLE_KEY
+            - PAGE_PATH
+            - PAGE_SOURCE_FILE
+            - PARAMS_STREAM
+            - ROUTER_NAME
+            - SHARE_ABSTRACT_KEY
+            - SHARE_URL_KEY
+            - SHOW_MODE_KEY
+            - SUB_PACKAGE_NAME
+            - SUPPORT_CONTINUE_PAGE_STACK_KEY
+            - SUPPORT_CONTINUE_SOURCE_EXIT_KEY
+            - func !=(Params)
+            - func ==(Params)
+            - func getValue()
+            - func toString()
+        - enum ProcessMode
+            - ATTACH_TO_STATUS_BAR_ITEM
+            - NEW_PROCESS_ATTACH_TO_PARENT
+            - NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM
+            - func !=(ProcessMode)
+            - func ==(ProcessMode)
+            - func toString()
+        - enum ProcessState
+            - STATE_ACTIVE
+            - STATE_BACKGROUND
+            - STATE_CREATE
+            - STATE_DESTROY
+            - STATE_FOREGROUND
+            - func !=(ProcessState)
+            - func ==(ProcessState)
+            - func toString()
+        - enum RestartFlag
+            - ALWAYS_RESTART
+            - NO_RESTART
+            - RESTART_WHEN_APP_FREEZE
+            - RESTART_WHEN_JS_CRASH
+            - func !=(RestartFlag)
+            - func ==(RestartFlag)
+            - func toString()
+        - enum ResultCode
+            - RESULT_CANCEL
+            - RESULT_OK
+        - enum SaveModeFlag
+            - SAVE_WITH_FILE
+            - SAVE_WITH_SHARED_MEMORY
+            - func !=(SaveModeFlag)
+            - func ==(SaveModeFlag)
+            - func toString()
+        - enum SaveOccasionFlag
+            - SAVE_WHEN_BACKGROUND
+            - SAVE_WHEN_ERROR
+            - func !=(SaveOccasionFlag)
+            - func ==(SaveOccasionFlag)
+            - func toString()
+        - enum ShowMode
+            - EMBEDDED_FULL
+            - WINDOW
+            - func !=(ShowMode)
+            - func ==(ShowMode)
+            - func getValue()
+            - func toString()
+        - enum StartupVisibility
+            - STARTUP_HIDE
+            - STARTUP_SHOW
+            - func !=(StartupVisibility)
+            - func ==(StartupVisibility)
+            - func toString()
+        - enum StateType
+            - APP_RECOVERY
+            - CONTINUATION
+            - func !=(StateType)
+            - func ==(StateType)
+            - func toString()
+        - enum WantAgentFlags
+            - CANCEL_PRESENT_FLAG
+            - CONSTANT_FLAG
+            - NO_BUILD_FLAG
+            - ONE_TIME_FLAG
+            - REPLACE_ACTION
+            - REPLACE_BUNDLE
+            - REPLACE_ELEMENT
+            - REPLACE_ENTITIES
+            - REPLACE_URI
+            - UPDATE_PRESENT_FLAG
+            - func !=(WantAgentFlags)
+            - func ==(WantAgentFlags)
+            - func toString()
+        - enum WindowMode
+            - WINDOW_MODE_FULLSCREEN
+            - WINDOW_MODE_SPLIT_PRIMARY
+            - WINDOW_MODE_SPLIT_SECONDARY
+            - WINDOW_MODE_UNDEFINED
+        - type Ability
+        - type AbilityContext
+            - [ohos.ability.interop（Context及WantAgent互操作）](source_zh_cn/apis/AbilityKit/cj-apis-ability-interop.md)
+    API索引列表:
+    - ohos.ability.interop（Context及WantAgent互操作）
+        - 导入模块
+                import kit.AbilityKit.*
+        - func createAbilityContextFromJSValue(JSContext, JSValue)
+        - func createAbilityStageContextFromJSValue(JSContext, JSValue)
+        - func createApplicationContextFromJSValue(JSContext, JSValue)
+        - func createContextFromJSValue(JSContext, JSValue)
+        - func createPhotoEditorExtensionContextFromJSValue(JSContext, JSValue)
+        - func createUIExtensionContextFromJSValue(JSContext, JSValue)
+        - interface JSSystemObjectInteropType
+            - static func fromJSValue(JSContext, JSValue)
+            - func toJSValue(JSContext)
+        - interface SystemObjectInteropTypeToJS
+            - func toJSValue(JSContext)
+        - class Context
+            - func toJSValue(JSContext): JSValue
+        - class WantAgent
+            - func toJSValue(JSContext): JSValue
+            - static func fromJSValue(JSContext, JSValue): WantAgent
+            - [ohos.ability_access_ctrl（程序访问控制管理）](source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md)
+    API索引列表:
+    - ohos.ability_access_ctrl（程序访问控制管理）
+        - 导入模块
+                import kit.AbilityKit.*
+        - 使用说明
+        - class AbilityAccessCtrl
+            - static func createAtManager()
+        - class AccessCtrlPermissionRequestResult
+            - let authResults
+            - let dialogShownResults
+            - let permissions
+            - AccessCtrlPermissionRequestResult(Array\<String>, Array\<Int32>, ?Array\<Bool>)
+        - class AtManager
+            - func checkAccessToken(UInt32, Permissions)
+            - func requestGlobalSwitch(Context, SwitchType, AsyncCallback\<Bool>)
+            - func requestPermissionOnSetting(Context, Array\<Permissions>, AsyncCallback\<Array\<GrantStatus>>)
+            - func requestPermissionsFromUser(StageContext, Array\<Permissions>, AsyncCallback\<AccessCtrlPermissionRequestResult>)
+        - enum GrantStatus
+            - PERMISSION_DENIED
+            - PERMISSION_GRANTED
+            - operator func !=(GrantStatus)
+            - operator func ==(GrantStatus)
+            - func toString()
+        - enum SwitchType
+            - CAMERA
+            - LOCATION
+            - MICROPHONE
+            - operator func !=(SwitchType)
+            - operator func ==(SwitchType)
+            - func toString()
+        - type Permissions
+            - [ohos.screen_lock_file_manager（锁屏敏感数据管理）](source_zh_cn/apis/AbilityKit/cj-apis-screen_lock_file_manager.md)
+    API索引列表:
+    - ohos.screen_lock_file_manager（锁屏敏感数据管理）
+        - 导入模块
+                import kit.AbilityKit.*
+        - 权限列表
+                ohos.permission.PROTECT_SCREEN_LOCK_DATA
+        - 使用说明
+        - class ScreenLockFileManager
+            - static func acquireAccess()
+            - static func releaseAccess()
+        - enum AccessStatus
+            - ACCESS_DENIED
+            - ACCESS_GRANTED
+            - func !=(AccessStatus)
+            - func ==(AccessStatus)
+            - func toString()
+        - enum ReleaseStatus
+            - RELEASE_DENIED
+            - RELEASE_GRANTED
+            - func !=(ReleaseStatus)
+            - func ==(ReleaseStatus)
+            - func toString()
+            - [ohos.bundle_manager（bundleManager管理）](source_zh_cn/apis/AbilityKit/cj-apis-bundle_manager.md)
+    API索引列表:
+    - ohos.bundle_manager（bundleManager管理）
+        - 导入模块
+                import kit.AbilityKit.*
+        - 使用说明
+        - class AbilityInfo
+            - let appIndex
+            - let applicationInfo
+            - let bundleName
+            - let description
+            - let descriptionId
+            - let deviceTypes
+            - let enabled
+            - let excludeFromDock
+            - let exported
+            - let icon
+            - let iconId
+            - let label
+            - let labelId
+            - let launchType
+            - let metadata
+            - let moduleName
+            - let name
+            - let orientation
+            - let permissions
+            - let process
+            - let skills
+            - let supportWindowModes
+            - let windowSize
+        - class BundleInfo
+            - let appIndex
+            - let appInfo
+            - let hapModulesInfo
+            - let installTime
+            - let minCompatibleVersionCode
+            - let name
+            - let permissionGrantStates
+            - let reqPermissionDetails
+            - let routerMap
+            - let signatureInfo
+            - let targetVersion
+            - let uid
+            - let updateTime
+            - let vendor
+            - let versionCode
+            - let versionName
+        - class BundleManager
+            - static func canOpenLink(String)
+            - static func getBundleInfo(String, Int32, ?Int32)
+            - static func getBundleInfoForSelf(Int32)
+            - static func getBundleNameByUid(Int32)
+            - static func getProfileByAbility(String, String, String)
+            - static func getProfileByExtensionAbility(String, String, String)
+        - class DefaultAppManager
+            - static func isDefaultApplication(String)
+        - class ExtensionAbilityInfo
+            - let appIndex
+            - let applicationInfo
+            - let bundleName
+            - let descriptionId
+            - let enabled
+            - let exported
+            - let extensionAbilityType
+            - let extensionAbilityTypeName
+            - let iconId
+            - let labelId
+            - let metadata
+            - let moduleName
+            - let name
+            - let permissions
+            - let readPermission
+            - let skills
+            - let writePermission
+        - class Metadata
+            - var name
+            - var resource
+            - var value
+            - init(String, String, String)
+        - class SignatureInfo
+            - let appId
+            - let appIdentifier
+            - let fingerprint
+            - let metadata
+            - let moduleName
+        - struct ApplicationInfo
+            - let accessTokenId
+            - let appDistributionType
+            - let appIndex
+            - let appProvisionType
+            - let bundleType
+            - let cloudFileSyncEnabled
+            - let codePath
+            - let dataUnclearable
+            - let debug
+            - let description
+            - let descriptionId
+            - let descriptionResource
+            - let enabled
+            - let icon
+            - let iconId
+            - let iconResource
+            - let installSource
+            - let label
+            - let labelId
+            - let labelResource
+            - let metadataArray
+            - let multiAppMode
+            - let name
+            - let nativeLibraryPath
+            - let permissions
+            - let process
+            - let releaseType
+            - let removable
+            - let systemApp
+            - let uid
+        - struct DataItem
+            - let key
+            - let value
+        - struct Dependency
+            - let bundleName
+            - let moduleName
+            - let versionCode
+        - struct HapModuleInfo
+            - let abilitiesInfo
+            - let codePath
+            - let dependencies
+            - let description
+            - let descriptionId
+            - let deviceTypes
+            - let extensionAbilitiesInfo
+            - let fileContextMenuConfig
+            - let hashValue
+            - let icon
+            - let iconId
+            - let installationFree
+            - let label
+            - let labelId
+            - let mainElementName
+            - let metadata
+            - let moduleType
+            - let name
+            - let nativeLibraryPath
+            - let preloads
+            - let routerMap
+        - struct ModuleMetadata
+            - let metadata
+            - let moduleName
+        - struct MultiAppMode
+            - let count
+            - let multiAppModeType
+        - struct PreloadItem
+            - let moduleName
+        - struct ReqPermissionDetail
+            - var moduleName
+            - var name
+            - var reason
+            - var reasonId
+            - var usedScene
+            - init(String, String, String, Int32, UsedScene)
+        - struct RouterItem
+            - let buildFunction
+            - let customData
+            - let data
+            - let name
+            - let pageSourceFile
+        - struct Skill
+            - let actions
+            - let domainVerify
+            - let entities
+            - let uris
+        - struct SkillUri
+            - let host
+            - let linkFeature
+            - let maxFileSupported
+            - let path
+            - let pathRegex
+            - let pathStartWith
+            - let port
+            - let scheme
+            - let uriType
+            - let utd
+        - struct UsedScene
+            - var abilities
+            - var when
+            - init(Array\<String>, String)
+        - struct WindowSize
+            - let maxWindowHeight
+            - let maxWindowRatio
+            - let maxWindowWidth
+            - let minWindowHeight
+            - let minWindowRatio
+            - let minWindowWidth
+        - enum AbilityFlag
+            - GET_ABILITY_INFO_DEFAULT
+            - GET_ABILITY_INFO_ONLY_SYSTEM_APP
+            - GET_ABILITY_INFO_WITH_APPLICATION
+            - GET_ABILITY_INFO_WITH_DISABLE
+            - GET_ABILITY_INFO_WITH_METADATA
+            - GET_ABILITY_INFO_WITH_PERMISSION
+        - enum AbilityType
+            - DATA
+            - PAGE
+            - SERVICE
+        - enum ApplicationFlag
+            - GET_APPLICATION_INFO_DEFAULT
+            - GET_APPLICATION_INFO_WITH_DISABLE
+            - GET_APPLICATION_INFO_WITH_METADATA
+            - GET_APPLICATION_INFO_WITH_PERMISSION
+        - enum ApplicationType
+            - AUDIO
+            - BROWSER
+            - EMAIL
+            - EXCEL
+            - IMAGE
+            - PDF
+            - PPT
+            - VIDEO
+            - WORD
+            - func getValue()
+        - enum BundleFlag
+            - GET_BUNDLE_INFO_DEFAULT
+            - GET_BUNDLE_INFO_WITH_ABILITY
+            - GET_BUNDLE_INFO_WITH_APPLICATION
+            - GET_BUNDLE_INFO_WITH_DISABLE
+            - GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY
+            - GET_BUNDLE_INFO_WITH_HAP_MODULE
+            - GET_BUNDLE_INFO_WITH_MENU
+            - GET_BUNDLE_INFO_WITH_METADATA
+            - GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION
+            - GET_BUNDLE_INFO_WITH_ROUTER_MAP
+            - GET_BUNDLE_INFO_WITH_SIGNATURE
+            - GET_BUNDLE_INFO_WITH_SKILL
+            - func getValue()
+        - enum BundleType
+            - APP
+            - ATOMIC_SERVICE
+        - enum CompatiblePolicy
+            - BACKWARD_COMPATIBILITY
+        - enum DisplayOrientation
+            - AUTO_ROTATION
+            - AUTO_ROTATION_LANDSCAPE
+            - AUTO_ROTATION_LANDSCAPE_RESTRICTED
+            - AUTO_ROTATION_PORTRAIT
+            - AUTO_ROTATION_PORTRAIT_RESTRICTED
+            - AUTO_ROTATION_RESTRICTED
+            - AUTO_ROTATION_UNSPECIFIED
+            - FOLLOW_DESKTOP
+            - FOLLOW_RECENT
+            - LANDSCAPE
+            - LANDSCAPE_INVERTED
+            - LOCKED
+            - PORTRAIT
+            - PORTRAIT_INVERTED
+            - UNSPECIFIED
+        - enum ExtensionAbilityFlag
+            - GET_EXTENSION_ABILITY_INFO_DEFAULT
+            - GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION
+            - GET_EXTENSION_ABILITY_INFO_WITH_METADATA
+            - GET_EXTENSION_ABILITY_INFO_WITH_PERMISSION
+        - enum ExtensionAbilityType
+            - ACCESSIBILITY
+            - ACTION
+            - ADS_SERVICE
+            - BACKUP
+            - DATA_SHARE
+            - DRIVER
+            - EMBEDDED_UI
+            - ENTERPRISE_ADMIN
+            - FILE_SHARE
+            - FORM
+            - INPUT_METHOD
+            - INSIGHT_INTENT_UI
+            - PREVIEW
+            - PRINT
+            - PUSH
+            - SERVICE
+            - SHARE
+            - STATIC_SUBSCRIBER
+            - THUMBNAIL
+            - UNSPECIFIED
+            - WALLPAPER
+            - WINDOW
+            - WORK_SCHEDULER
+        - enum LaunchType
+            - MULTITON
+            - SINGLETON
+            - SPECIFIED
+        - enum ModuleType
+            - ENTRY
+            - FEATURE
+            - SHARED
+        - enum MultiAppModeType
+            - APP_CLONE
+            - MULTI_INSTANCE
+            - UNSPECIFIED
+        - enum PermissionGrantState
+            - PERMISSION_DENIED
+            - PERMISSION_GRANTED
+        - enum ProfileType
+            - INTENT_PROFILE
+        - enum SupportWindowMode
+            - FLOATING
+            - FULL_SCREEN
+            - SPLIT
+            - [ohos.eventhub](source_zh_cn/apis/AbilityKit/cj-apis-eventhub.md)
+    API索引列表:
+    - ohos.eventhub
+        - 导入模块
+                import kit.AbilityKit.*
+        - 使用说明
+        - class Event0
+            - func emit()
+            - func off(EventCallBack0)
+            - func off()
+            - func on(EventCallBack0)
+        - class Event1
+            - func emit(A)
+            - func off(EventCallBack1\<A>)
+            - func off()
+            - func on(EventCallBack1\<A>)
+        - class Event2
+            - func emit(A1, A2)
+            - func off(EventCallBack2\<A1,A2>)
+            - func off()
+            - func on(EventCallBack2\<A1,A2>)
+        - class Event3
+            - func emit(A1, A2, A3)
+            - func off(EventCallBack3\<A1,A2,A3>)
+            - func off()
+            - func on(EventCallBack3\<A1,A2,A3>)
+        - class Event4
+            - func emit(A1, A2, A3, A4)
+            - func off(EventCallBack4\<A1,A2,A3,A4>)
+            - func off()
+            - func on(EventCallBack4\<A1,A2,A3,A4>)
+        - class Event5
+            - func emit(A1, A2, A3, A4, A5)
+            - func off(EventCallBack5\<A1,A2,A3,A4,A5>)
+            - func off()
+            - func on(EventCallBack5\<A1,A2,A3,A4,A5>)
+        - class EventBase
+            - func as0()
+            - func as1\<A>()
+            - func as2\<A1, A2>()
+            - func as3\<A1, A2, A3>()
+            - func as4\<A1, A2, A3, A4>()
+            - func as5\<A1, A2, A3, A4, A5>()
+        - class EventCallBack0
+            - func invoke()
+        - class EventCallBack1
+            - func invoke(A)
+        - class EventCallBack2
+            - func invoke(A1, A2)
+        - class EventCallBack3
+            - func invoke(A1, A2, A3)
+        - class EventCallBack4
+            - func invoke(A1, A2, A3, A4)
+        - class EventCallBack5
+            - func invoke(A1, A2, A3, A4, A5)
+        - class EventHub
+            - func get(String)
+            - func get0(String)
+            - func get1\<A>(String)
+            - func get2\<A1, A2>(String)
+            - func get3\<A1, A2, A3>(String)
+            - func get4\<A1, A2, A3, A4>(String)
+            - func get5\<A1, A2, A3, A4, A5>(String)
+            - func obtainEvent0(String)
+            - func obtainEvent1\<A>(String)
+            - func obtainEvent2\<A1, A2>(String)
+            - func obtainEvent3\<A1, A2, A3>(String)
+            - func obtainEvent4\<A1, A2, A3, A4>(String)
+            - func obtainEvent5\<A1, A2, A3, A4, A5>(String)
+        - [错误码]()
+            - [元能力子系统错误码](source_zh_cn/errorcodes/cj-errorcode-ability.md)
+    API索引列表:
+    - 元能力子系统错误码
+        - 16000001 指定的Ability名称不存在
+        - 16000002 接口调用Ability类型错误
+        - 16000003 指定的ID不存在
+        - 16000004 可见性校验失败
+        - 16000005 指定的进程权限校验失败
+        - 16000006 不允许跨用户操作
+        - 16000007 服务繁忙
+        - 16000008 众测应用到期
+        - 16000009 wukong模式，不允许启动/停止ability
+        - 16000010 不允许带迁移flag
+        - 16000011 上下文对象不存在
+        - 16000012 应用被管控
+        - 16000013 应用被EDM管控
+        - 16000015 服务超时
+        - 16000017 上一个Ability未启动完成，先缓存在队列中等待后续启动
+        - 16000018 限制API 11以上版本三方应用跳转
+        - 16000019 隐式启动未查找到匹配应用
+        - 16000050 内部错误
+        - 16000051 网络异常
+        - 16000052 不支持免安装
+        - 16000053 非顶层应用
+        - 16000054 免安装服务繁忙
+        - 16000055 免安装超时
+        - 16000056 不允许免安装其他应用
+        - 16000057 不支持跨设备免安装
+        - 16000058 指定的URI flag无效
+        - 16000059 指定的URI类型无效
+        - 16000060 不支持沙箱应用授权URI
+        - 16000061 不支持的操作
+        - 16000062 子进程数量超出上限
+        - 16000063 重启应用指定组件无效
+        - 16000064 重启应用频繁
+        - 16000065 接口只支持Ability在前台时调用
+        - 16000066  wukong模式，不允许移动Ability到前台/后台
+        - 16000067 Ability启动参数校验失败
+        - 16000068 Ability已经在运行中
+        - 16000069 严格模式下不允许该类型Extension启动三方应用
+        - 16000070 严格模式下不允许该类型Extension启动指定ServiceExtensionAbility
+        - 16000071 不支持应用分身模式
+        - 16000072 不支持应用多开
+        - 16000073 传入的appCloneIndex是一个无效值
+        - 16000074 返回结果时requestCode对应的调用方不存在
+        - 16000075 不支持返回结果时拉起调用方
+        - 16000076 指定的APP_INSTANCE_KEY不存在
+        - 16000077 应用的实例数量已达到上限
+        - 16000078 不支持应用多实例
+        - 16000079 不支持指定APP_INSTANCE_KEY
+        - 16000080 不支持创建新实例
+        - 16000082 单实例模式下的UIAbility未完成启动
+        - 16000100 监听Ability生命周期变化的AbilityMonitor方法执行失败
+        - 16000101 执行shell命令失败
+        - 16000151 无效wantAgent对象
+        - 16000152 未找到wantAgent对象
+        - 16000153 wangAgent对象已取消
+        - 16100001 指定Uri的Ability不存在
+        - 16100002 接口调用Ability类型错误
+        - 16200001 通用组件客户端(Caller)已回收
+        - 16200002 通用组件服务端(Callee)无效
+        - 16200003 回收失败
+        - 16200004 方法已注册
+        - 16200005 方法未注册
+        - 16200006 没有权限设置常驻进程使能状态
+        - 16300001 指定的任务不存在
+        - 16300002 指定的任务监听器不存在
+        - 16300003 目标应用程序不是自身应用程序
+        - 18500001 指定的包名无效
+        - 18500002 指定的补丁包无效
+        - 18500003 补丁包部署失败
+        - 18500004 补丁包使能失败
+        - 18500005 补丁包删除失败
+        - 18500006 加载补丁失败
+        - 18500007 卸载旧补丁失败
+        - 18500008 快速修复内部错误
+        - 18500009 该应用当前有正在处理的快速修复任务
+        - 16300004 指定的observer不存在
+        - 16300005 指定的包信息不存在
+        - 29600001 图片编辑内部错误
+        - 29600002 图片编辑内部错误
+        - 29600002 图片大小过大
+        - 16300007 指定的原子化服务的下载安装任务信息不存在
+            - [包管理子系统通用错误码](source_zh_cn/errorcodes/cj-errorcode-bundle.md)
+    API索引列表:
+    - 包管理子系统通用错误码
+        - 17700001 指定的bundleName不存在
+        - 17700002 指定的moduleName不存在
+        - 17700003 指定的abilityName不存在
+        - 17700004 指定的用户不存在
+        - 17700005 指定的appId为空字符串
+        - 17700006 查询的权限不存在
+        - 17700007 输入的设备Id有误
+        - 17700010 文件解析失败导致应用安装失败
+        - 17700011 签名校验失败导致应用安装失败
+        - 17700012 安装包路径无效或者文件过大导致应用安装失败
+        - 17700015 多个HAP配置信息不同导致应用安装失败
+        - 17700016 系统磁盘空间不足导致应用安装失败
+        - 17700017 新安装的应用版本号低于已安装的版本号导致应用安装失败
+        - 17700018 安装失败，依赖的模块不存在
+        - 17700020 预置应用无法卸载
+        - 17700021 指定的uid无效
+        - 17700022 输入的待解析源文件无效
+        - 17700023 指定的默认应用不存在
+        - 17700024 没有相应的配置文件
+        - 17700025 输入的type无效
+        - 17700026 指定应用被禁用
+        - 17700027 分布式服务未启动
+        - 17700028 输入的ability与type不匹配
+        - 17700029 指定的ability被禁用
+        - 17700030 指定的应用不支持清除缓存文件
+        - 17700031 Overlay特性校验失败导致HAP安装失败
+        - 17700032 指定的应用不包含overlay特征的module
+        - 17700033 指定的module不是overlay特征的module
+        - 17700034 指定的module是overlay特征的module
+        - 17700035 指定的应用只包含overlay特征的module
+        - 17700036 共享库缺少AllowAppShareLibrary特权导致安装失败
+        - 17700037 被卸载的shared library版本被其他应用依赖
+        - 17700038 被卸载的shared library不存在
+        - 17700039 不允许安装应用间共享库
+        - 17700040 不允许卸载应用间共享库
+        - 17700041 企业设备管理不允许安装该应用
+        - 17700042 数据代理中的uri配置错误
+        - 17700043 数据代理中的权限配置错误
+        - 17700044 安装包设置的多进程配置项与系统配置项设置矛盾
+        - 17700045 企业设备管理不允许卸载该应用
+        - 17700047 要更新的应用版本没有大于当前版本
+        - 17700048 代码签名校验失败
+        - 17700049 应用自升级时安装的应用与调用方包名不同
+        - 17700050 企业设备校验失败
+        - 17700051 应用自升级时安装的应用与调用方包名不同
+        - 17700052 非开发者模式下不允许安装调试应用
+        - 17700053 非应用市场调用
+        - 17700054 权限校验失败导致应用安装失败
+        - 17700055 指定的link无效
+        - 17700056 指定link的scheme未在querySchemes字段下配置
+        - 17700201 abc文件校验失败
+        - 17700202 abc文件删除失败
+            - [访问控制错误码](source_zh_cn/errorcodes/cj-errorcode-access-token.md)
+    API索引列表:
+    - 访问控制错误码
+        - 12100001 入参错误
+        - 12100002 tokenId不存在
+        - 12100003 权限名不存在
+        - 12100004 接口未配套使用
+        - 12100005 监听器数量超过限制
+        - 12100006 指定的应用不支持被授予或被取消授予指定的权限
+        - 12100007 系统服务工作异常
+        - 12100008 内存申请失败
+        - 12100009 服务内部错误
+        - 12100010 存在未被处理的请求
+        - 12100011 输入的所有权限均已被授权
+        - 12100012 输入的权限中存在未被用户拒绝过的权限
+        - 12100013 全局开关已开启
+            - [锁屏敏感数据管理错误码](source_zh_cn/errorcodes/cj-errorcode-screen_lock_file_manager.md)
+    API索引列表:
+    - 锁屏敏感数据管理错误码
+        - 29300001 入参错误
+        - 29300002 系统服务工作异常
+        - 29300003 应用未开启锁屏敏感数据保护功能
+        - 29300004 锁屏敏感数据访问权限已释放
+        - 29300005 未申请锁屏敏感数据访问权限
+    - [Accessibility Kit（无障碍服务）]()
+        - [仓颉API]()
+            - [ohos.accessibility（辅助功能）](source_zh_cn/apis/AccessibilityKit/cj-apis-accessibility.md)
+    API索引列表:
+    - ohos.accessibility（辅助功能）
+        - 导入模块
+                import kit.AccessibilityKit.*
+        - 使用说明
+        - func getAccessibilityExtensionList(AbilityType, AbilityState)
+        - func isOpenAccessibility()
+        - func isOpenTouchGuide()
+        - func isScreenReaderOpen()
+        - func off(AccCallBackType)
+        - func on(AccCallBackType, Callback1Argument\<Bool>)
+        - func sendAccessibilityEvent(EventInfo)
+        - class AccessibilityAbilityInfo
+            - prop abilityTypes
+            - prop bundleName
+            - prop capabilities
+            - prop description
+            - prop eventTypes
+            - prop id
+            - prop label
+            - prop name
+            - prop needHide
+            - prop targetBundleNames
+        - class CaptionsStyle
+            - var backgroundColor
+            - var fontColor
+            - var fontEdgeType
+            - var fontFamily
+            - var fontScale
+            - var windowColor
+            - CaptionsStyle(CaptionsFontFamily, Int32, UInt32, CaptionsFontEdgeType, UInt32, UInt32)
+        - class EventInfo
+            - var \`type\`
+            - var beginIndex
+            - var bundleName
+            - var componentType
+            - var contents
+            - var currentIndex
+            - var customId
+            - var description
+            - var elementId
+            - var endIndex
+            - var itemCount
+            - var lastContent
+            - var pageId
+            - var textAnnouncedForAccessibility
+            - var textMoveUnit
+            - var triggerAction
+            - var windowUpdateType
+            - init(EventType, String, Action)
+        - class GesturePath
+        - class GesturePoint
+        - enum AbilityState
+            - ABILITYSTATE_DISABLE
+            - ABILITYSTATE_ENABLE
+            - ABILITYSTATE_INSTALL
+            - func !=(AbilityState)
+            - func ==(AbilityState)
+            - func toString()
+        - enum AbilityType
+            - ABILITYTYPE_ALL
+            - ABILITYTYPE_AUDIBLE
+            - ABILITYTYPE_GENERIC
+            - ABILITYTYPE_HAPTIC
+            - ABILITYTYPE_SPOKEN
+            - ABILITYTYPE_VISUAL
+            - func !=(AbilityType)
+            - func ==(AbilityType)
+            - func toString()
+        - enum AccCallBackType
+            - ACCCALLBACKTYPE_ACCESSIBILITYSTATECHANGE
+            - ACCCALLBACKTYPE_TOUCHGUIDESTATECHANGE
+            - func !=(AccCallBackType)
+            - func ==(AccCallBackType)
+            - func hashCode()
+            - func toString()
+        - enum Action
+            - ACTION_ACCESSIBILITYFOCUS
+            - ACTION_BACK
+            - ACTION_CLEARACCESSIBILITYFOCUS
+            - ACTION_CLEARFOCUS
+            - ACTION_CLEARSELECTION
+            - ACTION_CLICK
+            - ACTION_COMMON
+            - ACTION_CONTROLCENTER
+            - ACTION_COPY
+            - ACTION_CUT
+            - ACTION_DELETE
+            - ACTION_FOCUS
+            - ACTION_HOME
+            - ACTION_LONGCLICK
+            - ACTION_NOTIFICATIONCENTER
+            - ACTION_PASTE
+            - ACTION_RECENTTASK
+            - ACTION_SCROLLBACKWARD
+            - ACTION_SCROLLFORWARD
+            - ACTION_SELECT
+            - ACTION_SETCURSORPOSITION
+            - ACTION_SETSELECTION
+            - ACTION_SETTEXT
+            - func !=(Action)
+            - func ==(Action)
+            - func toString()
+        - enum Capability
+            - CAPABILITY_GESTURE
+            - CAPABILITY_KEYEVENTOBSERVER
+            - CAPABILITY_RETRIEVE
+            - CAPABILITY_TOUCHGUIDE
+            - CAPABILITY_ZOOM
+            - func !=(Capability)
+            - func ==(Capability)
+            - func toString()
+        - enum CaptionsFontEdgeType
+            - CAPTIONSFONTEDGETYPE_DEPRESSED
+            - CAPTIONSFONTEDGETYPE_DROPSHADOW
+            - CAPTIONSFONTEDGETYPE_NONE
+            - CAPTIONSFONTEDGETYPE_RAISED
+            - CAPTIONSFONTEDGETYPE_UNIFORM
+        - enum CaptionsFontFamily
+            - CAPTIONSFONTFAMILY_CASUAL
+            - CAPTIONSFONTFAMILY_CURSIVE
+            - CAPTIONSFONTFAMILY_DEFAULT
+            - CAPTIONSFONTFAMILY_MONOSPACEDSANSSERIF
+            - CAPTIONSFONTFAMILY_MONOSPACEDSERIF
+            - CAPTIONSFONTFAMILY_SANSSERIF
+            - CAPTIONSFONTFAMILY_SERIF
+            - CAPTIONSFONTFAMILY_SMALLCAPITALS
+        - enum EventType
+            - EVENTTYPE_ACCESSIBILITYFOCUS
+            - EVENTTYPE_ACCESSIBILITYFOCUSCLEAR
+            - EVENTTYPE_ANNOUNCEFORACCESSIBILITY
+            - EVENTTYPE_CLICK
+            - EVENTTYPE_FOCUS
+            - EVENTTYPE_HOVERENTER
+            - EVENTTYPE_HOVEREXIT
+            - EVENTTYPE_LONGCLICK
+            - EVENTTYPE_REQUESTFOCUSFORACCESSIBILITY
+            - EVENTTYPE_SCROLL
+            - EVENTTYPE_SELECT
+            - EVENTTYPE_TEXTSELECTIONUPDATE
+            - EVENTTYPE_TEXTUPDATE
+        - enum TextMoveUnit
+            - TEXTMOVEUNIT_CHAR
+            - TEXTMOVEUNIT_LINE
+            - TEXTMOVEUNIT_PAGE
+            - TEXTMOVEUNIT_PARAGRAPH
+            - TEXTMOVEUNIT_WORD
+            - func !=(TextMoveUnit)
+            - func ==(TextMoveUnit)
+            - func toString()
+        - enum WindowUpdateType
+            - WINDOWUPDATETYPE_ACTIVE
+            - WINDOWUPDATETYPE_ADD
+            - WINDOWUPDATETYPE_BOUNDS
+            - WINDOWUPDATETYPE_FOCUS
+            - WINDOWUPDATETYPE_REMOVE
+            - func !=(WindowUpdateType)
+            - func ==(WindowUpdateType)
+            - func toString()
+        - [错误码]()
+            - [无障碍子系统错误码](source_zh_cn/errorcodes/cj-errorcode-accessibility.md)
+    API索引列表:
+    - 无障碍子系统错误码
+        - 9300001 输入无效的包名称或者Ability名称
+        - 9300002 目标Ability已启用
+        - 9300003 不具备执行该操作的无障碍权限
+        - 9300004 属性不存在
+        - 9300005 不支持该操作
+    - [ArkData（方舟数据管理）]()
+        - [仓颉API]()
+            - [ohos.data_share_predicates（数据共享谓词）](source_zh_cn/apis/ArkData/cj-apis-data_share_predicates.md)
+    API索引列表:
+    - ohos.data_share_predicates（数据共享谓词）
+        - 导入模块
+                import kit.ArkData.*
+        - 使用说明
+        - class DataSharePredicates
+            - init()
+            - func \`in\`(String, Array\<VBValueType>)
+            - func and()
+            - func equalTo(String, ValueType)
+            - func limit(Int32, Int32)
+            - func orderByAsc(String)
+            - func orderByDesc(String)
+            - [ohos.distributed_kv_store（分布式键值数据库）](source_zh_cn/apis/ArkData/cj-apis-distributed_kv_store.md)
+    API索引列表:
+    - ohos.distributed_kv_store（分布式键值数据库）
+        - 导入模块
+                import kit.ArkData.*
+        - 权限列表
+                ohos.permission.DISTRIBUTED_DATASYNC
+        - 使用说明
+        - let MAX_BATCH_SIZE
+        - let MAX_KEY_LENGTH
+        - let MAX_KEY_LENGTH_DEVICE
+        - let MAX_QUERY_LENGTH
+        - let MAX_STORE_ID_LENGTH
+        - let MAX_VALUE_LENGTH
+        - class ChangeNotification
+            - let deleteEntries
+            - let deviceId
+            - let insertEntries
+            - let updateEntries
+            - func toString()
+        - class DeviceKVStore
+            - func get(String)
+            - func getEntries(String)
+            - func getEntries(Query)
+            - func getResultSet(String)
+            - func getResultSet(Query)
+            - func getResultSize(Query)
+        - class DistributedKVStore
+            - static func createKVManager(KVManagerConfig)
+        - class KVManager
+            - func closeKVStore(String, String)
+            - func deleteKVStore(String, String)
+            - func getAllKVStoreId(String)
+            - func getDeviceKVStore(String, KVOptions)
+            - func getSingleKVStore(String, KVOptions)
+            - func offDistributedDataServiceDie(Callback0Argument)
+            - func offDistributedDataServiceDie()
+            - func onDistributedDataServiceDie(Callback0Argument)
+        - class KVOptions
+            - init(SecurityLevel, Bool, Bool, Bool, Bool, Schema)
+        - class KVStoreResultSet
+            - func getCount()
+            - func getEntry()
+            - func getPosition()
+            - func isAfterLast()
+            - func isBeforeFirst()
+            - func isFirst()
+            - func isLast()
+            - func move(Int32)
+            - func moveToFirst()
+            - func moveToLast()
+            - func moveToNext()
+            - func moveToPosition(Int32)
+            - func moveToPrevious()
+        - class Query
+            - init()
+            - func getSqlLike()
+            - func prefixKey(String)
+        - class SingleKVStore
+            - func backup(String)
+            - func closeResultSet(KVStoreResultSet)
+            - func commit()
+            - func delete(String)
+            - func deleteBackup(ArrayList\<String>)
+            - func deleteBatch(ArrayList\<String>)
+            - func enableSync(Bool)
+            - func get(String)
+            - func getEntries(String)
+            - func getEntries(Query)
+            - func getResultSet(String)
+            - func getResultSet(Query)
+            - func getResultSize(Query)
+            - func getSecurityLevel()
+            - func offDataChange(Callback1Argument\<ChangeNotification>)
+            - func offDataChange()
+            - func offSyncComplete()
+            - func onDataChange(SubscribeType, Callback1Argument\<ChangeNotification>)
+            - func onSyncComplete(Callback1Argument\<ArrayList\<(String, Int32)>>)
+            - func put(String, KVValueType)
+            - func putBatch(ArrayList\<Entry>)
+            - func restore(String)
+            - func rollback()
+            - func setSyncParam(UInt32)
+            - func setSyncRange(ArrayList\<String>, ArrayList\<String>)
+            - func startTransaction()
+        - struct Entry
+            - var key
+            - var value
+            - init(String, KVValueType)
+            - func toString()
+        - struct FieldNode
+            - var default
+            - var nullable
+            - var type_
+            - init(String)
+        - struct KVManagerConfig
+            - init(StageContext, String)
+        - struct Schema
+            - var indexes
+            - var mode
+            - var root
+            - var skip
+        - enum KVSecurityLevel
+            - S1
+            - S2
+            - S3
+            - S4
+            - func getValue()
+        - enum SubscribeType
+            - SUBSCRIBE_TYPE_ALL
+            - SUBSCRIBE_TYPE_LOCAL
+            - SUBSCRIBE_TYPE_REMOTE
+        - enum SyncMode
+            - PULL_ONLY
+            - PUSH_ONLY
+            - PUSH_PULL
+        - enum KVValueType
+            - BOOLEAN(Bool)
+            - BYTE_ARRAY(Array\<Byte>)
+            - DOUBLE(Float64)
+            - FLOAT(Float32)
+            - INTEGER(Int32)
+            - STRING(String)
+            - func toString()
+            - [ohos.preferences（用户首选项）](source_zh_cn/apis/ArkData/cj-apis-preferences.md)
+    API索引列表:
+    - ohos.preferences（用户首选项）
+        - 导入模块
+                import kit.ArkData.*
+        - 使用说明
+        - let MAX_KEY_LENGTH
+        - let MAX_VALUE_LENGTH
+        - class Preferences
+            - static func deletePreferences(StageContext, String)
+            - static func deletePreferences(StageContext, PreferencesOptions)
+            - static func getPreferences(StageContext, String)
+            - static func getPreferences(StageContext, PreferencesOptions)
+            - static func removePreferencesFromCache(StageContext, String)
+            - static func removePreferencesFromCache(StageContext, PreferencesOptions)
+            - func clear()
+            - func delete(String)
+            - func flush()
+            - func get(String, PreferencesValueType)
+            - func getAll()
+            - func has(String)
+            - func off(String, Callback1Argument\<String>)
+            - func off(String)
+            - func on(String, Callback1Argument\<String>)
+            - func put(String, PreferencesValueType)
+        - struct PreferencesOptions
+            - let dataGroupId
+            - let name
+            - init(String)
+            - init(String, String)
+        - enum PreferencesValueType
+            - bool(Bool)
+            - boolArray(Array\<Bool>)
+            - double(Float64)
+            - doubleArray(Array\<Float64>)
+            - integer(Int64)
+            - string(String)
+            - stringArray(Array\<String>)
+            - [ohos.relational_store（关系型数据库）](source_zh_cn/apis/ArkData/cj-apis-relational_store.md)
+    API索引列表:
+    - ohos.relational_store（关系型数据库）
+        - 导入模块
+                import kit.ArkData.*
+        - 权限列表
+                ohos.permission.DISTRIBUTED_DATASYNC
+        - 使用说明
+        - func deleteRdbStore(StageContext, String)
+        - func deleteRdbStore(StageContext, StoreConfig)
+        - func getRdbStore(StageContext, StoreConfig)
+        - class RdbPredicates
+            - init(String)
+            - func \`in\`(String, Array\<RelationalStoreValueType>)
+            - func and()
+            - func beginWrap()
+            - func beginsWith(String, String)
+            - func between(String, RelationalStoreValueType, RelationalStoreValueType)
+            - func contains(String, String)
+            - func distinct()
+            - func endWrap()
+            - func endsWith(String, String)
+            - func equalTo(String, RelationalStoreValueType)
+            - func glob(String, String)
+            - func greaterThan(String, RelationalStoreValueType)
+            - func greaterThanOrEqualTo(String, RelationalStoreValueType)
+            - func groupBy(Array\<String>)
+            - func inAllDevices()
+            - func indexedBy(String)
+            - func isNotNull(String)
+            - func isNull(String)
+            - func lessThan(String, RelationalStoreValueType)
+            - func lessThanOrEqualTo(String, RelationalStoreValueType)
+            - func like(String, String)
+            - func limitAs(Int32)
+            - func notBetween(String, RelationalStoreValueType, RelationalStoreValueType)
+            - func notEqualTo(String, RelationalStoreValueType)
+            - func notIn(String, Array\<RelationalStoreValueType>)
+            - func offsetAs(Int32)
+            - func or()
+            - func orderByAsc(String)
+            - func orderByDesc(String)
+        - class RdbStore
+            - prop version
+            - func backup(String)
+            - func batchInsert(String, Array\<Map\<String, RelationalStoreValueType>>)
+            - func beginTransaction()
+            - func cleanDirtyData(String, UInt64)
+            - func cleanDirtyData(String)
+            - func cloudSync(SyncMode, Callback1Argument\<ProgressDetails>)
+            - func cloudSync(SyncMode, Array\<String>, Callback1Argument\<ProgressDetails>)
+            - func commit()
+            - func delete(RdbPredicates)
+            - func emit(String)
+            - func executeSql(String)
+            - func executeSql(String, Array\<RelationalStoreValueType>)
+            - func getModifyTime(String, String, Array\<PRIKeyType>)
+            - func insert(String, Map\<String, RelationalStoreValueType>)
+            - func insert(String, Map\<String, RelationalStoreValueType>, ConflictResolution)
+            - func off(String, Bool)
+            - func off(String, Bool, Callback0Argument)
+            - func offAutoSyncProgress(Callback1Argument\<ProgressDetails>)
+            - func offAutoSyncProgress()
+            - func offDataChange(SubscribeType, Callback1Argument\<Array\<String>>)
+            - func offDataChange(SubscribeType, Callback1Argument\<Array\<ChangeInfo>>)
+            - func offDataChange(SubscribeType)
+            - func on(String, Bool, Callback0Argument)
+            - func onAutoSyncProgress(Callback1Argument\<ProgressDetails>)
+            - func onDataChange(SubscribeType, Callback1Argument\<Array\<String>>)
+            - func onDataChange(SubscribeType, Callback1Argument\<Array\<ChangeInfo>>)
+            - func query(RdbPredicates, Array\<String>)
+            - func querySql(String, Array\<RelationalStoreValueType>)
+            - func restore(String)
+            - func rollBack()
+            - func setDistributedTables(Array\<String>)
+            - func setDistributedTables(Array\<String>, DistributedType)
+            - func setDistributedTables(Array\<String>, DistributedType, DistributedConfig)
+            - func sync(SyncMode, RdbPredicates)
+            - func update(Map\<String, RelationalStoreValueType>, RdbPredicates)
+            - func update(Map\<String, RelationalStoreValueType>, RdbPredicates, ConflictResolution)
+        - class ResultSet
+            - prop columnCount
+            - prop columnNames
+            - prop isAtFirstRow
+            - prop isAtLastRow
+            - prop isClosed
+            - prop isEnded
+            - prop isStarted
+            - prop rowCount
+            - prop rowIndex
+            - func close()
+            - func getAsset(Int32)
+            - func getAssets(Int32)
+            - func getBlob(Int32)
+            - func getColumnIndex(String)
+            - func getColumnName(Int32)
+            - func getDouble(Int32)
+            - func getLong(Int32)
+            - func getRow()
+            - func getString(Int32)
+            - func goTo(Int32)
+            - func goToFirstRow()
+            - func goToLastRow()
+            - func goToNextRow()
+            - func goToPreviousRow()
+            - func goToRow(Int32)
+            - func isColumnNull(Int32)
+        - class StoreConfig
+            - let autoCleanDirtyData
+            - let customDir
+            - let dataGroupId
+            - let encrypt
+            - let name
+            - let securityLevel
+            - init(String, RelationalStoreSecurityLevel, Bool, String, String, Bool)
+        - struct Asset
+            - let createTime
+            - let modifyTime
+            - let name
+            - let path
+            - let size
+            - let status
+            - let uri
+            - init(String, String, String, String, String, String, AssetStatus)
+        - struct ChangeInfo
+            - let \`type\`
+            - let deleted
+            - let inserted
+            - let table
+            - let updated
+            - init(String, ChangeType, Array\<PRIKeyType>, Array\<PRIKeyType>, Array\<PRIKeyType>)
+        - struct DistributedConfig
+            - let autoSync
+            - init(Bool)
+        - struct ProgressDetails
+            - let code
+            - let details
+            - let schedule
+            - init(Progress, ProgressCode, Map\<String, TableDetails>)
+        - struct Statistic
+            - let failed
+            - let remained
+            - let successful
+            - let total
+            - init(UInt32, UInt32, UInt32, UInt32)
+        - struct TableDetails
+            - let download
+            - let upload
+            - init(Statistic, Statistic)
+        - enum AssetStatus
+            - ASSET_ABNORMAL
+            - ASSET_DELETE
+            - ASSET_DOWNLOADING
+            - ASSET_INSERT
+            - ASSET_NORMAL
+            - ASSET_UPDATE
+            - func getValue()
+        - enum ChangeType
+            - ASSET_CHANGE
+            - DATA_CHANGE
+            - func getValue()
+        - enum ConflictResolution
+            - ON_CONFLICT_ABORT
+            - ON_CONFLICT_FAIL
+            - ON_CONFLICT_IGNORE
+            - ON_CONFLICT_NONE
+            - ON_CONFLICT_REPLACE
+            - ON_CONFLICT_ROLLBACK
+            - func getValue()
+        - enum DistributedType
+            - DISTRIBUTED_CLOUD
+            - DISTRIBUTED_DEVICE
+            - func getValue()
+        - enum Field
+            - CURSOR_FIELD
+            - DELETED_FLAG_FIELD
+            - ORIGIN_FIELD
+            - OWNER_FIELD
+            - PRIVILEGE_FIELD
+            - SHARING_RESOURCE_FIELD
+            - func getValue()
+        - enum Origin
+            - CLOUD
+            - LOCAL
+            - REMOTE
+            - func getValue()
+        - enum PRIKeyType
+            - Double(Float64)
+            - Integer(Int64)
+            - Str(String)
+            - func hashCode()
+            - func !=(PRIKeyType)
+            - func ==(PRIKeyType)
+        - enum Progress
+            - SYNC_BEGIN
+            - SYNC_FINISH
+            - SYNC_IN_PROGRESS
+            - func getValue()
+        - enum ProgressCode
+            - CLOUD_DISABLED
+            - LOCKED_BY_OTHERS
+            - NETWORK_ERROR
+            - NO_SPACE_FOR_ASSET
+            - RECORD_LIMIT_EXCEEDED
+            - SUCCESS
+            - UNKNOWN_ERROR
+            - func getValue()
+        - enum RelationalStoreSecurityLevel
+            - S1
+            - S2
+            - S3
+            - S4
+            - func getValue()
+        - enum SubscribeType
+            - SUBSCRIBE_TYPE_CLOUD
+            - SUBSCRIBE_TYPE_CLOUD_DETAILS
+            - SUBSCRIBE_TYPE_REMOTE
+            - func getValue()
+        - enum SyncMode
+            - SYNC_MODE_CLOUD_FIRST
+            - SYNC_MODE_NATIVE_FIRST
+            - SYNC_MODE_PULL
+            - SYNC_MODE_PUSH
+            - SYNC_MODE_TIME_FIRST
+            - func getValue()
+        - enum RelationalStoreValueType
+            - AssetEnum(Asset)
+            - AssetsEnum(Array\<Asset>)
+            - Uint8Array(Array\<UInt8>)
+            - boolean(Bool)
+            - double(Float64)
+            - integer(Int64)
+            - null
+            - string(String)
+            - [ohos.unifiedDataChannel（标准化数据通路）](source_zh_cn/apis/ArkData/cj-apis-unifiedDataChannel.md)
+    API索引列表:
+    - ohos.unifiedDataChannel（标准化数据通路）
+        - 导入模块
+                import kit.ArkData.*
+        - 使用说明
+        - class Options
+            - var intention
+            - var key
+            - Options(Intention, String)
+        - class UnifiedData
+            - init()
+            - init(UnifiedRecord)
+            - func addRecord(UnifiedRecord)
+            - func getRecords()
+            - func getTypes()
+            - func hasType(String)
+        - class UnifiedRecord
+            - init()
+            - init(String, UnifiedDataChannelValueType)
+            - func getType()
+            - func getValue()
+        - enum Intention
+            - DATA_HUB
+            - DRAG
+            - func getValue ()
+        - enum ShareOptions
+            - CROSS_APP
+            - IN_APP
+        - enum UnifiedDataChannelValueType
+            - ARRAYBUFFER(Array\<UInt8>)
+            - BOOLEAN(Bool)
+            - DOUBLE(Float64)
+            - INTEGER32(Int32)
+            - INTEGER64(Int64)
+            - NULL
+            - PIXELMAP(PixelMap)
+            - STRING(String)
+            - UNDEFINED
+        - type GetDelayData
+            - [ohos.uniformTypeDescriptor（标准化数据定义与描述）](source_zh_cn/apis/ArkData/cj-apis-uniformTypeDescriptor.md)
+    API索引列表:
+    - ohos.uniformTypeDescriptor（标准化数据定义与描述）
+        - 导入模块
+                import kit.ArkData.*
+        - 使用说明
+        - func getTypeDescriptor(String)
+        - func getUniformDataTypeByFilenameExtension(String, String)
+        - func getUniformDataTypeByMIMEType(String, String)
+        - class TypeDescriptor
+            - prop belongingToTypes
+            - prop description
+            - prop filenameExtensions
+            - prop iconFile
+            - prop mimeTypes
+            - prop referenceURL
+            - prop typeId
+            - func belongsTo(String)
+            - func equals(TypeDescriptor)
+            - func isHigherLevelType(String)
+            - func isLowerLevelType(String)
+        - enum UniformDataType
+            - AAC
+            - AIFC_AUDIO
+            - AIFF
+            - AI_IMAGE
+            - ALAC
+            - ARCHIVE
+            - ASC_TEXT
+            - AUDIO
+            - AU_AUDIO
+            - AVI
+            - AZW
+            - AZW3
+            - BMP
+            - BZ2_ARCHIVE
+            - CAD
+            - CALENDAR
+            - COMMA_SEPARATED_VALUES_TEXT
+            - COMPOSITE_OBJECT
+            - CONTACT
+            - CSH_SCRIPT
+            - CSS
+            - C_HEADER
+            - C_PLUS_PLUS_HEADER
+            - C_PLUS_PLUS_SOURCE
+            - C_SOURCE
+            - DATABASE
+            - DELIMITED_VALUES_TEXT
+            - DIRECTORY
+            - DISK_IMAGE
+            - DRAWINGML_TEMPLATE
+            - DRAWINGML_VISIO
+            - EBOOK
+            - EFX_FAX
+            - ENCAPSULATED_POSTSCRIPT
+            - ENTITY
+            - EPUB
+            - EXCEL
+            - EXCEL_XLT
+            - EXECUTABLE
+            - FAX
+            - FILE
+            - FLAC
+            - FLASH
+            - FLASHPIX_IMAGE
+            - FOLDER
+            - FONT
+            - GIF
+            - GNU_TAR_ARCHIVE
+            - GNU_ZIP_ARCHIVE
+            - GNU_ZIP_TAR_ARCHIVE
+            - HTML
+            - HYPERLINK
+            - ICO
+            - ICS
+            - IMAGE
+            - ISO
+            - JAVA_ARCHIVE
+            - JAVA_SCRIPT
+            - JAVA_SOURCE
+            - JFX_FAX
+            - JPEG
+            - KFX
+            - LOCATION
+            - MARKDOWN
+            - MATROSKA_AUDIO
+            - MATROSKA_VIDEO
+            - MEDIA
+            - MESSAGE
+            - MOBI
+            - MP2
+            - MP3
+            - MPEG
+            - MPEG4
+            - MPEGURL_AUDIO
+            - MPEGURL_VIDEO
+            - MPEG_4_AUDIO
+            - MPEG_AUDIO
+            - NAVIGATION
+            - OBJECT
+            - OCTET_STREAM
+            - OFD
+            - OGG
+            - OPENDOCUMENT
+            - OPENDOCUMENT_FORMULA
+            - OPENDOCUMENT_GRAPHICS
+            - OPENDOCUMENT_PRESENTATION
+            - OPENDOCUMENT_SPREADSHEET
+            - OPENDOCUMENT_TEXT
+            - OPENEXR_IMAGE
+            - OPENHARMONY_APP_ITEM
+            - OPENHARMONY_ATOMIC_SERVICE
+            - OPENHARMONY_FORM
+            - OPENHARMONY_HAP
+            - OPENHARMONY_HDOC
+            - OPENHARMONY_HINOTE
+            - OPENHARMONY_PACKAGE
+            - OPENHARMONY_PIXEL_MAP
+            - OPENHARMONY_STYLED_STRING
+            - OPENHARMONY_WANT
+            - OPENTYPE_FONT
+            - OPENXML
+            - OPG
+            - PCM
+            - PDF
+            - PERL_SCRIPT
+            - PHOTOSHOP_IMAGE
+            - PHP_SCRIPT
+            - PLAIN_TEXT
+            - PNG
+            - PORTABLE_EXECUTABLE
+            - POSTSCRIPT
+            - POSTSCRIPT_FONT
+            - POSTSCRIPT_PFA_FONT
+            - POSTSCRIPT_PFB_FONT
+            - POWERPOINT_POT
+            - POWERPOINT_PPS
+            - PPT
+            - PRESENTATIONML_PRESENTATION
+            - PRESENTATIONML_SLIDESHOW
+            - PRESENTATIONML_TEMPLATE
+            - PYTHON_SCRIPT
+            - RAR_ARCHIVE
+            - RAW_IMAGE
+            - REALAUDIO
+            - REALMEDIA
+            - RICH_TEXT
+            - RSS
+            - RUBY_SCRIPT
+            - SCRIPT
+            - SD2_AUDIO
+            - SEVEN_ZIP_ARCHIVE
+            - SGI_IMAGE
+            - SHELL_SCRIPT
+            - SMIL
+            - SOURCE_CODE
+            - SPREADSHEETML_SHEET
+            - SPREADSHEETML_TEMPLATE
+            - STUFFIT_ARCHIVE
+            - SUN_JAVA_CLASS
+            - SYMLINK
+            - TAB_SEPARATED_VALUES_TEXT
+            - TAR_ARCHIVE
+            - TAZ_ARCHIVE
+            - TEX
+            - TEXT
+            - TGA_IMAGE
+            - TIFF
+            - TRUETYPE_COLLECTION_FONT
+            - TRUETYPE_FONT
+            - TS
+            - TYPE_SCRIPT
+            - ULAW_AUDIO
+            - VCARD
+            - VCS
+            - VIDEO
+            - VIDEO_3GPP
+            - VIDEO_3GPP2
+            - VISIO_VSD
+            - WAVEFORM_AUDIO
+            - WEB_ARCHIVE
+            - WINDOWS_MEDIA_WAX
+            - WINDOWS_MEDIA_WM
+            - WINDOWS_MEDIA_WMA
+            - WINDOWS_MEDIA_WMP
+            - WINDOWS_MEDIA_WMV
+            - WINDOWS_MEDIA_WMX
+            - WINDOWS_MEDIA_WVX
+            - WORDPROCESSINGML_DOCUMENT
+            - WORDPROCESSINGML_TEMPLATE
+            - WORD_DOC
+            - WORD_DOT
+            - XBITMAP_IMAGE
+            - XHTML
+            - XML
+            - ZIP_ARCHIVE
+            - func get()
+            - [ohos.values_bucket（数据集）](source_zh_cn/apis/ArkData/cj-apis-values_bucket.md)
+    API索引列表:
+    - ohos.values_bucket（数据集）
+        - 导入模块
+                import kit.ArkData.*
+        - enum VBValueType
+            - Boolean(Bool)
+            - Double(Float64)
+            - Integer(Int64)
+            - Null
+            - Str(String)
+        - [错误码]()
+            - [关系型数据库错误码](source_zh_cn/errorcodes/cj-errorcode-data-rdb.md)
+    API索引列表:
+    - 关系型数据库错误码
+        - 14800000 内部错误
+        - 14800010 数据库路径不合法
+        - 14800011 数据库文件损坏
+        - 14800012 结果集为空或指定位置不合法
+        - 14800013 列值为空或列类型与当前调用接口不兼容
+        - 14800014 数据库或结果集关闭
+        - 14800015 数据库没有响应
+        - 14800016 数据库别名已被使用
+        - 14800017 关键配置已被更改
+        - 14800018 查询结果没有数据符合条件
+        - 14800019 SQL必须是查询语句
+        - 14800021 SQLite:通用错误
+        - 14800022 SQLite:异步回调请求被中止
+        - 14800023 SQLite:访问权限被拒绝
+        - 14800024 SQLite:数据库文件已锁定
+        - 14800025 SQLite:数据库中的表被锁定
+        - 14800026 SQLite:数据库内存不足
+        - 14800027 SQLite:尝试写入只读数据库
+        - 14800028 SQLite:发生了某种磁盘I/O错误
+        - 14800029 SQLite:数据库已满
+        - 14800030 SQLite:无法打开数据库文件
+        - 14800031 SQLite：TEXT或BLOB超出大小限制
+        - 14800032 SQLite:由于违反约束而中止
+        - 14800033 SQLite:数据类型不匹配
+        - 14800034 SQLite:库使用不正确
+        - 14800047 WAL文件大小超过默认上限
+        - 14800050 获取订阅服务失败
+        - 14801001 上下文环境非Stage模型
+        - 14801002 storeConfig中传入的dataGroupId参数非法
+        - 14800051 分布式表类型不匹配
+            - [分布式键值数据库错误码](source_zh_cn/errorcodes/cj-errorcode-distributed_kv_store.md)
+    API索引列表:
+    - 分布式键值数据库错误码
+        - 15100001 超过最大订阅数量
+        - 15100002 打开已有数据库时参数配置发生变化
+        - 15100003 数据库损坏
+        - 15100004 未找到相关数据
+        - 15100005 数据库或查询结果集已关闭
+            - [用户首选项错误码](source_zh_cn/errorcodes/cj-errorcode-preferences.md)
+    API索引列表:
+    - 用户首选项错误码
+        - 15500000 内部错误
+        - 15500010 删除用户首选项持久化文件失败
+        - 15500019 获取订阅服务失败
+        - 15501002 Options中传入的dataGroupId参数非法
+    - [ArkUI（方舟UI框架）]()
+        - [仓颉API]()
+            - [UI界面]()
+                - [ohos.animator（动画）](source_zh_cn/arkui-cj/cj-apis-animator.md)
+    API索引列表:
+    - ohos.animator（动画）
+        - 导入模块
+                import kit.UIKit.*
+        - class AnimatorResult
+            - prop oncancel
+            - prop onCancel
+            - prop onfinish
+            - prop onFinish
+            - prop onframe
+            - prop onFrame
+            - prop onrepeat
+            - prop onRepeat
+            - init(AnimatorOptions)
+            - func cancel()
+            - func finish()
+            - func pause()
+            - func play()
+            - func reset(AnimatorOptions)
+            - func reverse()
+            - func setExpectedFrameRateRange(ExpectedFrameRateRange)
+        - class AnimatorOptions
+            - let begin
+            - let delay
+            - let direction
+            - let duration
+            - let easing
+            - let end
+            - let fill
+            - let iterations
+            - AnimatorOptions(Int32, String, Int32, AnimatorFill, AnimatorDirection, Int32, Float64, Float64)
+        - enum AnimatorDirection
+            - Alternate
+            - AlternateReverse
+            - Normal
+            - Reverse
+        - enum AnimatorFill
+            - Backwards
+            - Both
+            - Forwards
+            - None
+        - 示例代码
+                - [ohos.component_snapshot（组件截图）](source_zh_cn/arkui-cj/cj-apis-componentsnapshot.md)
+    API索引列表:
+    - ohos.component_snapshot (组件截图)
+        - 导入模块
+                import kit.UIKit.*
+        - 使用说明
+        - class componentSnapshot
+            - static func createFromBuilder(() -> Unit, SnapshotRetCallBack, Int32, Bool, CJSnapshotOptions)
+            - static func get(String, SnapshotRetCallBack, CJSnapshotOptions)
+            - static func getSync(String, CJSnapshotOptions)
+        - class CJSnapshotOptions
+            - let scale
+            - let waitUntilRenderFinished
+            - CJSnapshotOptions(Float32, Bool)
+        - type SnapshotRetCallBack
+                - [ohos.component_utils（ComponentUtils）](source_zh_cn/arkui-cj/cj-apis-componentutils.md)
+    API索引列表:
+    - ohos.component_utils（ComponentUtils）
+        - 导入模块
+                import ohos.component_utils.*
+        - class ComponentUtils
+            - static func getRectangleById(String)
+        - class ComponentInfo
+            - let localOffset
+            - let rotate
+            - let scale
+            - let screenOffset
+            - let size
+            - let translate
+            - let transform
+            - let windowOffset
+            - ComponentInfo(Size, Offset, Offset, Offset, TranslateResult, ScaleResult, RotateResult, Array\<Float32>)
+        - class Offset
+            - let x
+            - let y
+            - Offset(Float32, Float32)
+        - class RotateResult
+            - let angle
+            - let centerX
+            - let centerY
+            - let x
+            - let y
+            - let z
+            - RotateResult(Float32, Float32, Float32, Float32, Float32, Float32)
+        - class ScaleResult
+            - let centerX
+            - let centerY
+            - let x
+            - let y
+            - let z
+            - ScaleResult(Float32, Float32, Float32, Float32, Float32)
+        - class TranslateResult
+            - let x
+            - let y
+            - let z
+            - TranslateResult(Float32, Float32, Float32)
+                - [ohos.observer（无感监听）](source_zh_cn/arkui-cj/cj-apis-observer.md)
+    API索引列表:
+    - ohos.observer（无感监听）
+        - 导入模块
+                import kit.UIKit.*
+        - func off(ObserverType, Callback1Argument\<ScrollEventInfo>)
+        - func off(ObserverType)
+        - func off(ObserverType, ObserverOptions, Callback1Argument\<ScrollEventInfo>)
+        - func off(ObserverType, ObserverOptions)
+        - func off(ObserverType, Callback1Argument\<TabContentInfo>)
+        - func off(ObserverType, ObserverOptions, Callback1Argument\<TabContentInfo>)
+        - func on(ObserverType, Callback1Argument\<ScrollEventInfo>)
+        - func on(ObserverType, ObserverOptions, Callback1Argument\<ScrollEventInfo>)
+        - func on(ObserverType, Callback1Argument\<TabContentInfo>)
+        - func on(ObserverType, ObserverOptions, Callback1Argument\<TabContentInfo>)
+        - class NavDesitinationInfo
+            - let index
+            - let name
+            - let navDestinationId
+            - let navigationId
+            - let param
+            - let state
+            - NavDesitinationInfo(String, String, NavDestinationState, Int32, String, String)
+        - class NavDestinationSwitchObserverOptions
+            - let navigationId
+            - NavDestinationSwitchObserverOptions(String)
+        - class ObserverOptions
+            - let id
+            - ObserverOptions(String)
+        - class ScrollEventInfo
+            - let id
+            - let offset
+            - let scrollEvent
+            - let uniqueId
+            - ScrollEventInfo(String, Int32, ScrollEventType, Float32)
+        - class TabContentInfo
+            - let id
+            - let state
+            - let tabContentId
+            - let tabContentUniqueId
+            - let uniqueId
+            - TabContentInfo(String, Int32, TabContentState, String, Int32)
+        - enum NavDestinationState
+            - ON_APPEAR
+            - ON_BACKPRESS
+            - ON_DISAPPEAR
+            - ON_HIDDEN
+            - ON_SHOWN
+            - ON_WILL_APPEAR
+            - ON_WILL_DISAPPEAR
+            - ON_WILL_HIDE
+            - ON_WILL_SHOW
+        - enum ObserverType
+            - OBSERVER_DENSITY_UPDATE
+            - OBSERVER_DID_LAYOUT
+            - OBSERVER_NAV_DESTINATION_SWITCH
+            - OBSERVER_NAV_DESTINATION_UPDATE
+            - OBSERVER_ROUTER_PAGE_UPDATE
+            - OBSERVER_SCROLL_EVENT
+            - OBSERVER_TAB_CONTENT_UPDATE
+            - OBSERVER_WILL_DRAW
+            - func toString()
+        - enum RouterPageState
+            - ABOUT_TO_APPEAR
+            - ABOUT_TO_DISAPPEAR
+            - ON_BACK_PRESS
+            - ON_PAGE_HIDE
+            - ON_PAGE_SHOW
+        - enum ScrollEventType
+            - SCROLL_START
+            - SCROLL_STOP
+        - enum TabContentState
+            - ON_HIDE
+            - ON_SHOW
+        - 示例代码
+            - 示例1（ScrollEvent）
+            - 示例2（TabContentUpdate）
+                - [ohos.curves（插值计算）](source_zh_cn/arkui-cj/cj-apis-curves.md)
+    API索引列表:
+    - ohos.curves（插值计算）
+        - 导入模块
+                import kit.UIKit.*
+        - class Curves
+            - static func cubicBezierCurve(Float32, Float32, Float32, Float32)
+            - static func customCurve((Float32) -> Float32)
+            - static func initCurve(Curve)
+            - static func interpolatingSpring(Float32, Float32, Float32, Float32)
+            - static func responsiveSpringMotion(Float32, Float32, Float32)
+            - static func springCurve(Float32, Float32, Float32, Float32)
+            - static func springMotion(Float32, Float32, Float32)
+            - static func stepsCurve(Int64, Bool)
+        - class ICurve
+            - func interpolate(Float32)
+        - 示例代码
+                - [ohos.font（自定义字体）](source_zh_cn/arkui-cj/cj-apis-font.md)
+    API索引列表:
+    - ohos.font（自定义字体）
+        - 导入模块
+                import kit.UIKit.*
+        - class Font
+            - static func registerFont(String, String)
+            - static func registerFont(AppResource, AppResource)
+            - static func getSystemFontList()
+            - static func getFontByName(String)
+            - static func getUIFontConfig()
+        - class FontInfo
+            - let path
+            - let postScriptName
+            - let fullName
+            - let family
+            - let subfamily
+            - let weight
+            - let width
+            - let italic
+            - let monoSpace
+            - let symbolic
+            - FontInfo(String, String, String, String, String, UInt32, UInt32, Bool, Bool, Bool)
+        - class UIFontConfig
+            - let fontDir
+            - let generic
+            - let fallbackGroups
+            - UIFontConfig(Array\<String>, Array\<UIFontGenericInfo>, Array\<UIFontFallbackGroupInfo>)
+        - class UIFontGenericInfo
+            - let family
+            - let alias
+            - let adjust
+            - UIFontGenericInfo(String, Array\<UIFontAliasInfo>, Array\<UIFontAdjustInfo>)
+        - class UIFontFallbackGroupInfo
+            - let fontSetName
+            - let fallback
+            - UIFontFallbackGroupInfo(String, Array\<UIFontFallbackInfo>)
+        - class UIFontAliasInfo
+            - let name
+            - let weight
+            - UIFontAliasInfo(String, UInt32)
+        - class UIFontAdjustInfo
+            - let weight
+            - let to
+            - UIFontAdjustInfo(UInt32, UInt32)
+        - class UIFontFallbackInfo
+            - let language
+            - let family
+            - UIFontFallbackInfo(String, String)
+        - 示例代码
+            - 示例1（注册自定义字体）
+            - 示例2（获取系统字体列表）
+            - 示例3（获取字体详细信息）
+            - 示例4（获取系统的UI字体配置）
+                - [ohos.matrix4（矩阵变换）](source_zh_cn/arkui-cj/cj-apis-matrix4.md)
+    API索引列表:
+    - ohos.matrix4（矩阵变换）
+        - 导入模块
+                import kit.UIKit.*
+        - class Matrix4
+            - static func initialize(Array\<Float64>)
+            - static func identity()
+        - class Matrix4Transit
+            - var id
+            - init(Int64)
+            - func combine(Matrix4Transit)
+            - func copy()
+            - func invert()
+            - func rotate(RotateOption)
+            - func scale(ScaleOption)
+            - func setPolyToPoly(PolyToPolyOptions)
+            - func skew(Float32, Float32)
+            - func transformPoint(VArray\<Float64,$2>)
+            - func translate(TranslateOption)
+        - class Point
+            - let x
+            - let y
+            - init(Float64, Float64)
+        - class PolyToPolyOptions
+            - let src
+            - let srcIndex
+            - let dst
+            - let dstIndex
+            - let pointCount
+            - init(Array\<Point>, Int32, Array\<Point>, Int32, Int32)
+        - class RotateOption
+            - let x
+            - let y
+            - let z
+            - let angle
+            - let centerX
+            - let centerY
+            - init(Float32, Float32, Float32, Float32, Float32, Float32)
+        - class ScaleOption
+            - let x
+            - let y
+            - let z
+            - let centerX
+            - let centerY
+            - init(Float32, Float32, Float32, Float32, Float32)
+        - class TranslateOption
+            - let x
+            - let y
+            - let z
+            - init(Float32, Float32, Float32)
+        - 示例代码
+            - 示例1（创建矩阵）
+            - 示例2（组合效果）
+            - 示例3（旋转效果）
+            - 示例4（倾斜效果）
+            - 示例5（坐标点转换效果）
+            - 示例6（映射效果）
+                - [ohos.measure（文本计算）](source_zh_cn/arkui-cj/cj-apis-measure.md)
+    API索引列表:
+    - ohos.measure（文本计算）
+        - 导入模块
+                import kit.UIKit.*
+        - class Measure
+            - static func MeasureText(MeasureOptions)
+            - static func MeasureTextSize(MeasureOptions)
+        - class MeasureOptions
+            - init(String, FontWeight, String, ?Length, ?Length, ?Length, ?Length, ?Length, ?Length, UInt32, TextAlign, FontStyle, TextOverflow, TextCase, WordBreak)
+        - struct Size
+            - let width
+            - let height
+            - Size(Float64, Float64)
+        - 示例代码
+            - 示例1（计算文本单行布局下的宽度）
+            - 示例2（计算文本单行布局下的宽度和高度）
+                - [ohos.prompt_action（弹窗）](source_zh_cn/arkui-cj/cj-apis-promptaction.md)
+    API索引列表:
+    - ohos.prompt_action（弹窗）
+        - 导入模块
+                import kit.UIKit.*
+        - class PromptAction
+            - static func showToast(String, Int32, String, ToastShowMode)
+            - static func showToast(ShowToastOptions)
+            - static func showDialog(String, String, Array\<ButtonInfo>, ShowDialogCallBack)
+            - static func showDialog(ShowDialogOptions, ShowDialogCallBack)
+            - static func showActionMenu(String, Array\<ButtonInfo>, ShowActionMenuCallBack)
+            - static func showActionMenu(ActionMenuOptions, ShowActionMenuCallBack)
+            - static func openCustomDialog(CustomDialogOptions, (Int32) -> Unit)
+            - static func openCustomDialogWithOption(CustomDialogOptions, (Int32) -> Unit)
+            - static func closeCustomDialog(Int32)
+        - class ActionMenuOptions
+            - let title
+            - let buttons
+            - let showInSubWindow
+            - let isModal
+            - ActionMenuOptions(String, Array\<ButtonInfo>, Bool, Bool)
+        - class BaseDialogOptions
+            - let maskRect
+            - let alignment
+            - let offset
+            - let isModal
+            - let showInSubWindow
+            - let maskColor
+            - let transition
+            - let onDidAppear
+            - let onDidDisappear
+            - let onWillAppear
+            - let onWillDisappear
+            - let keyboardAvoidMode
+            - let enableHoverMode
+            - let hoverModeArea
+            - BaseDialogOptions(Rectangle, DialogAlignment, Offset, Bool, Bool, Color, TransitionEffect, () -> Unit, () -> Unit, () -> Unit, () -> Unit, KeyboardAvoidMode, Bool, HoverModeAreaType)
+        - class CustomDialogOptions
+            - let builder
+            - let backgroundColor
+            - let cornerRadius
+            - let borderWidth
+            - let borderColor
+            - let borderStyle
+            - let borderEdgeStyle
+            - let width
+            - let height
+            - let shadowOption
+            - let shadowStyle
+            - let backgroundBlurStyle
+            - init(Rectangle, DialogAlignment, Offset, Bool, Bool, ()-> Unit)
+            - init(Rectangle, DialogAlignment, Offset, Bool, Bool, () -> Unit, Bool, Color, TransitionEffect, () -> Unit, () -> Unit, () -> Unit, KeyboardAvoidMode, Bool, HoverModeAreaType, () -> Unit, Color, BorderRadiuses, EdgeWidths, EdgeColor, Option\<BorderStyle>, Option\<EdgeStyles>, Length, Length, Option\<ShadowOptions>, Option\<ShadowStyle>, BlurStyle)
+            - init()
+        - class ShowDialogOptions
+            - let title
+            - let message
+            - let buttons
+            - let alignment
+            - let offset
+            - let maskRect
+            - let showInSubWindow
+            - let isModal
+            - let backgroundColor
+            - let backgroundBlurStyle
+            - let shadowOption
+            - let shadowStyle
+            - let enableHoverMode
+            - let hoverModeArea
+            - ShowDialogOptions(String, String, Array\<ButtonInfo>, DialogAlignment, Offset, Rectangle, Bool, Bool, Color, BlurStyle, Option\<ShadowOptions>, Option\<ShadowStyle>, Bool, HoverModeAreaType)
+        - class ShowToastOptions
+            - let message
+            - let duration
+            - let bottom
+            - let showMode
+            - let alignment
+            - let offset
+            - let backgroundColor
+            - let textColor
+            - let backgroundBlurStyle
+            - let shadowOption
+            - let shadowStyle
+            - let enableHoverMode
+            - let hoverModeArea
+            - ShowToastOptions(String, UInt32, String, ToastShowMode, Alignment, Offset, Color, Color, BlurStyle, Option\<ShadowOptions>, Option\<ShadowStyle>, Bool, HoverModeAreaType)
+        - class ButtonInfo
+            - let color
+            - let primary
+            - let text
+            - init(String, UInt32, Bool)
+            - init(String, Color, Bool)
+        - class EdgeColor
+            - var bottom
+            - var left
+            - var right
+            - var top
+            - init(Color, Color, Color, Color)
+        - enum HoverModeAreaType
+            - BOTTOM_SCREEN
+            - TOP_SCREEN
+        - enum KeyboardAvoidMode
+            - DEFAULT
+            - NONE
+        - enum ShadowStyle
+            - OUTER_DEFAULT_LG
+            - OUTER_DEFAULT_MD
+            - OUTER_DEFAULT_SM
+            - OUTER_DEFAULT_XS
+            - OUTER_FLOATING_MD
+            - OUTER_FLOATING_SM
+        - enum ToastShowMode
+            - Default
+            - TopMost
+        - type ShowActionMenuCallBack
+        - type ShowDialogCallBack
+        - 示例代码
+            - 示例1（创建并显示文本框）
+            - 示例2（创建并显示对话框）
+            - 示例3（创建并显示操作菜单）
+            - 示例4（打开和关闭自定义弹窗）
+                - [ohos.router（页面路由）](source_zh_cn/arkui-cj/cj-apis-router.md)
+    API索引列表:
+    - ohos.router（页面路由）
+        - 导入模块
+                import kit.UIKit.*
+        - class Router
+            - static func back(String, String)
+            - static func back()
+            - static func back(Int32, String)
+            - static func clear()
+            - static func getLength()
+            - static func getParams()
+            - static func getState()
+            - static func getStateByIndex(Int32)
+            - static func getStateByUrl(String)
+            - static func hideAlertBeforeBackPage()
+            - static func push(String, String)
+            - static func pushUrl(String, String, ((Option\<Int32>) -> Unit))
+            - static func pushUrl(String, String, RouterMode, ((Option\<Int32>) -> Unit))
+            - static func replaceUrl(String, String, ((Option\<Int32>) -> Unit))
+            - static func replaceUrl(String, String, RouterMode, ((Option\<Int32>) -> Unit))
+            - static func showAlertBeforeBackPage(String, ((Option\<Int32>) -> Unit))
+        - class RouterState
+            - var index
+            - var name
+            - var params
+            - var path
+            - RouterState(Int32, String, String, String)
+        - enum RouterMode
+            - Single
+            - Standard
+        - 示例代码
+            - 示例1（页面跳转）
+            - [窗口管理]()
+                - [ohos.window（窗口）](source_zh_cn/arkui-cj/cj-apis-window.md)
+    API索引列表:
+    - ohos.window（窗口）
+        - 导入模块
+                import kit.ArkUI.*
+        - func createWindow(Configuration)
+        - func findWindow(String)
+        - func getLastWindow(StageContext)
+        - func shiftAppWindowFocus(Int32, Int32)
+        - class Window
+            - func createSubWindowWithOptions(String, SubWindowOptions)
+            - func destroyWindow()
+            - func disableLandscapeMultiWindow()
+            - func enableLandscapeMultiWindow()
+            - func getImmersiveModeEnabledState()
+            - func getPreferredOrientation()
+            - func getTitleButtonRect()
+            - func getWindowAvoidArea(AvoidAreaType)
+            - func getWindowColorSpace()
+            - func getWindowDecorHeight()
+            - func getWindowLimits()
+            - func getWindowProperties()
+            - func getWindowStatus()
+            - func getWindowSystemBarProperties()
+            - func isFocused()
+            - func isWindowShowing()
+            - func isWindowSupportWideGamut()
+            - func keepKeyboardOnFocus(Bool)
+            - func maximize(MaximizePresentation)
+            - func minimize()
+            - func moveWindowTo(Int32, Int32)
+            - func off("String")
+            - func off(WindowCallbackType, Callback1Argument\<Size>)
+            - func off(WindowCallbackType, Callback1Argument\<AvoidAreaOptions>)
+            - func off(WindowCallbackType, Callback1Argument\<UInt32>)
+            - func off(WindowCallbackType, Callback0Argument)
+            - func off(WindowCallbackType, Callback1Argument\<WindowEventType>)
+            - func off(WindowCallbackType, Callback1Argument\<Bool>)
+            - func off(WindowCallbackType, Callback1Argument\<WindowStatusType>)
+            - func off(WindowCallbackType, Callback1Argument\<TitleButtonRect>)
+            - func off(WindowCallbackType, Callback1Argument\<RectChangeOptions>)
+            - func off(WindowCallbackType)
+            - func on(String, Callback1Argument\<UInt32>)
+            - func on(WindowCallbackType, Callback1Argument\<Size>)
+            - func on(WindowCallbackType, Callback1Argument\<AvoidAreaOptions>)
+            - func on(WindowCallbackType, Callback1Argument\<UInt32>)
+            - func on(WindowCallbackType, Callback0Argument)
+            - func on(WindowCallbackType, Int64, Callback0Argument)
+            - func on(WindowCallbackType, Callback1Argument\<WindowEventType>)
+            - func on(WindowCallbackType, Callback1Argument\<Bool>)
+            - func on(WindowCallbackType, Callback1Argument\<WindowStatusType>)
+            - func on(WindowCallbackType, Callback1Argument\<TitleButtonRect>)
+            - func on(WindowCallbackType, Callback1Argument\<RectChangeOptions>)
+            - func recover()
+            - func resetAspectRatio()
+            - func resize(UInt32, UInt32)
+            - func setAspectRatio(Float64)
+            - func setDialogBackGestureEnabled(Bool)
+            - func setImmersiveModeEnabledState(Bool)
+            - func setPreferredOrientation(Orientation)
+            - func setSpecificSystemBarEnabled(SpecificSystemBar, Bool, Bool)
+            - func setSubWindowModal(Bool)
+            - func setWindowBackgroundColor(String)
+            - func setWindowBrightness(Float32)
+            - func setWindowColorSpace(ColorSpace)
+            - func setWindowDecorHeight(Int32)
+            - func setWindowDecorVisible(Bool)
+            - func setWindowFocusable(Bool)
+            - func setWindowGrayScale(Float32)
+            - func setWindowKeepScreenOn(Bool)
+            - func setWindowLayoutFullScreen(Bool)
+            - func setWindowLimits(WindowLimits)
+            - func setWindowPrivacyMode(Bool)
+            - func setWindowSystemBarEnable(Array\<String>)
+            - func setWindowSystemBarProperties(SystemBarProperties)
+            - func setWindowTouchable(Bool)
+            - func showWindow()
+            - func snapshot()
+        - class WindowStage
+            - func createSubWindow(String)
+            - func createSubWindowWithOptions(String, SubWindowOptions)
+            - func getMainWindow()
+            - func getSubWindow()
+            - func loadContent(String)
+            - func off(WindowCallbackType, ?Callback1Argument\<WindowStageEventType>)
+            - func on(WindowCallbackType, Callback1Argument\<WindowStageEventType>)
+            - func setDefaultDensityEnabled(Bool)
+        - class AvoidArea
+            - var bottomRect
+            - var leftRect
+            - var rightRect
+            - var topRect
+            - var visible
+            - AvoidArea(Bool, Rect, Rect, Rect, Rect)
+        - class AvoidAreaOptions
+            - var areaType
+            - var area
+            - AvoidAreaOptions(AvoidAreaType, AvoidArea)
+        - class Configuration
+            - let name
+            - let windowType
+            - let ctx
+            - var displayId
+            - var parentId
+            - var decorEnabled
+            - var title
+            - Configuration(String, WindowType, StageContext, Int64, Int64, Bool, String)
+        - class Rect
+            - var left
+            - var top
+            - var width
+            - var height
+            - Rect(Int32, Int32, UInt32, UInt32)
+        - class RectChangeOptions
+            - var rect
+            - var reason
+            - RectChangeOptions(Rect, RectChangeReason)
+        - class Size
+            - var width
+            - var height
+            - Size(UInt32, UInt32)
+        - class SubWindowOptions
+            - let title
+            - let decorEnabled
+            - var isModal
+            - SubWindowOptions(String, Bool, Bool)
+        - class SystemBarProperties
+            - var statusBarColor
+            - var isStatusBarLightIcon
+            - var statusBarContentColor
+            - var navigationBarColor
+            - var isNavigationBarLightIcon
+            - var navigationBarContentColor
+            - var enableStatusBarAnimation
+            - var enableNavigationBarAnimation
+            - SystemBarProperties(String, Bool, String, String, Bool, String, Bool, Bool)
+        - class TitleButtonRect
+            - var right
+            - var top
+            - var width
+            - var height
+            - TitleButtonRect(Int32, Int32, UInt32, UInt32)
+        - class WindowLimits
+            - var maxWidth
+            - var maxHeight
+            - var minWidth
+            - var minHeight
+            - WindowLimits(UInt32, UInt32, UInt32, UInt32)
+        - class WindowProperties
+            - let windowRect
+            - let drawableRect
+            - let winType
+            - let isFullScreen
+            - let isLayoutFullScreen
+            - let focusable
+            - let touchable
+            - let brightness
+            - let isKeepScreenOn
+            - let isPrivacyMode
+            - let isRoundCorner
+            - let isTransparent
+            - let id
+            - WindowProperties(Rect, Rect, WindowType, Bool, Bool, Bool, Bool, Float32, Bool, Bool, Bool, Bool, UInt32)
+        - enum AvoidAreaType
+            - TYPE_SYSTEM
+            - TYPE_CUTOUT
+            - TYPE_SYSTEM_GESTURE
+            - TYPE_KEYBOARD
+            - TYPE_NAVIGATION_INDICATOR
+        - enum ColorSpace
+            - DEFAULT
+            - WIDE_GAMUT
+        - enum MaximizePresentation
+            - FOLLOW_APP_IMMERSIVE_SETTING
+            - EXIT_IMMERSIVE
+            - ENTER_IMMERSIVE
+        - enum Orientation
+            - UNSPECIFIED
+            - PORTRAIT
+            - LANDSCAPE
+            - PORTRAIT_INVERTED
+            - LANDSCAPE_INVERTED
+            - AUTO_ROTATION
+            - AUTO_ROTATION_PORTRAIT
+            - AUTO_ROTATION_LANDSCAPE
+            - AUTO_ROTATION_RESTRICTED
+            - AUTO_ROTATION_PORTRAIT_RESTRICTED
+            - AUTO_ROTATION_LANDSCAPE_RESTRICTED
+            - LOCKED
+            - AUTO_ROTATION_UNSPECIFIED
+            - USER_ROTATION_PORTRAIT
+            - USER_ROTATION_LANDSCAPE
+            - USER_ROTATION_PORTRAIT_INVERTED
+            - USER_ROTATION_LANDSCAPE_INVERTED
+            - FOLLOW_DESKTOP
+        - enum RectChangeReason
+            - UNDEFINED
+            - MAXIMIZE
+            - RECOVER
+            - MOVE
+            - DRAG
+            - DRAG_START
+            - DRAG_END
+        - enum SpecificSystemBar
+            - status
+            - navigation
+            - navigationIndicator
+        - enum WindowCallbackType
+            - WindowStageEvent
+            - WindowSizeChange
+            - WindowAvoidAreaChange
+            - KeyboardHeightChange
+            - TouchOutside
+            - WindowVisibilityChange
+            - NoInteractionDetected
+            - Screenshot
+            - DialogTargetTouch
+            - WindowEvent
+            - WindowStatusChange
+            - SubWindowClose
+            - WindowTitleButtonRectChange
+            - WindowRectChange
+        - enum WindowEventType
+            - WINDOW_SHOWN
+            - WINDOW_ACTIVE
+            - WINDOW_INACTIVE
+            - WINDOW_HIDDEN
+            - WINDOW_DESTROYED
+        - enum WindowStageEventType
+            - SHOWN
+            - ACTIVE
+            - INACTIVE
+            - HIDDEN
+            - RESUMED
+            - PAUSED
+        - enum WindowStatusType
+            - UNDEFINED
+            - FULL_SCREEN
+            - MAXIMIZE
+            - MINIMIZE
+            - FLOATING
+            - SPLIT_SCREEN
+        - enum WindowType
+            - TYPE_APP
+            - TYPE_SYSTEM_ALERT
+            - TYPE_FLOAT
+            - TYPE_DIALOG
+        - 示例代码
+            - 示例1（获取主窗口设置不可触属性）
+            - 示例2（主窗口监听键盘高度变化事件）
+            - 示例3（设置子窗口回调函数）
+            - [屏幕管理]()
+                - [ohos.display（屏幕属性）](source_zh_cn/arkui-cj/cj-apis-display.md)
+    API索引列表:
+    - ohos.display(屏幕属性)
+        - 导入模块
+                import ohos.display.*
+        - func getAllDisplayPhysicalResolution()
+        - func getAllDisplays()
+        - func getCurrentFoldCreaseRegion()
+        - func getDefaultDisplaySync()
+        - func getFoldDisplayMode()
+        - func getFoldStatus()
+        - func hasPrivateWindow(UInt32)
+        - func isCaptured()
+        - func isFoldable()
+        - func off(ListenerType)
+        - func off(ListenerType, Callback1Argument\<UInt64>)
+        - func off(ListenerType, Callback1Argument\<FoldStatus>)
+        - func off(ListenerType, Callback1Argument\<Array\<Float32>>)
+        - func off(ListenerType, Callback1Argument\<Bool>)
+        - func off(ListenerType, Callback1Argument\<FoldDisplayMode>)
+        - func on(ListenerType, Callback1Argument\<UInt64>)
+        - func on(ListenerType, Callback1Argument\<FoldStatus>)
+        - func on(ListenerType, Callback1Argument\<Array\<Float32>>)
+        - func on(ListenerType, Callback1Argument\<Bool>)
+        - func on(ListenerType, Callback1Argument\<FoldDisplayMode>)
+        - func setFoldDisplayMode(FoldDisplayMode)
+        - class Display
+            - prop alive
+            - prop availableHeight
+            - prop availableWidth
+            - prop colorSpaces
+            - prop densityDPI
+            - prop densityPixels
+            - prop hdrFormats
+            - prop height
+            - prop id
+            - prop name
+            - prop orientation
+            - prop refreshRate
+            - prop rotation
+            - prop scaledDensity
+            - prop state
+            - prop width
+            - prop xDPI
+            - prop yDPI
+            - func getAvailableArea()
+            - func getCutoutInfo()
+        - class CutoutInfo
+            - let boudingRects
+            - let waterfallDisplayAreaRects
+            - CutoutInfo(Array\<Rect>,WaterfallDisplayAreaRects)
+        - class Rect
+            - var height
+            - var left
+            - var top
+            - var width
+            - Rect(Int32,Int32,Int32,Int32)
+        - class DisplayPhysicalResolution
+            - let foldDisplayMode
+            - let physicalWidth
+            - let physicalHeight
+            - DisplayPhysicalResolution(FoldDisplayMode,UInt32,UInt32)
+        - class FoldCreaseRegion
+            - let creaseRects
+            - let displayId
+            - FoldCreaseRegion(UInt32,Array&lt;Rect>)
+        - class WaterfallDisplayAreaRects
+            - let bottom
+            - let left
+            - let right
+            - let top
+            - WaterfallDisplayAreaRects(Rect,Rect,Rect,Rect)
+        - enum Orientation
+            - LANDSCAPE
+            - LANDSCAPE_INVERTED
+            - PORTRAIT
+            - PORTRAIT_INVERTED
+        - enum DisplayState
+            - STATE_DOZE
+            - STATE_DOZE_SUSPEND
+            - STATE_OFF
+            - STATE_ON
+            - STATE_ON_SUSPEND
+            - STATE_UNKNOWN
+            - STATE_VR
+        - enum FoldDisplayMode
+            - FOLD_DISPLAY_MODE_COORDINATION
+            - FOLD_DISPLAY_MODE_FULL
+            - FOLD_DISPLAY_MODE_MAIN
+            - FOLD_DISPLAY_MODE_SUB
+            - FOLD_DISPLAY_MODE_UNKNOWN
+        - enum FoldStatus
+            - FOLD_STATUS_EXPANDED
+            - FOLD_STATUS_FOLDED
+            - FOLD_STATUS_HALF_FOLDED
+            - FOLD_STATUS_UNKNOWN
+        - enum HDRFormat
+            - IMAGE_HDR_ISO_DUAL
+            - IMAGE_HDR_ISO_SINGLE
+            - IMAGE_HDR_VIVID_DUAL
+            - IMAGE_HDR_VIVID_SINGLE
+            - NONE
+            - VIDEO_HDR10
+            - VIDEO_HLG
+            - VIDEO_HDR_VIVID
+        - enum ListenerType
+            - LISTNER_TYPE_ADD
+            - LISTNER_TYPE_AVAILABLE_AREA_CHANGE
+            - LISTNER_TYPE_CAPTURE_STATUS_CHANGE
+            - LISTNER_TYPE_CHANGE
+            - LISTNER_TYPE_FOLD_ANGLE_CHANGE
+            - LISTNER_TYPE_FOLD_DISPLAY_MODE_CHANGE
+            - LISTNER_TYPE_FOLD_STATUS_CHANGE
+            - LISTNER_TYPE_REMOVE
+            - func toString()
+                - [ohos.screenshot（屏幕截图）](source_zh_cn/arkui-cj/cj-apis-screenshot.md)
+    API索引列表:
+    - ohos.screenshot（屏幕截图）
+        - 导入模块
+                import kit.ArkUI.*
+        - func capture(CaptureOption)
+        - func pick()
+        - class CaptureOption
+            - var displayId
+            - CaptureOption(Int32)
+        - class PickInfo
+            - let pickRect
+            - let pixelMap
+            - PickInfo(Rect, PixelMap)
+        - class Rect
+            - var left
+            - var top
+            - var width
+            - var height
+            - Rect(Int32, Int32, UInt32, UInt32)
+        - 示例代码
+            - 示例1（使用 capture() 进行截图）
+            - 示例2（使用 pick() 进行截图）
+        - [仓颉组件]()
+            - [组件通用信息]()
+                - [通用事件]()
+                    - [点击事件](source_zh_cn/arkui-cj/cj-universal-event-click.md)
+    API索引列表:
+    - 点击事件
+        - func onClick((ClickEvent) -> Unit)
+        - 基础类型定义
+            - class ClickEvent
+                - var displayX
+                - var displayY
+                - var source
+                - var target
+                - var timestamp
+                - var windowX
+                - var windowY
+                - var x
+                - var y
+                - ClickEvent(Float64, Float64, Int64, SourceType, EventTarget, Float64, Float64, Float64, Float64)
+            - class EventTarget
+                - var area
+                - EventTarget(Area)
+        - 示例代码
+                    - [触摸事件](source_zh_cn/arkui-cj/cj-universal-event-touch.md)
+    API索引列表:
+    - 触摸事件
+        - 权限列表
+                无
+        - func onTouch((TouchEvent)->Unit)
+        - 基础类型定义
+            - class TouchEvent
+                - var isStopPropagation
+                - var eventType
+                - var touches
+                - var changedTouches
+                - var timestamp
+                - var target
+                - var source
+                - TouchEvent(TouchType, ArrayList\<TouchObject>, ArrayList\<TouchObject>, Int64, EventTarget, SourceType)
+            - class TouchObject
+                - var touchType
+                - var id
+                - var screenX
+                - var screenY
+                - var x
+                - var y
+                - TouchObject(TouchType, Int32, Float64, Float64, Float64, Float64)
+        - 示例代码
+                    - [挂载卸载事件](source_zh_cn/arkui-cj/cj-universal-event-appear.md)
+    API索引列表:
+    - 挂载卸载事件
+        - func onAppear(() -> Unit)
+        - func onDisAppear(() -> Unit)
+        - 示例代码
+                    - [拖拽事件](source_zh_cn/arkui-cj/cj-universal-event-drag.md)
+    API索引列表:
+    - 拖拽事件
+        - func onDragStart((DragInfo) -> DragItemInfo)
+        - func onDragStart((DragInfo) -> (() -> Unit))
+        - func onDragStart((DragInfo) -> Unit)
+        - func onDragStart((DragEvent,?String) -> DragItemInfo)
+        - func onDragStart((DragEvent,?String) -> (() -> Unit))
+        - func onDragStart((DragEvent,?String) -> Unit)
+        - func onDragEnter((DragInfo) -> Unit)
+        - func onDragEnter((DragEvent,?String) -> Unit)
+        - func onDragMove((DragEvent,?String) -> Unit)
+        - func onDragMove((DragInfo) -> Unit)
+        - func onDragLeave((DragEvent,?String) -> Unit)
+        - func onDragLeave((DragInfo) -> Unit)
+        - func onDrop((DragEvent,?String) -> Unit)
+        - func onDrop((DragInfo) -> Unit)
+        - func onDragEnd((DragEvent,?String) -> Unit)
+        - func onPreDrag((PreDragStatus) -> Unit)
+        - extraParams说明
+        - 基础类型定义
+            - class DragEvent
+                - let dragBehavior
+                - let useCustomDropAnimation
+                - func getDisplayX()
+                - func getDisplayY()
+                - func getModifierKeyState(Array\<String>)
+                - func getPreviewRect()
+                - func getResult()
+                - func getVelocity()
+                - func getVelocityX()
+                - func getVelocityY()
+                - func getWindowX()
+                - func getWindowY()
+                - func setResult(DragResult)
+            - class DragInfo
+                - var dragEvent
+                - var extraParams
+                - DragInfo(String, Position)
+            - struct DragItemInfo
+                - var builder
+                - var extraInfo
+                - var pixelMap
+                - DragItemInfo(Option\<PixelMap>, Option\<() -> Unit>, String)
+            - enum DragBehavior
+                - COPY
+                - MOVE
+                - UNKNOWN
+            - enum DragResult
+                - DRAG_CANCELED
+                - DRAG_DEFAULT
+                - DRAG_FAILED
+                - DRAG_SUCCESSFUL
+                - DROP_DISABLED
+                - DROP_ENABLED
+            - enum PreDragStatus
+                - ACTION_CANCELED_BEFORE_DRAG
+                - ACTION_DETECTING_STATUS
+                - PREVIEW_LANDING_FINISHED
+                - PREVIEW_LANDING_STARTED
+                - PREVIEW_LIFT_FINISHED
+                - PREVIEW_LIFT_STARTED
+                - READY_TO_TRIGGER_DRAG_ACTION
+        - 示例1
+        - 示例2
+                    - [按键事件](source_zh_cn/arkui-cj/cj-universal-event-key.md)
+    API索引列表:
+    - 按键事件
+        - 权限列表
+                无
+        - func onKeyEvent((KeyEvent)->Unit)
+        - 基础类型定义
+            - class KeyEvent
+                - var isStopPropagation
+                - var keyText
+                - var keyType
+                - var keyCode
+                - var keySource
+                - var metaKey
+                - var deviceId
+                - var timestamp
+                - KeyEvent(String, KeyType, Int32, KeySource, Int32, Int64, Int64)
+        - 示例代码
+                    - [焦点事件](source_zh_cn/arkui-cj/cj-universal-event-focus.md)
+    API索引列表:
+    - 焦点事件
+        - func onFocus(() -> Unit)
+        - func onBlur(() -> Unit)
+        - 示例代码
+                    - [鼠标事件](source_zh_cn/arkui-cj/cj-universal-event-mouse.md)
+    API索引列表:
+    - 鼠标事件
+        - 权限列表
+                无
+        - func onMouse(MouseEvent)
+        - 基础类型定义
+            - class MouseEvent
+                - var timestamp
+                - var screenX
+                - var screenY
+                - var x
+                - var y
+                - var button
+                - var action
+                - MouseEvent(Int64, Float64, Float64, Float64, Float64, MouseButton, MouseAction)
+        - 示例代码
+                    - [悬浮事件](source_zh_cn/arkui-cj/cj-universal-event-hover.md)
+    API索引列表:
+    - 悬浮事件
+        - func onHover((Bool) -> Unit)
+                    - [组件区域变化事件](source_zh_cn/arkui-cj/cj-universal-event-areachange.md)
+    API索引列表:
+    - 组件区域变化事件
+        - func onAreaChange((Area, Area) -> Unit)
+        - 示例代码
+                    - [组件可见区域变化事件](source_zh_cn/arkui-cj/cj-universal-event-visibleareachange.md)
+    API索引列表:
+    - 组件可见区域变化事件
+        - func onVisibleAreaChange(Array\<Float64>, (Bool, Float64)->Unit)
+        - 示例代码
+                    - [组件快捷键事件](source_zh_cn/arkui-cj/cj-universal-event-keyboardshortcut.md)
+    API索引列表:
+    - 组件快捷键事件
+        - func keyboardShortcut(String, Array\<ModifierKey>, () -> Unit)
+        - func keyboardShortcut(FunctionKey, Array\<ModifierKey>, () -> Unit)
+        - func keyboardShortcut(String, Array\<ModifierKey>)
+        - func keyboardShortcut(FunctionKey, Array\<ModifierKey>)
+        - 快捷键使用注意事项
+        - 禁止绑定的系统快捷键
+        - 系统已存在的按键事件
+        - 示例代码
+                    - [自定义事件分发](source_zh_cn/arkui-cj/cj-universal-event-childtouchtest.md)
+    API索引列表:
+    - 自定义事件分发
+        - func onChildTouchTest((Array\<TouchTestInfo>) -> TouchResult)
+        - 基础类型定义
+            - class TouchTestInfo
+                - let id
+                - let parentX
+                - let parentY
+                - let rect
+                - let windowX
+                - let windowY
+                - let x
+                - let y
+                - init(Float32, Float32, Float32, Float32, Float32, Float32, RectResult, String)
+            - class TouchResult
+                - init(TouchTestStrategy, String)
+                - init(CTouchResult)
+            - enum TouchTestStrategy
+                - DEFAULT
+                - FORWARD
+                - FORWARD_COMPETITION
+        - 示例代码
+            - 示例1（设置事件派发策略为FORWARD_COMPETITION）
+            - 示例2（设置事件派发策略为FORWARD）
+            - 示例3（设置事件派发策略为DEFAULT）
+                - [通用属性]()
+                    - [尺寸设置](source_zh_cn/arkui-cj/cj-universal-attribute-size.md)
+    API索引列表:
+    - 尺寸设置
+        - func width(Length)
+        - func width\<T>(Option\<T>)
+        - func height(Length)
+        - func height\<T>(Option\<T>)
+        - func size(Length, Length)
+        - func padding(Length)
+        - func padding(Length, Length, Length, Length)
+        - func margin(Length)
+        - func margin(Length, Length, Length, Length)
+        - func layoutWeight(Int32)
+        - func constraintSize(Length, Length, Length, Length)
+        - 示例代码
+                    - [位置设置](source_zh_cn/arkui-cj/cj-universal-attribute-location.md)
+    API索引列表:
+    - 位置设置
+        - func align(Alignment)
+        - func alignRules(AlignRuleOption)
+        - func alignRules(LocalizedAlignRuleOptions)
+        - func chainMode(Axis, ChainStyle)
+        - func direction(Direction)
+        - func markAnchor(Length, Length)
+        - func offset(Length, Length)
+        - func position(Length, Length)
+        - 基础类型定义
+            - class AlignRuleOption
+                - var bias
+                - var bottom
+                - var center
+                - var left
+                - var middle
+                - var right
+                - var top
+                - AlignRuleOption(?HorizontalAnchor, ?HorizontalAnchor, ?HorizontalAnchor, ?VerticalAnchor, ?VerticalAnchor, ?VerticalAnchor, ?Bias)
+            - class Bias
+                - var horizontal
+                - var vertical
+                - Bias(?Float32, ?Float32)
+            - class HorizontalAnchor
+                - var align
+                - var anchor
+                - HorizontalAnchor(String, HorizontalAlign)
+            - class LocalizedAlignRuleOptions
+                - var bias
+                - var bottom
+                - var center
+                - var end
+                - var middle
+                - var start
+                - var top
+                - LocalizedAlignRuleOptions(?LocalizedHorizontalAlignParam, ?LocalizedHorizontalAlignParam, ?LocalizedHorizontalAlignParam, ?LocalizedVerticalAlignParam, ?LocalizedVerticalAlignParam, ?LocalizedVerticalAlignParam, ?Bias)
+            - class LocalizedHorizontalAlignParam
+                - var align
+                - var anchor
+            - class LocalizedVerticalAlignParam
+                - var align
+                - var anchor
+                - LocalizedVerticalAlignParam(String, VerticalAlign)
+            - class VerticalAnchor
+                - var align
+                - var anchor
+                - VerticalAnchor(String, VerticalAlign)
+            - enum ChainStyle
+                - PACKED
+                - SPREAD
+                - SPREAD_INSIDE
+        - 示例代码
+            - 示例1（对齐方式和主轴方向上的布局）
+            - 示例2（位置偏移）
+                    - [布局约束](source_zh_cn/arkui-cj/cj-universal-attribute-layoutconstraints.md)
+    API索引列表:
+    - 布局约束
+        - func aspectRatio(Float64)
+        - func aspectRatio(Int64)
+        - func displayPriority(Int32)
+        - 示例代码
+            - 示例1（设置组件宽高比）
+            - 示例2（设置组件显示优先级）
+                    - [组件级像素取整](source_zh_cn/arkui-cj/cj-universal-attribute-pixelround.md)
+    API索引列表:
+    - 组件级像素取整
+        - func pixelRound(PixelRoundPolicy)
+        - 基础类型定义
+            - class PixelRoundPolicy
+                - let start
+                - let top
+                - let end
+                - let bottom
+            - PixelRoundPolicy(PixelRoundCalcPolicy, PixelRoundCalcPolicy, PixelRoundCalcPolicy, PixelRoundCalcPolicy)
+        - 示例代码
+                    - [Flex布局](source_zh_cn/arkui-cj/cj-universal-attribute-flexlayout.md)
+    API索引列表:
+    - Flex 布局
+        - func flexBasis(Length)
+        - func flexGrow(Float64)
+        - func flexGrow(Int64)
+        - func flexShrink(Float64)
+        - func flexShrink(Int64)
+        - func alignSelf(ItemAlign)
+        - 示例代码
+                    - [边框设置](source_zh_cn/arkui-cj/cj-universal-attribute-border.md)
+    API索引列表:
+    - 边框设置
+        - func border(Length, ResourceColor, Length, BorderStyle)
+        - func borderStyle(BorderStyle)
+        - func borderWidth(Length)
+        - func borderWidth(EdgeWidths)
+        - func borderColor(ResourceColor)
+        - func borderRadius(Length)
+        - func borderRadius(Length, Length, Length, Length)
+        - 基础类型定义
+            - class LocalizedEdgeWidths
+                - var bottom
+                - var end
+                - var start
+                - var top
+                - init(Option\<Length>, Option\<Length>, Option\<Length>, Option\<Length>)
+            - class EdgeColors
+                - var bottom
+                - var left
+                - var right
+                - var top
+                - init(Option\<ResourceColor>, Option\<ResourceColor>，Option\<ResourceColor>, Option\<ResourceColor>)
+            - class LocalizedEdgeColors
+                - var bottom
+                - var end
+                - var start
+                - var top
+                - init(Option\<ResourceColor>, Option\<ResourceColor>, Option\<ResourceColor>, Option\<ResourceColor>)
+            - class LocalizedBorderRadiuses
+                - var bottomEnd
+                - var bottomStart
+                - var topEnd
+                - var topStart
+                - init(Option\<Length>, Option\<Length>, Option\<Length>, Option\<Length>)
+            - class EdgeWidths
+                - var top
+                - var right
+                - var left
+                - var bottom
+                - init(left!: Length = 0.vp, right!: Length = 0.vp, top!: Length = 0.vp, bottom!: Length = 0.vp)
+        - 示例代码
+                    - [图片边框设置](source_zh_cn/arkui-cj/cj-universal-attribute-imageborder.md)
+    API索引列表:
+    - 图片边框设置
+        - func borderImage(BorderImageOption)
+        - 基础类型定义
+            - interface BorderImageOptionSourceType
+            - interface LengthEdgeWidthsType
+            - class BorderImageOption
+                - let source
+                - let slice
+                - let width
+                - let outset
+                - let repeat
+                - let fill
+                - BorderImageOption(BorderImageOptionSourceType, LengthEdgeWidthsType, LengthEdgeWidthsType, LengthEdgeWidthsType, RepeatMode, Bool)
+            - class LinearGradientOption
+                - let angle
+                - let direction
+                - let colors
+                - let repeating
+                - LinearGradientOption(Float64, GradientDirection, Array\<(Color, Float64)>, Bool)
+            - enum RepeatMode
+                - SPACE
+                - STRETCH
+                - REPEAT
+                - ROUND
+        - 示例代码
+            - 示例1（设置渐变色边框）
+            - 示例2（动态调整属性值）
+            - 示例3（使用LengthEdgeWidthsType类型值）
+                    - [背景设置](source_zh_cn/arkui-cj/cj-universal-attribute-background.md)
+    API索引列表:
+    - 背景设置
+        - func backdropBlur(Float64)
+        - func backgroundColor(ResourceColor)
+        - func backgroundImage(AppResource, ImageRepeat)
+        - func backgroundImage(String, ImageRepeat)
+        - func backgroundImageSize(ImageSize)
+        - func backgroundImageSize(Length, Length)
+        - func backgroundImagePosition(Length, Length)
+        - func backgroundImagePosition(Alignment)
+        - func BackgroundBlurStyle(BlurStyle, Option\<BackgroundBlurStyleOptions>)
+        - func backgroundImageResizable(EdgeWidths)
+        - func backgroundBrightness(Float64, Float64)
+        - func backgroundEffect(BackgroundEffectOptions)
+        - func background(() -> Unit, Alignment)
+        - 基础类型定义
+            - class BackgroundBlurStyleOptions
+                - let inactiveColor
+                - let policy
+                - init(ThemeColorMode, AdaptiveColor, BlurOptions, Float32, BlurStyleActivePolicy, ResourceColor)
+            - class BackgroundEffectOptions
+                - let adaptiveColor
+                - let blurOptions
+                - let brightness
+                - let color
+                - let inactiveColor
+                - let policy
+                - let radius
+                - let saturation
+                - init(AdaptiveColor, BlurOptions, Float64, Color, Color, BlurStyleActivePolicy, Float64, Float64)
+            - enum BlurStyle
+                - BACKGROUND_THIN
+                - BACKGROUND_REGULAR
+                - BACKGROUND_THICK
+                - BACKGROUND_ULTRA_THICK
+                - COMPONENT_ULTRA_THIN
+                - COMPONENT_THIN
+                - COMPONENT_REGULAR
+                - COMPONENT_THICK
+                - COMPONENT_ULTRA_THICK
+                - NONE
+                - Regular
+                - Thin
+                - Thick
+                - func getValue()
+            - enum BlurStyleActivePolicy
+                - ALWAYS_ACTIVE
+                - ALWAYS_INACTIVE
+                - FOLLOWS_WINDOW_ACTIVE_STATE
+                - getValue
+        - 示例代码
+                    - [透明度设置](source_zh_cn/arkui-cj/cj-universal-attribute-opacity.md)
+    API索引列表:
+    - 透明度设置
+        - func opacity(Float64)
+        - func opacity(Int64)
+        - 示例代码
+                    - [显隐控制](source_zh_cn/arkui-cj/cj-universal-attribute-visibility.md)
+    API索引列表:
+    - 显隐控制
+        - func visibility(Visibility)
+        - 示例代码
+                    - [禁用控制](source_zh_cn/arkui-cj/cj-universal-attribute-enable.md)
+    API索引列表:
+    - 禁用控制
+        - func enabled(Bool)
+        - 示例代码
+                    - [浮层](source_zh_cn/arkui-cj/cj-universal-attribute-overlay.md)
+    API索引列表:
+    - 浮层
+        - func overlay(String, Alignment, ContentOffset)
+        - 基础类型定义
+            - class ContentOffset
+                - var xOffset
+                - var yOffset
+                - init(Float64, Float64)
+                - init(Int64, Int64)
+        - 示例代码
+                    - [Z序控制](source_zh_cn/arkui-cj/cj-universal-attribute-zorder.md)
+    API索引列表:
+    - Z 序控制
+        - func zIndex(Int32)
+        - 示例代码
+            - 示例1（设置组件堆叠顺序）
+            - 示例2（动态修改zIndex属性）
+                    - [图形变换](source_zh_cn/arkui-cj/cj-universal-attribute-transform.md)
+    API索引列表:
+    - 图形变换
+        - func rotate(Float32, Float32, Float32, Float64, Length, Length)
+        - func rotateX(Float32)
+        - func rotateX(Int32)
+        - func rotateY(Float32)
+        - func rotateY(Int32)
+        - func rotate(Float32)
+        - func rotate(Int32)
+        - func scale(Float32)
+        - func scale(Int32)
+        - func scale(Float32, Float32, Float32, Length, Length)
+        - func scaleX(Float32)
+        - func scaleX(Int32)
+        - func scaleY(Float32)
+        - func scaleY(Int32)
+        - func transform(Matrix4Transit)
+        - func translate(Length)
+        - func translate(Length, Length, Length)
+        - func translateX(Int64)
+        - func translateX(Length)
+        - func translateY(Int64)
+        - func translateY(Length)
+        - 示例代码
+                    - [图像效果](source_zh_cn/arkui-cj/cj-universal-attribute-imageeffect.md)
+    API索引列表:
+    - 图像效果
+        - func blendMode(BlendMode, BlendApplyType)
+        - func blur(Float64)
+        - func blur(Int64)
+        - func brightness(Float64)
+        - func brightness(Int64)
+        - func colorBlend(ResourceColor)
+        - func contrast(Float64)
+        - func contrast(Int64)
+        - func freeze(Bool)
+        - func grayscale(Float64)
+        - func grayscale(Int64)
+        - func hueRotate(Float32)
+        - func hueRotate(Int32)
+        - func invert(Float64)
+        - func invert(Int64)
+        - func invert(Float64, Float64, Float64, Float64)
+        - func lightUpEffect(Float64)
+        - func linearGradientBlur(Float64, LinearGradientBlurOptions)
+        - func renderGroup(Bool)
+        - func pixelStretchEffect(Length, Length, Length, Length)
+        - func saturate(Float64)
+        - func saturate(Int64)
+        - func sepia(Float64)
+        - func sepia(Int64)
+        - func shadow(Float64, ResourceColor, Float64, Float64)
+        - func shadow(Int64, ResourceColor, Int64, Int64)
+        - func sphericalEffect(Float64)
+        - func systemBarEffect()
+        - func useShadowBatching(Bool)
+        - 基础类型定义
+            - class LinearGradientBlurOptions
+                - var direction
+                - var fractionStops
+                - LinearGradientBlurOptions(Array\<(Float64, Float64)>, GradientDirection)
+        - 示例代码
+            - 示例1（设置图片不同属性效果）
+            - 示例2（设置图片不同变化效果）
+                    - [形状裁剪](source_zh_cn/arkui-cj/cj-universal-attribute-shapclip.md)
+    API索引列表:
+    - 形状裁剪
+        - func clip(Bool)
+        - func clip(CircleShape)
+        - func clip(EllipseShape)
+        - func clip(RectShape)
+        - func clip(PathShape)
+        - func mask(CircleShape)
+        - func mask(EllipseShape)
+        - func mask(RectShape)
+        - func mask(PathShape)
+        - func mask(ProgressMask)
+        - 基础类型定义
+            - class ShapeAbstract
+                - func fill(ResourceColor)
+                - func height(Length)
+                - func offset(Length, Length)
+                - func size(Length, Length)
+                - func width(Length)
+            - class CircleShape
+                - init()
+                - init(length, length)
+            - class EllipseShape
+                - init()
+                - init(length, length)
+            - class RectShape
+                - init()
+                - init(Length，Length)
+                - func radiusWidth(Length)
+                - func radiusHeight(Length)
+                - func radius(Length)
+            - class PathShape
+                - init()
+                - init(String)
+                - init(Length, Length, String)
+            - class ProgressMask
+                - init(Float32, Float32, Color)
+                - func updateProgress(Float32)
+                - func updateColor(Color)
+                - func enableBreathingAnimation(Bool)
+        - 示例代码
+                    - [颜色渐变](source_zh_cn/arkui-cj/cj-universal-attribute-gradientcolor.md)
+    API索引列表:
+    - 颜色渐变
+        - func linearGradient(Option\<Float64>, GradientDirection, Array\<(Color,Float64)>, Bool)
+        - func sweepGradient((Length,Length), Float64, Float64, Float64, Array\<(Color,Float64)>, Bool)
+        - func radialGradient((Length,Length), Float64, Array\<(Color,Float64)>, Bool)
+        - func radialGradient((Length,Length), Length, Array\<(Color,Float64)>, Bool)
+        - 示例代码
+            - 示例1（颜色从右向左线性渐变）
+            - 示例2（颜色按旋转角度渐变）
+            - 示例3（颜色按径向渐变）
+                    - [Popup控制](source_zh_cn/arkui-cj/cj-universal-attribute-popup.md)
+    API索引列表:
+    - Popup控制
+        - func bindPopup(Bool, CustomPopupOptions)
+        - func bindPopup(Bool, PopupOptions)
+        - 基础类型定义
+            - class Action
+                - let value
+                - let action
+                - Action(String, () -> Unit)
+            - class CustomPopupOptions
+                - var arrowHeight
+                - var arrowOffset
+                - var arrowPointPosition
+                - var arrowWidth
+                - var autoCancel
+                - var backgroundBlurStyle
+                - var backgroundColor
+                - var builder
+                - var enableArrow
+                - var focusable
+                - var followTransformOfTarget
+                - var mask
+                - var maskColor
+                - var offset
+                - var onStateChange
+                - var onWillDismiss
+                - var placement
+                - var popupColor
+                - var radius
+                - var shadow
+                - var showInSubWindow
+                - var targetSpace
+                - var transition
+                - var width
+            - init(() -> Unit, Placement, Color, Color, Bool, Bool, Option\<(StateChangeEvent) -> Unit>)
+                - init(() -> Unit, Placement, Color, Bool, Bool, Option\<(StateChangeEvent) -> Unit>, Length, Bool, Color, Color, Color, Length, Position, Length, ?ArrowPointPosition, Length, Length, Length, ShadowStyle, BlurStyle, Bool, ?TransitionEffect, ?(DismissPopupAction) -> Unit, Bool)
+                - init()
+            - class DismissPopupAction
+                - let reason
+                - DismissPopupAction(DismissReason)
+                - func dismiss()
+            - struct PopupMessageOptions
+                - let font
+                - let textColor
+                - PopupMessageOptions(Color, Fonts)
+            - class PopupOptions
+                - var arrowHeight
+                - var arrowOffset
+                - var arrowPointPosition
+                - var arrowWidth
+                - var autoCancel
+                - var backgroundBlurStyle
+                - var enableArrow
+                - var followTransformOfTarget
+                - var mask
+                - var message
+                - var messageOptions
+                - var offset
+                - var onStateChange
+                - var onWillDismiss
+                - var placement
+                - var placementOnTop<sup>(deprecated)</sup>
+                - var popupColor
+                - var primaryButton
+                - var radius
+                - var secondaryButton
+                - var shadows
+                - var showInSubWindow
+                - var targetSpace
+                - var transition
+                - var width
+            - init(String，Bool，Action，Action，Option<(StateChangeEvent) -> Unit>)
+                - init(String, Bool, Action, Action, Option\<(StateChangeEvent) -> Unit>, Length, Bool, Color, PopupMessageOptions, Length, Placement, Position, Bool, Color, Bool, Length, ?ArrowPointPosition, Length, Length, Length, ShadowStyle, BlurStyle, ?TransitionEffect, ?(DismissPopupAction) -> Unit, Bool)
+            - init()
+            - class StateChangeEvent
+                - let isVisible
+                - StateChangeEvent(Bool)
+        - 示例代码
+                    - [菜单控制](source_zh_cn/arkui-cj/cj-universal-attribute-menu.md)
+    API索引列表:
+    - 菜单控制
+        - func bindContextMenu(() -> Unit, ResponseType)
+        - func bindContextMenu(() -> Unit, ResponseType, ContextMenuOptions)
+        - func bindMenu(Array\<Action>)
+        - func bindMenu(Array\<MenuElement>, ?MenuOptions)
+        - func bindMenu(() -> Unit)
+        - class ContextMenuAnimationOptions
+            - var hoverScale
+            - var scale
+            - var transition
+            - ContextMenuAnimationOptions(?(Float64,Float64), ?TransitionEffect, ?(Float64,Float64))
+        - class ContextMenuOptions
+            - var aboutToAppear
+            - var aboutToDisappear
+            - var arrowOffset
+            - var backgroundBlurStyle
+            - var backgroundColor
+            - var enableArrow
+            - var offset
+            - var onAppear
+            - var onDisappear
+            - var placement
+            - var preview
+            - var previewAnimationOptions
+            - var transition
+            - ContextMenuOptions(Position, Option\<Placement>, Bool, Length, Option\<() -> Unit>, ?ContextMenuAnimationOptions, ?() -> Unit, ?() -> Unit, ?() -> Unit, ?() -> Unit, ResourceColor, BlurStyle, ?TransitionEffect)
+        - class MenuElement
+            - init(String, () -> Unit, String, Bool)
+        - class MenuOptions
+            - var showInSubWindow
+            - var title
+            - init(Position, Option\<Placement>, Bool, Length, Option\<() -> Unit>, ?ContextMenuAnimationOptions, ?() -> Unit, ?() -> Unit, ?() -> Unit, ?() -> Unit, ResourceColor, BlurStyle, ?TransitionEffect, ?String, ?Bool)
+        - class Action
+            - var action
+            - var value
+            - Action(String, () -> Unit)
+        - 示例代码
+            - 示例1（弹出自定义菜单）
+            - 示例2（弹出普通菜单）
+            - 示例3（不同菜单的显示、变化和过渡效果）
+                    - [焦点控制](source_zh_cn/arkui-cj/cj-universal-attribute-focus.md)
+    API索引列表:
+    - 焦点控制
+        - func defaultFocus(Bool)
+        - func focusable(Bool)
+        - func focusOnTouch(Bool)
+        - func focusBox(FocusBoxStyle)
+        - func focusScopePriority(String, FocusPriority)
+        - func focusScopeId(String, Bool, Bool)
+        - func tabIndex(Int32)
+        - func groupDefaultFocus(Bool)
+        - 基础类型定义
+            - class FocusControl
+                - static func requestFocus(String)
+            - class FocusBoxStyle
+                - var margin
+                - var strokeColor
+                - var strokeWidth
+                - FocusBoxStyle (public var margin!: ?Length = None, public var strokeColor!: ?ColorMetrics = None, public var strokeWidth!: ?Length = None)
+            - class ColorMetrics
+                - prop color
+                - prop red
+                - prop green
+                - prop blue
+                - prop alpha
+                - static func numeric(UInt32)
+                - static func rgba(UInt8, UInt8, UInt8, Float32)
+                - static func resourceColor(Color)
+                - static func resourceColor(UInt32)
+                - static func resourceColor(String)
+                - static func resourceColor(AppResource)
+                - func blendColor(ColorMetrics)
+                - func toUInt32()
+            - enum FocusPriority
+                - AUTO
+                - PRIOR
+                - PREVIOUS
+        - 示例代码
+                    - [悬浮态效果](source_zh_cn/arkui-cj/cj-universal-attribute-hovereffect.md)
+    API索引列表:
+    - 悬浮态效果
+        - func hoverEffect(HoverEffect)
+        - 示例代码
+                    - [组件标识](source_zh_cn/arkui-cj/cj-universal-attribute-componentid.md)
+    API索引列表:
+    - 组件标识
+        - func id(String)
+        - func key(String)
+        - func getInspectorByKey(String)
+        - func getInspectorTree()
+        - func sendEventByKey(String, IntNative, String)
+        - func sendTouchEvent(TouchObject)
+        - func sendKeyEvent(KeyEvent)
+        - func sendMouseEvent(MouseEvent)
+        - 示例代码
+                    - [前景色设置](source_zh_cn/arkui-cj/cj-universal-attribute-foregroundcolor.md)
+    API索引列表:
+    - 前景色设置
+        - func foregroundColor(ColoringStrategy)
+        - func foregroundColor(ResourceColor)
+        - 示例代码
+            - 示例1（使用前景色设置）
+            - 示例2（设置前景色为组件背景色反色）
+            - 示例3（前置景色未继承父组件）
+                    - [组件内容模糊](source_zh_cn/arkui-cj/cj-universal-attribute-foregroundblurstyle.md)
+    API索引列表:
+    - 组件内容模糊
+        - func foregroundBlurStyle(ForegroundBlurStyle, Option\<ForegroundBlurStyleOptions>)
+        - 基础类型定义
+            - class BlurStyleOptions
+                - let adaptiveColor
+                - let blurOptions
+                - let colorMode
+                - let scale
+                - BlurStyleOptions(ThemeColorMode, AdaptiveColor, BlurOptions, Float32)
+            - class BlurOptions
+                - var grayscale
+                - BlurOptions(VArray\<Float32, $2>)
+            - class ForegroundBlurStyleOptions
+                - var adaptiveColor
+                - var blurOptions
+                - var colorMode
+                - var scale
+                - ForegroundBlurStyleOptions(ThemeColorMode, AdaptiveColor, BlurOptions, Float32)
+            - enum AdaptiveColor
+                - DEFAULT
+                - AVERAGE
+        - 示例代码
+                    - [运动模糊](source_zh_cn/arkui-cj/cj-universal-attribute-motionblur.md)
+    API索引列表:
+    - 运动模糊
+        - func motionBlur(MotionBlurOptions)
+        - 基础类型定义
+            - class MotionBlurOptions
+                - let radius
+                - let anchor
+                - MotionBlurOptions(Float64, MotionBlurAnchor)
+            - class MotionBlurAnchor
+                - let x
+                - let y
+                - MotionBlurAnchor(Float64, MotionBlurAnchor)
+        - 示例代码（属性动画状态下添加运动模糊效果）
+                    - [无障碍属性](source_zh_cn/arkui-cj/cj-universal-attribute-accessibility.md)
+    API索引列表:
+    - 无障碍属性
+        - func accessibilityGroup(Bool)
+        - func accessibilityText(String)
+        - func accessibilityText(AppResource)
+        - func accessibilityDescription(String)
+        - func accessibilityDescription(AppResource)
+        - func accessibilityLevel(String)
+        - func accessibilityTextHint(String)
+        - func accessibilityVirtualNode(() -> Unit)
+        - 示例代码
+                    - [点击回弹效果](source_zh_cn/arkui-cj/cj-universal-attribute-clickeffect.md)
+    API索引列表:
+    - 点击回弹效果
+        - func clickEffect(ClickEffectLevel, Option\<Float32>)
+        - 示例代码
+                    - [动态手势设置](source_zh_cn/arkui-cj/cj-universal-attribute-gesturemodifier.md)
+    API索引列表:
+    - 动态手势设置
+        - func gestureModifier(GestureModifier)
+        - interface GestureModifier
+            - func applyGesture(UIGestureEvent)
+        - 示例代码
+                    - [外描边设置](source_zh_cn/arkui-cj/cj-universal-attribute-outline.md)
+    API索引列表:
+    - 外描边设置
+        - func outline(Length, ResourceColor, Length, OutlineStyle)
+        - func outlineColor(ResourceColor)
+        - func outlineColor(ResourceColor, ResourceColor, ResourceColor, ResourceColor)
+        - func outlineRadius(Length)
+        - func outlineRadius(Length, Length, Length, Length)
+        - func outlineStyle(OutlineStyle)
+        - func outlineStyle(OutlineStyle, OutlineStyle, OutlineStyle, OutlineStyle)
+        - func outlineWidth(Length)
+        - func outlineWidth(Length, Length, Length, Length)
+        - 示例代码
+                    - [触摸交互控制]()
+                        - [触摸热区设置](source_zh_cn/arkui-cj/cj-universal-attribute-touchtarget.md)
+    API索引列表:
+    - 触摸热区设置
+        - func responseRegion(Rectangle)
+        - func responseRegionArray(Array\<Rectangle>)
+        - 示例代码
+                        - [触摸测试控制](source_zh_cn/arkui-cj/cj-universal-attribute-touchtestcontrol.md)
+    API索引列表:
+    - 触摸测试控制
+        - func hitTestBehavior(HitTestMode)
+        - 示例代码
+                    - [模态转场设置]()
+                        - [全屏模态转场](source_zh_cn/arkui-cj/cj-universal-attribute-bindcontentcover.md)
+    API索引列表:
+    - 全屏模态转场
+        - func bindContentCover(Bool, () -> Unit, ContentCoverOptions)
+        - 基础类型定义
+            - class ContentCoverOptions
+                - init(ModalTransition, Option\<(DismissContentCoverAction) -> Unit>, Option\< TransitionEffect >, Option\< Color >, Option\<() -> Unit>, Option\<() -> Unit>, Option\<() -> Unit>, Option\<() -> Unit>)
+        - 示例代码
+                        - [半模态转场](source_zh_cn/arkui-cj/cj-universal-attribute-sheettransition.md)
+    API索引列表:
+    - 半模态转场
+        - func bindSheet(Bool, () -> Unit, SheetOptions)
+        - 基础类型定义
+            - class BindOptions
+                - init(Option\<Color>, Option\<() -> Unit>, Option\<() -> Unit>, Option\<() -> Unit>, Option\<() -> Unit>)
+            - class DismissSheetAction
+                - DismissSheetAction(DismissReason)
+                - func dismiss()
+            - class SheetDismiss
+                - SheetDismiss()
+                - func dismiss()
+            - class SheetOptions
+                - init(...)
+            - class SheetTitleOptions
+                - init(String, Option\<String>)
+            - class SpringBackAction
+                - SpringBackAction()
+                - func springBack()
+            - enum ScrollSizeMode
+                - FOLLOW_DETENT
+                - CONTINUOUS
+            - enum SheetMode
+                - OVERLAY
+                - EMBEDDED
+            - enum SheetSize
+                - MEDIUM
+                - LARGE
+                - FIT_CONTENT
+            - enum SheetType
+                - BOTTOM
+                - CENTER
+                - POPUP
+        - 示例代码
+                    - [文本通用](source_zh_cn/arkui-cj/cj-universal-attribute-textstyle.md)
+    API索引列表:
+    - 文本样式设置
+        - func fontColor(ResourceColor)
+        - func fontSize(Length)
+        - func fontStyle(FontStyle)
+        - func fontWeight(FontWeight)
+        - func fontFamily(String)
+        - func fontFamily(AppResource)
+        - func lineHeight(value: Length)
+        - func decoration(TextDecorationType,Color)
+        - 示例代码
+                    - [拖拽控制](source_zh_cn/arkui-cj/cj-universal-attribute-dragcontrol.md)
+    API索引列表:
+    - 拖拽控制
+        - func draggable(Bool)
+        - func dragPreview(DragItemInfo)
+        - func dragPreview(String)
+        - func dragPreview(() -> Unit)
+        - 基础类型定义
+            - class DragInteractionOptions
+                - let isMultiSelectionEnabled
+                - let defaultAnimationBeforeLifting
+                - DragInteractionOptions(Bool, Bool)
+            - enum DragPreviewMode
+                - AUTO
+                - DISABLE_SCALE
+                - ENABLE_DEFAULT_SHADOW
+                - ENABLE_DEFAULT_RADIUS
+        - 示例代码
+                    - [安全区域](source_zh_cn/arkui-cj/cj-universal-attribute-expandsafearea.md)
+    API索引列表:
+    - 安全区域
+        - func expandSafeArea(Array\<SafeAreaType>, Array\<SafeAreaEdge>)
+        - func setKeyboardAvoidMode(value: KeyboardAvoidMode)
+        - 基础类型定义
+            - enum KeyboardAvoidMode
+                - OFFSET
+                - RESIZE
+                - OFFSET_WITH_CARET
+                - RESIZE_WITH_CARET
+                - NONE
+            - enum SafeAreaType
+                - SYSTEM
+                - CUTOUT
+                - KEYBOARD
+            - enum SafeAreaEdge
+                - TOP
+                - BOTTOM
+                - START
+                - END
+        - 示例代码
+                    - [组件内容填充方式](source_zh_cn/arkui-cj/cj-universal-attribute-renderfit.md)
+    API索引列表:
+    - 组件内容填充方式
+        - func renderFit(RenderFit)
+        - 基础类型定义
+            - enum RenderFit
+                - CENTER
+                - TOP
+                - BOTTOM
+                - LEFT
+                - RIGHT
+                - TOP_LEFT
+                - TOP_RIGHT
+                - BOTTOM_LEFT
+                - BOTTOM_RIGHT
+                - RESIZE_FILL
+                - RESIZE_CONTAIN
+                - RESIZE_CONTAIN_TOP_LEFT
+                - RESIZE_CONTAIN_BOTTOM_RIGHT
+                - RESIZE_COVER
+                - RESIZE_COVER_TOP_LEFT
+                - RESIZE_COVER_BOTTOM_RIGHT
+        - 示例代码
+                    - [事件独占控制](source_zh_cn/arkui-cj/cj-universal-attribute-monopolizeevents.md)
+    API索引列表:
+    - 事件独占控制
+        - func monopolizeEvents(Bool)
+        - 示例代码
+                    - [鼠标光标控制](source_zh_cn/arkui-cj/cj-universal-attribute-cursor.md)
+    API索引列表:
+    - 鼠标光标控制
+        - class CursorControl
+            - static func setCursor(PointerStyle)
+            - static func restoreDefault()
+        - enum PointerStyle
+            - DEFAULT
+            - EAST
+            - WEST
+            - SOUTH
+            - NORTH
+            - WEST_EAST
+            - NORTH_SOUTH
+            - NORTH_EAST
+            - NORTH_WEST
+            - SOUTH_EAST
+            - SOUTH_WEST
+            - NORTH_EAST_SOUTH_WEST
+            - NORTH_WEST_SOUTH_EAST
+            - CROSS
+            - CURSOR_COPY
+            - CURSOR_FORBID
+            - COLOR_SUCKER
+            - HAND_GRABBING
+            - HAND_OPEN
+            - HAND_POINTING
+            - HELP
+            - MOVE
+            - RESIZE_LEFT_RIGHT
+            - RESIZE_UP_DOWN
+            - SCREENSHOT_CHOOSE
+            - SCREENSHOT_CURSOR
+            - TEXT_CURSOR
+            - ZOOM_IN
+            - ZOOM_OUT
+            - MIDDLE_BTN_EAST
+            - MIDDLE_BTN_WEST
+            - MIDDLE_BTN_SOUTH
+            - MIDDLE_BTN_NORTH
+            - MIDDLE_BTN_NORTH_SOUTH
+            - MIDDLE_BTN_NORTH_EAST
+            - MIDDLE_BTN_NORTH_WEST
+            - MIDDLE_BTN_SOUTH_EAST
+            - MIDDLE_BTN_SOUTH_WEST
+            - MIDDLE_BTN_NORTH_SOUTH_WEST_EAST
+            - HORIZONTAL_TEXT_CURSOR
+            - CURSOR_CROSS
+            - CURSOR_CIRCLE
+            - LOADING
+            - RUNNING
+        - 示例代码
+                - [手势处理]()
+                    - [绑定手势方法](source_zh_cn/arkui-cj/cj-universal-gesture-bind.md)
+    API索引列表:
+    - 绑定手势方法
+        - 绑定手势识别
+            - func gesture(GestureType)
+            - func gesture(GestureType, GestureMask)
+            - func parallelGesture(GestureType)
+            - func parallelGesture(GestureType, GestureMask)
+            - func priorityGesture(GestureType)
+            - func priorityGesture(GestureType, GestureMask)
+        - 响应手势事件
+            - func onAction(GestureEvent -> Unit)
+        - 基础类型定义
+            - class GestureEvent
+                - let angle
+                - let fingerList
+                - let offsetX
+                - let offsetY
+                - let pinchCenterX
+                - let pinchCenterY
+                - let repeat
+                - let scale
+                - let speed
+                - let velocity
+                - let velocityX
+                - let velocityY
+                - init(EventTarget, Int64, SourceType, Float64, Int64, Int64, SourceTool, Option\<Float32>, Option\<Float32>, Option\<(Array\<String>) -> Bool>, Int64, Bool, Float64, Float64, Float64, Float64, Float64, Float64, Float64, ArrayList\<FingerInfo>, Float64, Float64, Float64)
+            - class GestureType
+                - func tag(String)
+            - class EventTarget
+                - var area
+                - EventTarget(Area)
+            - class FingerInfo
+                - let id
+                - let globalX
+                - let globalY
+                - let localX
+                - let localY
+            - enum GestureMask
+                - Normal
+                - IgnoreInternal
+        - 示例
+                    - [TapGesture](source_zh_cn/arkui-cj/cj-universal-gesture-tapgesture.md)
+    API索引列表:
+    - TapGesture
+        - 创建组件
+            - init(Int32, Int32)
+        - 组件事件
+            - func onAction((GestureEvent) -> Unit)
+        - 示例代码
+                    - [LongPressGesture](source_zh_cn/arkui-cj/cj-universal-gesture-longpressgesture.md)
+    API索引列表:
+    - LongPressGesture
+        - 创建组件
+            - init(Int32, Bool, Int32)
+        - 组件事件
+            - func onAction((GestureEvent) -> Unit)
+            - func onActionCancel(() -> Unit)
+            - func onActionEnd((GestureEvent) -> Unit)
+        - 示例代码
+                    - [PanGesture](source_zh_cn/arkui-cj/cj-universal-gesture-pangesture.md)
+    API索引列表:
+    - PanGesture
+        - 创建组件
+            - init(Int32, PanDirection, Float64)
+            - init(PanGestureOptions)
+        - 组件事件
+            - func onActionCancel(() -> Unit)
+            - func onActionEnd((GestureEvent) -> Unit)
+            - func onActionStart((GestureEvent) -> Unit)
+            - func onActionUpdate((GestureEvent) -> Unit)
+        - 基础类型定义
+            - class PanGestureOptions
+                - init(Int32, PanDirection, Float64)
+                - func setDirection(PanDirection)
+                - func setDistance(Float64)
+                - func setFingers(Int32)
+            - enum PanDirection
+                - All
+                - Computed(UInt32)
+                - Down
+                - Horizontal
+                - Left
+                - None
+                - Right
+                - Up
+                - Vertical
+                - func &(PanDirection)
+                - func |(PanDirection)
+        - 示例代码
+                    - [PinchGesture](source_zh_cn/arkui-cj/cj-universal-gesture-pinchgesture.md)
+    API索引列表:
+    - PinchGesture
+        - 创建组件
+            - init(Int32, Float64)
+        - 组件事件
+            - func onActionStart((GestureEvent) -> Unit)
+            - func onActionUpdate((GestureEvent) -> Unit)
+            - func onActionEnd((GestureEvent) -> Unit)
+            - func onActionCancel((GestureEvent) -> Unit)
+        - 示例代码
+                    - [RotationGesture](source_zh_cn/arkui-cj/cj-universal-gesture-rotationgesture.md)
+    API索引列表:
+    - RotationGesture
+        - 创建组件
+            - init(Int32, Float64)
+        - 组件事件
+            - func onActionCancel(() -> Unit)
+            - func onActionEnd((GestureEvent) -> Unit)
+            - func onActionStart((GestureEvent) -> Unit)
+            - func onActionUpdate((GestureEvent) -> Unit)
+        - 示例代码
+                    - [SwipeGesture](source_zh_cn/arkui-cj/cj-universal-gesture-swipegesture.md)
+    API索引列表:
+    - SwipeGesture
+        - 创建组件
+            - init(Int32, SwipeDirection, Float64)
+        - 组件事件
+            - func onAction((GestureEvent) -> Unit)
+        - 基础类型定义
+            - enum SwipeDirection
+                - All
+                - Horizontal
+                - None
+                - Vertical
+        - 示例代码
+                    - [组合手势](source_zh_cn/arkui-cj/cj-universal-gesture-groupgesture.md)
+    API索引列表:
+    - 组合手势
+        - 导入模块
+                import kit.UIkit.*
+        - 权限列表
+                无
+        - 创建组件
+            - init(GestureMode, Array\<GestureType>)
+        - 组件事件
+            - func onCancel(() -> Unit)
+        - 基础类型定义
+            - enum GestureMode
+                - Sequence
+                - Parallel
+                - Exclusive
+        - 示例
+                    - [自定义手势判定](source_zh_cn/arkui-cj/cj-universal-gesture-judge.md)
+    API索引列表:
+    - 自定义手势判定
+        - func onGestureJudgeBegin((GestureInfo, BaseGestureEvent) -> GestureJudgeResult)
+        - 基础类型定义
+            - class BaseEvent
+                - let axisHorizontal
+                - let axisVertical
+                - let deviceId
+                - let getModifierKeyState
+                - let pressure
+                - let source
+                - let sourceTool
+                - let target
+                - let tiltX
+                - let tiltY
+                - let timestamp
+            - class BaseGestureEvent
+                - let fingerList
+            - class LongPressGestureEvent
+                - let repeat
+            - class PanGestureEvent
+                - let offsetX
+                - let offsetY
+                - let velocity
+                - let velocityX
+                - let velocityY
+            - class PinchGestureEvent
+                - let pinchCenterX
+                - let pinchCenterY
+                - let scale
+            - class RotationGestureEvent
+                - let angle
+            - class SwipeGestureEvent
+                - let angle
+                - let speed
+            - class TapGestureEvent
+            - class GestureInfo
+                - let `type`
+                - let isSystemGesture
+                - let tag
+            - enum GestureTypes
+                - CLICK
+                - DRAG
+                - LONG_PRESS_GESTURE
+                - PAN_GESTURE
+                - PINCH_GESTURE
+                - ROTATION_GESTURE
+                - SWIPE_GESTURE
+                - TAP_GESTURE
+            - enum GestureJudgeResult
+                - CONTINUE
+                - REJECT
+        - 示例代码1
+        - 示例代码2
+                    - [手势拦截增强](source_zh_cn/arkui-cj/cj-universal-gesture-blocking-enhancement.md)
+    API索引列表:
+    - 手势拦截增强
+        - func shouldBuiltInRecognizerParallelWith((GestureRecognizer, Array\<GestureRecognizer>) -> GestureRecognizer)
+        - func onGestureRecognizerJudgeBegin((BaseGestureEvent, GestureRecognizer, Array\<GestureRecognizer>) -> GestureJudgeResult, Bool)
+        - func onGestureRecognizerJudgeBegin((BaseGestureEvent, GestureRecognizer, Array\<GestureRecognizer>) -> GestureJudgeResult)
+        - 基础类型定义
+            - class EventTargetInfo
+                - func getId()
+            - class GestureRecognizer
+                - init()
+                - func getEventTargetInfo()
+                - func getState()
+                - func getTag()
+                - func getType()
+                - func isBuiltIn()
+                - func isValid()
+                - func isEnabled()
+                - func setEnabled(Bool)
+            - class PanGestureRecognizer
+                - func getPanGestureOptions()
+            - class ScrollableTargetInfo
+                - func isBegin()
+                - func isEnd()
+            - enum GestureRecognizerState
+                - Blocked
+                - Detecting
+                - Failed
+                - Pending
+                - Ready
+                - Successful
+        - 示例代码
+            - 示例1（嵌套滚动）
+            - 示例2（嵌套场景下拦截内部容器手势）
+                    - [设置组件绑定的手势](source_zh_cn/arkui-cj/cj-universal-gesture-handle.md)
+    API索引列表:
+    - 设置组件绑定的手势
+        - class UIGestureEvent
+            - func addGesture(GestureHandler, GesturePriority, GestureMask)
+            - func addParallelGesture(GestureHandler, GestureMask)
+            - func removeGestureByTag(String)
+            - func clearGestures()
+        - class GestureHandler
+            - func tag(String)
+        - class TapGestureHandler
+            - init(Int32, Int32)
+            - func onAction((GestureEvent) -> Unit)
+        - class LongPressGestureHandler
+            - init(Int32, Bool, Int32)
+            - func onAction((GestureEvent) -> Unit)
+            - func onActionEnd((GestureEvent) -> Unit)
+            - func onActionCancel((GestureEvent) -> Unit)
+        - class PanGestureHandler
+            - init(Int32, Bool, Float64)
+            - func onActionStart((GestureEvent) -> Unit)
+            - func onActionUpdate((GestureEvent) -> Unit)
+            - func onActionEnd((GestureEvent) -> Unit)
+            - func onActionCancel((GestureEvent) -> Unit)
+        - class SwipeGestureHandler
+            - init(Int32, SwipeDirection, Float64)
+            - func onAction((GestureEvent) -> Unit)
+        - class PinchGestureHandler
+            - init(Int32, Float64)
+            - func onActionStart((GestureEvent) -> Unit)
+            - func onActionUpdate((GestureEvent) -> Unit)
+            - func onActionEnd((GestureEvent) -> Unit)
+            - func onActionCancel((GestureEvent) -> Unit)
+        - class RotationGestureHandler
+            - init(Int32, Float64)
+            - func onActionStart((GestureEvent) -> Unit)
+            - func onActionUpdate((GestureEvent) -> Unit)
+            - func onActionEnd((GestureEvent) -> Unit)
+            - func onActionCancel((GestureEvent) -> Unit)
+        - class GestureGroupHandler
+            - init(GestureMode, Array\<GestureType>)
+            - func onCancel(() -> Unit)
+        - enum GesturePriority
+            - Low
+            - High
+        - 示例
+            - [行列与堆叠]()
+                - [Flex](source_zh_cn/arkui-cj/cj-row-column-stack-flex.md)
+    API索引列表:
+    - Flex
+        - 子组件
+        - 创建组件
+            - Flex(FlexParams)
+            - init(FlexParams, () -> Unit)
+            - init(() -> Unit)
+            - init(FlexOptions)
+            - init(FlexOptions, () -> Unit)
+        - 通用属性/通用事件
+        - 基础类型定义
+            - class FlexOptions
+                - var alignContent
+                - var alignItems
+                - var direction
+                - var justifyContent
+                - var space
+                - var wrap
+                - FlexOptions(FlexDirection, FlexWrap, FlexAlign, ItemAlign, FlexAlign, FlexSpaceOptions)
+            - class FlexParams
+                - var alignContent
+                - var alignItems
+                - var direction
+                - var justifyContent
+                - var wrap
+                - FlexParams(FlexDirection, FlexWrap, FlexAlign, ItemAlign, FlexAlign)
+            - class FlexSpaceOptions
+                - var crossSpace
+                - var mainSpace
+                - FlexSpaceOptions(Length, Length)
+        - 示例代码
+            - 示例1（子组件排列方向）
+            - 示例2（子组件单/多行排列）
+            - 示例3（子组件在主轴上的对齐格式）
+            - 示例4（子组件在交叉轴上的对齐方式）
+            - 示例5（多行内容的对齐方式）
+            - 示例6（子组件单/多行排列时的主/交叉轴间距）
+                - [Column](source_zh_cn/arkui-cj/cj-row-column-stack-column.md)
+    API索引列表:
+    - Column
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+            - init(Length, () -> Unit)
+            - init(Length)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alignItems(HorizontalAlign)
+            - func justifyContent(FlexAlign)
+        - 示例代码
+                - [Row](source_zh_cn/arkui-cj/cj-row-column-stack-row.md)
+    API索引列表:
+    - Row
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+            - init()
+            - init(Length)
+            - init(Length, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alignItems(VerticalAlign)
+            - func justifyContent(FlexAlign)
+        - 示例代码
+                - [Stack](source_zh_cn/arkui-cj/cj-row-column-stack-stack.md)
+    API索引列表:
+    - Stack
+        - 子组件
+        - 创建组件
+            - Stack(() -> Unit)
+            - init()
+            - init(Alignment)
+            - init(Alignment, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alignContent(Alignment)
+            - func alignment(Alignment)<sup>(deprecated)<sup>
+        - 示例代码
+                - [RelativeContainer](source_zh_cn/arkui-cj/cj-row-column-stack-relativecontainer.md)
+    API索引列表:
+    - RelativeContainer
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func barrier(Array\<BarrierStyle>)
+            - func barrier(Array\<LocalizedBarrierStyle>)
+            - func guideLine(Array\<GuideLineStyle>)
+        - 基础类型定义
+            - class BarrierStyle
+                - var direction
+                - var id
+                - var referencedId
+                - BarrierStyle(String, BarrierDirection, Array\<String>)
+            - class GuideLinePosition
+                - var end
+                - var start
+                - GuideLinePosition(?Length, ?Length)
+            - class GuideLineStyle
+                - var direction
+                - var id
+                - var position
+                - GuideLineStyle(String, Axis, GuideLinePosition)
+            - class LocalizedBarrierStyle
+                - var id
+                - var localizedDirection
+                - var referencedId
+                - LocalizedBarrierStyle(String, LocalizedBarrierDirection, Array\<String>)
+            - enmu LocalizedBarrierDirection
+                - START
+                - END
+                - TOP
+                - BOTTOM
+        - 示例代码
+            - 示例1（以容器和容器内组件作为锚点进行布局）
+            - 示例2（子组件设置外边距）
+            - 示例3（设置偏移）
+            - 示例4（设置辅助线）
+            - 示例5（设置屏障）
+            - 示例6（设置链）
+            - 示例7（链中设置偏移）
+            - 示例8（设置镜像模式）
+            - [栅格与分栏]()
+                - [GridRow](source_zh_cn/arkui-cj/cj-grid-layout-gridrow.md)
+    API索引列表:
+    - GridRow
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+            - init(Int32, BreakPoints, GridRowDirection, () -> Unit)
+            - init(GridRowColumnOption, BreakPoints, GridRowDirection, () -> Unit)
+            - init(Length, BreakPoints, GridRowDirection, () -> Unit)
+            - init(GutterOption, BreakPoints, GridRowDirection, () -> Unit)
+            - init(Length, Int32, BreakPoints, GridRowDirection, () -> Unit)
+            - init(Length, GridRowColumnOption, BreakPoints, GridRowDirection, () -> Unit)
+            - init(GutterOption, Int32, BreakPoints, GridRowDirection, () -> Unit)
+            - init(GutterOption, GridRowColumnOption, BreakPoints, GridRowDirection, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alignItems(ItemAlign)
+        - 组件事件
+            - func onBreakpointChange((String) -> Unit)
+        - 基础类型定义
+            - class BreakPoints
+                - var reference
+                - var value
+                - BreakPoints(Array\<Length>, BreakpointsReference)
+            - struct GridRowColumnOption
+                - GridRowColumnOption(Int32, Int32, Int32, Int32, Int32, Int32)
+            - class GridRowSizeOption
+                - var lg
+                - var md
+                - var sm
+                - var xl
+                - var xs
+                - var xxl
+                - GridRowSizeOption(Length, Length, Length, Length, Length, Length)
+            - class GutterOption
+                - init(Length, Length)
+                - init(GridRowSizeOption, GridRowSizeOption)
+            - enum BreakpointsReference
+                - ComponentSize
+                - WindowSize
+            - enum GridRowDirection
+                - GridRowRow
+                - RowReverse
+        - 示例代码
+                - [GridCol](source_zh_cn/arkui-cj/cj-grid-layout-gridcol.md)
+    API索引列表:
+    - GridCol
+        - 子组件
+        - 创建组件
+            - init(Int32, Int32, Int32, () -> Unit)
+            - init(GridColColumnOption, GridColColumnOption, GridColColumnOption, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func gridColOffset(Int32)
+            - func gridColOffset(GridColColumnOption)
+            - func offset(Int32)
+            - func offset(GridColColumnOption)
+            - func order(Int32)
+            - func order(GridColColumnOption)
+            - func span(Int32)
+            - func span(GridColColumnOption)
+        - 基础类型定义
+            - struct GridColColumnOption
+                - GridColColumnOption(Int32, Int32, Int32, Int32, Int32, Int32)
+        - 示例代码
+            - GridCol常用方法示例
+            - 与Gridrow组合使用示例
+                - [ColumnSplit](source_zh_cn/arkui-cj/cj-grid-layout-columnsplit.md)
+    API索引列表:
+    - ColumnSplit
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func divider(Length, Length)
+            - func resizeable(Bool)
+        - 示例代码
+                - [RowSplit](source_zh_cn/arkui-cj/cj-grid-layout-rowsplit.md)
+    API索引列表:
+    - RowSplit
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func resizeable(Bool)
+        - 示例代码
+                - [SideBarContainer](source_zh_cn/arkui-cj/cj-grid-layout-sidebar.md)
+    API索引列表:
+    - SideBarContainer
+        - 子组件
+        - 创建组件
+            - init(SideBarContainerType, () -> Unit)
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func autoHide(Bool)
+            - func controlButton(ButtonStyle)
+            - func divider(?SideBarDividerStyle)
+            - func maxSideBarWidth(Length)
+            - func minContentWidth(Length)
+            - func minSideBarWidth(Length)
+            - func showControlButton(Bool)
+            - func showSideBar(Bool)
+            - func sideBarPosition(SideBarPosition)
+            - func sideBarWidth(Length)
+        - 组件事件
+            - func onChange((Bool) -> Unit)
+        - 基础类型定义
+            - class ButtonStyle
+                - init(Int64, Int64, Int64, Int64, Icons)
+            - class Icons
+                - init(String, String, String)
+                - init(String, String, AppResource)
+                - init(AppResource, String, String)
+                - init(AppResource, String, AppResource)
+                - init(String, AppResource, String)
+                - init(String, AppResource, AppResource)
+                - init(AppResource, AppResource, String)
+                - init(AppResource, AppResource, AppResource)
+            - class SideBarDividerStyle
+                - let color
+                - let endMargin
+                - let startMargin
+                - let strokeWidth
+                - init(Length, ?ResourceColor, Length, Length)
+        - 示例代码
+            - [滚动与滑动]()
+                - [List](source_zh_cn/arkui-cj/cj-scroll-swipe-list.md)
+    API索引列表:
+    - List
+        - 子组件
+        - 创建组件
+            - init(Int64, Int32, () -> Unit)
+            - init(Int64, Int32, BaseScroller, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alignListItem(ListItemAlign)
+            - func cachedCount(Int32)
+            - func chainAnimation(Bool)
+            - func contentEndOffset(Float64)
+            - func contentEndOffset(Int64)
+            - func contentStartOffset(Float64)
+            - func contentStartOffset(Int64)
+            - func divider(Length, ResourceColor, Length, Length)
+            - func edgeEffect(EdgeEffect)
+            - func edgeEffect(EdgeEffect, EdgeEffectOptions)
+            - func editMode(Bool)
+            - func enableScrollInteraction(Bool)
+            - func friction(Float64)
+            - func lanes(Int32)
+            - func lanes(Int32, Length)
+            - func lanes(Length, Length)
+            - func lanes(Length, Length, Length)
+            - func listDirection(Axis)
+            - func maintainVisibleContentPosition(Bool)
+            - func multiSelectable(Bool)
+            - func scrollSnapAlign(ScrollSnapAlign)
+            - func sticky(StickyStyle)
+        - 组件事件
+            - func onItemDelete((Int32) -> Bool)
+            - func onItemDragEnter((ItemDragInfo) -> Unit)
+            - func onItemDragLeave((ItemDragInfo,Int32) -> Unit)
+            - func onItemDragMove((ItemDragInfo,Int32,Int32) -> Unit)
+            - func onItemDragStart((ItemDragInfo,Int32) -> Unit)
+            - func onItemDragStart((ItemDragInfo,Int32) -> (() -> Unit))
+            - func onItemDrop((ItemDragInfo,Int32,Int32,Bool) -> Unit)
+            - func onItemMove((Int32,Int32) -> Bool)
+            - func onReachEnd(() -> Unit)
+            - func onReachStart(() -> Unit)
+            - func onScroll((Float64,ScrollState) -> Unit)
+            - func onScrollFrameBegin((Float64,ScrollState) -> Float64)
+            - func onScrollIndex((Int32,Int32) -> Unit)
+            - func onScrollIndex((Int32,Int32,Int32) -> Unit)
+            - func onScrollStart(() -> Unit)
+            - func onScrollStop(() -> Unit)
+            - func onScrollVisibleContentChange((VisibleListContentInfo,VisibleListContentInfo) -> Unit)
+        - 基础类型定义
+            - class ListScroller
+                - init()
+                - func closeAllSwipeActions()
+                - func closeAllSwipeActions(() -> Unit)
+                - func getItemRectInGroup(Int32, Int32)
+                - func getVisibleListContentInfo(Float64, Float64)
+                - func scrollToItemInGroup(Int32, Int32, Bool, ScrollAlign)
+            - class VisibleListContentInfo
+                - var index
+                - var itemGroupArea
+                - var itemIndexInGroup
+                - VisibleListContentInfo(Int32, ListItemGroupArea, Int32)
+            - enum ScrollSnapAlign
+                - NONE
+                - START
+                - CENTER
+                - END
+        - 示例代码
+            - 示例1 （添加滚动事件）
+            - 示例2 （设置子元素对齐）
+            - 示例3 （设置编辑模式）
+            - 示例4 （设置限位对齐）
+                - [ListItem](source_zh_cn/arkui-cj/cj-scroll-swipe-listitem.md)
+    API索引列表:
+    - ListItem
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+            - init(ListItemOptions, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func editable(Bool)
+            - func selectable(Bool)
+            - func selected(Bool)
+            - func sticky(StickyStyle)
+            - func swipeAction(() -> Unit, () -> Unit, SwipeEdgeEffect, (Float64) -> Unit)
+        - 组件事件
+            - func onSelect((Bool) -> Unit)
+        - 基础类型定义
+            - class ListItemOptions
+                - var style
+                - init(ListItemStyle)
+            - enum ListItemStyle
+                - CARD
+                - NONE
+        - 示例代码
+                - [ListItemGroup](source_zh_cn/arkui-cj/cj-scroll-swipe-listgroup.md)
+    API索引列表:
+    - ListItemGroup
+        - 子组件
+        - 创建组件
+            - init(ListItemGroupParams, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func divider(Length, ResourceColor, Length, Length)
+        - 基础类型定义
+            - class ListItemGroupParams
+                - var style
+                - let footer
+                - let header
+                - let space
+                - init(() -> Unit, () -> Unit, Length)
+                - init(() -> Unit, () -> Unit)
+                - init(() -> Unit, () -> Unit, Length, ListItemGroupStyle)
+            - enum ListItemGroupStyle
+                - CARD
+                - NONE
+        - 示例代码
+            - 示例1（设置吸顶/吸底）
+            - 示例2 （设置卡片样式）
+                - [Grid](source_zh_cn/arkui-cj/cj-scroll-swipe-grid.md)
+    API索引列表:
+    - Grid
+        - 子组件
+        - 创建组件
+            - init()
+            - init(Scroller)
+            - init(() -> Unit)
+            - init(Scroller, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alignItems(GridItemAlignment)
+            - func cachedCount(Int32)
+            - func cachedCount(Int32, Bool)
+            - func cellLength(Int32)
+            - func columnsGap(Length)
+            - func columnsTemplate(String)
+            - func edgeEffect(EdgeEffect)
+            - func edgeEffect(EdgeEffect, EdgeEffectOptions)
+            - func editMode(Bool)
+            - func enableScrollInteraction(Bool)
+            - func friction(Float64)
+            - func friction(Int32)
+            - func layoutDirection(GridDirection)
+            - func maxCount(Int32)
+            - func minCount(Int32)
+            - func multiSelectable(Bool)
+            - func nestedScroll(NestedScrollOptions)
+            - func rowsGap(Length)
+            - func rowsTemplate(String)
+            - func scrollBar(BarState)
+            - func scrollBarColor(ResourceColor)
+            - func scrollBarWidth(Length)
+            - func supportAnimation(Bool)
+        - 组件事件
+            - func onItemDragEnter((ItemDragInfo) -> Unit)
+            - func onItemDragLeave((ItemDragInfo, Int32) -> Unit)
+            - func onItemDragMove((ItemDragInfo,Int32,Int32) -> Unit)
+            - func onItemDragStart((ItemDragInfo,Int32) -> Unit)
+            - func onItemDragStart((ItemDragInfo,Int32) -> (() -> Unit))
+            - func onItemDrop((ItemDragInfo,Int32,Int32,Bool) -> Unit)
+            - func onReachEnd(() -> Unit)
+            - func onReachStart(() -> Unit)
+            - func onScrollBarUpdate((Int32,Float64) -> ComputedBarAttribute)
+            - func onScrollFrameBegin((Float64,ScrollState) -> OffsetOption)
+            - func onScrollIndex((UInt32) -> Unit)
+            - func onScrollIndex((UInt32,UInt32) -> Unit)
+            - func onScrollStart(() -> Unit)
+            - func onScrollStop(() -> Unit)
+        - 基础类型定义
+            - struct ComputedBarAttribute
+                - let totalLength
+                - let totalOffset
+                - ComputedBarAttribute(Float64, Float64)
+            - class GridLayoutOptions
+                - init((Int32,Int32), Option\<Array\<Int32>>, Option\<(Int32) -> (Int32,Int32)>, Option\<(Int32) -> (Int32,Int32,Int32,Int32)>)
+            - struct OffsetOption
+                - let offsetRemain
+                - OffsetOption(Float64)
+            - enum GridDirection
+                - Column
+                - ColumnReverse
+                - Row
+                - RowReverse
+            - enum GridItemAlignment
+                - DEFAULT
+                - STRETCH
+        - 示例代码
+            - 示例1（可滚动Grid和滚动事件）
+            - 示例2（Grid嵌套滚动）
+            - 示例3（Grid拖拽场景）
+            - 示例4（自适应Grid）
+            - 示例5（双指缩放修改Grid列数）
+            - 示例6（设置自适应列数）
+            - 示例7（以当前行最高的GridItem的高度为其他GridItem的高度）
+            - 示例8（设置边缘渐隐）
+                - [GridItem](source_zh_cn/arkui-cj/cj-scroll-swipe-griditem.md)
+    API索引列表:
+    - GridItem
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+            - init(GridItemOptions)
+            - init(GridItemOptions, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func rowStart(Int32)
+            - func rowEnd(Int32)
+            - func columnStart(Int32)
+            - func columnEnd(Int32)
+            - func selectable(Bool)
+            - func selected(Bool)
+        - 组件事件
+            - func onSelect((Bool) -> Unit)
+        - 基础类型定义
+            - class GridItemOptions
+                - var style
+                - init(GridItemStyle)
+        - 示例代码
+            - 示例1（GridItem设置自身位置）
+            - 示例2 （设置GridItem样式）
+                - [Scroll](source_zh_cn/arkui-cj/cj-scroll-swipe-scroll.md)
+    API索引列表:
+    - Scroll
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+            - init(Scroller, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func edgeEffect(EdgeEffect, EdgeEffectOptions)
+            - func edgeEffect(EdgeEffect, Bool)
+            - func enablePaging(Bool)
+            - func enableScrollInteraction(Bool)
+            - func friction(Float64)
+            - func friction(AppResource)
+            - func initialOffset(Length, Length)
+            - func nestedScroll(NestedScrollOptions)
+            - func scrollBar(BarState)
+            - func scrollBarColor(ResourceColor)
+            - func scrollBarWidth(Length)
+            - func scrollSnap(ScrollSnapOptions)
+            - func scrollable(ScrollDirection)
+        - 组件事件
+            - func onDidScroll((Float64,Float64,ScrollState) -> Unit)
+            - func onReachEnd(() -> Unit)
+            - func onReachStart(() -> Unit)
+            - func onScroll((OffsetResult) -> Unit)<sup>deprecated<sup>
+            - func onScrollEdge((Edge) -> Unit)
+            - func onScrollEnd(() -> Unit)<sup>deprecated<sup>
+            - func onScrollFrameBegin((Float64,ScrollState) -> Float64)
+            - func onScrollStart(() -> Unit)
+            - func onScrollStop(() -> Unit)
+            - func onWillScroll((Float64,Float64,ScrollState,ScrollSource) -> OffsetResult)
+            - func onWillScroll((Float64,Float64,ScrollState,ScrollSource) -> Unit)
+        - 基础类型定义
+            - class BaseScroller
+                - init(Int64)
+                - func currentOffset()
+                - func fling(Float64)
+                - func fling(Int64)
+                - func getItemIndex(Length, Length)
+                - func getItemRect(Int32)
+                - func isAtEnd()
+                - func scrollBy(Length, Length)
+                - func scrollEdge(Edge)
+                - func scrollEdge(Edge, Float32)
+                - func scrollEdge(Edge, Int32)
+                - func scrollPage(Bool)
+                - func scrollPage(Bool, Bool)
+                - func scrollTo(Length, Length)
+                - func scrollTo(Length, Length, Float64, Curve)
+                - func scrollTo(Length, Length, ScrollAnimationOptions)
+                - func scrollTo(Length, Length, Bool)
+                - func scrollToIndex(Int32, Bool, ScrollAlign)
+                - func scrollToIndex(Int32, Bool, ScrollAlign, Length)
+            - class ScrollAnimationOptions
+                - var canOverScroll
+                - var curve
+                - var duration
+                - init(Float64, Curve, Bool)
+            - class ScrollSnapOptions
+                - var enableSnapToEnd
+                - var enableSnapToStart
+                - var snapAlign
+                - var snapPagination
+                - init(ScrollSnapAlign, Option\<Array\<Length>>, Bool, Bool)
+                - init(ScrollSnapAlign, Length, Bool, Bool)
+            - class Scroller
+                - init()
+            - struct OffsetResult
+                - let xOffset
+                - let yOffset
+                - OffsetResult(Float64, Float64)
+            - enum ScrollAlign
+                - AUTO
+                - CENTER
+                - END
+                - NONE
+                - START
+        - 示例代码1（设置scroller控制器）
+        - 示例代码2（嵌套滚动实现方式一）
+        - 示例代码3（嵌套滚动实现方式二）
+        - 示例代码4（嵌套滚动父组件向子组件传递滚动）
+        - 示例代码5（设置限位滚动）
+        - 示例代码6（设置子组件索引）
+        - 示例代码7（设置边缘渐隐）
+                - [Swiper](source_zh_cn/arkui-cj/cj-scroll-swipe-swiper.md)
+    API索引列表:
+    - Swiper
+        - 子组件
+        - 创建组件
+            - init(SwiperController, () -> Unit)
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func autoPlay(Bool)
+            - func cachedCount(Int32)
+            - func curve(Curve)
+            - func disableSwipe(Bool)
+            - func displayArrow(Bool, Bool)
+            - func displayArrow(ArrowStyle, Bool)
+            - func displayCount(Int32)
+            - func displayCount(Int32, Bool)
+            - func displayCount(SwiperAutoFill, Bool)
+            - func displayCount(SwiperAutoFill)
+            - func displayMode(SwiperDisplayMode)
+            - func duration(UInt32)
+            - func effectMode(EdgeEffect)
+            - func index(UInt32)
+            - func indicator(Bool)
+            - func indicator(DotIndicator)
+            - func indicator(DigitIndicator)
+            - func indicatorInteractive(Bool)
+            - func indicatorStyle(Length, Length, Length, Length, Length, ResourceColor, ResourceColor, Bool)<sup>deprecated<sup>
+            - func interval(UInt32)
+            - func itemSpace(Length)
+            - func loop(Bool)
+            - func nestedScroll(SwiperNestedScrollMode)
+            - func nextMargin(Length, Bool)
+            - func prevMargin(Length, Bool)
+            - func vertical(Bool)
+        - 组件事件
+            - func customContentTransition(SwiperContentAnimatedTransition)
+            - func onAnimationEnd((Int32, SwiperAnimationEvent) -> Unit)
+            - func onAnimationStart((Int32, Int32, SwiperAnimationEvent) -> Unit)
+            - func onChange((Int32) -> Unit)
+            - func onContentDidScroll((Int32, Int32, Float64, Float64) -> Unit)
+            - func onGestureSwipe((Int32, SwiperAnimationEvent) -> Unit)
+        - 基础类型定义
+            - class DigitIndicator
+                - init()
+                - func digitFont(FontOptions)
+                - func fontColor(ResourceColor)
+                - func selectedDigitFont(FontOptions)
+                - func selectedFontColor(ResourceColor)
+            - class DotIndicator
+                - init()
+                - func color(ResourceColor)
+                - func itemHeight(Length)
+                - func itemWidth(Length)
+                - func mask(Bool)
+                - func maxDisplayCount(UInt32)
+                - func selectedColor(ResourceColor)
+                - func selectedItemHeight(Length)
+                - func selectedItemWidth(Length)
+            - class FontOptions
+                - var size
+                - var weight
+                - init(Length, FontWeight)
+            - class Indicator
+                - static func digit()
+                - static func dot()
+                - func bottom(Length)
+                - func end(Length)
+                - func left(Length)
+                - func right(Length)
+                - func start(Length)
+                - func top(Length)
+            - class SwiperController
+                - init()
+                - func changeIndex(Int32, Bool)
+                - func changeIndex(Int32)
+                - func finishAnimation()
+                - func finishAnimation(() -> Unit)
+                - func showNext()
+                - func showPrevious()
+            - enum SwiperDisplayMode
+                - STRETCH
+                - AUTO_LINEAR<sup>deprecated<sup>
+            - class ArrowStyle
+                - var arrowColor
+                - var arrowSize
+                - var backgroundColor
+                - var backgroundSize
+                - var isSidebarMiddle
+                - var showBackground
+                - init(Bool, Bool, Length, ResourceColor, Length, ResourceColor)
+            - class SwiperAnimationEvent
+                - var currentOffset
+                - var targetOffset
+                - var velocity
+                - SwiperAnimationEvent(Float64, Float64, Float64)
+            - class SwiperAutoFill
+                - var minSize
+                - init(Float64)
+                - init(Int64)
+            - class SwiperContentAnimatedTransition
+                - var timeout
+                - var transition
+                - SwiperContentAnimatedTransition(Int32, (SwiperContentTransitionProxy) -> Unit)
+            - class SwiperContentTransitionProxy
+                - let index
+                - let mainAxisLength
+                - let position
+                - let selectedIndex
+                - func finishTransition()
+        - 示例代码1（设置导航点交互及翻页动效）
+        - 示例代码2（设置数字指示器）
+        - 示例代码3（设置按组翻页）
+        - 示例代码4（设置圆点导航点超长显示）
+                - [WaterFlow](source_zh_cn/arkui-cj/cj-scroll-swipe-waterflow.md)
+    API索引列表:
+    - WaterFlow
+        - 子组件
+        - 创建组件
+            - init(() -> Unit, ?Scroller, ?WaterFlowSections, WaterFlowLayoutMode)
+            - init(() -> Unit, ?Scroller, ?WaterFlowSections, WaterFlowLayoutMode, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func cachedCount(Int32, Bool)
+            - func columnsGap(Length)
+            - func columnsTemplate(String)
+            - func enableScrollInteraction(Bool)
+            - func friction(Float64)
+            - func friction(Int32)
+            - func itemConstraintSize(Length, Length, Length, Length)
+            - func layoutDirection(FlexDirection)
+            - func nestedScroll(NestedScrollMode, NestedScrollMode)
+            - func nestedScroll(NestedScrollOptions)
+            - func rowsGap(Length)
+            - func rowsTemplate(String)
+        - 组件事件
+            - func onReachEnd(() -> Unit)
+            - func onReachStart(() -> Unit)
+            - func onScrollFrameBegin((Float64,ScrollState) -> Float64)
+            - func onScrollIndex((Int32,Int32) -> Unit)
+            - class WaterFlowSections
+                - init()
+                - func length()
+                - func push(SectionOptions)
+                - func splice(Int32, UInt32, Array\<SectionOptions>)
+                - func update(UInt32, SectionOptions)
+                - func value()
+            - class SectionOptions
+                - var columnsGap
+                - var crossCount
+                - var itemsCount
+                - var margin
+                - var onGetItemMainSizeByIndex
+                - var rowsGap
+                - init(UInt32, Margin, Option\<(Float64) -> Int32>, Int32, Option\<Length>, Option\<Length>)
+                - init(UInt32, Length, Option\<(Float64) -> Int32>, Int32, Option\<Length>, Option\<Length>)
+            - enum WaterFlowDirection
+                - Column
+                - ColumnReverse
+                - Row
+                - RowReverse
+            - enum WaterFlowLayoutMode
+                - ALWAYS_TOP_DOWN
+                - SLIDING_WINDOW
+        - 示例代码
+                - [FlowItem](source_zh_cn/arkui-cj/cj-scroll-swipe-flowitem.md)
+    API索引列表:
+    - FlowItem
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 示例代码
+                - [ScrollBar](source_zh_cn/arkui-cj/cj-scroll-swipe-scrollbar.md)
+    API索引列表:
+    - ScrollBar
+        - 子组件
+        - 创建组件
+            - init(Scroller, () -> Unit)
+            - init(Scroller, ScrollBarDirection, () -> Unit)
+            - init(Scroller, ScrollBarDirection, BarState, () -> Unit)
+            - init(Scroller, BarState, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func enableNestedScroll(Bool)
+        - 示例代码
+            - 示例1 （设置子节点）
+            - 示例2 （不设置子节点）
+                - [Refresh](source_zh_cn/arkui-cj/cj-scroll-swipe-refresh.md)
+    API索引列表:
+    - Refresh
+        - 子组件
+        - 创建组件
+            - init(RefreshParams, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func pullDownRatio(Option\<Float64>)
+            - func pullToRefresh(Bool)
+            - func refreshOffset(Float64)
+            - func refreshOffset(Int32)
+        - 组件事件
+            - func onOffsetChange((Float64) -> Unit)
+            - func onRefreshing(() -> Unit)
+            - func onStateChange((RefreshStatus) -> Unit)
+        - 基础类型定义
+            - class RefreshParams
+                - var changeEvent
+                - var refreshing
+                - init(Bool)
+                - init((Bool,(Bool) -> Unit))
+        - 示例代码
+            - 示例1（默认刷新样式）
+            - 示例2 （实现最大下拉距离）
+                - [滚动组件通用API](source_zh_cn/arkui-cj/cj-scroll-swipe-common.md)
+    API索引列表:
+    - 滚动组件通用API
+        - 组件属性
+            - func scrollBar(BarState)
+            - func scrollBarColor(ResourceColor)
+            - func scrollBarWidth(Length)
+            - func edgeEffect(EdgeEffect, EdgeEffectOptions)
+            - func clipContent(ContentClipMode)
+            - func clipContent(RectShape)
+            - func enableScrollInteraction(Bool)
+            - func fadingEdge(Bool)
+            - func fadingEdge(Bool, FadingEdgeOptions)
+            - func flingSpeedLimit(Float64)
+            - func friction(Float64)
+            - func nestedScroll(NestedScrollOptions)
+        - 组件事件
+            - func onDidScroll((Float64, ScrollState) -> Unit)
+            - func onReachEnd(() -> Unit)
+            - func onReachStart(() -> Unit)
+            - func onScrollStart(() -> Unit)
+            - func onScrollStop(() -> Unit)
+            - func onWillScroll((Float64,ScrollState,ScrollSource) -> Float64)
+            - func onWillScroll((Float64,ScrollState,ScrollSource) -> Unit)
+            - func onScroll((OffsetResult) -> Unit)<sup>(deprecated)<sup>
+        - class FadingEdgeOptions
+            - var fadingEdgeLength
+            - FadingEdgeOptions(Length)
+        - class NestedScrollOptions
+            - var scrollBackward
+            - var scrollForward
+            - NestedScrollOptions(NestedScrollMode, NestedScrollMode)
+        - class ItemDragInfo
+            - let x
+            - let y
+            - ItemDragInfo(Float64, Float64)
+        - class EdgeEffectOptions
+            - let alwaysEnabled
+            - EdgeEffectOptions(Bool)
+        - enum ContentClipMode
+            - BOUNDARY
+            - CONTENT_ONLY
+            - SAFE_AREA
+        - enum ScrollSnapAlign
+            - CENTER
+            - END
+            - NONE
+            - START
+            - [导航与切换]()
+                - [Navigation](source_zh_cn/arkui-cj/cj-navigation-switching-navigation.md)
+    API索引列表:
+    - Navigation
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+            - init(NavPathStack)
+            - init(NavPathStack, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func title(String, NavigationTitleOptions)
+            - func title(AppResource, NavigationTitleOptions)
+            - func title(() -> Unit, NavigationTitleOptions)
+            - func title(String, String, NavigationTitleOptions)
+            - func title(() -> Unit, Length, NavigationTitleOptions)
+            - func title(NavigationCommonTitle, NavigationTitleOptions)
+            - func menus(Array&lt;NavigationMenuItem&gt;)
+            - func menus(() -> Unit)
+            - func titleMode(NavigationTitleMode)
+            - func toolbarConfiguration(Array<ToolBarItem>, NavigationToolbarOptions)
+            - func toolbarConfiguration(() -> Unit, NavigationToolbarOptions)
+            - func hideToolBar(Bool)
+            - func hideToolBar(Bool, Bool)
+            - func hideTitleBar(Bool)
+            - func hideTitleBar(Bool, Bool)
+            - func hideBackButton(Bool)
+            - func navBarWidth(Length)
+            - func navBarPosition(NavBarPosition)
+            - func mode(NavigationMode)
+            - func backButtonIcon(String)
+            - func backButtonIcon(PixelMap)
+            - func backButtonIcon(AppResource)
+            - func hideNavBar(Bool)
+            - func navDestination((String) -> Unit)
+            - func navBarWidthRange((Length, Length))
+            - func minContentWidth(Length)
+            - func ignoreLayoutSafeArea(Array<LayoutSafeAreaType>, Array<LayoutSafeAreaEdge>)
+            - func systemBarStyle(ResourceColor)
+            - func recoverable(Bool)
+            - func enableDragBar(Bool)
+            - func enableModeChangeAnimation(Bool)
+        - 组件事件
+            - func onTitleModeChange((NavigationTitleMode) -> Unit)
+            - func onNavBarStateChange((Bool) -> Unit)
+            - func onNavigationModeChange((NavigationMode) -> Unit)
+        - 基础类型定义
+            - class NavPathInfo
+                - var name
+                - var onPop
+                - var param
+                - init(String, String)
+                - init(String, String, Option\<(PopInfo) -> Unit>)
+            - class NavPathStack
+                - init()
+                - func clear(Bool)
+                - func disableAnimation(Bool)
+                - func getAllPathName()
+                - func getIndexByName(String)
+                - func getParamByIndex(Int32)
+                - func getParamByName(String)
+                - func getParent()
+                - func moveIndexToTop(Int32, Bool)
+                - func moveToTop(String, Bool)
+                - func pop()
+                - func pop(Bool)
+                - func pop(String, Bool)
+                - func popToIndex(Int32, Bool)
+                - func popToIndex(Int32, String, Bool)
+                - func popToName(String, Bool)
+                - func popToName(String, String, Bool)
+                - func pushDestination(NavPathInfo)
+                - func pushDestination(NavPathInfo, Bool)
+                - func pushDestination(NavPathInfo, NavigationOptions)
+                - func pushDestinationByName(String, String, Bool)
+                - func pushDestinationByName(String, String, (PopInfo) -> Unit, Bool)
+                - func pushPath(NavPathInfo)
+                - func pushPath(NavPathInfo, Bool)
+                - func pushPath(NavPathInfo, NavigationOptions)
+                - func pushPathByName(String, String, Bool)
+                - func pushPathByName(String, String, (PopInfo) -> Unit, Bool)
+                - func removeByIndexes(Array\<Int32>)
+                - func removeByName(String)
+                - func removeByNavDestinationId(String)
+                - func replacePath(NavPathInfo, Bool)
+                - func replacePath(NavPathInfo, NavigationOptions)
+                - func replacePathByName(String, String, Bool)
+                - func size()
+            - class NavigationMenuItem
+                - var action
+                - var icon
+                - var isEnable
+                - var value
+                - init(String, ?String, ?Bool, Option\<() -> Unit>)
+                - init(AppResource, ?AppResource, ?Bool, Option\<() -> Unit>)
+            - class NavigationOptions
+                - var animated
+                - var launchMode
+                - init(LaunchMode, Bool)
+            - class NavigationTitleOptions
+                - var backgroundBlurStyle
+                - var backgroundColor
+                - var barStyle
+                - var paddingEnd
+                - var paddingStart
+                - init(?ResourceColor, ?BlurStyle, ?BarStyle, ?Length, ?Length)
+            - class NavigationToolbarOptions
+                - var backgroundBlurStyle
+                - var backgroundColor
+                - var barStyle
+                - init(?ResourceColor, ?BlurStyle, ?BarStyle)
+            - class PopInfo
+                - let info
+                - let result
+                - init(NavPathInfo, String)
+            - class ToolBarItem
+                - var action
+                - var activeIcon
+                - var icon
+                - var status
+                - var value
+                - init(String, ?String, ?() -> Unit, ?ToolbarItemStatus, ?String)
+                - init(AppResource, ?AppResource, ?() -> Unit, ?ToolbarItemStatus, ?AppResource)
+            - class NavigationCommonTitle
+                - var main
+                - var sub
+                - init(String, String)
+            - enum NavigationMode
+                - Auto
+                - Split
+                - Stack
+            - enum ToolbarItemStatus
+                - Normal
+                - Disabled
+                - Active
+            - enum NavBarPosition
+                - Start
+                - End
+            - enum LaunchMode
+                - Standard
+                - MoveToTopSingleTon
+                - PopToSingleTon
+                - NewInstance
+            - enum NavigationTitleMode
+                - Free
+                - Full
+                - Mini
+            - enum BarStyle
+                - Standard
+                - Stack
+        - 示例代码
+            - 示例1（Navigation页面布局）
+            - 示例2（使用路由栈方法）
+                - [NavDestination](source_zh_cn/arkui-cj/cj-navigation-switching-navdestination.md)
+    API索引列表:
+    - NavDestination
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func title(String, ?NavigationTitleOptions)
+            - func title(() -> Unit, ?NavigationTitleOptions)
+            - func title(NavDestinationCommonTitle, ?NavigationTitleOptions)
+            - func title(() -> Unit, Length, ?NavigationTitleOptions)
+            - func hideTitleBar(Bool)
+            - func mode(NavDestinationMode)
+            - func backButtonIcon(String)
+            - func backButtonIcon(AppResource)
+            - func backButtonIcon(PixelMap)
+            - func menus(Array\<NavigationMenuItem\>)
+            - func menus(() -> Unit)
+            - func ignoreLayoutSafeArea(Array\<LayoutSafeAreaType>, Array\<LayoutSafeAreaEdge>)
+            - func systemBarStyle(ResourceColor)
+        - 组件事件
+            - func onBackPressed(() -> Bool)
+            - func onReady((NavDestinationContext) -> Unit)
+            - func onShown(() -> Unit)
+            - func onHidden(() -> Unit)
+            - func onWillAppear(() -> Unit)
+            - func onWillShow(() -> Unit)
+            - func onWillHide(() -> Unit)
+            - func onWillDisappear(() -> Unit)
+        - 基础类型定义
+            - class NavDestinationContext
+                - var navDestinationId
+                - var pathInfo
+                - var pathStack
+                - init(NavPathInfo, NavPathStack, String)
+            - class NavDestinationCommonTitle
+                - var main
+                - var sub
+                - init(String,String)
+            - enum NavDestinationMode
+                - Standard
+                - Dialog
+        - 示例代码
+                - [Stepper](source_zh_cn/arkui-cj/cj-navigation-switching-stepper.md)
+    API索引列表:
+    - Stepper
+        - 子组件
+        - 创建组件
+            - init(UInt32, () -> Unit)
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件事件
+            - func onChange((UInt32, UInt32) -> Unit)
+            - func onFinish(() -> Unit)
+            - func onNext((UInt32, UInt32) -> Unit)
+            - func onPrevious((UInt32, UInt32) -> Unit)
+            - func onSkip(() -> Unit)
+        - 示例代码
+                - [StepperItem](source_zh_cn/arkui-cj/cj-navigation-switching-stepperitem.md)
+    API索引列表:
+    - StepperItem
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func nextLabel(String)
+            - func prevLabel(String)
+            - func status(ItemState)
+        - 基础类型定义
+            - enum ItemState
+                - Normal
+                - Disabled
+                - Waiting
+                - Skip
+        - 示例代码
+                - [Tabs](source_zh_cn/arkui-cj/cj-navigation-switching-tabs.md)
+    API索引列表:
+    - Tabs
+        - 子组件
+        - 创建组件
+            - init(BarPosition, TabsController, Int32, () -> Unit)
+            - init(BarPosition, TabsController, () -> Unit)
+            - init(BarPosition, Int32, () -> Unit)
+            - init(TabsController, Int32, () -> Unit)
+            - init(BarPosition, () -> Unit)
+            - init(TabsController, () -> Unit)
+            - init(Int32, () -> Unit)
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func animationDuration(Float32)
+            - func animationDuration(Int32)
+            - func animationMode(AnimationMode)
+            - func barBackgroundBlurStyle(BlurStyle)
+            - func barBackgroundBlurStyle(BlurStyle, BackgroundBlurStyleOptions)
+            - func barBackgroundColor(ResourceColor)
+            - func barBackgroundEffect(BackgroundEffectOptions)
+            - func barGridAlign(BarGridColumnOptions)
+            - func barHeight(Length)
+            - func barMode(BarMode)
+            - func barMode(BarMode, ScrollableBarModeOptions)
+            - func barOverlap(Bool)
+            - func barPosition(BarPosition)
+            - func barWidth(Length)
+            - func divider(?DividerStyle)
+            - func edgeEffect(EdgeEffect)
+            - func fadingEdge(Bool)
+            - func scrollable(Bool)
+            - func vertical(Bool)
+        - 组件事件
+            - func onAnimationEnd((Int32, TabsAnimationEvent) -> Unit)
+            - func onAnimationStart((Int32, Int32, TabsAnimationEvent) -> Unit)
+            - func onChange((Int32) -> Unit)
+            - func onContentWillChange((Int32, Int32) -> Bool)
+            - func onGestureSwipe((Int32, TabsAnimationEvent) -> Unit)
+            - func onTabBarClick((Int32) -> Unit)
+            - func customContentTransition((Int32, Int32) -> Option\<TabContentAnimatedTransition>)
+        - 基础类型定义
+            - class TabContentTransitionProxy
+                - let from
+                - let to
+                - func finishTransition()
+            - class TabsController
+                - init()
+                - func changeIndex(Int32)
+                - func preloadItems(?Array\<Int32>)
+                - func setTabBarOpacity(Float64)
+                - func setTabBarTranslate(TranslateOptions)
+            - class BarGridColumnOptions
+                - let gutter
+                - let lg
+                - let margin
+                - let md
+                - let sm
+                - init(Length, Length, Int32, Int32, Int32)
+            - class DividerStyle
+                - let color
+                - let endMargin
+                - let startMargin
+                - let strokeWidth
+                - init(Length, ResourceColor, Length, Length)
+            - class ScrollableBarModeOptions
+                - let margin
+                - let nonScrollableLayoutStyle
+                - init(Length, LayoutStyle)
+            - class TabContentAnimatedTransition
+                - let timeout
+                - let transition
+                - TabContentAnimatedTransition(Int32, (TabContentTransitionProxy) -> Unit)
+            - class TabsAnimationEvent
+                - let currentOffset
+                - let targetOffset
+                - let velocity
+                - TabsAnimationEvent(Float32, Float32, Float32)
+            - enum AnimationMode
+                - ACTION_FIRST
+                - CONTENT_FIRST
+                - NO_ANIMATION
+            - enum LayoutStyle
+                - ALWAYS_AVERAGE_SPLIT
+                - ALWAYS_CENTER
+                - SPACE_BETWEEN_OR_CENTER
+            - enum BarPosition
+                - Start
+                - End
+            - enum BarMode
+                - Fixed
+                - Scrollable
+        - 示例代码
+            - 示例1（自定义页签切换联动）
+            - 示例2（分割线基本属性）
+            - 示例3（设置TabBar渐隐）
+            - 示例4（设置TabBar叠加在TabContent内容上）
+            - 示例5（设置TabBar栅格化可见区域）
+            - 示例6（设置Scrollable模式下的TabBar的布局样式）
+            - 示例7（自定义Tabs页面切换动画）
+            - 示例8（页面切换拦截）
+            - 示例9（自定义TabBar切换动画）
+            - 示例10（预加载子节点）
+            - 示例11（设置TabBar平移距离和不透明度）
+            - 示例12（页面懒加载和释放）
+            - 示例13（设置TabBar的布局模式）
+            - 示例14（设置边缘滑动效果）
+                - [TabContent](source_zh_cn/arkui-cj/cj-navigation-switching-tabcontent.md)
+    API索引列表:
+    - TabContent
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func tabBar(String)
+            - func tabBar(AppResource)
+            - func tabBar(String, String)
+            - func tabBar(AppResource, String)
+            - func tabBar(String, AppResource)
+            - func tabBar(AppResource, AppResource)
+            - func tabBar(() -> Unit)
+            - func tabBar(SubTabBarStyle)
+            - func tabBar(BottomTabBarStyle)
+        - 组件事件
+            - func onWillHide(() -> Unit)
+            - func onWillShow(() -> Unit)
+        - 基础类型定义
+            - class BottomTabBarStyle
+                - init(String, String)
+                - init(AppResource, AppResource)
+                - init(AppResource, String)
+                - init(String, AppResource)
+                - static func of(String, String)
+                - static func of(AppResource, AppResource)
+                - static func of(AppResource, String)
+                - static func of(String, AppResource)
+                - func iconStyle(TabBarIconStyle)
+                - func id(String)
+                - func labelStyle(LabelStyle)
+                - func layoutMode(LayoutMode)
+                - func padding(Padding)
+                - func padding(Length)
+                - func padding(LocalizedPadding)
+                - func symmetricExtensible(Bool)
+                - func verticalAlign(VerticalAlign)
+            - class SubTabBarStyle
+                - init(String)
+                - init(AppResource)
+                - static func of(String)
+                - static func of(AppResource)
+                - func board(BoardStyle)
+                - func id(String)
+                - func indicator(IndicatorStyle)
+                - func labelStyle(LabelStyle)
+                - func padding(Padding)
+                - func padding(Length)
+                - func padding(LocalizedPadding)
+                - func selectedMode(SelectedMode)
+            - class BoardStyle
+                - let borderRadius
+                - BoardStyle(Length)
+            - class IndicatorStyle
+                - let borderRadius
+                - let color
+                - let height
+                - let marginTop
+                - let width
+                - IndicatorStyle(ResourceColor, Length, Length, Length, Length)
+            - class LabelStyle
+                - let font
+                - let heightAdaptivePolicy
+                - let maxFontSize
+                - let maxLines
+                - let minFontSize
+                - let overflow
+                - let selectedColor
+                - let unselectedColor
+                - LabelStyle(TextOverflow, Int32, Length, Length, TextHeightAdaptivePolicy, Fonts, ResourceColor, ResourceColor)
+            - class TabBarIconStyle
+                - let selectedColor
+                - let unselectedColor
+                - TabBarIconStyle(ResourceColor, ResourceColor)
+            - enum LayoutMode
+                - AUTO
+                - HORIZONTAL
+                - VERTICAL
+            - enum SelectedMode
+                - BOARD
+                - INDICATOR
+        - 示例代码
+            - 示例1（自定义页签切换联动）
+            - 示例2（自定义侧边页签）
+            - 示例3（子页签/底部页签/侧边页签样式对比）
+            - 示例4（设置子页签下划线基本属性）
+            - 示例5（设置子页签文本自适应高度属性）
+            - 示例6（设置底部页签基本属性）
+            - 示例7（设置子页签/底部页签文本颜色）
+            - [按钮与选择]()
+                - [Button](source_zh_cn/arkui-cj/cj-button-picker-button.md)
+    API索引列表:
+    - Button
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+            - init(String)
+            - init(AppResource)
+            - init(ButtonOptions)
+            - init(ButtonOptions, () -> Unit)
+            - init(String, ButtonOptions)
+            - init(AppResource, ButtonOptions)
+        - 通用属性/通用事件
+        - 组件属性
+            - func buttonStyle(ButtonStyleMode)
+            - func controlSize(ControlSize)
+            - func labelStyle(TextOverflow, UInt32, Option\<Length>, Option\<Length>, TextHeightAdaptivePolicy, Fonts)
+            - func labelStyle(TextOverflow, UInt32, AppResource, AppResource, TextHeightAdaptivePolicy, Fonts)
+            - func labelStyle(TextOverflow, UInt32, AppResource, Option\<Length>, TextHeightAdaptivePolicy, Fonts)
+            - func labelStyle(TextOverflow, UInt32, Option\<Length>, AppResource, TextHeightAdaptivePolicy, Fonts)
+            - func role(ButtonRole)
+            - func shape(ShapeType)
+            - func shape(ButtonType)
+            - func stateEffect(Bool)
+        - 组件事件
+            - func onClick(() -> Unit)
+        - 基础类型定义
+            - class ButtonOptions
+                - var buttonStyle
+                - var controlSize
+                - var role
+                - var shape
+                - var stateEffect
+                - init(ButtonType, Bool, ButtonStyleMode, ControlSize, ButtonRole)
+            - enum ButtonRole
+                - ERROR
+                - NORMAL
+                - func getValue()<sup>(deprecated)<sup>
+            - enum ButtonStyleMode
+                - EMPHASIZED
+                - NORMAL
+                - TEXTUAL
+                - func getValue()<sup>(deprecated)<sup>
+            - enum ButtonType
+                - Capsule
+                - Circle
+                - Normal
+                - ROUNDED_RECTANGLE
+        - 示例代码
+            - 示例1（设置按钮的显示样式）
+            - 示例2（为按钮添加渲染控制）
+            - 示例3（设置按钮文本样式）
+            - 示例4（设置不同尺寸按钮的重要程度）
+            - 示例5（设置按钮的角色）
+                - [Toggle](source_zh_cn/arkui-cj/cj-button-picker-toggle.md)
+    API索引列表:
+    - Toggle
+        - 子组件
+        - 创建组件
+            - init(ToggleType, Bool)
+            - init(ToggleType, Bool, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func selectedColor(ResourceColor)
+            - func switchPointColor(ResourceColor)
+            - func switchStyle(Float64, ResourceColor, ResourceColor, Float64)
+        - 组件事件
+            - func onChange((Bool) -> Unit)
+        - 基础类型定义
+            - enum ToggleType
+                - CheckboxType
+                - SwitchType
+                - ButtonType
+        - 示例代码
+            - 示例1（设置开关的样式）
+            - 示例2（自定义开关类型的样式）
+                - [Checkbox](source_zh_cn/arkui-cj/cj-button-picker-checkbox.md)
+    API索引列表:
+    - Checkbox
+        - 子组件
+        - 创建组件
+            - init(String, String, ?() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func mark(ResourceColor, ?Length, Length)
+            - func select(Bool)
+            - func selectedColor(ResourceColor)
+            - func shape(CheckBoxShape)
+            - func unselectedColor(ResourceColor)
+        - 组件事件
+            - func onChange((Bool) -> Unit)
+        - 基础类型定义
+            - class CheckBoxConfiguration
+                - var name
+                - var selected
+                - var triggerChange
+                - CheckBoxConfiguration(String, Bool, (Bool) -> Unit)
+        - 示例代码
+            - 示例1（设置多选框形状）
+            - 示例二（自定义多选框样式）
+            - 示例三（设置文本多选框样式）
+                - [CheckboxGroup](source_zh_cn/arkui-cj/cj-button-picker-checkboxgroup.md)
+    API索引列表:
+    - CheckboxGroup
+        - 子组件
+        - 创建组件
+            - init(String)
+        - 通用属性/通用事件
+        - 组件属性
+            - func checkboxShape(CheckBoxShape)
+            - func mark(ResourceColor, Length, Length)
+            - func selectAll(Bool)
+            - func selectedColor(ResourceColor)
+            - func unselectedColor(ResourceColor)
+        - 组件事件
+            - func onChange((CheckboxGroupResult) -> Unit)
+        - 基础类型定义
+            - class CheckboxGroupResult
+                - var name
+                - var status
+                - CheckboxGroupResult(SelectStatus, ArrayList\<String>)
+            - enum SelectStatus
+                - All
+                - Part
+                - None
+        - 示例代码
+            - 示例1（设置多选框群组）
+            - 示例2（自定义勾选样式）
+                - [CalendarPicker](source_zh_cn/arkui-cj/cj-button-picker-calendarpicker.md)
+    API索引列表:
+    - CalendarPicker
+        - 子组件
+        - 创建组件
+            - init(CalendarOptions)
+        - 通用属性/通用事件
+        - 组件属性
+            - func edgeAlign(CalendarAlign, Offset)
+            - func textStyle(ResourceColor, Length, FontWeight, String, FontStyle)
+        - 组件事件
+            - func onChange((DateTime) -> Unit)
+        - 基础类型定义
+            - class CalendarOptions
+                - let hintRadius
+                - let selected
+                - CalendarOptions(Length, DateTime)
+            - enum CalendarAlign
+                - CENTER
+                - END
+                - START
+                - func getValue()<sup>(deprecated)<sup>
+        - 示例代码
+                - [Datepicker](source_zh_cn/arkui-cj/cj-button-picker-datepicker.md)
+    API索引列表:
+    - DatePicker
+        - 子组件
+        - 创建组件
+            - init(DateTime, DateTime, DateTime)
+            - init(DateTime, DateTime, (DateTime,(DateTime) -> Unit))
+        - 通用属性/通用事件
+        - 组件属性
+            - func disappearTextStyle(ResourceColor, Length, FontWeight, String, FontStyle)
+            - func disappearTextStyle(ResourceColor, Length, FontWeight, AppResource, FontStyle)
+            - func lunar(Bool)
+            - func selectedTextStyle(ResourceColor, Length, FontWeight, String, FontStyle)
+            - func selectedTextStyle(ResourceColor, Length, FontWeight, AppResource, FontStyle)
+            - func textStyle(ResourceColor, Length, FontWeight, String, FontStyle)
+            - func textStyle(ResourceColor, Length, FontWeight, AppResource, FontStyle)
+        - 组件事件
+            - func onDateChange((DatePickerResult) -> Unit)
+        - 基础类型定义
+            - class MyFont
+                - var family
+                - var size
+                - var style
+                - var weight
+                - init(Length, FontWeight, String, FontStyle)
+                - init(Length, FontWeight, AppResource, FontStyle)
+            - class PickerTextStyle
+                - let color
+                - let font
+                - PickerTextStyle(ResourceColor, MyFont)
+            - class DatePickerResult
+                - let day
+                - let month
+                - let year
+                - DatePickerResult(Int64, Int64, Int64)
+        - 示例代码
+                - [TextPicker](source_zh_cn/arkui-cj/cj-button-picker-textpicker.md)
+    API索引列表:
+    - TextPicker
+        - 子组件
+        - 创建组件
+            - init(TextPickerOptions)
+            - init(Array\<String>, Option\<UInt32>, Option\<String>)
+        - 通用属性/通用事件
+        - 组件属性
+            - func canLoop(Bool)
+            - func defaultPickerItemHeight(Length)
+            - func defaultPickerItemHeight(Float64)
+            - func defaultPickerItemHeight(Int64)
+            - func divider(?DividerOptions)
+            - func gradientHeight(Length)
+            - func selectedIndex(UInt32)
+            - func selectedIndex(Array\<UInt32>)
+            - func selectedTextStyle(PickerTextStyle)
+            - func textStyle(PickerTextStyle)
+        - 组件事件
+            - func onChange((TextPickerResData) -> Unit)
+        - 基础类型定义
+            - class TextCascadePickerRangeContent
+                - var children
+                - var text
+                - TextCascadePickerRangeContent(String, Option\<Array\<TextCascadePickerRangeContent>>)
+            - class TextPickerOptions
+                - var range
+                - var selected
+                - var value
+                - TextPickerOptions(Array\<String>, Option\<UInt32>, Option\<String>)
+            - class TextPickerRangeContent
+                - var icon
+                - var text
+                - init(String, ?String)
+                - init(AppResource, ?String)
+                - init(String, ?AppResource)
+                - init(AppResource, ?AppResource)
+            - class TextPickerResData
+                - var index
+                - var value
+                - init(String, UInt32)
+            - class RangeParams<sup>(deprecated)<sup>
+                - var cascaderange
+                - var multirange
+                - var singlerange
+                - init(Array\<String>)
+                - init(Array\<Array\<String>>)
+                - init(Array\<TextCascadePickerRangeContent>)
+            - class SelectedParams<sup>(deprecated)<sup>
+                - var selected
+                - var selectedchangeEvent
+                - init(UInt32)
+                - init((UInt32,(UInt32) -> Unit))
+            - class SelectedsParams<sup>(deprecated)<sup>
+                - var selecteds
+                - var selectedschangeEvent
+                - init(?Array\<UInt32>)
+                - init((?Array\<UInt32>,(Array\<UInt32>) -> Unit))
+            - struct TextPickerResult<sup>(deprecated)<sup>
+                - let index
+                - let value
+                - TextPickerResult(CString, UInt32)
+            - class ValueParams<sup>(deprecated)<sup>
+                - var value
+                - var valuechangeEvent
+                - init(String)
+                - init((String,(String) -> Unit))
+            - class ValuesParams<sup>(deprecated)<sup>
+                - var values
+                - var valueschangeEvent
+                - init(?Array\<String>)
+                - init((?Array\<String>,(Array\<String>) -> Unit))
+        - 示例代码
+            - 示例1（设置选择器列数）
+            - 示例2（设置文本样式）
+            - 示例3（设置无分割线样式）
+            - 示例4 (设置分割线样式)
+            - 示例5（设置渐隐效果）
+                - [TimePicker](source_zh_cn/arkui-cj/cj-button-picker-timepicker.md)
+    API索引列表:
+    - TimePicker
+        - 子组件
+        - 创建组件
+            - init(DateTime, TimePickerFormat)
+        - 通用属性/通用事件
+        - 组件属性
+            - func dateTimeOptions(?String, ?String, ?String)
+            - func disappearTextStyle(?PickerTextStyle)
+            - func enableHapticFeedback(?Bool)
+            - func loop(?Bool)
+            - func selectedTextStyle(?PickerTextStyle)
+            - func textStyle(?PickerTextStyle)
+            - func useMilitaryTime(?Bool)
+        - 组件事件
+            - func onChange(?(TimePickerResult) -> Unit)
+        - 基础类型定义
+            - class TimePickerResult
+                - var hour
+                - var minute
+                - var second
+                - init(Int64, Int64, Int64)
+            - enum TimePickerFormat
+                - HourMinute
+                - HourMinuteSecond
+        - 示例代码
+            - 示例1（设置文本样式）
+            - 示例2（切换小时制）
+            - 示例3（设置时间格式）
+            - 示例4（设置循环滚动）
+                - [Radio](source_zh_cn/arkui-cj/cj-button-picker-radio.md)
+    API索引列表:
+    - Radio
+        - 子组件
+        - 创建组件
+            - init(String, String, RadioIndicatorType, Option\<() -> Unit>)
+        - 通用属性/通用事件
+        - 组件属性
+            - func checked(Bool)
+            - func radioStyle(ResourceColor, ResourceColor, ResourceColor)
+        - 组件事件
+            - func onChange((Bool) -> Unit)
+        - 基础类型定义
+            - enum RadioIndicatorType
+                - CUSTOM
+                - DOT
+                - TICK
+        - 示例1 （设置底板颜色）
+        - 示例2 （设置选中样式）
+                - [Rating](source_zh_cn/arkui-cj/cj-button-picker-rating.md)
+    API索引列表:
+    - Rating
+        - 子组件
+        - 创建组件
+            - init(Float64, Bool)
+            - init(Int64, Bool)
+        - 通用属性/通用事件
+        - 组件属性
+            - func starStyle(String, String, String)
+            - func stars(Int32)
+            - func stepSize(Float64)
+            - func stepSize(Int64)
+        - 组件事件
+            - func onChange((Float64) -> Unit)
+            - func onChange(() -> Unit)
+        - 示例代码
+            - 示例1（设置默认评分样式）
+            - 示例2（设置评分的样式）
+                - [Select](source_zh_cn/arkui-cj/cj-button-picker-select.md)
+    API索引列表:
+    - Select
+        - 子组件
+        - 创建组件
+            - init(Array\<SelectOption>)
+        - 通用属性/通用事件
+        - 组件属性
+            - func arrowPosition(ArrowPosition)
+            - func controlSize(ControlSize)
+            - func divider(Option\<DividerOptions>)
+            - func font(FontStyle, FontWeight, Length, String)
+            - func fontColor(ResourceColor)
+            - func menuAlign(MenuAlignType, MenuOffset)
+            - func menuBackgroundBlurStyle(BlurStyle)
+            - func menuBackgroundColor(ResourceColor)
+            - func optionBgColor(ResourceColor)
+            - func optionFont(FontStyle, FontWeight, Length, String)
+            - func optionFontColor(ResourceColor)
+            - func optionHeight(Length)
+            - func optionWidth(OptionWidthMode)
+            - func optionWidth(Length)
+            - func selected(Int32)
+            - func selectedOptionBgColor(ResourceColor)
+            - func selectedOptionFont(FontStyle, FontWeight, Length, String)
+            - func selectedOptionFontColor(ResourceColor)
+            - func space(Length)
+            - func value(String)
+            - func value(AppResource)
+        - 组件事件
+            - func onSelect((Int32,String) -> Unit)
+        - 基础类型定义
+            - class SelectOption
+                - var icon
+                - var value
+                - init(String, String)
+                - init(String, AppResource)
+                - init(AppResource, String)
+                - init(AppResource, AppResource)
+            - class DividerOptions
+                - let color
+                - let endMargin
+                - let startMargin
+                - let strokeWidth
+                - init(Length, Length, Length, ResourceColor)
+                - init(Length, Length)
+            - enum MenuAlignType
+                - START
+                - CENTER
+                - END
+        - 示例代码
+            - 示例1（设置下拉菜单）
+            - 示例2（设置分割线样式）
+            - 示例3（设置无分割线样式）
+                - [Slider](source_zh_cn/arkui-cj/cj-button-picker-slider.md)
+    API索引列表:
+    - Slider
+        - 子组件
+        - 创建组件
+            - init(Float64, Float64, Float64, Float64, SliderStyle, Axis, Bool)
+        - 通用属性/通用事件
+        - 组件属性
+            - func blockBorderColor(ResourceColor)
+            - func blockBorderWidth(Length)
+            - func blockColor(ResourceColor)
+            - func blockSize(Length, Length)
+            - func blockStyle(SliderBlockType, String, ?ShapeAbstract)
+            - func blockStyle(SliderBlockType, AppResource, ?ShapeAbstract)
+            - func maxLabel(Float64) <sup>(deprecated)<sup>
+            - func minLabel(Float64) <sup>(deprecated)<sup>
+            - func minResponsiveDistance(Float32)
+            - func minResponsiveDistance(Int64)
+            - func selectedBorderRadius(Length)
+            - func selectedColor(ResourceColor)
+            - func showSteps(Bool)
+            - func showTips(Bool, ?String)
+            - func slideRange(?Float32, ?Float32)
+            - func slideRange(?Int64, ?Int64)
+            - func sliderInteractionMode(SliderInteraction)
+            - func stepColor(ResourceColor)
+            - func stepSize(Length)
+            - func trackBorderRadius(Length)
+            - func trackColor(ResourceColor)
+            - func trackThickness(Length)
+        - 组件事件
+            - func onChange((Float64,SliderChangeMode) -> Unit)
+            - func onChange(() -> Unit)
+        - 基础类型定义
+            - enum SliderBlockType
+                - DEFAULT
+                - IMAGE
+                - SHAPE
+            - enum SliderInteraction
+                - SLIDE_AND_CLICK
+                - SLIDE_AND_CLICK_UP
+                - SLIDE_ONLY
+            - enum SliderStyle
+                - OutSet
+                - InSet
+                - NONE
+            - enum SliderChangeMode
+                - Begin
+                - Moving
+                - End
+                - Click
+        - 示例代码
+            - 示例1（滑动条基础样式）
+            - 示例2（设置滑动条样式）
+            - [文本与输入]()
+                - [Text](source_zh_cn/arkui-cj/cj-text-input-text.md)
+    API索引列表:
+    - Text
+        - 子组件
+        - 创建组件
+            - init(AppResource, TextController)
+            - init(String, TextController)
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func baselineOffset(Length)
+            - func bindSelectionMenu(TextSpanType, () -> Unit, TextResponseType, (Int32,Int32) -> Unit, () -> Unit)
+            - func copyOption(CopyOptions)
+            - func dataDetectorConfig(Array\<TextDataDetectorType>, (String) -> Unit, ResourceColor, TextDecorationType, ResourceColor, TextDecorationStyle)
+            - func decoration(TextDecorationType, ResourceColor, TextDecorationStyle)
+            - func draggable(Bool)
+            - func editMenuOptions((Array\<TextMenuItem>) -> Array\<TextMenuItem>, (TextMenuItem, Int32, Int32) -> Bool)
+            - func ellipsisMode(EllipsisMode)
+            - func enableDataDetector(Bool)
+            - func font(TextFont)
+            - func fontColor(ResourceColor)
+            - func fontFamily(String)
+            - func fontFamily(AppResource)
+            - func fontFeature(String)
+            - func fontSize(Length)
+            - func fontStyle(FontStyle)
+            - func fontWeight(FontWeight)
+            - func halfLeading(Bool)
+            - func heightAdaptivePolicy(TextHeightAdaptivePolicy)
+            - func letterSpacing(Length)
+            - func lineBreakStrategy(LineBreakStrategy)
+            - func lineHeight(Length)
+            - func lineSpacing(Length)
+            - func maxLines(Int32)
+            - func maxFontScale(Float32)
+            - func maxFontSize(Length)
+            - func minFontScale(Float32)
+            - func minFontSize(Length)
+            - func privacySensitive(Bool)
+            - func responseRegion(Rectangle)
+            - func responseRegionArray(Array\<Rectangle>)
+            - func selection(Int32, Int32)
+            - func textAlign(TextAlign)
+            - func textCase(TextCase)
+            - func textIndent(Length)
+            - func textOverflow(TextOverflow)
+            - func textSelectable(TextSelectable)
+            - func textShadow(ShadowOptions)
+            - func textShadow(Array\<ShadowOptions>)
+            - func wordBreak(WordBreak)
+        - 组件事件
+            - func onCopy((String) -> Unit)
+            - func onTextSelectionChange((Int32, Int32) -> Unit)
+        - 基础类型定义
+            - class ShadowOptions
+                - var radius
+                - var shadowType
+                - var offsetX
+                - var offsetY
+                - var color
+                - var fill
+                - init(Float64, ShadowType, Float64, Float64, Color, Bool)
+            - class TextController
+                - init()
+                - func closeSelectionMenu()
+            - class TextFont
+                - init(Length, FontWeight, AppResource, FontStyle)
+                - init(Length, FontWeight, String, FontStyle)
+            - class TextMenuItem
+                - var content
+                - var icon
+                - var id
+                - init(AppResource, AppResource, TextMenuItemId)
+                - init(String, AppResource, TextMenuItemId)
+                - init(String, String, TextMenuItemId)
+            - class TextMenuItemId
+                - static prop AI_WRITER
+                - static prop CAMERA_INPUT
+                - static prop COLLABORATION_SERVICE
+                - static prop COPY
+                - static prop CUT
+                - static prop PASTE
+                - static prop SELECT_ALL
+                - static func of(AppResource)
+                - static func of(String)
+                - func equals(TextMenuItemId)
+            - enum TextSpanType
+                - IMAGE
+                - MIXED
+                - TEXT
+            - enum TextResponseType
+                - LONG_PRESS
+                - RIGHT_CLICK
+                - SELECT
+            - enum TextDataDetectorType
+                - ADDRESS
+                - DATE_TIME
+                - EMAIL
+                - PHONE_NUMBER
+                - URL
+            - enum TextSelectable
+                - SELECTABLE_FOCUSABLE
+                - SELECTABLE_UNFOCUSABLE
+                - UNSELECTABLE
+        - 示例代码
+                - [TextArea](source_zh_cn/arkui-cj/cj-text-input-textarea.md)
+    API索引列表:
+    - TextArea
+        - 子组件
+        - 创建组件
+            - init(AppResource, AppResource, TextAreaController)
+            - init(AppResource, String, TextAreaController)
+            - init(String, AppResource, TextAreaController)
+            - init(String, String, TextAreaController)
+        - 通用属性/通用事件
+        - 组件属性
+            - func \`type\`(TextAreaType)
+            - func barState(BarState)
+            - func borderStyle(BorderStyle)
+            - func caretColor(ResourceColor)
+            - func caretStyle(Length, ResourceColor)
+            - func contentType(ContentType)
+            - func copyOption(CopyOptions)
+            - func customKeyboard(() -> Unit, Bool)
+            - func decoration(TextDecorationType, ResourceColor, TextDecorationStyle)
+            - func enableAutoFill(Bool)
+            - func enableKeyboardOnFocus(Bool)
+            - func enablePreviewText(Bool)
+            - func enterKeyType(EnterKeyType)
+            - func fontColor(ResourceColor)
+            - func fontFamily(String)
+            - func fontFamily(AppResource)
+            - func fontFeature(String)
+            - func fontSize(Length)
+            - func fontStyle(FontStyle)
+            - func fontWeight(FontWeight)
+            - func heightAdaptivePolicy(TextHeightAdaptivePolicy)
+            - func inputFilter(String, (String) -> Unit)
+            - func letterSpacing(Length)
+            - func lineBreakStrategy(LineBreakStrategy)
+            - func lineHeight(Length)
+            - func lineSpacing(Length)
+            - func maxFontSize(Length)
+            - func maxLength(UInt32)
+            - func maxLines(Int32)
+            - func minFontSize(Length)
+            - func placeholderColor(ResourceColor)
+            - func placeholderFont(Length, FontWeight, String, FontStyle)
+            - func selectedBackgroundColor(ResourceColor)
+            - func selectionMenuHidden(Bool)
+            - func showCounter(Bool, Float64, Bool)
+            - func style(TextContentStyle)
+            - func textAlign(TextAlign)
+            - func textIndent(Length)
+            - func textOverflow(TextOverflow)
+            - func wordBreak(WordBreak)
+        - 组件事件
+            - func onChange((String) -> Unit)
+            - func onContentScroll((Float32, Float32) -> Unit)
+            - func onCopy((String) -> Unit)
+            - func onCut((String) -> Unit)
+            - func onDidDelete((Float64, Int32, String) -> Unit)
+            - func onDidInsert((Float64, String) -> Unit)
+            - func onEditChange((Bool) -> Unit)
+            - func onEditChanged((Bool) -> Unit)
+            - func onPaste((String) -> Unit)
+            - func onSubmit((EnterKeyType) -> Unit)
+            - func onTextSelectionChange((Int32, Int32) -> Unit)
+            - func onWillDelete((Float64, Int32, String) -> Bool)
+            - func onWillInsert((Float64, String) -> Bool)
+        - 基础类型定义
+            - class TextAreaController
+                - init()
+                - func caretPosition(Int32)
+                - func getCaretOffset()
+                - func getTextContentLineCount()
+                - func getTextContentRect()
+                - func setTextSelection(Int32, Int32, SelectionOptions)
+                - func stopEditing()
+            - class SelectionOptions
+                - init(MenuPolicy)
+            - enum TextAreaType
+                - EMAIL
+                - NORMAL
+                - NUMBER
+                - NUMBER_DECIMAL
+                - PHONE_NUMBER
+                - URL
+        - 示例代码
+                - [TextInput](source_zh_cn/arkui-cj/cj-text-input-textinput.md)
+    API索引列表:
+    - TextInput
+        - 子组件
+        - 创建组件
+            - init(AppResource, AppResource, TextInputController)
+            - init(AppResource, String, TextInputController)
+            - init(String, AppResource, TextInputController)
+            - init(String, String, TextInputController)
+        - 通用属性/通用事件
+        - 组件属性
+            - func barState(BarState)
+            - func cancelButton(CancelButtonStyle, Length, ResourceColor, String)
+            - func cancelButton(CancelButtonStyle, Length, ResourceColor, AppResource)
+            - func caretColor(ResourceColor)
+            - func caretPosition(Int32)
+            - func caretStyle(Length, ResourceColor)
+            - func contentType(ContentType)
+            - func copyOption(CopyOptions)
+            - func customKeyboard(() -> Unit, Bool)
+            - func decoration(TextDecorationType, ResourceColor, TextDecorationStyle)
+            - func editMenuOptions((Array\<TextMenuItem>) -> Array\<TextMenuItem>, (TextMenuItem,Int32,Int32) -> Bool)
+            - func enableAutoFill(Bool)
+            - func enableKeyboardOnFocus(Bool)
+            - func enablePreviewText(Bool)
+            - func enterKeyType(EnterKeyType)
+            - func heightAdaptivePolicy(TextHeightAdaptivePolicy)
+            - func inputFilter(String, (String) -> Unit)
+            - func letterSpacing(Length)
+            - func lineBreakStrategy(LineBreakStrategy)
+            - func lineHeight(Length)
+            - func maxFontSize(Length)
+            - func maxLength(UInt32)
+            - func maxLines(Int32)
+            - func minFontSize(Length)
+            - func passwordIcon(String, String)
+            - func passwordIcon(?AppResource, ?AppResource)
+            - func passwordRules(String)
+            - func placeholderColor(ResourceColor)
+            - func placeholderFont(Length, FontWeight, String, FontStyle)
+            - func selectAll(Bool)
+            - func selectedBackgroundColor(ResourceColor)
+            - func selectionMenuHidden(Bool)
+            - func setType(InputType)
+            - func showCounter(Bool, Float64, Bool)
+            - func showError(AppResource)
+            - func showError(String)
+            - func showPassword(Bool)
+            - func showPasswordIcon(Bool)
+            - func showUnderline(Bool)
+            - func showUnit(() -> Unit)
+            - func style(TextInputStyle)
+            - func textAlign(TextAlign)
+            - func textIndent(Length)
+            - func textOverflow(TextOverflow)
+            - func underlineColor(ResourceColor)
+            - func underlineColor(?Color, ?Color, ?Color, ?Color)
+            - func wordBreak(WordBreak)
+        - 组件事件
+            - func onChange((String) -> Unit)
+            - func onContentScroll((Float32,Float32) -> Unit)
+            - func onCopy((String) -> Unit)
+            - func onCut((String) -> Unit)
+            - func onDidDelete((Float64, Int32, String) -> Unit)
+            - func onDidInsert((Float64, String) -> Unit)
+            - func onEditChange((Bool) -> Unit)
+            - func onPaste((String) -> Unit)
+            - func onSecurityStateChange((Bool) -> Unit)
+            - func onSubmit((EnterKeyType) -> Unit)
+            - func onSubmit((EnterKeyType, SubmitEvent) -> Unit)
+            - func onTextSelectionChange((Int32, Int32) -> Unit)
+            - func onWillDelete((Float64, Int32, String) -> Bool)
+            - func onWillInsert((Float64, String) -> Bool)
+        - 基础类型定义
+            - class TextInputController
+                - init()
+                - func caretPosition(Int32)
+                - func getCaretOffset()
+                - func getTextContentLineCount()
+                - func getTextContentRect()
+                - func setTextSelection(Int32, Int32, MenuPolicy)
+                - func stopEditing()
+            - class SubmitEvent
+                - var text: String
+                - init()
+            - enum CancelButtonStyle
+                - CONSTANT
+                - INPUT
+                - INVISIBLE
+            - enum EnterKeyType
+                - Done
+                - EntrySearch
+                - Go
+                - Next
+                - NEW_LINE
+                - PREVIOUS
+                - Send
+            - enum TextInputStyle
+                - Default
+                - Inline
+            - enum InputType
+                - Email
+                - NEW_PASSWORD
+                - Normal
+                - Number
+                - NUMBER_DECIMAL
+                - NUMBER_PASSWORD
+                - Password
+                - PhoneNumber
+                - URL
+                - USER_NAME
+        - 示例代码
+                - [RichEditor](source_zh_cn/arkui-cj/cj-text-input-richeditor.md)
+    API索引列表:
+    - RichEditor
+        - 子组件
+        - 创建组件
+            - init(RichEditorController)
+        - 通用属性/通用事件
+        - 组件属性
+            - func bindSelectionMenu(RichEditorSpanType, () -> Unit, ResponseType, SelectionMenuOptions)
+            - func copyOptions(CopyOptions)
+            - func customKeyboard(() -> Unit)
+            - func placeholder(AppResource, PlaceholderStyle)
+            - func placeholder(String, PlaceholderStyle)
+            - func enterKeyType(EnterKeyType)
+            - func caretColor(ResourceColor)
+            - func enableKeyboardOnFocus(Bool)
+            - func selectedBackgroundColor(ResourceColor)
+            - func enableDataDetector(Bool)
+            - func dataDetectorConfig(TextDataDetectorConfig)
+            - func editMenuOptions(EditMenuOptions)
+        - 组件事件
+            - func aboutToIMEInput((RichEditorInsertValue) -> Bool)
+            - func aboutToDelete((RichEditorDeleteValue) -> Bool)
+            - func onDeleteComplete(() -> Unit)
+            - func onDidChange((TextRange, TextRange) -> Unit)
+            - func onIMEInputComplete((RichEditorTextSpanResult) -> Unit)
+            - func onPaste((PasteEvent) -> Unit)
+            - func onReady(() -> Unit)
+            - func onSelect((RichEditorSelection) -> Unit)
+            - func onSelectionChange((RichEditorRange) -> Unit)
+            - func onSubmit((EnterKeyType, SubmitEvent) -> Unit)
+            - func onEditingChange((Bool) -> Unit)
+            - func onCopy((CopyEvent) -> Unit)
+            - func onCut((CutEvent) -> Unit)
+            - func onDidIMEInput((TextRange) -> Unit)
+        - 基础类型定义
+            - class PasteEvent
+                - func preventDefault()
+            - class CopyEvent
+                - func preventDefault()
+            - class CutEvent
+                - func preventDefault()
+            - class RichEditorController
+                - init()
+                - func addImageSpan(AppResource, RichEditorImageSpanOptions)
+                - func addImageSpan(String, RichEditorImageSpanOptions)
+                - func addTextSpan(String, RichEditorTextSpanOptions)
+                - func closeSelectionMenu()
+                - func deleteSpans(Int32, Int32)
+                - func getCaretOffset()
+                - func getSpans(Int32, Int32)
+                - func setCaretOffset(Int64)
+                - func updateSpanStyle(Int32, Int32, RichEditorTextStyle)
+                - func updateSpanStyle(Int32, Int32, RichEditorImageSpanStyle)
+                - func updateParagraphStyle(Int32, Int32, RichEditorParagraphStyle)
+            - class RichEditorDeleteValue
+                - var direction
+                - var length
+                - var offset
+                - var richEditorDeleteSpans
+                - RichEditorDeleteValue(Int32, RichEditorDeleteDirection, Int32, ArrayList\<RichEditorSpanResult>)
+            - class LeadingMarginPlaceholder
+                - init(PixelMap, (Length, Length))
+            - class RichEditorParagraphStyle
+                - var textAlign
+                - var margin
+                - var placeholder
+                - init(TextAlign)
+                - init(TextAlign, Length)
+                - init(TextAlign, LeadingMarginPlaceholder)
+            - class RichEditorImageSpanStyle
+                - init((Length, Length), ImageSpanAlignment, ImageFit)
+                - init(ImageSpanAlignment, ImageFit)
+            - class RichEditorTextStyle
+                - init(ResourceColor, Length, FontStyle, FontWeight, String, TextDecoration)
+            - class TextDecoration
+                - var \`type\`
+                - var color
+                - init(TextDecorationType, Color)
+            - class RichEditorImageSpanOptions
+                - var offset
+                - var imageStyle
+                - init(Int32, RichEditorImageSpanStyle)
+            - class RichEditorTextSpanOptions
+                - init(Int32, RichEditorTextStyle)
+            - class  SelectionMenuOptions
+                - init(() -> Unit,() -> Unit)
+            - class RichEditorImageSpanResult
+                - var imageStyle
+                - var objectFit
+                - var offsetInSpan
+                - var size
+                - var spanPosition
+                - var valuePixelMap
+                - var valueResourceStr
+                - var verticalAlign
+                - init((Float64, Float64), ImageSpanAlignment, ImageFit)
+                - init((Float64, Float64), ImageSpanAlignment, ImageFit, RichEditorSpanPosition, Option<PixelMap>, String, RichEditorImageSpanStyleResult, (Int32, Int32))
+                - init()
+            - class RichEditorImageSpanStyleResult
+                - var layoutStyle
+                - var objectFit
+                - var size
+                - var verticalAlign
+            - class RichEditorInsertValue
+                - var insertOffset
+                - var insertValue
+                - var previewText
+                - init(Int32, String)
+                - init(Int32, String, String)
+            - class RichEditorLayoutStyleResult
+                - var borderRadius
+                - var margin
+            - class RichEditorSelection
+                - var selection
+                - var spans
+                - RichEditorSelection((Int32, Int32), ArrayList\<RichEditorSpanResult>)
+            - class RichEditorSpanPosition
+                - var spanIndex
+                - var spanRange
+                - RichEditorSpanPosition(Int32, (Int32, Int32))
+            - class RichEditorSpanResult
+                - var imageResult
+                - var spanType
+                - var textResult
+            - class RichEditorParagraphStyleResult
+                - var textAlign
+                - var leadingMargin
+                - var wordBreak
+                - var lineBreakStrategy
+            - class RichEditorTextSpanResult
+                - var offsetInSpan
+                - var paragraphStyle
+                - var previewText
+                - var spanPosition
+                - var symbolSpanStyle
+                - var textStyle
+                - var value
+                - init(RichEditorSpanPosition, String, RichEditorTextStyleResult, (Int32, Int32))
+                - init(RichEditorSpanPosition, String, RichEditorTextStyleResult, (Int32, Int32), RichEditorSymbolSpanStyleResult, RichEditorParagraphStyleResult, String)
+            - class RichEditorTextStyleResult
+                - var decoration
+                - var fontColor
+                - var fontFamily
+                - var fontSize
+                - var fontStyle
+                - var fontWeight
+                - let fontFeature
+                - let letterSpacing
+                - let lineHeight
+                - let textShadow
+                - init(String, Float64, FontStyle, Int32, String, TextDecorationResult)
+                - init(String, Float64, FontStyle, Int32, String, TextDecorationResult)
+            - class ShadowOptionsResult
+                - let color
+                - let offsetX
+                - let offsetY
+                - let radius
+                - ShadowOptionsResult()
+            - class TextDecorationResult
+                - var \`type\`
+                - var color
+                - TextDecorationResult(TextDecorationType, String)
+            - class TextRange
+                - var start
+                - var end
+                - TextRange(Int32, Int32)
+            - class RichEditorSymbolSpanStyleResult
+                - var fontColor
+                - var fontSize
+                - var fontWeight
+                - var renderingStrategy
+                - var effectStrategy
+            - class PlaceholderStyle
+                - var font
+                - var fontColor
+                - init(?Fonts, ?ResourceColor)
+            - class RichEditorRange
+                - var end
+                - var start
+                - init(Int32, Int32)
+            - class TextDataDetectorConfig
+                - var types
+                - var onDetectResultUpdate
+                - var color
+                - var decoration
+                - init(Array<TextDataDetectorType>, ?(String) -> Unit, ?ResourceColor, ?DecorationStyleInterface)
+            - class DecorationStyleInterface
+                - var `type`
+                - var color
+                - var style
+                - init(TextDecorationType, ?ResourceColor, ?TextDecorationStyle)
+            - class EditMenuOptions
+                - var onCreateMenu
+                - var onMenuClick
+                - init((Array<TextMenuItem>) -> Array<TextMenuItem>, (TextMenuItem, TextRange) -> Bool)
+            - enum RichEditorSpanType
+                - TEXT
+                - IMAGE
+                - MIXED
+            - enum RichEditorDeleteDirection
+                - BACKWARD
+                - FORWARD
+            - enum SpanType
+                - TEXT
+                - IMAGE
+        - 示例代码
+                - [Search](source_zh_cn/arkui-cj/cj-text-input-search.md)
+    API索引列表:
+    - Search
+        - 子组件
+        - 创建组件
+            - init(String, String, Option\<AppResource>, Option\<SearchController>)
+        - 通用属性/通用事件
+        - 组件属性
+            - func \`type\`(SearchType)
+            - func cancelButton(CancelButtonStyle, Length, ResourceColor, String)
+            - func cancelButton(CancelButtonStyle, Length, ResourceColor, AppResource)
+            - func caretStyle(Length, ResourceColor)
+            - func copyOption(CopyOptions)
+            - func customKeyboard(() -> Unit, Bool)
+            - func decoration(TextDecorationType, ResourceColor, TextDecorationStyle)
+            - func editMenuOptions((Array\<TextMenuItem>) -> Array\<TextMenuItem>, (TextMenuItem, Int32, Int32) -> Bool)
+            - func enableKeyboardOnFocus(Bool)
+            - func enablePreviewText(Bool)
+            - func enterKeyType(EnterKeyType)
+            - func fontColor(ResourceColor)
+            - func fontFeature(String)
+            - func inputFilter(String, (String) -> Unit)
+            - func letterSpacing(Length)
+            - func lineHeight(Length)
+            - func maxFontSize(Length)
+            - func maxLength(UInt32)
+            - func minFontSize(Length)
+            - func placeholderColor(ResourceColor)
+            - func placeholderFont(Length, FontWeight, FontStyle, String)
+            - func searchButton(String)
+            - func searchIcon(Length, ResourceColor, String)
+            - func searchIcon(Length, ResourceColor, AppResource)
+            - func selectedBackgroundColor(ResourceColor)
+            - func selectionMenuHidden(Bool)
+            - func textAlign(TextAlign)
+            - func textFont(Length, FontWeight, FontStyle, String)
+            - func textIndent(Length)
+        - 组件事件
+            - func onChange((String) -> Unit)
+            - func onContentScroll((Float32, Float32) -> Unit)
+            - func onCopy((String) -> Unit)
+            - func onCut((String) -> Unit)
+            - func onDidDelete((Float64, Int32, String) -> Unit)
+            - func onDidInsert((Float64, String) -> Unit)
+            - func onEditChange((Bool) -> Unit)
+            - func onPaste((String) -> Unit)
+            - func onSubmit((String) -> Unit)
+            - func onTextSelectionChange((Int32, Int32) -> Unit)
+            - func onWillDelete((Float64, Int32, String) -> Bool)
+            - func onWillInsert((Float64, String) -> Bool)
+        - 基础类型定义
+            - class SearchController
+                - init()
+                - func caretPosition(Int32)
+                - func getCaretOffset()
+                - func getTextContentLineCount()
+                - func getTextContentRect()
+                - func setTextSelection(Int32, Int32, MenuPolicy)
+                - func stopEditing()
+            - struct CJCaretOffset
+                - var index
+                - var x
+                - var y
+                - CJCaretOffset(Float64, Float64, Float64)
+            - struct CJRectResult
+                - var x
+                - var y
+                - var width
+                - var height
+                - CJRectResult(Float64, Float64, Float64, Float64)
+            - enum SearchType
+                - EMAIL
+                - NORMAL
+                - NUMBER
+                - NUMBER_DECIMAL
+                - PHONE_NUMBER
+                - URL
+            - enum CancelButtonStyle
+                - CONSTANT
+                - INPUT
+                - INVISIBLE
+        - 示例代码
+                - [Span](source_zh_cn/arkui-cj/cj-text-input-span.md)
+    API索引列表:
+    - Span
+        - 子组件
+        - 创建组件
+            - init(String)
+            - init(AppResource)
+        - 通用属性/通用事件
+        - 组件属性
+            - func baselineOffset(Length)
+            - func decoration(TextDecorationType, ResourceColor)
+            - func font(Length, FontWeight, String, FontStyle)
+            - func fontColor(ResourceColor)
+            - func fontFamily(String)
+            - func fontFamily(AppResource)
+            - func fontSize(Length)
+            - func fontStyle(FontStyle)
+            - func fontWeight(FontWeight)
+            - func letterSpacing(Length)
+            - func lineHeight(Length)
+            - func textCase(TextCase)
+            - func textShadow(Float64, ShadowType, Float64, Float64, ResourceColor, Bool)
+            - func textShadow(Array\<ShadowOptions>)
+            - func textBackgroundStyle(TextBackgroundStyle)
+        - 基础类型定义
+            - class TextBackgroundStyle
+                - var color
+                - var radiusBorder
+                - var radiusDimension
+                - init(ResourceColor, BorderRadiuses, Length)
+            - enum ShadowType
+                - BLUR
+                - COLOR
+        - 示例代码
+            - 示例1
+            - 示例2
+            - 示例3
+                - [ImageSpan](source_zh_cn/arkui-cj/cj-text-input-imagespan.md)
+    API索引列表:
+    - ImageSpan
+        - 子组件
+        - 创建组件
+            - init(AppResource)
+            - init(PixelMap)
+            - init(String)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alt(PixelMap)
+            - func colorFilter(ColorFilter)
+            - func objectFit(ImageFit)
+            - func textBackgroundStyle(ResourceColor, Length)
+            - func textBackgroundStyle(ResourceColor, BorderRadiuses)
+            - func verticalAlign(ImageSpanAlignment)
+        - 组件事件
+            - func onComplete((ImageLoadResult) -> Unit)
+            - func onError((CJImageError) -> Unit)
+        - 基础类型定义
+            - class ColorFilter
+                - init(Array\<Float32>)
+            - class ImageLoadResult
+                - var componentHeight
+                - var componentWidth
+                - var contentHeight
+                - var contentOffsetX
+                - var contentOffsetY
+                - var contentWidth
+                - var height
+                - var loadingStatus
+                - var width
+                - ImageLoadResult(Float64, Float64, Float64, Float64, Int64, Float64, Float64, Float64, Float64)
+            - class CJImageError
+                - var componentWidth
+                - var componentHeight
+                - var message
+                - init(Float64, Float64)
+                - init(Float64, Float64, String)
+                - init()
+        - 示例代码
+            - 示例1
+            - 示例2
+                - [SymbolSpan](source_zh_cn/arkui-cj/cj-text-input-symbolspan.md)
+    API索引列表:
+    - SymbolSpan
+        - 子组件
+        - 创建组件
+            - init(AppResource)
+        - 通用属性/通用事件
+        - 组件属性
+            - func effectStrategy(SymbolEffectStrategy)
+            - func fontColor(Array\<Color>)
+            - func fontColor(Array\<UInt32>)
+            - func fontColor(Array\<AppResource>)
+            - func fontSize(Length)
+            - func fontWeight(Int64)
+            - func fontWeight(String)
+            - func fontWeight(FontWeight)
+            - func renderingStrategy(SymbolRenderingStrategy)
+        - 示例代码
+                - [SymbolGlyph](source_zh_cn/arkui-cj/cj-text-input-symbolglyph.md)
+    API索引列表:
+    - SymbolGlyph
+        - 子组件
+        - 创建组件
+            - init()
+            - init(AppResource)
+        - 通用属性/通用事件
+        - 组件属性
+            - func effectStrategy(SymbolEffectStrategy)
+            - func fontColor(Array\<Color>)
+            - func fontColor(Array\<UInt32>)
+            - func fontColor(Array\<AppResource>)
+            - func fontSize(Length)
+            - func fontWeight(FontWeight)
+            - func renderingStrategy(SymbolRenderingStrategy)
+            - func symbolEffect(SymbolEffect, ?Bool)
+            - func symbolEffect(SymbolEffect, Int32)
+        - 基础类型定义
+            - class AppearSymbolEffect
+                - init(EffectScope)
+            - class BounceSymbolEffect
+                - init(EffectScope, EffectDirection)
+            - class DisappearSymbolEffect
+                - init(EffectScope)
+            - class HierarchicalSymbolEffect
+                - init(EffectFillStyle)
+            - class PulseSymbolEffect
+                - init()
+            - class ReplaceSymbolEffect
+                - init(EffectScope)
+            - class ScaleSymbolEffect
+                - init(EffectScope, EffectDirection)
+            - class SymbolEffect
+            - enum EffectDirection
+                - DOWN
+                - UP
+            - enum EffectFillStyle
+                - CUMULATIVE
+                - ITERATIVE
+            - enum EffectScope
+                - LAYER
+                - WHOLE
+            - enum SymbolEffectStrategy
+                - HIERARCHICAL
+                - NONE
+                - SCALE
+            - enum SymbolRenderingStrategy
+                - MULTIPLE_COLOR
+                - MULTIPLE_OPACITY
+                - SINGLE
+        - 示例代码
+                - [Hyperlink](source_zh_cn/arkui-cj/cj-text-input-hyperlink.md)
+    API索引列表:
+    - Hyperlink
+        - 需要权限
+        - 子组件
+        - 创建组件
+            - init(String, () -> Unit)
+            - init(String, String)
+            - init(String, AppResource)
+            - init(AppResource, () -> Unit)
+            - init(AppResource, String)
+            - init(AppResource, AppResource)
+        - 通用属性/通用事件
+        - 组件属性
+            - func color(ResourceColor)
+        - 示例代码
+                - [RichText](source_zh_cn/arkui-cj/cj-text-input-richtext.md)
+    API索引列表:
+    - RichText
+        - 子组件
+        - 创建组件
+            - init(String)
+        - 通用属性/通用事件
+        - 组件事件
+            - func onComplete(() -> Unit)
+            - func onStart(() -> Unit)
+        - 示例代码
+            - [图片与视频]()
+                - [Image](source_zh_cn/arkui-cj/cj-image-video-image.md)
+    API索引列表:
+    - Image
+        - 需要权限
+        - 子组件
+        - 创建组件
+            - init(String)
+            - init(AppResource)
+            - init(PixelMap)
+            - init(ImageContent)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alt(String)
+            - func alt(AppResource)
+            - func alt(PixelMap)
+            - func autoResize(Bool)
+            - func colorFilter(ColorFilter)
+            - func copyOption(CopyOptions)
+            - func draggable(Bool)
+            - func dynamicRangeMode(DynamicRangeMode)
+            - func fillColor(ResourceColor)
+            - func fitOriginalSize(Bool)
+            - func interpolation(ImageInterpolation)
+            - func matchTextDirection(Bool)
+            - func objectFit(ImageFit)
+            - func objectRepeat(ImageRepeat)
+            - func renderMode(ImageRenderMode)
+            - func sourceSize(Length, Length)
+            - func syncLoad(Bool)
+        - 组件事件
+            - func onComplete((CJImageComplete) -> Unit)
+            - func onError((CJImageError) -> Unit)
+            - func onFinish(() -> Unit)
+        - 基础类型定义
+            - class ColorFilter
+                - init(Array\<Float32>)
+            - class CJImageComplete
+                - var componentHeight
+                - var componentWidth
+                - var contentHeight
+                - var contentOffsetX
+                - var contentOffsetY
+                - var contentWidth
+                - var height
+                - var loadingStatus
+                - var width
+                - init(Float64, Float64, Float64, Float64, Int32)
+                - init(Float64, Float64, Float64, Float64, Int32, Float64, Float64, Float64, Float64)
+                - init()
+            - class CJImageError
+                - var componentWidth
+                - var componentHeight
+                - var message
+                - init(Float64, Float64)
+                - init(Float64, Float64, String)
+                - init()
+            - enum DynamicRangeMode
+                - CONSTRAINT
+                - HIGH
+                - STANDARD
+            - enum ImageContent
+                - EMPTY
+            - enum ImageInterpolation
+                - None
+                - High
+                - Medium
+                - Low
+            - enum ImageRenderMode
+                - Original
+                - Template
+        - 示例代码
+            - 示例1（加载基本类型图片）
+            - 示例2（为图片添加事件）
+            - 示例3（图像设置颜色滤镜效果）
+            - 示例4（为图像设置填充效果）
+            - 示例5（切换显示不同类型图片）
+            - 示例6（通过sourceSize设置图片解码尺寸）
+            - 示例7（通过renderMode设置图片的渲染模式）
+            - 示例8（通过objectRepeat设置图片的重复样式）
+            - 示例9（设置SVG图片的填充颜色）
+                - [ImageAnimator](source_zh_cn/arkui-cj/cj-image-video-imageanimator.md)
+    API索引列表:
+    - ImageAnimator
+        - 子组件
+        - 创建组件
+            - init()
+        - 通用属性/通用事件
+        - 组件属性
+            - func duration(Int32)
+            - func fillMode(FillMode)
+            - func fixedSize(Bool)
+            - func images(Array\<ImageFrameInfo>)
+            - func iterations(Int32)
+            - func preDecode(Int32)
+            - func reverse(Bool)
+            - func state(AnimationStatus)
+        - 组件事件
+            - func onCancel(() -> Unit)
+            - func onFinish(() -> Unit)
+            - func onPause(() -> Unit)
+            - func onRepeat(() -> Unit)
+            - func onStart(() -> Unit)
+        - 基础类型定义
+            - class ImageFrameInfo
+                - init(String, Int32, Length, Length, Length, Length)
+                - init(AppResource, Int32, Length, Length, Length, Length)
+        - 示例代码
+                - [Video](source_zh_cn/arkui-cj/cj-image-video-video.md)
+    API索引列表:
+    - Video
+        - 需要权限
+        - 子组件
+        - 创建组件
+            - init(String, Float64, String, VideoController)
+            - init(String, PlaybackSpeed, String, VideoController)
+            - init(AppResource, Float64, AppResource, VideoController)
+            - init(AppResource, PlaybackSpeed, AppResource, VideoController)
+            - init(String, Float64, AppResource, VideoController)
+            - init(String, PlaybackSpeed, AppResource, VideoController)
+            - init(AppResource, Float64, String, VideoController)
+            - init(AppResource, PlaybackSpeed, String, VideoController)
+        - 通用属性/通用事件
+        - 组件属性
+            - func autoPlay(Bool)
+            - func controls(Bool)
+            - func enableAnalyzer(Bool)
+            - func loop(Bool)
+            - func muted(Bool)
+            - func objectFit(ImageFit)
+        - 组件事件
+            - func onError(() -> Unit)
+            - func onFinish(() -> Unit)
+            - func onFullscreenChange((Bool) -> Unit)
+            - func onPause(() -> Unit)
+            - func onPrepared((Int32) -> Unit)
+            - func onSeeked((Int32) -> Unit)
+            - func onSeeking((Int32) -> Unit)
+            - func onStart(() -> Unit)
+            - func onStop(() -> Unit)
+            - func onUpdate((Int32) -> Unit)
+        - 基础类型定义
+            - class VideoController
+                - init()
+                - func start()
+                - func pause()
+                - func stop()
+                - func reset()
+                - func setCurrentTime(Int32, SeekMode)
+                - func exitFullscreen()
+                - func requestFullscreen(Bool)
+            - enum PlaybackSpeed
+                - Speed_Forward_0_75_X
+                - Speed_Forward_1_00_X
+                - Speed_Forward_1_25_X
+                - Speed_Forward_1_75_X
+                - Speed_Forward_2_00_X
+            - enum SeekMode
+                - PreviousKeyframe
+                - NextKeyframe
+                - ClosestKeyframe
+                - Accurate
+        - 示例代码
+            - [信息展示]()
+                - [AlphabetIndexer](source_zh_cn/arkui-cj/cj-information-display-alphabetindexer.md)
+    API索引列表:
+    - AlphabetIndexer
+        - 子组件
+        - 创建组件
+            - init(Array\<String>, UInt32)
+        - 通用属性/通用事件
+        - 组件属性
+            - func alignStyle(IndexerAlign)
+            - func autoCollapse(Bool)
+            - func color(ResourceColor)
+            - func enableHapticFeedback(Bool)
+            - func font(Length, FontWeight, String, FontStyle)
+            - func font(Length, FontWeight, AppResource, FontStyle)
+            - func itemBorderRadius(Float64)
+            - func itemSize(Length)
+            - func popupBackground(ResourceColor)
+            - func popupBackgroundBlurStyle(BlurStyle)
+            - func popupColor(ResourceColor)
+            - func popupFont(Length, FontWeight, String, FontStyle)
+            - func popupFont(Length, FontWeight, AppResource, FontStyle)
+            - func popupItemBackgroundColor(ResourceColor)
+            - func popupItemBorderRadius(Float64)
+            - func popupItemFont(Length, FontWeight, String, FontStyle)
+            - func popupItemFont(Length, FontWeight, AppResource, FontStyle)
+            - func popupPosition(Length, Length)
+            - func popupSelectedColor(ResourceColor)
+            - func popupTitleBackground(ResourceColor)
+            - func popupUnselectedColor(ResourceColor)
+            - func selected(UInt32)
+            - func selectedBackgroundColor(ResourceColor)
+            - func selectedColor(ResourceColor)
+            - func selectedFont(Length, FontWeight, String, FontStyle)
+            - func selectedFont(Length, FontWeight, AppResource, FontStyle)
+            - func usingPopup(Bool)
+        - 组件事件
+            - func onPopupSelect((Int64) -> Unit)
+            - func onRequestPopupData((Int64) -> Array\<String>)
+            - func onSelect((Int64) -> Unit)
+        - 基础类型定义
+            - enum IndexerAlign
+                - Left
+                - Right
+                - func getValue()
+        - 示例代码
+            - 示例1（设置提示弹窗显示文本内容）
+            - 示例2（开启自适应折叠模式）
+            - 示例3（设置提示弹窗背景模糊材质）
+                - [Badge](source_zh_cn/arkui-cj/cj-information-display-badge.md)
+    API索引列表:
+    - Badge
+        - 子组件
+        - 创建组件
+            - init(BadgeParams, () -> Unit)
+        - 通用属性/通用事件
+        - 基础类型定义
+            - class BadgeParams
+                - init(Int32, BadgeStyle, BadgePosition, Int32)
+                - init(String, BadgeStyle, BadgePosition)
+            - class BadgeStyle
+                - var badgeColor
+                - var badgeSize
+                - var borderColor
+                - var borderWidth
+                - var borderWidthUnit
+                - var color
+                - var fontSize
+                - var fontWeight
+                - init(ResourceColor, Int64, Int64, ResourceColor, FontWeight, ResourceColor, Length)
+            - enum BadgePosition
+                - Left
+                - Right
+                - RightTop
+        - 示例代码
+            - 示例1（设置标记组件内容）
+            - 示例2（设置数字控制标记显隐）
+                - [Counter](source_zh_cn/arkui-cj/cj-information-display-counter.md)
+    API索引列表:
+    - Counter
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func enableDec(Bool)
+            - func enableInc(Bool)
+        - 组件事件
+            - func onDec(() -> Unit)
+            - func onInc(() -> Unit)
+        - 示例代码
+                - [DataPanel](source_zh_cn/arkui-cj/cj-information-display-datapanel.md)
+    API索引列表:
+    - DataPanel
+        - 子组件
+        - 创建组件
+            - init(Array\<Float64>, Float64, DataPanelType)
+        - 通用属性/通用事件
+        - 组件属性
+            - func closeEffect(Bool)
+            - func strokeWidth(Length)
+            - func trackBackgroundColor(ResourceColor)
+            - func trackShadow(DataPanelShadowOptions)
+            - func valueColors(Array\<LinearGradient>)
+        - 基础类型定义
+            - class LinearGradient
+                - var colorStops
+                - init(Array\<ColorStop>)
+                - init(ResourceColor)
+            - class ColorStop
+                - var color
+                - var offset
+                - init(ResourceColor, Length)
+            - class DataPanelShadowOptions
+                - var colors
+                - var offsetX
+                - var offsetY
+                - var radius
+                - init(Length, Array\<LinearGradient>, Length, Length)
+            - enum DataPanelType
+                - LineType
+                - CircleType
+        - 示例代码
+            - 示例1（设置数据面板类型）
+            - 示例2（设置渐变色和阴影）
+            - 示例3（设置关闭动画和阴影）
+                - [Gauge](source_zh_cn/arkui-cj/cj-information-display-gauge.md)
+    API索引列表:
+    - Gauge
+        - 子组件
+        - 创建组件
+            - init(Float64, Float64, Float64)
+            - init(Int64, Int64, Int64)
+            - init(Float64, Float64, Float64, () -> Unit)
+            - init(Int64, Int64, Int64, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func colors(Array\<(Color, Float32)>)
+            - func colors(Array\<(LinearGradient, Float32)>)
+            - func colors(Array\<(LinearGradient, UInt32)>)
+            - func colors(Array\<(Color, Int32)>)
+            - func colors(Array\<(UInt32, Float32)>)
+            - func colors(Array\<(UInt32, Int32)>)
+            - func colors(Array\<(AppResource, Float32)>)
+            - func colors(Array\<(AppResource, Int32)>)
+            - func colors(Color, Float32)
+            - func colors(AppResource, Float32)
+            - func colors(UInt32, Float32)
+            - func colors(Color, Int32)
+            - func colors(AppResource, Int32)
+            - func colors(UInt32, Int32)
+            - func description(() -> Unit)
+            - func endAngle(Float64)
+            - func endAngle(Int64)
+            - func indicator(String, Float64)
+            - func indicator(String, UInt64)
+            - func privacySensitive(Option\<Bool>)
+            - func startAngle(Float64)
+            - func startAngle(Int64)
+            - func strokeWidth(Length)
+            - func trackShadow(Float64, Float64, Float64)
+            - func value(Float64)
+            - func value(Int64)
+        - 示例代码
+            - 示例1（设置分段渐变色量规图）
+            - 示例2（设置单色量规图）
+            - 示例3（设置定制说明区）
+            - 示例4（设置辅助区）
+            - 示例5（设置最大最小值）
+            - 示例6（设置指针）
+            - 示例7（设置起止角度）
+            - 示例8（设置隐私隐藏）
+                - [LoadingProgress](source_zh_cn/arkui-cj/cj-information-display-loadingprogress.md)
+    API索引列表:
+    - LoadingProgress
+        - 子组件
+        - 创建组件
+            - init()
+        - 通用属性/通用事件
+        - 组件属性
+            - func color(ResourceColor)
+            - func enableLoading(Bool)
+            - func foregroundColor(ResourceColor)
+            - func foregroundColor(ColoringStrategy)
+        - 示例代码
+            - 示例1
+            - 示例2
+                - [Marquee](source_zh_cn/arkui-cj/cj-information-display-marquee.md)
+    API索引列表:
+    - Marquee
+        - 子组件
+        - 创建组件
+            - init(Bool, String, Float64, Int32, Bool)
+            - init(Bool, String, Int64, Int32, Bool)
+        - 通用属性/通用事件
+        - 组件属性
+            - func allowScale(Bool)
+            - func fontColor(ResourceColor)
+            - func fontFamily(String)
+            - func fontFamily(AppResource)
+            - func fontSize(Length)
+            - func fontWeight(FontWeight)
+            - func marqueeUpdateStrategy(MarqueeUpdateStrategy)
+        - 组件事件
+            - func onBounce(() -> Unit)
+            - func onFinish(() -> Unit)
+            - func onStart(() -> Unit)
+        - 示例代码
+                - [PatternLock](source_zh_cn/arkui-cj/cj-information-display-patternlock.md)
+    API索引列表:
+    - PatternLock
+        - 子组件
+        - 创建组件
+            - init()
+            - init(PatternLockController)
+        - 通用属性/通用事件
+        - 组件属性
+            - func activateCircleStyle(CircleStyleOptions)
+            - func activeColor(Color)
+            - func autoReset(Bool)
+            - func circleRadius(Length)
+            - func pathColor(Color)
+            - func pathStrokeWidth(Length)
+            - func regularColor(Color)
+            - func selectedColor(Color)
+            - func sideLength(Length)
+        - 组件事件
+            - func onDotConnect((Int64) -> Unit)
+            - func onPatternComplete((Array\<Int32>) -> Unit)
+        - 基础类型定义
+            - class PatternLockController
+                - init()
+                - func reset()
+                - func setChallengeResult(PatternLockChallengeResult)
+            - class CircleStyleOptions
+                - init(Color, Length, Bool)
+            - enum PatternLockChallengeResult
+                - CORRECT
+                - WRONG
+        - 示例代码
+                - [Progress](source_zh_cn/arkui-cj/cj-information-display-progress.md)
+    API索引列表:
+    - Progress
+        - 子组件
+        - 创建组件
+            - init(ProgressOptions)
+            - init(Float64, Float64, ProgressType)
+        - 通用属性/通用事件
+        - 组件属性
+            - func color(ResourceColor)
+            - func color(Array\<ColorStop>)
+            - func style(Length, Int32, Length)
+            - func style(RingStyleOptions)
+            - func style(EclipseStyleOptions)
+            - func style(ScaleRingStyleOptions)
+            - func style(ProgressStyleOptions)
+            - func style(LinearStyleOptions)
+            - func style(CapsuleStyleOptions)
+            - func value(Float64)
+        - 基础类型定义
+            - class CapsuleStyleOptions
+                - var borderColor
+                - var borderWidth
+                - var content
+                - var enableScanEffect
+                - var enableSmoothEffect
+                - var font
+                - var fontColor
+                - var showDefaultPercentage
+                - init(String, Fonts, Length, ResourceColor, ResourceColor, Bool, Bool, Bool)
+            - class EclipseStyleOptions
+                - var enableSmoothEffect
+                - init(Bool)
+            - class LinearStyleOptions
+                - var enableScanEffect
+                - var enableSmoothEffect
+                - var strokeRadius
+                - var strokeWidth
+                - init(Length, Length, Bool, Bool)
+                - init(Length, Bool, Bool)
+            - class ProgressConfiguration
+                - var total
+                - var value
+                - init(Float32, Float32)
+            - class ProgressOptions
+                - var progressType
+                - var total
+                - var value
+                - init(Float64, Float64, ProgressType)
+            - class ProgressStyleOptions
+                - var enableSmoothEffect
+                - var scaleCount
+                - var scaleWidth
+                - var strokeWidth
+                - init(Length, Int32, Length, Bool)
+            - class RingStyleOptions
+                - var enableScanEffect
+                - var enableSmoothEffect
+                - var shadow
+                - var status
+                - var strokeWidth
+                - init(Length, Bool, ProgressStatus, Bool, Bool)
+            - class ScaleRingStyleOptions
+                - var enableSmoothEffect
+                - var scaleCount
+                - var scaleWidth
+                - var strokeWidth
+                - init(Length, Int32, Length, Bool)
+            - enum ProgressStatus
+                - LOADING
+                - PROGRESSING
+            - enum ProgressStyle
+                - Capsule
+                - Eclipse
+                - Linear
+                - Ring
+                - ScaleRing
+        - 示例代码
+            - 示例1（设置进度条的类型）
+            - 示例2（设置环形进度条属性）
+            - 示例3（设置环形进度条动画）
+            - 示例4（设置胶囊形进度条属性）
+            - 示例5（设置进度平滑动效）
+                - [QRCode](source_zh_cn/arkui-cj/cj-information-display-qrcode.md)
+    API索引列表:
+    - QRCode
+        - 子组件
+        - 创建组件
+            - init(String)
+        - 通用属性/通用事件
+        - 组件属性
+            - func color(ResourceColor)
+            - func contentOpacity(Float64)
+            - func contentOpacity(Int64)
+            - func contentOpacity(AppResource)
+        - 示例代码
+                - [TextClock](source_zh_cn/arkui-cj/cj-information-display-textclock.md)
+    API索引列表:
+    - TextClock
+        - 子组件
+        - 创建组件
+            - init(Float32, TextClockController)
+            - init(Int32, TextClockController)
+            - init(TextClockController)
+            - init(TextClockOptions)
+        - 通用属性/通用事件
+        - 组件属性
+            - func dateTimeOptions(DateTimeOptions)
+            - func fontColor(ResourceColor)
+            - func fontFamily(String)
+            - func fontFamily(AppResource)
+            - func fontFeature(String)
+            - func fontSize(Length)
+            - func fontStyle(FontStyle)
+            - func fontWeight(FontWeight)
+            - func fontWeight(String)
+            - func format(String)
+            - func textShadow(Array\<ShadowOptions>)
+            - func textShadow(Float64, ShadowType, Float64, Float64, ResourceColor, Bool)
+        - 组件事件
+            - func onDateChange((Int64) -> Unit)
+        - 基础类型定义
+            - class TextClockController
+                - init()
+                - func start()
+                - func stop()
+            - class DateTimeOptions
+                - var dateStyle
+                - var day
+                - var dayPeriod
+                - var era
+                - var formatMatcher
+                - var hour
+                - var hour12
+                - var hourCycle
+                - var locale
+                - var localeMatcher
+                - var minute
+                - var month
+                - var numberingSystem
+                - var second
+                - var timeStyle
+                - var timeZone
+                - var timeZoneName
+                - var weekday
+                - var year
+                - init(String, String, String, String, String, String, Bool, String, String, String, String, String, String, String, String, String, String, String, String)
+            - class TextClockConfiguration
+                - var started
+                - var timeValue
+                - var timeZoneOffset
+                - init(Float32, Bool, Int64)
+            - class TextClockOptions
+                - var controller
+                - var timeZoneOffset
+                - init(Float32, TextClockController)
+        - 示例代码
+            - 示例1（设定文本阴影样式）
+            - 示例2（支持启停的文本样式时钟）
+            - 示例3（设置前导零）
+                - [TextTimer](source_zh_cn/arkui-cj/cj-information-display-texttimer.md)
+    API索引列表:
+    - TextTimer
+        - 子组件
+        - 创建组件
+            - init(Bool, Int64, TextTimerController)
+        - 通用属性/通用事件
+        - 组件属性
+            - func fontColor(ResourceColor)
+            - func fontFamily(String)
+            - func fontFamily(AppResource)
+            - func fontSize(Length)
+            - func fontStyle(FontStyle)
+            - func fontWeight(FontWeight)
+            - func format(String)
+            - func textShadow(Array\<ShadowOptions>)
+            - func textShadow(Float64, ShadowType, Float64, Float64, Color, Bool)
+            - func textShadow(Float64, ShadowType, Float64, Float64, UInt32, Bool)
+            - func textShadow(Float64, ShadowType, Float64, Float64, AppResource, Bool)
+        - 组件事件
+            - func onTimer((Int64, Int64) -> Unit)
+        - 基础类型定义
+            - class TextTimerController
+                - init()
+                - func pause()
+                - func reset()
+                - func start()
+        - 示例代码
+            - 示例1 （支持手动启停的文本计时器）
+            - 示例2（设定文本阴影样式）
+            - 示例3（创建之后立即执行计时）
+            - [空白与分隔]()
+                - [Blank](source_zh_cn/arkui-cj/cj-blank-divider-blank.md)
+    API索引列表:
+    - Blank
+        - 子组件
+        - 创建组件
+            - init(Length)
+        - 通用属性/通用事件
+        - 组件属性
+            - func color(ResourceColor)
+        - 示例代码
+            - 示例1（占满空余空间）
+            - 示例2（填充固定宽度）
+                - [Divider](source_zh_cn/arkui-cj/cj-blank-divider-divider.md)
+    API索引列表:
+    - Divider
+        - 子组件
+        - 创建组件
+            - init()
+        - 通用属性/通用事件
+        - 组件属性
+            - func color(ResourceColor)
+            - func lineCap(LineCapStyle)
+            - func strokeWidth(Length)
+            - func vertical(Bool)
+        - 示例代码
+            - 示例1（使用横向与纵向分割线场景）
+            - [画布绘制]()
+                - [Canvas](source_zh_cn/arkui-cj/cj-canvas-drawing-canvas.md)
+    API索引列表:
+    - Canvas
+        - 子组件
+        - 创建组件
+            - init(CanvasRenderingContext2D)
+        - 通用属性/通用事件
+        - 组件事件
+            - func onReady(() -> Unit)
+        - 示例代码
+            - 示例1（使用CanvasRenderingContext2D中的方法）
+                - [CanvasGradient](source_zh_cn/arkui-cj/cj-canvas-drawing-canvasgradient.md)
+    API索引列表:
+    - CanvasGradient
+        - 导入模块
+                import kit.UIKit.*
+        - class CanvasGradient
+            - init(Int64, Float64, Float64, Float64, Float64)
+            - init(Int64, Float64, Float64, Float64, Float64, Float64, Float64)
+            - func addColorStop(Float64, ResourceColor)
+            - func addColorStop(Int64, ResourceColor)
+        - 示例代码
+            - 示例1（使用addColorStop设置渐变断点值）
+                - [CanvasRenderingContext2D](source_zh_cn/arkui-cj/cj-canvas-drawing-canvasrenderingcontext2d.md)
+    API索引列表:
+    - CanvasRenderingContext2D
+        - 导入模块
+                import kit.UIKit.*
+        - class CanvasRenderingContext2D
+            - init(RenderingContextSettings)
+            - init(RenderingContextSettings, LengthMetricsUnit)
+            - func arc(Float64, Float64, Float64, Float64, Float64, Bool)
+            - func arc(Int64, Int64, Int64, Int64, Int64, Bool)
+            - func arcTo(Float64, Float64, Float64, Float64, Float64)
+            - func arcTo(Int64, Int64, Int64, Int64, Int64)
+            - func beginPath()
+            - func bezierCurveTo(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func bezierCurveTo(Int64, Int64, Int64, Int64, Int64, Int64)
+            - func clearRect(Float64, Float64, Float64, Float64)
+            - func clearRect(Int64, Int64, Int64, Int64)
+            - func clip()
+            - func clip(CanvasFillRule)
+            - func clip(Path2D, CanvasFillRule)
+            - func closePath()
+            - func createConicGradient(Float64, Float64, Float64)
+            - func createConicGradient(Int64, Int64, Int64)
+            - func createImageData(Float64, Float64)
+            - func createImageData(Int64, Int64)
+            - func createImageData(ImageData)
+            - func createLinearGradient(Float64, Float64, Float64, Float64)
+            - func createLinearGradient(Int64, Int64, Int64, Int64)
+            - func createPattern(ImageBitmap, Repetition)
+            - func createRadialGradient(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func createRadialGradient(Int64, Int64, Int64, Int64, Int64, Int64)
+            - func direction(CanvasDirection)
+            - func drawImage(ImageBitmap, Float64, Float64)
+            - func drawImage(ImageBitmap, Int64, Int64)
+            - func drawImage(ImageBitmap, Float64, Float64, Float64, Float64)
+            - func drawImage(ImageBitmap, Int64, Int64, Int64, Int64)
+            - func drawImage(ImageBitmap, Float64, Float64, Float64, Float64, Float64, Float64, Float64, Float64)
+            - func drawImage(ImageBitmap, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+            - func drawImage(PixelMap, Float64, Float64)
+            - func drawImage(PixelMap, Int64, Int64)
+            - func drawImage(PixelMap, Float64, Float64, Float64, Float64)
+            - func drawImage(PixelMap, Int64, Int64, Int64, Int64)
+            - func drawImage(PixelMap, Float64, Float64, Float64, Float64, Float64, Float64, Float64, Float64)
+            - func drawImage(PixelMap, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+            - func ellipse(Float64, Float64, Float64, Float64, Float64, Float64, Float64, Bool)
+            - func ellipse(Int64, Int64, Int64, Int64, Int64, Int64, Int64, Bool)
+            - func fill()
+            - func fill(CanvasFillRule)
+            - func fill(Path2D, CanvasFillRule)
+            - func fillRect(Float64, Float64, Float64, Float64)
+            - func fillRect(Int64, Int64, Int64, Int64)
+            - func fillStyle(ResourceColor)
+            - func fillStyle(CanvasGradient)
+            - func fillStyle(CanvasPattern)
+            - func fillText(String, Float64, Float64)
+            - func fillText(String, Int64, Int64)
+            - func fillText(String, Float64, Float64, Float64)
+            - func fillText(String, Int64, Int64, Int64)
+            - func filter(String)
+            - func font(FontStyle, FontWeight, Length, String)
+            - func getImageData(Float64, Float64, Float64, Float64)
+            - func getImageData(Int64, Int64, Int64, Int64)
+            - func getLineDash()
+            - func getPixelMap(Float64, Float64, Float64, Float64)
+            - func getPixelMap(Int64, Int64, Int64, Int64)
+            - func getTransform()
+            - func globalAlpha(Float64)
+            - func globalAlpha(Int64)
+            - func globalCompositeOperation(CompositeOperation)
+            - func height()
+            - func imageSmoothingEnabled(Bool)
+            - func imageSmoothingQuality(QualityType)
+            - func lineCap(LineCapStyle)
+            - func lineDash(Array\<Float64>)
+            - func lineDash(Array\<Int64>)
+            - func lineDashOffset(Float64)
+            - func lineDashOffset(Int64)
+            - func lineJoin(LineJoinStyle)
+            - func lineTo(Float64, Float64)
+            - func lineTo(Int64, Int64)
+            - func lineWidth(Float64)
+            - func lineWidth(Int64)
+            - func measureText(String)
+            - func miterLimit(Float64)
+            - func miterLimit(Int64)
+            - func moveTo(Float64, Float64)
+            - func moveTo(Int64, Int64)
+            - func putImageData(ImageData, Float64, Float64)
+            - func putImageData(ImageData, Int64, Int64)
+            - func putImageData(ImageData, Float64, Float64, Float64, Float64, Float64, Float64)
+            - func putImageData(ImageData, Int64, Int64, Int64, Int64, Int64, Int64)
+            - func quadraticCurveTo(Float64, Float64, Float64, Float64)
+            - func quadraticCurveTo(Int64, Int64, Int64, Int64)
+            - func rect(Float64, Float64, Float64, Float64)
+            - func rect(Int64, Int64, Int64, Int64)
+            - func reset()
+            - func resetTransform()
+            - func restore()
+            - func restoreLayer()
+            - func rotate(Float64)
+            - func rotate(Int64)
+            - func save()
+            - func saveLayer()
+            - func scale(Float64, Float64)
+            - func scale(Int64, Int64)
+            - func setPixelMap(PixelMap)
+            - func setTransform(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func setTransform(Matrix2D)
+            - func shadowBlur(Float64)
+            - func shadowBlur(Int64)
+            - func shadowColor(ResourceColor)
+            - func shadowOffsetX(Float64)
+            - func shadowOffsetX(Int64)
+            - func shadowOffsetY(Float64)
+            - func shadowOffsetY(Int64)
+            - func stroke()
+            - func stroke(Path2D)
+            - func strokeRect(Float64, Float64, Float64, Float64)
+            - func strokeRect(Int64, Int64, Int64, Int64)
+            - func strokeStyle(ResourceColor)
+            - func strokeStyle(CanvasGradient)
+            - func strokeStyle(CanvasPattern)
+            - func strokeText(String, Float64, Float64)
+            - func strokeText(String, Int64, Int64)
+            - func strokeText(String, Float64, Float64, Float64)
+            - func strokeText(String, Int64, Int64, Int64)
+            - func textAlign(TextAlignStyle)
+            - func textBaseline(TextBaseline)
+            - func toDataURL(ImageType, Float64)
+            - func transferFromImageBitmap(ImageBitmap)
+            - func transform(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func transform(Int64, Int64, Int64, Int64, Int64, Int64)
+            - func translate(Float64, Float64)
+            - func translate(Int64, Int64)
+            - func width()
+        - class RenderingContextSettings
+            - var antialias
+            - init(Bool)
+        - struct TextMetrics
+            - var height
+            - var width
+                - [Matrix2D](source_zh_cn/arkui-cj/cj-canvas-drawing-matrix2d.md)
+    API索引列表:
+    - Matrix2D
+        - 导入模块
+                import kit.UIKit.*
+        - class Matrix2D
+            - prop rotateX
+            - prop rotateY
+            - prop scaleX
+            - prop scaleY
+            - prop translateX
+            - prop translateY
+            - init(LengthMetricsUnit)
+            - func identity()
+            - func invert()
+            - func rotate(Float64, Float64, Float64)
+            - func scale(Float64, Float64)
+            - func translate(Float64, Float64)
+                - [OffscreenCanvasRenderingContext2D](source_zh_cn/arkui-cj/cj-canvas-drawing-offscreencanvasrenderingcontext2d.md)
+    API索引列表:
+    - OffscreenCanvasRenderingContext2D
+        - 导入模块
+                import kit.UIKit.*
+        - class OffscreenCanvasRenderingContext2D
+            - init(Float64, Float64, RenderingContextSettings, LengthMetricsUnit)
+            - init(Int64, Int64, RenderingContextSettings, LengthMetricsUnit)
+            - func arc(Float64, Float64, Float64, Float64, Float64, Bool)
+            - func arc(Int64, Int64, Int64, Int64, Int64, Bool)
+            - func arcTo(Float64, Float64, Float64, Float64, Float64)
+            - func arcTo(Int64, Int64, Int64, Int64, Int64)
+            - func beginPath()
+            - func bezierCurveTo(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func bezierCurveTo(Int64, Int64, Int64, Int64, Int64, Int64)
+            - func clearRect(Float64, Float64, Float64, Float64)
+            - func clearRect(Int64, Int64, Int64, Int64)
+            - func clip()
+            - func clip(CanvasFillRule)
+            - func clip(Path2D, CanvasFillRule)
+            - func closePath()
+            - func createConicGradient(Float64, Float64, Float64)
+            - func createConicGradient(Int64, Int64, Int64)
+            - func createImageData(Float64, Float64)
+            - func createImageData(Int64, Int64)
+            - func createImageData(ImageData)
+            - func createLinearGradient(Float64, Float64, Float64, Float64)
+            - func createLinearGradient(Int64, Int64, Int64, Int64)
+            - func createPattern(ImageBitmap, Repetition)
+            - func createRadialGradient(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func createRadialGradient(Int64, Int64, Int64, Int64, Int64, Int64)
+            - func direction(CanvasDirection)
+            - func drawImage(ImageBitmap, Float64, Float64)
+            - func drawImage(ImageBitmap, Int64, Int64)
+            - func drawImage(ImageBitmap, Float64, Float64, Float64, Float64)
+            - func drawImage(ImageBitmap, Int64, Int64, Int64, Int64)
+            - func drawImage(ImageBitmap, Float64, Float64, Float64, Float64, Float64, Float64, Float64, Float64)
+            - func drawImage(ImageBitmap, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+            - func drawImage(PixelMap, Float64, Float64)
+            - func drawImage(PixelMap, Int64, Int64)
+            - func drawImage(PixelMap, Float64, Float64, Float64, Float64)
+            - func drawImage(PixelMap, Int64, Int64, Int64, Int64)
+            - func drawImage(PixelMap, Float64, Float64, Float64, Float64, Float64, Float64, Float64, Float64)
+            - func drawImage(PixelMap, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+            - func ellipse(Float64, Float64, Float64, Float64, Float64, Float64, Float64, Bool)
+            - func ellipse(Int64, Int64, Int64, Int64, Int64, Int64, Int64, Bool)
+            - func fill()
+            - func fill(CanvasFillRule)
+            - func fill(Path2D, CanvasFillRule)
+            - func fillRect(Float64, Float64, Float64, Float64)
+            - func fillRect(Int64, Int64, Int64, Int64)
+            - func fillStyle(Color)
+            - func fillStyle(UInt32)
+            - func fillStyle(CanvasGradient)
+            - func fillStyle(CanvasPattern)
+            - func fillText(String, Float64, Float64)
+            - func fillText(String, Int64, Int64)
+            - func fillText(String, Float64, Float64, Float64)
+            - func fillText(String, Int64, Int64, Int64)
+            - func filter(String)
+            - func font(FontStyle, FontWeight, Length, String)
+            - func getImageData(Float64, Float64, Float64, Float64)
+            - func getImageData(Int64, Int64, Int64, Int64)
+            - func getLineDash()
+            - func getPixelMap(Float64, Float64, Float64, Float64)
+            - func getPixelMap(Int64, Int64, Int64, Int64)
+            - func getTransform()
+            - func globalAlpha(Float64)
+            - func globalAlpha(Int64)
+            - func globalCompositeOperation(CompositeOperation)
+            - func imageSmoothingEnabled(Bool)
+            - func imageSmoothingQuality(QualityType)
+            - func lineCap(LineCapStyle)
+            - func lineDash(Array\<Float64>)
+            - func lineDash(Array\<Int64>)
+            - func lineDashOffset(Float64)
+            - func lineDashOffset(Int64)
+            - func lineJoin(LineJoinStyle)
+            - func lineTo(Float64, Float64)
+            - func lineTo(Int64, Int64)
+            - func lineWidth(Float64)
+            - func lineWidth(Int64)
+            - func measureText(String)
+            - func miterLimit(Float64)
+            - func miterLimit(Int64)
+            - func moveTo(Float64, Float64)
+            - func moveTo(Int64, Int64)
+            - func putImageData(ImageData, Float64, Float64)
+            - func putImageData(ImageData, Int64, Int64)
+            - func putImageData(ImageData, Float64, Float64, Float64, Float64, Float64, Float64)
+            - func putImageData(ImageData, Int64, Int64, Int64, Int64, Int64, Int64)
+            - func quadraticCurveTo(Float64, Float64, Float64, Float64)
+            - func quadraticCurveTo(Int64, Int64, Int64, Int64)
+            - func rect(Float64, Float64, Float64, Float64)
+            - func rect(Int64, Int64, Int64, Int64)
+            - func reset()
+            - func resetTransform()
+            - func restore()
+            - func restoreLayer()
+            - func rotate(Float64)
+            - func rotate(Int64)
+            - func save()
+            - func saveLayer()
+            - func scale(Float64, Float64)
+            - func scale(Int64, Int64)
+            - func setPixelMap(PixelMap)
+            - func setTransform(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func setTransform(Matrix2D)
+            - func setTransform(Int64, Int64, Int64, Int64, Int64, Int64)
+            - func shadowBlur(Float64)
+            - func shadowBlur(Int64)
+            - func shadowColor(Color)
+            - func shadowColor(UInt32)
+            - func shadowOffsetX(Float64)
+            - func shadowOffsetX(Int64)
+            - func shadowOffsetY(Float64)
+            - func shadowOffsetY(Int64)
+            - func stroke()
+            - func stroke(Path2D)
+            - func strokeRect(Float64, Float64, Float64, Float64)
+            - func strokeRect(Int64, Int64, Int64, Int64)
+            - func strokeStyle(Color)
+            - func strokeStyle(UInt32)
+            - func strokeStyle(CanvasGradient)
+            - func strokeStyle(CanvasPattern)
+            - func strokeText(String, Float64, Float64)
+            - func strokeText(String, Int64, Int64)
+            - func strokeText(String, Float64, Float64, Float64)
+            - func strokeText(String, Int64, Int64, Int64)
+            - func textAlign(TextAlignStyle)
+            - func textBaseline(TextBaseline)
+            - func toDataURL(ImageType, Float64)
+            - func transferToImageBitmap()
+            - func transform(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func transform(Int64, Int64, Int64, Int64, Int64, Int64)
+            - func translate(Float64, Float64)
+            - func translate(Int64, Int64)
+                - [Path2D](source_zh_cn/arkui-cj/cj-canvas-drawing-path2d.md)
+    API索引列表:
+    - Path2D
+        - 导入模块
+                import kit.UIKit.*
+        - class Path2D
+            - init(LengthMetricsUnit)
+            - init(String, LengthMetricsUnit)
+            - func addPath(Path2D)
+            - func addPath(Path2D, Matrix2D)
+            - func arc(Float64, Float64, Float64, Float64, Float64, Bool)
+            - func arc(Int64, Int64, Int64, Int64, Int64, Bool)
+            - func arcTo(Float64, Float64, Float64, Float64, Float64)
+            - func arcTo(Int64, Int64, Int64, Int64, Int64)
+            - func bezierCurveTo(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func bezierCurveTo(Int64, Int64, Int64, Int64, Int64, Int64)
+            - func closePath()
+            - func ellipse(Float64, Float64, Float64, Float64, Float64, Float64, Float64, Bool)
+            - func ellipse(Int64, Int64, Int64, Int64, Int64, Int64, Int64, Bool)
+            - func lineTo(Float64, Float64)
+            - func lineTo(Int64, Int64)
+            - func moveTo(Float64, Float64)
+            - func moveTo(Int64, Int64)
+            - func quadraticCurveTo(Float64, Float64, Float64, Float64)
+            - func quadraticCurveTo(Int64, Int64, Int64, Int64)
+            - func rect(Float64, Float64, Float64, Float64)
+            - func rect(Int64, Int64, Int64, Int64)
+            - func transform(Float64, Float64, Float64, Float64, Float64, Float64)
+            - func transform(Int64, Int64, Int64, Int64, Int64, Int64)
+                - [ImageBitmap](source_zh_cn/arkui-cj/cj-canvas-drawing-imagebitmap.md)
+    API索引列表:
+    - ImageBitmap
+        - 导入模块
+                import kit.UIKit.*
+        - class ImageBitmap
+            - prop height
+            - prop width
+            - init(String)
+            - init(String, Float64, Float64)
+            - init(String, Int64, Int64)
+            - init(PixelMap, LengthMetricsUnit)
+            - init(String, LengthMetricsUnit)
+            - func close()
+                - [ImageData](source_zh_cn/arkui-cj/cj-canvas-drawing-imagedata.md)
+    API索引列表:
+    - ImageData
+        - 导入模块
+                import kit.UIKit.*
+        - class ImageData
+            - prop data
+            - prop height
+            - prop width
+            - init(Float64, Float64, Array\<UInt8>, LengthMetricsUnit)
+            - init(Float64, Float64, LengthMetricsUnit)
+                - [CanvasPattern](source_zh_cn/arkui-cj/cj-canvas-drawing-canvaspattern.md)
+    API索引列表:
+    - CanvasPattern
+        - 导入模块
+                import kit.UIKit.*
+        - class CanvasPattern
+            - init()
+            - func setTransform(Matrix2D)
+            - [图形绘制]()
+                - [Circle](source_zh_cn/arkui-cj/cj-graphic-drawing-circle.md)
+    API索引列表:
+    - Circle
+        - 子组件
+        - 创建组件
+            - init(Length, Length)
+            - init()
+        - 通用属性/通用事件
+        - 示例代码
+                - [Ellipse](source_zh_cn/arkui-cj/cj-graphic-drawing-ellipse.md)
+    API索引列表:
+    - Ellipse
+        - 子组件
+        - 创建组件
+            - init(Length, Length)
+            - init()
+        - 通用属性/通用事件
+        - 示例代码
+                - [Line](source_zh_cn/arkui-cj/cj-graphic-drawing-line.md)
+    API索引列表:
+    - Line
+        - 子组件
+        - 创建组件
+            - init(Length, Length)
+            - init()
+        - 通用属性/通用事件
+        - 组件属性
+            - func endPoint((Float64, Float64))
+            - func endPoint((Int64, Int64))
+            - func startPoint((Float64, Float64))
+            - func startPoint((Int64, Int64))
+        - 示例代码
+            - 示例1（组件属性绘制）
+            - 示例2（边框端点绘制）
+            - 示例3（边框间隙绘制）
+                - [Polyline](source_zh_cn/arkui-cj/cj-graphic-drawing-polyline.md)
+    API索引列表:
+    - Polyline
+        - 子组件
+        - 创建组件
+            - init(Length, Length)
+            - init(Int64, Int64)
+            - init(Float64, Float64)
+            - init()
+        - 通用属性/通用事件
+        - 组件属性
+            - func points(Array\<(Int64, Int64)>)
+            - func points(Array\<(Float64, Float64)>)
+        - 示例代码
+                - [Polygon](source_zh_cn/arkui-cj/cj-graphic-drawing-polygon.md)
+    API索引列表:
+    - Polygon
+        - 子组件
+        - 创建组件
+            - init(Length, Length)
+            - init()
+        - 通用属性/通用事件
+        - 组件属性
+            - func points(Array\<(Int64, Int64)>)
+            - func points(Array\<(Float64, Float64)>)
+        - 示例代码
+                - [Path](source_zh_cn/arkui-cj/cj-graphic-drawing-path.md)
+    API索引列表:
+    - Path
+        - 子组件
+        - 创建组件
+            - init(String)
+            - init(Length, Length, String)
+        - 通用属性/通用事件
+        - 组件属性
+            - func commands(String)
+        - SVG路径描述规范
+        - 示例代码
+                - [Rect](source_zh_cn/arkui-cj/cj-graphic-drawing-rect.md)
+    API索引列表:
+    - Rect
+        - 子组件
+        - 创建组件
+            - init(Length, Length)
+            - init()
+        - 通用属性/通用事件
+        - 组件属性
+            - func radius(Length)
+            - func radius\<T>(Array\<T>)
+            - func radius\<T>(Array\<(T,T)>)
+            - func radiusHeight(Length)
+            - func radiusWidth(Length)
+        - 示例代码
+                - [Shape](source_zh_cn/arkui-cj/cj-graphic-drawing-shape.md)
+    API索引列表:
+    - Shape
+        - 子组件
+        - 创建组件
+            - init()
+            - init(() -> Unit)
+            - init(PixelMap)
+        - 通用属性/通用事件
+        - 组件属性
+            - func mesh(Array\<Float64>, UInt32, UInt32)
+            - func mesh(Array\<Int64>, UInt32, UInt32)
+            - func viewPort(Length, Length, Length, Length)
+        - 示例代码
+                - [图形绘制通用属性](source_zh_cn/arkui-cj/cj-graphic-drawing-common.md)
+    API索引列表:
+    - 图形绘制通用属性
+        - 组件属性
+            - func antiAlias(Bool)
+            - func fill(ResourceColor)
+            - func fillOpacity(Float64)
+            - func fillOpacity(Int64)
+            - func fillOpacity(AppResource)
+            - func height(Length)
+            - func size(Length, Length)
+            - func stroke(ResourceColor)
+            - func strokeDashArray(Array\<Length>)
+            - func strokeDashOffset(Length)
+            - func strokeLineCap(LineCapStyle)
+            - func strokeLineJoin(LineJoinStyle)
+            - func strokeMiterLimit(Float64)
+            - func strokeMiterLimit(Int64)
+            - func strokeOpacity(Float64)
+            - func strokeOpacity(Int64)
+            - func strokeOpacity(AppResource)
+            - func strokeWidth(Length)
+            - func width(Length)
+            - [渲染绘制]()
+                - [XComponent](source_zh_cn/arkui-cj/cj-rendering-drawing-xcomponent.md)
+    API索引列表:
+    - XComponent
+        - 子组件
+        - 创建组件
+            - init(String, XComponentType, XComponentController)
+        - 通用属性/通用事件
+        - 组件属性
+            - func enableSecure(Bool)
+        - 基础类型定义
+            - class XComponentController
+                - init()
+                - func getXComponentSurfaceId()
+                - func getXComponentSurfaceRect()
+                - func getXComponentSurfaceRotation()
+                - func setXComponentSurfaceRect(SurfaceRect)
+                - func setXComponentSurfaceRotation(SurfaceRotationOptions)
+            - class SurfaceRect
+                - var offsetX
+                - var offsetY
+                - var surfaceHeight
+                - var surfaceWidth
+                - init(Float32, Float32, Float32, Float32)
+            - class SurfaceRotationOptions
+                - var lock
+                - init(Bool)
+        - 示例代码
+            - [菜单]()
+                - [Menu](source_zh_cn/arkui-cj/cj-menu-menu.md)
+    API索引列表:
+    - Menu
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func font(Length, FontWeight, String, FontStyle)
+            - func font(Length, FontWeight, AppResource, FontStyle)
+            - func fontColor(ResourceColor)
+            - func menuItemDivider(?DividerStyleOptions)
+            - func menuItemGroupDivider(?DividerStyleOptions)
+            - func radius(Length)
+            - func radius(BorderRadiuses)
+            - func subMenuExpandingMode(SubMenuExpandingMode)
+        - 基础类型定义
+            - enum SubMenuExpandingMode
+                - EMBEDDED_EXPAND
+                - SIDE_EXPAND
+                - STACK_EXPAND
+                - func getValue()<sup>deprecated<sup>
+        - 示例代码
+                - [MenuItem](source_zh_cn/arkui-cj/cj-menu-menuitem.md)
+    API索引列表:
+    - MenuItem
+        - 子组件
+        - 创建组件
+            - init(() -> Unit)
+            - init(String, String, String, String, Option\<() -> Unit>)
+            - init(AppResource, AppResource, AppResource, AppResource, Option\<() -> Unit>)
+        - 通用属性/通用事件
+        - 组件属性
+            - func contentFont(Length, FontWeight, String, FontStyle)
+            - func contentFont(Length, FontWeight, AppResource, FontStyle)
+            - func contentFontColor(ResourceColor)
+            - func labelFont(Length, FontWeight, String, FontStyle)
+            - func labelFont(Length, FontWeight, AppResource, FontStyle)
+            - func labelFontColor(AppResource)
+            - func selectIcon(Bool)
+            - func selectIcon(AppResource)
+            - func selected(Bool)
+        - 组件事件
+            - func onChange((Bool) -> Unit)
+        - 示例代码
+                - [MenuItemGroup](source_zh_cn/arkui-cj/cj-menu-menuitemgroup.md)
+    API索引列表:
+    - MenuItemGroup
+        - 子组件
+        - 创建组件
+            - init(String, String, () -> Unit)
+            - init(AppResource, AppResource, () -> Unit)
+            - init(() -> Unit, () -> Unit, () -> Unit)
+        - 通用属性/通用事件
+        - 示例代码
+                - [ContextMenu](source_zh_cn/arkui-cj/cj-menu-contextmenu.md)
+    API索引列表:
+    - ContextMenu
+        - 函数
+            - static func close()
+        - 示例代码
+            - [动画]()
+                - [属性动画（animation）](source_zh_cn/arkui-cj/cj-animation-animation.md)
+    API索引列表:
+    - 属性动画
+        - func animationStart(AnimateParam)
+        - func animationEnd()
+        - 示例代码
+                - [显式动画（animateTo）](source_zh_cn/arkui-cj/cj-animation-animateto.md)
+    API索引列表:
+    - 显式动画 (animateTo)
+        - func animateTo(AnimateParam,() -> Unit)
+        - 基础类型定义
+            - class AnimateParam
+                - var curve
+                - var delay
+                - var duration
+                - var expectedFrameRateRange
+                - var finishCallbackType
+                - var iterations
+                - var onFinish
+                - var playMode
+                - var tempo
+                - init(duration, tempo, curve, delay, iterations, playMode, onFinish, finishCallbackType, expectedFrameRateRange)
+            - class ExpectedFrameRateRange
+                - var expected
+                - var max
+                - var min
+                - ExpectedFrameRateRange(Int32, Int32, Int32)
+        - 示例代码
+            - 示例代码1（在组件出现时创建动画）
+            - 示例代码2（动画执行结束后组件消失）
+                - [页面间转场（pageTransition）](source_zh_cn/arkui-cj/cj-animation-pagetransition.md)
+    API索引列表:
+    - 页面间转场 (pageTransition)
+        - class CommonTransition
+            - func scale(Float32, Float32, Float32, Length, Length)
+            - func slide(SlideEffect)
+            - func translate(Length, Length, Length)
+            - func opacity(Float64)
+            - func opacity(Int64)
+        - class PageTransitionEnter
+            - init(PageTransitionOptions)
+            - func onEnter((RouteType, Float64) -> Unit)
+        - class PageTransitionExit
+            - init(PageTransitionOptions)
+            - func onExit((RouteType,Float64) -> Unit)
+        - class PageTransitionOptions
+            - var curve
+            - var delay
+            - var duration
+            - var \`type\`
+            - PageTransitionOptions(RouteType, Int32, Curve, Int32)
+        - enum RouteType
+            - None
+            - Pop
+            - Push
+        - enum SlideEffect
+            - Bottom
+            - END
+            - Left
+            - Right
+            - START
+            - Top
+        - 示例代码
+            - 示例代码1(设置退入场动画)
+            - 示例代码2（设置退入场平移效果）
+                - [组件内转场（transition）](source_zh_cn/arkui-cj/cj-animation-transition.md)
+    API索引列表:
+    - 组件内转场 (transition)
+        - func transition()
+        - func transition(TransitionEffect)
+        - func transition(TransitionEffect, (Bool)->Unit)
+        - 基础类型定义
+            - class TransitionEffect
+                - let IDENTITY
+                - let OPACITY
+                - let SLIDE
+                - let SLIDE_SWITCH
+                - func animation(AnimateParam)
+                - static func asymmetric(TransitionEffect, TransitionEffect)
+                - func combine(TransitionEffect)
+                - static func move(TransitionEdge)
+                - static func opacity(Float64)
+                - static func rotate(RotateOptions)
+                - static func scale(ScaleOptions)
+                - static func translate(TranslateOptions)
+            - class RotateOptions
+                - var angle
+                - var x
+                - var y
+                - var z
+                - var centerX
+                - var centerY
+                - var centerZ
+                - var perspective
+                - init(Float32, Float32, Float32, Float32, Length, Length, Length, Float32)
+            - class ScaleOptions
+                - var x
+                - var y
+                - var z
+                - var centerX
+                - var centerY
+                - init(Float32, Float32, Float32, Length, Length)
+            - class TranslateOptions
+                - var x
+                - var y
+                - var z
+                - init(Length, Length, Length)
+            - enum TransitionEdge
+                - BOTTOM
+                - END
+                - START
+                - TOP
+        - 示例代码
+            - 示例代码1（使用同一接口实现图片出现消失）
+            - 示例代码2（使用不同接口实现图片出现消失）
+            - 示例代码3（设置父子组件为transition）
+                - [共享元素转场（sharedTransition）](source_zh_cn/arkui-cj/cj-animation-sharedtransition.md)
+    API索引列表:
+    - 共享元素转场 (sharedTransition)
+        - func sharedTransition(String, SharedTransitionOptions)
+        - 基础类型定义
+            - SharedTransitionOptions
+                - var curve
+                - var delay
+                - var duration
+                - var motionPath
+                - var \`type\`
+                - var zIndex
+                - SharedTransitionOptions(Int32, Curve, Int32, MotionPathOptions, Int32, SharedTransitionEffectType)
+        - 示例代码
+                - [组件内隐式共享元素转场（geometryTransition）](source_zh_cn/arkui-cj/cj-animation-geometrytransition.md)
+    API索引列表:
+    - 组件内隐式共享元素转场 (geometryTransition)
+        - func geometryTransition(String, Bool)
+        - 示例代码
+                - [路径动画 (motionPath)](source_zh_cn/arkui-cj/cj-animation-motionpath.md)
+    API索引列表:
+    - 路径动画 (motionPath)
+        - func motionPath(MotionPathOptions)
+        - 基础类型定义
+            - class MotionPathOptions
+                - var \`from\`
+                - var path
+                - var rotatable
+                - var to
+                - MotionPathOptions(String,Float64,Float64,Bool)
+        - 示例代码
+            - [弹窗]()
+                - [警告弹窗（AlertDialog）](source_zh_cn/arkui-cj/cj-dialog-alertdialog.md)
+    API索引列表:
+    - 警告弹窗（AlertDialog）
+        - class AlertDialog
+            - static func show(AlertDialogParamWithConfirm)
+            - static func show(AlertDialogParamWithConfirm, ActionSheetShadowOptions)
+            - static func show(AlertDialogParamWithConfirm, ShadowStyle)
+            - static func show(AlertDialogParamWithButtons)
+            - static func show(AlertDialogParamWithButtons, ActionSheetShadowOptions)
+            - static func show(AlertDialogParamWithButtons, ShadowStyle)
+            - static func show(AlertDialogParamWithOptions)
+            - static func show(AlertDialogParamWithOptions, ActionSheetShadowOptions)
+            - static func show(AlertDialogParamWithOptions, ShadowStyle)
+        - class AlertDialogParam
+            - var alignment
+            - var autoCancel
+            - var backgroundBlurStyle
+            - var backgroundColor
+            - var borderColor
+            - var borderStyle
+            - var borderWidth
+            - var cancel
+            - var cornerRadius
+            - var gridCount
+            - var height
+            - var isModal
+            - var maskRect
+            - var message
+            - var offset
+            - var onWillDismiss
+            - var showInSubWindow
+            - var subtitle
+            - var textStyle
+            - var title
+            - var transition
+            - var width
+                - init(String, String, String, Bool, () -> Unit, DialogAlignment, Offset, Int32, Rectangle, Bool, Bool, Color, BlurStyle)
+                - init(String, Option<String>, Option<String>, Option<Bool>, Option<() -> Unit>, Option<DialogAlignment>, Option<Offset>, Option<UInt32>, Option<Rectangle>, Option<Bool>, Option<Bool>, Option<Color>, Option<BlurStyle>, Option<(DismissDialogAction) -> Unit>, Option<BorderRadiuses>, Option<TransitionEffect>, Option<Length>, Option<Length>, Option<Length>, Option<Color>, Option<EdgeStyle>, Option<WordBreak>)
+                - init()
+        - class AlertDialogParamWithButtons
+            - var primaryButton
+            - var secondaryButton
+                - init(String, String, String, Bool, () -> Unit, DialogAlignment, Offset, Int32, Rectangle, Bool, Bool, Color, BlurStyle, AlertDialogButtonOptions, AlertDialogButtonOptions)
+                - init(String, Option<String>, Option<String>, Option<Bool>, Option<() -> Unit>, Option<DialogAlignment>, Option<Offset>, Option<UInt32>, Option<Rectangle>, Option<Bool>, Option<Bool>, Option<Color>, Option<BlurStyle>, Option<(DismissDialogAction) -> Unit>, Option<BorderRadiuses>, Option<TransitionEffect>, Option<Length>, Option<Length>, Option<Length>, Option<Color>, Option<EdgeStyle>, Option<WordBreak>, AlertDialogButtonOptions, AlertDialogButtonOptions)
+                - init()
+        - class AlertDialogParamWithConfirm
+            - var confirm
+                - init(String, String, String, Bool, () -> Unit, DialogAlignment, Offset, Int32, Rectangle, Bool, Bool, Color, BlurStyle, AlertDialogButtonOptions)
+                - init(String, Option<String>, Option<String>, Option<Bool>, Option<() -> Unit>, Option<DialogAlignment>, Option<Offset>, Option<UInt32>, Option<Rectangle>, Option<Bool>, Option<Bool>, Option<Color>, Option<BlurStyle>, Option<(DismissDialogAction) -> Unit>, Option<BorderRadiuses>, Option<TransitionEffect>, Option<Length>, Option<Length>, Option<Length>, Option<Color>, Option<EdgeStyle>, Option<WordBreak>, AlertDialogButtonOptions)
+                - init()
+        - class AlertDialogParamWithOptions
+            - var buttonDirection
+            - var buttons
+                - init(String, String, String, Bool, () -> Unit, DialogAlignment, Offset, Int32, Rectangle, Bool, Bool, Color, BlurStyle, Array<AlertDialogButtonOptions>, DialogButtonDirection)
+                - init(String, Option<String>, Option<String>, Option<Bool>, Option<() -> Unit>, Option<DialogAlignment>, Option<Offset>, Option<UInt32>, Option<Rectangle>, Option<Bool>, Option<Bool>, Option<Color>, Option<BlurStyle>, Option<(DismissDialogAction) -> Unit>, Option<BorderRadiuses>, Option<TransitionEffect>, Option<Length>, Option<Length>, Option<Length>, Option<Color>, Option<EdgeStyle>, Option<WordBreak>, Array<AlertDialogButtonOptions>, DialogButtonDirection)
+                - init()
+        - class AlertDialogButtonOptions
+            - var action
+            - var backgroundColor
+            - var defaultFocus
+            - var enabled
+            - var fontColor
+            - var primary
+            - var style
+            - var value
+                - init(Bool, Bool, Option<DialogButtonStyle>, String, Option<Color>, Option<Color>, () -> Unit)
+                - init(Bool, Bool, Option<DialogButtonStyle>, String, Option<Color>, Option<Color>, () -> Unit, Bool)
+        - enum DialogButtonDirection
+            - AUTO
+            - HORIZONTAL
+            - VERTICAL
+        - 示例代码
+            - 示例1（弹出多个按钮的弹窗）
+            - 示例2（可在主窗外弹出的弹窗）
+            - 示例3（设置弹窗的样式）
+                - [列表选择弹窗（ActionSheet）](source_zh_cn/arkui-cj/cj-dialog-actionsheet.md)
+    API索引列表:
+    - 列表选择弹窗（ActionSheet）
+        - class ActionSheet
+            - static func show(ActionSheetOptions, ActionSheetShadowOptions)
+            - static func show(ActionSheetOptions, ShadowStyle)
+            - static func show(ActionSheetOptions)
+        - class ActionSheetOptions
+            - var alignment
+            - var autoCancel
+            - var backgroundBlurStyle
+            - var backgroundColor
+            - var borderColor
+            - var borderStyle
+            - var borderWidth
+            - var cancel
+            - var confirm
+            - var cornerRadius
+            - var height
+            - var isModal
+            - var maskRect
+            - var message
+            - var offset
+            - var onWillDismiss
+            - var sheets
+            - var showInSubWindow
+            - var subtitle
+            - var title
+            - var transition
+            - var width
+            - ActionSheetOptions(...)
+        - class ActionSheetShadowOptions
+            - var color
+            - var fill
+            - var offsetX
+            - var offsetY
+            - var radius
+            - var shadowType
+            - ActionSheetShadowOptions(Float64, ShadowType, Color, Float64, Float64, Bool)
+        - class Confirm
+            - var action
+            - var defaultFocus
+            - var enabled
+            - var style
+            - var value
+            - Confirm(String, () -> Unit, Bool, Bool, DialogButtonStyle)
+        - class DismissDialogAction
+            - let reason
+            - DismissDialogAction(DismissReason)
+            - func dismiss()
+        - class EdgeStyle
+            - static let DASHED
+            - static let DOTTED
+            - static let SOILD
+            - var bottom
+            - var left
+            - var right
+            - var top
+            - EdgeStyle(BorderStyle, BorderStyle, BorderStyle, BorderStyle)
+        - class SheetInfo
+            - var action
+            - var icon
+            - var title
+            - SheetInfo(String, () -> Unit, Option\<AppResource>)
+        - enum DismissReason
+            - CLOSE_BUTTON
+            - PRESS_BACK
+            - SLIDE_DOWN
+            - TOUCH_OUTSIDE
+                - [自定义弹窗（CustomDialog）](source_zh_cn/arkui-cj/cj-dialog-customdialog.md)
+    API索引列表:
+    - 自定义弹窗（CustomDialog）
+        - class CustomDialogController
+            - init(CustomDialogControllerOptions)
+            - func \`open\`()
+            - func bindView(CustomView)
+            - func close()
+            - func setBuilder(() -> Unit)
+        - class CustomDialogControllerOptions
+            - var alignment
+            - var autoCancel
+            - var backgroundBlurStyle
+            - var backgroundColor
+            - var borderColor
+            - var borderStyle
+            - var borderWidth
+            - var cancel
+            - var closeAnimation
+            - var cornerRadius
+            - var customStyle
+            - var gridCount
+            - var height
+            - var isModal
+            - var maskColor
+            - var maskRect
+            - var offset
+            - var onWillDismiss
+            - var openAnimation
+            - var shadow
+            - var showInSubWindow
+            - var width
+            - init(() -> Unit, Bool, DialogAlignment, Offset, Bool, Option\<Int32>, ResourceColor, Rectangle, Option\<AnimateParam>, Option\<AnimateParam>, Bool, Option\<ResourceColor>, Length, Option\<Bool>, Option\<(DismissDialogAction) -> Unit>, Option\<Length>, Option\<ResourceColor>, Option\<EdgeStyle>, Option\<Length>, Option\<Length>, Option\<ShadowOptions>, Option\<BlurStyle>)
+        - 示例代码
+                - [日历选择器弹窗（CalendarPickerDialog）](source_zh_cn/arkui-cj/cj-dialog-calendarpickerdaialog.md)
+    API索引列表:
+    - 日历选择器弹窗（CalendarPickerDialog）
+        - class CalendarPickerDialog
+            - static func show(?CalendarDialogOptions)
+        - class CalendarDialogOptions
+            - let acceptButtonStyle
+            - let backgroundBlurStyle
+            - let backgroundColor
+            - let cancelButtonStyle
+            - let onAccept
+            - let onCancel
+            - let onChange
+            - let onDidAppear
+            - let onDidDisappear
+            - let onWillAppear
+            - let onWillDisappear
+            - let shadow
+            - init(Length, DateTime, ?(DateTime) -> Unit, ?() -> Unit, ?(DateTime) -> Unit, ResourceColor, BlurStyle, ?PickerDialogButtonStyle, ?PickerDialogButtonStyle, ?() -> Unit, ?() -> Unit, ?() -> Unit, ?() -> Unit, ?ShadowOptions)
+        - class PickerDialogButtonStyle
+            - let \`type\`
+            - let backgroundColor
+            - let borderRadius
+            - let fontColor
+            - let fontFamily
+            - let fontSize
+            - let fontStyle
+            - let fontWeight
+            - let primary
+            - let role
+            - let style
+            - PickerDialogButtonStyle(?ButtonType, ?ButtonStyleMode, ?ButtonRole, ?Length, ?ResourceColor, ?FontWeight, ?FontStyle, ?String, ?ResourceColor, ?BorderRadiuses, ?Bool)
+        - 示例代码
+                - [日期滑动选择器弹窗（DatePickerDialog）](source_zh_cn/arkui-cj/cj-dialog-datepickerdialog.md)
+    API索引列表:
+    - 日期滑动选择器弹窗 (DatePickerDialog)
+        - 子组件
+        - 通用属性/通用事件
+        - 组件属性
+            - static func show(?DatePickerDialogOptions)
+        - 基础类型定义
+            - class DatePickerDialogOptions
+                - var acceptButtonStyle
+                - var alignment
+                - var backgroundBlurStyle
+                - var backgroundColor
+                - var cancelButtonStyle
+                - var dateTimeOptions
+                - var disappearTextStyle
+                - var end
+                - var lunar
+                - var lunarSwitch
+                - var maskRect
+                - var offset
+                - var onCancel
+                - var onDateAccept
+                - var onDateChange
+                - var onDidAppear
+                - var onDidDisappear
+                - var onWillAppear
+                - var onWillDisappear
+                - var selected
+                - var selectedTextStyle
+                - var shadow
+                - var showTime
+                - var start
+                - var textStyle
+                - var useMilitaryTime
+                - init(DateTime, DateTime, DateTime, Bool, Bool, Bool, Bool, ?PickerTextStyle, ?PickerTextStyle, ?PickerTextStyle, ?PickerDialogButtonStyle, ?PickerDialogButtonStyle, ?DialogAlignment, ?Offset, ?Rectangle, ?() -> Unit, ?(DateTime) -> Unit, ?(DateTime) -> Unit, ResourceColor, BlurStyle, ?() -> Unit, ?() -> Unit, ?() -> Unit, ?() -> Unit, ?ShadowOptions, ?DateTimeOptions)
+            - class PickerDialogButtonStyle
+                - let \`type\`
+                - let style
+                - let role
+                - let fontSize
+                - let fontColor
+                - let fontWeight
+                - let fontStyle
+                - let fontFamily
+                - let backgroundColor
+                - let borderRadius
+                - let primary
+                - PickerDialogButtonStyle(?ButtonType, ?ButtonStyleMode, ?ButtonRole, ?Length, ?ResourceColor, ?FontWeight, ?FontStyle, ?String, ?ResourceColor, ?BorderRadiuses, ?Bool)
+        - 示例代码
+            - 示例1（设置显示时间）
+            - 示例2（自定义样式）
+            - 示例3（设置弹窗位置）
+            - 示例4（设置遮蔽区）
+            - 示例5（设置弹窗背板）
+            - 示例6（设置公历农历）
+            - [安全]()
+                - [安全控件通用属性](source_zh_cn/arkui-cj/cj-sec-button.md)
+    API索引列表:
+    - 安全控件通用属性
+        - 组件属性
+            - func iconSize(Length)
+            - func layoutDirection(SecurityComponentLayoutDirection)
+            - func position(Length, Length)
+            - func markAnchor(Length, Length)
+            - func offset(Length, Length)
+            - func fontSize(Length)
+            - func fontStyle(FontStyle)
+            - func fontWeight(FontWeight)
+            - func fontFamily(String)
+            - func fontFamily(AppResource)
+            - func fontColor(ResourceColor)
+            - func iconColor(ResourceColor)
+            - func backgroundColor(ResourceColor)
+            - func borderStyle(BorderStyle)
+            - func borderWidth(Length)
+            - func borderColor(ResourceColor)
+            - func borderRadius(Length)
+            - func padding(Length)
+            - func padding(Length, Length, Length, Length)
+            - func textIconSpace(Length)
+            - func width(Length)
+            - func height(Length)
+            - func size(Length, Length)
+            - func constraintSize(Length, Length, Length, Length)
+        - 基础类型定义
+            - enum SecurityComponentLayoutDirection
+                - Horizontal
+                - Vertical
+        - 示例
+                - [PasteButton](source_zh_cn/arkui-cj/cj-sec-paste-button.md)
+    API索引列表:
+    - PasteButton
+        - 子组件
+        - 通用属性/通用事件
+        - 创建组件
+            - init()
+            - init(?PasteIconStyle, ?PasteDescription, ButtonType)
+        - 组件事件
+            - func onClick((ClickEvent, PasteButtonOnClickResult) -> Unit)
+        - 基础类型定义
+            - enum PasteIconStyle
+                - Lines
+            - enum PasteDescription
+                - Paste
+            - enum PasteButtonOnClickResult
+                - Success
+                - TemporaryAuthorizationFailed
+        - 示例代码
+                - [SaveButton](source_zh_cn/arkui-cj/cj-sec-save-button.md)
+    API索引列表:
+    - SaveButton
+        - 子组件
+        - 通用属性/通用事件
+        - 创建组件
+            - init()
+            - init(?SaveIconStyle, ?SaveDescription, ButtonType)
+        - 组件事件
+            - func onClick((ClickEvent, SaveButtonOnClickResult) -> Unit)
+        - 基础类型定义
+            - enum SaveIconStyle
+                - FullFilled
+                - Lines
+            - enum SaveDescription
+                - SaveToGallery
+                - Save
+                - DownloadAndShare
+                - Download
+                - DownloadFile
+                - SaveImage
+                - Receive
+                - ContinueToReceive
+                - ExportToGallery
+                - QuickSaveToGallery
+                - SaveFile
+                - ResaveToGallery
+            - enum SaveButtonOnClickResult
+                - Success
+                - TemporaryAuthorizationFailed
+        - 示例代码
+                - [LocationButton](source_zh_cn/arkui-cj/cj-sec-location-button.md)
+    API索引列表:
+    - LocationButton
+        - 子组件
+        - 通用属性/通用事件
+        - 创建组件
+            - init()
+            - init(?LocationIconStyle, ?LocationDescription, ButtonType)
+        - 组件事件
+            - func onClick((ClickEvent, LocationButtonOnClickResult) -> Unit)
+        - 基础类型定义
+            - enum LocationIconStyle
+                - Lines
+                - FullFilled
+            - enum LocationDescription
+                - Relocation
+                - SelectLocation
+                - Locating
+                - CurrentLocation
+                - AddLocation
+                - ShareLocation
+                - Location
+                - SendCurrentLocation
+                - PunchIn
+                - CurrentPosition
+                - SendLocation
+            - enum LocationButtonOnClickResult
+                - Success
+                - TemporaryAuthorizationFailed
+        - 示例代码
+            - [Web]()
+                - [Web](source_zh_cn/arkui-cj/cj-web-web.md)
+    API索引列表:
+    - Web
+        - 子组件
+        - 创建组件
+            - init(String, WebviewController)
+            - init(AppResource, WebviewController)
+        - 通用属性/通用事件
+        - 组件属性
+            - func allowWindowOpenMethod(Bool)
+            - func blockNetwork(Bool)
+            - func cacheMode(CacheMode)
+            - func copyOptions(CopyOptions)
+            - func darkMode(WebDarkMode)
+            - func databaseAccess(Bool)
+            - func defaultFixedFontSize(Int32)
+            - func defaultFontSize(Int32)
+            - func defaultTextEncodingFormat(String)
+            - func domStorageAccess(Bool)
+            - func editMenuOptions((Array\<TextMenuItem>) -> Array\<TextMenuItem>, (TextMenuItem,Int32,Int32) -> Bool)
+            - func enableNativeEmbedMode(Bool)
+            - func enableNativeMediaPlayer(Bool, Bool)
+            - func fileAccess(Bool)
+            - func forceDarkAccess(Bool)
+            - func geolocationAccess(Bool)
+            - func horizontalScrollBarAccess(Bool)
+            - func imageAccess(Bool)
+            - func initialScale(Float32)
+            - func javaScriptAccess(Bool)
+            - func javaScriptOnDocumentEnd(Array\<ScriptItem>)
+            - func javaScriptOnDocumentStart(Array\<ScriptItem>)
+            - func javaScriptProxy(Array\<(String) -> String>, String, Array\<String>, WebviewController)
+            - func keyboardAvoidMode(WebKeyboardAvoidMode)
+            - func layoutMode(WebLayoutMode)
+            - func mediaOptions(Int32, Bool)
+            - func mediaPlayGestureAccess(Bool)
+            - func metaViewport(Bool)
+            - func minFontSize(Int32)
+            - func minLogicalFontSize(Int32)
+            - func mixedMode(MixMode)
+            - func multiWindowAccess(Bool)
+            - func nestedScroll(NestedScrollMode, NestedScrollMode)
+            - func overScrollMode(OverScrollMode)
+            - func overviewModeAccess(Bool)
+            - func pinchSmooth(Bool)
+            - func registerNativeEmbedRule(String, String)
+            - func selectionMenuOptions(Array\<ExpandedMenuItemOptions>)
+            - func textAutosizing(Bool)
+            - func textZoomRatio(Int32)
+            - func verticalScrollBarAccess(Bool)
+            - func webCursiveFont(String)
+            - func webFantasyFont(String)
+            - func webFixedFont(String)
+            - func webSansSerifFont(String)
+            - func webSerifFont(String)
+            - func webStandardFont(String)
+            - func zoomAccess(Bool)
+        - 组件事件
+            - func onAdsBlocked((AdsBlockedDetails) -> Unit)
+            - func onAlert((OnAlertEvent) -> Bool)
+            - func onBeforeUnload((OnBeforeUnloadEvent) -> Bool)
+            - func onConfirm((OnConfirmEvent) -> Bool)
+            - func onConsole((OnConsoleEvent) -> Bool)
+            - func onControllerAttached(() -> Unit)
+            - func onDownloadStart((OnDownloadStartEvent) -> Unit)
+            - func onErrorReceive((OnErrorReceiveEvent) -> Unit)
+            - func onLoadIntercept((WebResourceRequest) -> Bool)
+            - func onPageBegin((OnPageEvent) -> Unit)
+            - func onPageEnd((OnPageEvent) -> Unit)
+            - func onPermissionRequest((OnPermissionRequestEvent) -> Unit)
+            - func onPrompt((OnPromptEvent) -> Bool)
+            - func onlineImageAccess(Bool)
+        - 基础类型定义
+            - class ConsoleMessage
+                - func getLineNumber()
+                - func getMessage()
+                - func getMessageLevel()
+                - func getSourceId()
+            - class PermissionRequest
+                - func deny()
+                - func getAccessibleResource()
+                - func getOrigin()
+                - func grant(Array\<String>)
+            - class WebResourceError
+                - func getErrorCode()
+                - func getErrorInfo()
+            - class WebResourceResponse
+                - func getReasonMessage()
+                - func getResponseCode()
+                - func getResponseData()
+                - func getResponseEncoding()
+                - func getResponseHeader()
+            - class WebResult
+                - let result
+                - WebResult(Int64)
+                - func handleCancel()
+                - func handleConfirm()
+                - func handlePromptConfirm(String)
+            - class AdsBlockedDetails
+                - let adsBlocked
+                - let url
+                - AdsBlockedDetails(String, Array\<String>)
+            - class ExpandedMenuItemOptions
+                - var action
+                - var content
+                - var startIcon
+                - init(String, ?String, (String) -> Unit)
+                - init(AppResource, ?AppResource, (String) -> Unit)
+            - class Header
+                - var headerKey
+                - var headerValue
+            - class OnAlertEvent
+                - let message
+                - let result
+                - let url
+                - OnAlertEvent(String, String, WebResult)
+            - class OnBeforeUnloadEvent
+                - let message
+                - let result
+                - let url
+                - OnBeforeUnloadEvent(String, String, WebResult)
+            - class OnConfirmEvent
+                - let message
+                - let result
+                - let url
+                - OnConfirmEvent(String, String, WebResult)
+            - class OnConsoleEvent
+                - let message
+                - OnConsoleEvent(ConsoleMessage)
+            - class OnDownloadStartEvent
+                - let contentDisposition
+                - let contentLength
+                - let mimetype
+                - let url
+                - let userAgent
+                - OnDownloadStartEvent(String, String, String, String, Int64)
+            - class OnErrorReceiveEvent
+                - let error
+                - let request
+                - OnErrorReceiveEvent(WebResourceRequest, WebResourceError)
+            - class OnHttpErrorReceiveEvent
+                - let request
+                - let response
+                - OnHttpErrorReceiveEvent(WebResourceRequest, WebResourceResponse)
+            - class OnPageEvent
+                - var url
+                - OnPageEvent(String)
+            - class OnPermissionRequestEvent
+                - let request
+                - OnPermissionRequestEvent(PermissionRequest)
+            - class OnPromptEvent
+                - let message
+                - let result
+                - let url
+                - let value
+                - OnPromptEvent(String, String, String, WebResult)
+            - class ScriptItem
+                - var script
+                - var scriptRules
+                - ScriptItem(String, Array\<String>)
+            - class WebEvent
+                - var message
+                - var result
+                - var url
+                - var value
+                - WebEvent(String, String, String, WebResult)
+            - class WebResourceRequest
+                - func getRequestHeader()
+                - func getRequestMethod()
+                - func getRequestUrl()
+                - func isMainFrame()
+                - func isRedirect()
+                - func isRequestGesture()
+            - enum CacheMode
+                - Default
+                - None
+                - Online
+                - Only
+            - enum MessageLevel
+                - Debug
+                - Error
+                - Info
+                - Log
+                - Warn
+            - enum OverScrollMode
+                - ALWAYS
+                - NEVER
+            - enum WebKeyboardAvoidMode
+                - OVERLAYS_CONTENT
+                - RESIZE_CONTENT
+                - RESIZE_VISUAL
+            - enum WebLayoutMode
+                - FIT_CONTENT
+                - NONE
+            - enum MixMode
+                - All
+                - Compatible
+                - None
+        - 示例代码
+            - [自定义组件]()
+                - [自定义组件的生命周期](source_zh_cn/arkui-cj/cj-custom-component-lifecycle.md)
+    API索引列表:
+    - 自定义组件的生命周期
+        - 导入模块
+                import kit.UIKit.*
+        - func aboutToAppear()
+        - func aboutToDisappear()
+        - func aboutToReuse(ReuseParams)
+        - func onBackPress()
+        - func onDidBuild()
+        - func onPageHide()
+        - func onPageShow()
+        - class ReuseParams
+            - prop size
+            - init()
+            - init(Array\<(String, Any)>)
+            - func get(String)
+            - func contains(String)
+            - func add(String, Any)
+            - func aboutToRecycle
+        - 示例代码
+            - 生命周期示例
+            - 组件复用示例
+            - [状态管理与渲染控制]()
+                - [ForEach](source_zh_cn/arkui-cj/cj-state-rendering-foreach.md)
+    API索引列表:
+    - ForEach
+        - 导入模块
+                import kit.UIKit.*
+        - class ForEach
+        - 示例代码
+                - [LazyForEach](source_zh_cn/arkui-cj/cj-state-rendering-lazyforeach.md)
+    API索引列表:
+    - LazyForEach
+        - 导入模块
+                import kit.UIKit.*
+        - class LazyForEach
+        - interface DataOperation
+        - interface IDataSource
+            - func getData(Int64)
+            - func onRegisterDataChangeListener(DataChangeListener)
+            - func onUnregisterDataChangeListener(DataChangeListener)
+            - func totalCount()
+        - class DataChangeListener
+            - DataChangeListener(Int64)
+            - func onDataAdd(Int64)
+            - func onDataChange(Int64)
+            - func onDataDelete(Int64)
+            - func onDataMove(Int64, Int64)
+            - func onDataReloaded()
+            - func onDatasetChange(ArrayList\<DataOperation>)
+        - class DataAddOperation
+            - DataAddOperation(Int32, Int32, ?String, ?Array\<String>)
+        - class DataChangeOperation
+            - let index
+            - let key
+            - DataChangeOperation(Int32, ?String)
+        - class DataDeleteOperation
+            - let count
+            - let index
+            - DataDeleteOperation(Int32, Int32)
+        - class DataExchangeOperation
+            - let end
+            - let key
+            - let start
+            - DataExchangeOperation(Int32, Int32, ExchangeKey)
+        - class DataMoveOperation
+            - let from
+            - let key
+            - let to
+            - DataMoveOperation(Int32, Int32, ?String)
+        - class DataReloadOperation
+            - DataReloadOperation()
+        - class ExchangeKey
+            - let start
+            - let end
+            - ExchangeKey(String, String)
+        - 示例代码
+                - [组件级变量的状态管理](source_zh_cn/arkui-cj/cj-state-rendering-componentstatemanagement.md)
+    API索引列表:
+    - 组件级变量的状态管理
+        - 导入模块
+                import kit.UIKit.*
+        - ObservedArray
+            - class ObservedArray
+                - prop size
+                - init(Array\<T>)
+                - func get()
+                - func set(Array\<T>)
+                - func set(ObservedComplexAbstract)
+                - func subscribeInner(Observer)
+                - func unsubscribeInner(Observer)
+                - func \[](Int64)
+                - func [](Int64, T)
+        - ObservedArrayList
+            - class ObservedArrayList
+                - prop size
+                - init(ArrayList\<T>)
+                - init(Array\<T>)
+                - func append(T)
+                - func appendAll(Collection\<T>)
+                - func clear()
+                - func clone()
+                - func get()
+                - func insert(Int64, T)
+                - func insertAll(Int64, Collection\<T>)
+                - func isEmpty()
+                - func prepend(T)
+                - func prependAll(Collection\<T>)
+                - func remove(Int64)
+                - func remove(Range\<Int64>)
+                - func removeIf((T) -> Bool)
+                - func set(ArrayList\<T>)
+                - func set(Array\<T>)
+                - func set(ObservedComplexAbstract)
+                - func subscribeInner(Observer)
+                - func unsubscribeInner(Observer)
+                - func \[](Int64)
+                - func [](Int64, T)
+            - 示例代码
+        - ObservedProperty\<T>
+            - class ObservedProperty
+                - init(String, T)
+                - func get()
+                - func set(T)
+        - 示例代码
+                - [应用级变量的状态管理](source_zh_cn/arkui-cj/cj-state-rendering-appstatemanagement.md)
+    API索引列表:
+    - 应用级变量的状态管理
+        - 导入模块
+                import kit.UIKit.*
+        - AppStorage（应用全局的UI状态存储）
+            - 使用说明
+            - class AppStorage
+                - static func `prop`\<T>(String)
+                - static func clear()
+                - static func delete(String)
+                - static func get\<T>(String)
+                - static func has(String)
+                - static func keys()
+                - static func link\<T>(String)
+                - static func set\<T>(String, T)
+                - static func setAndLink\<T>(String, T)
+                - static func setAndProp\<T>(String, T)
+                - static func setOrCreate\<T>(String, T)
+                - static func size()
+            - 示例代码
+                - @StorageProp
+                - @StorageLink
+        - LocalStorage（页面级UI状态储存）
+            - 使用说明
+                - 概述
+                - 限制条件
+            - class LocalStorage
+                - init()
+                - func `prop`\<T>(String)
+                - func clear()
+                - func delete(String)
+                - func get\<T>(String)
+                - func has(String)
+                - func keys()
+                - func link\<T>(String)
+                - func set\<T>(String, T)
+                - func setAndLink\<T>(String, T)
+                - func setAndProp\<T>(String, T)
+                - func setOrCreate\<T>(String, T)
+                - func size()
+            - 示例代码
+                - @LocalStorageProp
+                - @LocalStorageLink
+        - PersistentStorage（持久化存储UI状态）
+            - 使用说明
+                - 概述
+                - 限制条件
+            - class PersistentStorage
+                - static func deleteProp(String)
+                - static func keys()
+                - static func persistProp\<T>(String, T)
+                - static func persistProps\<T>(Array\<(String,T)>)
+            - 示例代码
+                - 从AppStorage中访问PersistentStorage初始化的属性
+        - Environment（设备环境查询）
+            - class Environment
+                - static func envProp\<T>(String, T)
+                - static func keys()
+            - enum ColorMode
+                - Dark
+                - Light
+            - enum LayoutDirection
+                - Ltr
+                - Rtl
+            - 示例代码
+                - 从UI中访问Environment参数
+            - [公共定义]()
+                - [基础类型定义](source_zh_cn/arkui-cj/cj-common-types.md)
+    API索引列表:
+    - 基础类型定义
+        - 导入模块
+                import kit.UIKit.*
+        - interface Length
+        - interface ResourceColor
+        - class Color
+            - static let BLACK
+            - static let BLUE
+            - static let BROWN
+            - static let FOREGROUND
+            - static let GRAY
+            - static let GREEN
+            - static let GREY
+            - static let ORANGE
+            - static let PINK
+            - static let RED
+            - static let TRANSPARENT
+            - static let WHITE
+            - static let YELLOW
+            - init(UInt8, UInt8, UInt8, Float32)
+            - init(UInt32)
+            - static func alphaAdapt(UInt32)
+            - func toUInt32()
+        - class Fonts
+            - var family
+            - var size
+            - var style
+            - var weight
+            - init(Length, FontWeight, String, FontStyle)
+            - init(Length, FontWeight, AppResource, FontStyle)
+        - class Rectangle
+            - var height
+            - var width
+            - var x
+            - var y
+            - init(Length, Length, Length, Length)
+        - class RectResult
+            - var height
+            - var width
+            - var x
+            - var y
+            - init(Float64, Float64, Float64, Float64)
+        - class AnimateParam
+            - var curve
+            - var delay
+            - var duration
+            - var expectedFrameRateRange
+            - var finishCallbackType
+            - var iterations
+            - var onFinish
+            - var playMode
+            - var tempo
+            - init(Option\<Int32>, Option\<Float32>, Option\<Curve>, Option\<Int32>, Option\<Int32>, Option\<PlayMode>, Option\<() -> Unit>, Option\<FinishCallbackType>, Option\<ExpectedFrameRateRange>)
+        - class Area
+            - var globalPosition
+            - var height
+            - var position
+            - var width
+            - Area(Float64, Float64, Position, Position)
+        - class BorderRadiuses
+            - var bottomLeft
+            - var bottomRight
+            - var topLeft
+            - var topRight
+            - init(Length, Length, Length, Length)
+        - struct CJEdge
+            - init(Length, Length, Length, Length)
+        - class DividerStyleOptions
+            - let color
+            - let endMargin
+            - let startMargin
+            - let strokeWidth
+            - init(Length, ResourceColor, Length, Length)
+        - class EdgeColor
+            - var top
+            - var right
+            - var bottom
+            - var left
+            - init(Color, Color, Color, Color)
+        - class EdgeStyles
+            - var bottom
+            - var left
+            - var right
+            - var top
+            - init(BorderStyle, BorderStyle, BorderStyle, BorderStyle)
+        - class LocalizedPadding
+            - let bottom
+            - let end
+            - let start
+            - let top
+            - LocalizedPadding(Length, Length, Length, Length)
+        - class Margin
+            - init(Length, Length, Length, Length)
+        - class MenuOffset
+            - var dx
+            - var dy
+        - class Offset
+            - var dx
+            - var dy
+            - init(Length, Length)
+        - class Padding
+            - let bottom
+            - let left
+            - let right
+            - let top
+        - class Position
+            - var x
+            - var y
+            - Position(Float64, Float64)
+        - enum AccessibilityHoverType
+            - HOVER_CANCEL
+            - HOVER_ENTER
+            - HOVER_EXIT
+            - HOVER_MOVE
+        - enum AdaptiveColor
+            - AVERAGE
+            - DEFAULT
+        - enum Alignment
+            - Bottom
+            - BottomEnd
+            - BottomStart
+            - Center
+            - End
+            - Start
+            - Top
+            - TopEnd
+            - TopStart
+        - enum AnimationStatus
+            - Initial
+            - Paused
+            - Running
+            - Stopped
+        - enum AppRotation
+            - ROTATION_0
+            - ROTATION_90
+            - ROTATION_180
+            - ROTATION_270
+        - enum ArrowPointPosition
+            - CENTER
+            - END
+            - START
+        - enum Axis
+            - Horizontal
+            - Vertical
+        - enum BarrierDirection
+            - BOTTOM
+            - LEFT
+            - RIGHT
+            - TOP
+        - enum BarState
+            - Auto
+            - Off
+            - On
+        - enum BlendApplyType
+            - FAST
+            - OFFSCREEN
+        - enum BlendMode
+            - CLEAR
+            - COLOR
+            - COLOR_BURN
+            - COLOR_DODGE
+            - DARKEN
+            - DIFFERENCE
+            - DST
+            - DST_ATOP
+            - DST_IN
+            - DST_OUT
+            - DST_OVER
+            - EXCLUSION
+            - HARD_LIGHT
+            - HUE
+            - LIGHTEN
+            - LUMINOSITY
+            - MODULATE
+            - MULTIPLY
+            - NONE
+            - OVERLAY
+            - PLUS
+            - SATURATION
+            - SCREEN
+            - SOFT_LIGHT
+            - SRC
+            - SRC_ATOP
+            - SRC_IN
+            - SRC_OUT
+            - SRC_OVER
+            - XOR
+        - enum BlurStyleActivePolicy
+            - ALWAYS_ACTIVE
+            - ALWAYS_INACTIVE
+            - FOLLOWS_WINDOW_ACTIVE_STATE
+        - enum BorderStyle
+            - Dashed
+            - Dotted
+            - Solid
+        - enum ButtonRole
+            - ERROR
+            - NORMAL
+        - enum ButtonStyleMode
+            - EMPHASIZED
+            - NORMAL
+            - TEXTUAL
+        - enum ButtonType
+            - Capsule
+            - Circle
+            - Normal
+            - ROUNDED_RECTANGLE
+        - enum CanvasDirection
+            - inherit
+            - ltr
+            - rtl
+        - enum CanvasFillRule
+            - evenodd
+            - nonzero
+        - enum CheckBoxShape
+            - CIRCLE
+            - ROUNDED_SQUARE
+        - enum ClickEffectLevel
+            - HEAVY
+            - LIGHT
+            - MIDDLE
+        - enum ColoringStrategy
+            - AVERAGE
+            - INVERT
+            - PRIMARY
+        - enum CompositeOperation
+            - copy
+            - destination-atop
+            - destination-in
+            - destination-out
+            - destination-over
+            - lighter
+            - source-atop
+            - source-in
+            - source-out
+            - source-over
+            - xor
+        - enum ContentType
+            - **HOUSE_NUMBER**
+            - **ID_CARD_NUMBER**
+            - **NEW_PASSWORD**
+            - **NICKNAME**
+            - **PASSWORD**
+            - **PERSON_FIRST_NAME**
+            - **PERSON_FULL_NAME**
+            - **PERSON_LAST_NAME**
+            - **PHONE_COUNTRY_CODE**
+            - **PHONE_NUMBER**
+            - **PROVINCE_ADDRESS**
+            - **USER_NAME**
+            - BANK_CARD_NUMBER
+            - CITY_ADDRESS
+            - COUNTRY_ADDRESS
+            - DETAIL_INFO_WITHOUT_STREET
+            - DISTRICT_ADDRESS
+            - EMAIL_ADDRESS
+            - FORMAT_ADDRESS
+            - FULL_PHONE_NUMBER
+            - FULL_STREET_ADDRESS
+        - enum ControlSize
+            - NORMAL
+            - SMALL
+        - enum CopyOptions
+            - InApp
+            - LocalDevice
+            - None
+        - enum Curve
+            - Ease
+            - EaseIn
+            - EaseInOut
+            - EaseOut
+            - ExtremeDeceleration
+            - FastOutLinearIn
+            - FastOutSlowIn
+            - Friction
+            - Linear
+            - LinearOutSlowIn
+            - Rhythm
+            - Sharp
+            - Smooth
+        - enum DialogAlignment
+            - Bottom
+            - BottomEnd
+            - BottomStart
+            - Center
+            - CenterEnd
+            - CenterStart
+            - Default
+            - Top
+            - TopEnd
+            - TopStart
+        - enum DialogButtonStyle
+            - DEFAULT
+            - HIGHLIGHT
+        - enum Direction
+            - Auto
+            - Ltr
+            - Rtl
+        - enum Edge
+            - Bottom
+            - End
+            - Start
+            - Top
+        - enum EdgeEffect
+            - Fade
+            - None
+            - Spring
+        - enum EllipsisMode
+            - CENTER
+            - END
+            - START
+        - enum EmbeddedType
+            - EMBEDDED_UI_EXTENSION
+        - enum FillMode
+            - Backwards
+            - Both
+            - Forwards
+            - None
+        - enum FinishCallbackType
+            - LOGICALLY
+            - REMOVED
+        - enum FlexAlign
+            - Center
+            - End
+            - SpaceAround
+            - SpaceBetween
+            - SpaceEvenly
+            - Start
+        - enum FlexDirection
+            - Column
+            - ColumnReverse
+            - Row
+            - RowReverse
+        - enum FlexWrap
+            - NoWrap
+            - Wrap
+            - WrapReverse
+        - enum FoldStatus
+            - FOLD_STATUS_EXPANDED
+            - FOLD_STATUS_FOLDED
+            - FOLD_STATUS_HALF_FOLDED
+            - FOLD_STATUS_UNKNOWN
+        - enum FontStyle
+            - Italic
+            - Normal
+        - enum FontWeight
+            - Bold
+            - Bolder
+            - Lighter
+            - Medium
+            - Normal
+            - Regular
+            - W100
+            - W200
+            - W300
+            - W400
+            - W500
+            - W600
+            - W700
+            - W800
+            - W900
+        - enum ForegroundBlurStyle
+            - BACKGROUND_REGULAR
+            - BACKGROUND_THICK
+            - BACKGROUND_THIN
+            - BACKGROUND_ULTRA_THICK
+            - COMPONENT_REGULAR
+            - COMPONENT_THICK
+            - COMPONENT_THIN
+            - COMPONENT_ULTRA_THICK
+            - COMPONENT_ULTRA_THIN
+            - NONE
+            - REGULAR
+            - THICK
+        - enum FunctionKey
+            - DPAD_DOWN
+            - DPAD_LEFT
+            - DPAD_RIGHT
+            - DPAD_UP
+            - ESC
+            - F1
+            - F10
+            - F11
+            - F12
+            - F2
+            - F3
+            - F4
+            - F5
+            - F6
+            - F7
+            - F8
+            - F9
+            - TAB
+        - enum GradientDirection
+            - Bottom
+            - Left
+            - LeftBottom
+            - LeftTop
+            - None
+            - Right
+            - RightBottom
+            - RightTop
+            - Top
+        - enum GridItemStyle
+            - NONE
+            - PLAIN
+        - enum HeightBreakpoint
+            - HEIGHT_LG
+            - HEIGHT_MD
+            - HEIGHT_SM
+        - enum HitTestMode
+            - Block
+            - Default
+            - None
+            - Transparent
+        - enum HorizontalAlign
+            - Center
+            - End
+            - Start
+        - enum HoverEffect
+            - Auto
+            - Highlight
+            - None
+            - Scale
+        - enum HoverModeAreaType
+            - BOTTOM_SCREEN
+            - TOP_SCREEN
+        - enum ImageFit
+            - Auto
+            - BOTTOM
+            - BOTTOM_END
+            - BOTTOM_START
+            - CENTER
+            - Contain
+            - Cover
+            - END
+            - Fill
+            - None
+            - ScaleDown
+            - START
+            - TOP
+            - TOP_END
+            - TOP_START
+        - enum ImageRepeat
+            - NoRepeat
+            - X
+            - XY
+            - Y
+        - enum ImageSize
+            - Auto
+            - Contain
+            - Cover
+            - FILL
+        - enum ImageSpanAlignment
+            - BASELINE
+            - BOTTOM
+            - CENTER
+            - TOP
+        - enum ImageType
+            - jpeg
+            - png
+            - webp
+        - enum ItemAlign
+            - Auto
+            - Baseline
+            - Center
+            - End
+            - Start
+            - Stretch
+        - enum KeyboardAvoidMode
+            - DEFAULT
+            - NONE
+        - enum KeySource
+            - Keyboard
+            - Unknown
+        - enum KeyType
+            - Down
+            - Up
+        - enum LayoutSafeAreaEdge
+            - BOTTOM
+            - TOP
+        - enum LayoutSafeAreaType
+            - SYSTEM
+        - enum LengthMetricsUnit
+            - DEFAULT
+            - PX
+        - enum LengthType
+            - fp
+            - lpx
+            - percent
+            - px
+            - vp
+        - enum LineBreakStrategy
+            - BALANCED
+            - GREEDY
+            - HIGH_QUALITY
+        - enum LineCapStyle
+            - Butt
+            - Round
+            - Square
+        - enum LineJoinStyle
+            - Bevel
+            - Miter
+            - Round
+        - enum ListItemAlign
+            - Center
+            - End
+            - Start
+        - enum ListItemGroupArea
+            - IN_FOOTER_AREA
+            - IN_HEADER_AREA
+            - IN_LIST_ITEM_AREA
+            - NONE
+        - enum MarqueeUpdateStrategy
+            - DEFAULT
+            - PRESERVE_POSITION
+        - enum MenuPolicy
+            - DEFAULT
+            - HIDE
+            - SHOW
+        - enum MenuPreviewMode
+            - IMAGE
+            - NONE
+        - enum ModalTransition
+            - ALPHA
+            - DEFAULT
+            - NONE
+        - enum ModifierKey
+            - ALT
+            - CTRL
+            - SHIFT
+        - enum MouseAction
+            - Hover
+            - Move
+            - Press
+            - Release
+        - enum MouseButton
+            - Back
+            - Forward
+            - Left
+            - Middle
+            - None
+            - Right
+        - enum NestedScrollMode
+            - PARALLEL
+            - PARENT_FIRST
+            - SELF_FIRST
+            - SELF_ONLY
+        - enum ObscuredReasons
+            - PLACEHOLDER
+        - enum OptionWidthMode
+            - FIT_CONTENT
+            - FIT_TRIGGER
+        - enum OutlineStyle
+            - DASHED
+            - DOTTED
+            - SOLID
+        - enum PixelRoundCalcPolicy
+            - FORCE_CEIL
+            - FORCE_FLOOR
+            - NO_FORCE_ROUND
+        - enum Placement
+            - Bottom
+            - BottomLeft
+            - BottomRight
+            - Left
+            - LeftBottom
+            - LeftTop
+            - Right
+            - RightBottom
+            - RightTop
+            - Top
+            - TopLeft
+            - TopRight
+        - enum PlayMode
+            - Alternate
+            - AlternateReverse
+            - Normal
+            - Reverse
+        - enum ProgressType
+            - Capsule
+            - Eclipse
+            - Linear
+            - Ring
+            - ScaleRing
+        - enum QualityType
+            - high
+            - low
+            - medium
+        - enum RefreshStatus
+            - Inactive
+            - Drag
+            - OverDrag
+            - Refresh
+            - Done
+        - enum RelateType
+            - FILL
+            - FIT
+        - enum Repetition
+            - clamp
+            - mirror
+            - no_repeat
+            - repeat
+            - repeat_x
+            - repeat_y
+        - enum ResourceType
+            - Boolean
+            - Float
+            - IntArray
+            - Integer
+            - Media
+            - Pattern
+            - Plural
+            - Rawfile
+            - ResColor
+            - StrArray
+            - String
+        - enum ResponseType
+            - LongPress
+            - RightClick
+        - enum RichEditorResponseType
+            - LONG_PRESS
+            - RIGHT_CLICK
+            - SELECT
+        - enum ScrollBarDirection
+            - Vertical
+            - Horizontal
+        - enum ScrollDirection
+            - Horizontal
+            - None
+            - Vertical
+        - enum ScrollSource
+            - DRAG
+            - EDGE_EFFECT
+            - FLING
+            - OTHER_USER_INPUT
+            - SCROLL_BAR
+            - SCROLL_BAR_FLING
+            - SCROLLER
+            - SCROLLER_ANIMATION
+        - enum ScrollState
+            - Fling
+            - Idle
+            - Scrolling
+        - enum StickyStyle
+            - None
+            - Header
+            - Footer
+            - Both
+        - enum SwipeEdgeEffect
+            - Spring
+            - CARD
+        - enum ShadowStyle
+            - OUTER_DEFAULT_LG
+            - OUTER_DEFAULT_MD
+            - OUTER_DEFAULT_SM
+            - OUTER_DEFAULT_XS
+            - OUTER_FLOATING_MD
+            - OUTER_FLOATING_SM
+        - enum ShadowType
+            - BLUR
+            - COLOR
+        - enum ShapeType
+            - Capsule
+            - CircleType
+            - Normal
+        - enum SharedTransitionEffectType
+            - SharedEffectExchange
+            - SharedEffectStatic
+        - enum SideBarContainerType
+            - AUTO
+            - Embed
+            - Overlay
+        - enum SideBarPosition
+            - End
+            - Start
+        - enum SourceTool
+            - Finger
+            - Joystick
+            - Mouse
+            - Pen
+            - Touchpad
+            - Unknown
+        - enum SourceType
+            - Mouse
+            - TouchScreen
+            - Unknown
+        - enum SwiperNestedScrollMode
+            - SELF_FIRST
+            - SELF_ONLY
+        - enum TextAlign
+            - Center
+            - End
+            - JUSTIFY
+            - Start
+        - enum TextAlignStyle
+            - Center
+            - End
+            - Justify
+            - Left
+            - Right
+            - Start
+        - enum TextBaseline
+            - Alphabetic
+            - Bottom
+            - Hanging
+            - Ideographict
+            - Middle
+            - Top
+        - enum TextCase
+            - LowerCase
+            - Normal
+            - UpperCase
+        - enum TextContentStyle
+            - DEFAULT
+            - INLINE
+        - enum TextDecorationStyle
+            - DASHED
+            - DOTTED
+            - DOUBLE
+            - SOLID
+            - WAVY
+        - enum TextDecorationType
+            - LineThrough
+            - None
+            - Overline
+            - Underline
+        - enum TextHeightAdaptivePolicy
+            - LAYOUT_CONSTRAINT_FIRST
+            - MAX_LINES_FIRST
+            - MIN_FONT_SIZE_FIRST
+        - enum TextOverflow
+            - Clip
+            - Ellipsis
+            - MARQUEE
+            - None
+        - enum TextSelectableMode
+            - SELECTABLE_FOCUSABLE
+            - SELECTABLE_UNFOCUSABLE
+            - UNSELECTABLE
+        - enum ThemeColorMode
+            - DARK
+            - LIGHT
+            - SYSTEM
+        - enum TitleHeight
+            - MainOnly
+            - MainWithSub
+        - enum TouchType
+            - Cancel
+            - Down
+            - Move
+            - Up
+        - enum TransitionType
+            - All
+            - Delete
+            - Insert
+        - enum VerticalAlign
+            - Bottom
+            - Center
+            - Top
+        - enum Visibility
+            - Hidden
+            - None
+            - Visible
+        - enum WebDarkMode
+            - Off
+            - On
+            - Auto
+        - enum Week
+            - Fri
+            - Mon
+            - Sat
+            - Sun
+            - Thur
+            - Tue
+            - Wed
+        - enum WordBreak
+            - BreakAll
+            - BreakWord
+            - Normal
+        - enum XComponentType
+            - COMPONENT
+            - NODE
+            - SURFACE
+            - TEXTURE
+                - [像素单位](source_zh_cn/arkui-cj/cj-common-pixelunits.md)
+    API索引列表:
+    - 像素单位
+        - func fp2px(Length)
+        - func lpx2px(Length)
+        - func px2fp(Length)
+        - func px2lpx(Length)
+        - func px2vp(Length)
+        - func vp2px(Length)
+        - 示例代码
+            - [线程控制](source_zh_cn/arkui-cj/cj-appendix-thread.md)
+    API索引列表:
+    - 线程控制
+        - 背景
+        - 开发范式
+            - 导入模块
+                    import kit.UIKit.Main
+            - 创建仓颉线程
+        - 函数
+            - func launch(()->Unit)
+        - 示例代码
+            - 示例1
+            - [混合开发](source_zh_cn/arkui-cj/cj-appendix-hybrid.md)
+    API索引列表:
+    - 混合开发
+        - 背景
+        - 与纯仓颉开发模式的异同
+        - 混合页面工程
+        - 示例代码
+            - 添加仓颉UI代码
+            - ArkTS页面中插入仓颉UI
+            - [框架接口](source_zh_cn/arkui-cj/cj-ui-framework.md)
+    API索引列表:
+    - 框架接口
+        - func bind((CustomView) -> ViewBuilder, CustomView)
+        - func bind\<T1>((CustomView,ObservedProperty\<T1>) -> ViewBuilder, CustomView)
+        - func bind\<T1, T2>((CustomView,ObservedProperty\<T1>,ObservedProperty\<T2>) -> ViewBuilder, CustomView)
+        - func bind\<T1, T2, T3>((CustomView,ObservedProperty\<T1>,ObservedProperty\<T2>,ObservedProperty\<T3>) -> ViewBuilder, CustomView)
+        - func getResourceBool(AppResource)
+        - func getResourceColor(AppResource)
+        - func getResourceDouble(AppResource)
+        - func getResourceInt32(AppResource)
+        - func getResourceLength(AppResource)
+        - func getResourceMedia(AppResource)
+        - func getResourceString(AppResource)
+        - func getResourcePluralString(PluralResource)
+        - func getResourceStringArray(AppResource)
+        - func getResourceUInt32(AppResource)
+        - func hasContainer()
+        - func loadNativeView(CustomView)
+        - func throwNativeError(String)
+        - interface ArrayLike
+            - prop size
+            - func [](Int64, T)
+            - func []\(Int64)
+        - interface CStringExtend
+            - func free()
+            - func toStringOption()
+        - interface ComponentRender
+            - func initial()
+            - func update()
+        - interface LengthProp
+            - prop fp
+            - prop lpx
+            - prop percent
+            - prop px
+            - prop vp
+        - interface Observer
+            - func aboutToBeDeleted()
+            - func id()
+            - func notifyRead(String)
+            - func onStateUpdate(String, ArrayList\<Int64>)
+            - func onStateUpdate(String)
+        - class BaseView
+            - init()
+            - func build()
+            - func rerender()
+        - class CJEntry
+            - static func getInstance()
+            - func registerEntry(String, () -> Bool)
+        - class CJResource
+            - var id
+            - var ty
+            - var params
+            - init(Int64, UInt32, String)
+        - class CallbackCJWebResourceRequest
+            - func invoke(Int32, CPointer\<CPointer\<Unit>>, CPointer\<Unit>)
+        - class ContainerBase
+            - func initial()
+        - class CustomView
+            - var isReusable
+            - let nativeView
+            - init(Option\<CustomView>, Option\<LocalStorage>)
+            - static func create(CustomView)
+            - static func createRecycle(CustomView, Bool, String, () -> Unit)
+            - func aboutToBeDeleted()
+            - func aboutToRecycleInternal()
+            - func aboutToReuseInternal(ReuseParams)
+            - func addChildById(Int64, CustomView)
+            - func addProvideVar(ObservedPropertyAbstract, String)
+            - func build()
+            - func declareWatch\<T>(ObservedProperty\<T>, () -> Unit)
+            - func delayCompleteRerender(Bool)
+            - func flushDelayCompleteRerender()
+            - func forEachUpdateFunction\<T>(Int64, ArrayLike\<T>, (T,Int64) -> Unit, (T,Int64) -> String)
+            - func getLocalStorage()
+            - func id()
+            - func ifElseBranchUpdateFunction(Int32, () -> Unit)
+            - func initializeConsume(String)
+            - func markLazyForEachProcess(String)
+            - func notifyRead(String)
+            - func observeComponentCreation(UpdateFuncNew)
+            - func observeRecycleComponentCreation(String, RecycleUpdateFunc)
+            - func onStateUpdate(String)
+            - func onStateUpdate(String, ArrayList\<Int64>)
+            - func purgeDeletedElmtIds(ArrayList\<Int64>)
+            - func removeChildById(Int64)
+            - func removeChildGroupById(String)
+            - func resetLazyForEachProcess()
+            - func resetRecycleCustomNode()
+            - func setParent(Option\<CustomView>)
+            - func updateDirtyElements()
+            - func updateElement(Int64)
+        - class FFIVectorBool
+            - init(VectorBoolHandle)
+            - init(Int64)
+            - func free()
+            - func getElement(Int64)
+            - func getNativeHandle()
+            - func getSize()
+            - func setElement(Int64, Bool)
+        - class FFIVectorCJInt64
+            - init(VectorCJInt64Handle)
+            - init(Int64)
+            - func free()
+            - func getNativeHandle()
+            - func setElement(Int64, Int64)
+        - class FFIVectorFloat32
+            - init(VectorFloat32Handle)
+            - init(Int64)
+            - func free()
+            - func getElement(Int64)
+            - func getNativeHandle()
+            - func getSize()
+            - func setElement(Int64, Float32)
+        - class FFIVectorFloat64
+            - init(VectorFloat64Handle)
+            - init(Int64)
+            - func free()
+            - func getElement(Int64)
+            - func getNativeHandle()
+            - func getSize()
+            - func setElement(Int64, Float64)
+        - class FFIVectorInt32
+            - init(VectorInt32Handle)
+            - init(Int64)
+            - func free()
+            - func getElement(Int64)
+            - func getNativeHandle()
+            - func getSize()
+            - func setElement(Int64, Int32)
+        - class FFIVectorInt64
+            - init(VectorInt64Handle)
+            - init(Int64)
+            - func free()
+            - func getElement(Int64)
+            - func getNativeHandle()
+            - func getSize()
+            - func setElement(Int64, Int64)
+        - class FFIVectorString
+            - init(VectorStringHandle)
+            - init(Int64)
+            - func free()
+            - func getElement(Int64)
+            - func getNativeHandle()
+            - func getSize()
+            - func setElement(Int64, String)
+        - class FFIVectorUInt32
+            - init(VectorUInt32Handle)
+            - init(Int64)
+            - func free()
+            - func getElement(Int64)
+            - func getNativeHandle()
+            - func getSize()
+            - func setElement(Int64, UInt32)
+        - class FFIVectorUInt8
+            - init(VectorUInt8Handle)
+            - init(Int64)
+            - func free()
+            - func getElement(Int64)
+            - func getNativeHandle()
+            - func getSize()
+            - func setElement(Int64, UInt8)
+        - class HybridComponentBase
+            - static func registerHybridComponent(String, () -> CPointer\<Unit>, () -> Unit)
+        - class InteractableView
+        - class LocalStorageInterOp
+            - static func getOrCreate()
+            - func \`prop`\<T>(String) where T <: JSInteropType \<T>
+            - func aboutToBeDeleted()
+            - func clear()
+            - func delete(String)
+            - func get\<T>(String) where T <: JSInteropType \<T>
+            - func has(String)
+            - func hasChanged(JSContext, JSCallInfo)
+            - func keys()
+            - func link\<T>(String) where T <: JSInteropType \<T>
+            - func set\<T>(String, T) where T <: JSInteropType \<T>
+            - func setAndLink\<T>(String, T) where T <: JSInteropType \<T>
+            - func setAndProp\<T>(String, T) where T <: JSInteropType \<T>
+            - func setOrCreate\<T>(String, T) where T <: JSInteropType \<T>
+            - func size()
+        - class MainThreadContext
+            - func end()
+            - func hasEnded()
+        - class Observable
+            - func isSubscribed(Observer)
+            - func numberOfSubscribers()
+            - func subscribe(Observer)
+            - func unsubscribe(Observer)
+            - func unsubscribeAll()
+        - class ObservedComplexAbstract
+            - func addPropsInfo(String)
+            - func getInfo()
+            - func getPropsInfo()
+            - func inheritObservers(ArrayList\<Observer>)
+            - func notifyChanges()
+            - func set(ObservedComplexAbstract)
+            - func setDependentElementIds(ArrayList\<Int64>)
+            - func setInfo(String)
+            - func subscribeInner(Observer)
+            - func unsubscribeInner(Observer)
+        - class ObservedObject
+            - func addPublishVar(ObservedPropertyAbstract)
+            - func getPublishVar()
+            - func subscribeInner(Observer)
+            - func unsubscribeInner(Observer)
+        - class ObservedPropertyAbstract
+            - init(String)
+            - func getInfo()
+            - func notifyChanges()
+            - func purgeDependencyOnElmtId(Int64)
+            - func subscribeEx(Observer)
+            - func unsubscribeEx(Observer)
+        - class PluralResource
+            - var id
+            - var ty
+            - var count
+            - var plural
+            - init(Int64, UInt32, String)
+        - class RemoteView
+            - init()
+            - func build()
+            - func purgeVariableDependenciesOnElmtId(Int64)
+            - func rerender()
+        - class SubscriberManager
+            - static func getInstance()
+            - func add(Observer)
+            - func delete(Observer)
+            - func dumpSubscriberInfo()
+            - func get(Int64)
+            - func has(Int64)
+            - func makeId()
+            - func sizeOfManager()
+        - class View
+            - static func create(View)
+            - static func create(Int64)
+            - static func createRecycle(View, Bool, String, () -> Unit)
+            - func deletedElmtIdsHaveBeenPurged(ArrayList\<Int64>)
+            - func destroy()
+            - func finishUpdateFunc(Int64)
+            - func getDeletedElemtIds()
+            - func isFirstRender()
+            - func isStatic()
+            - func markNeedUpdate()
+            - func markStatic()
+            - func needsUpdate()
+            - func resetRecycleCustomNode()
+            - func restoreInstanceId()
+            - func syncInstanceId()
+        - class ViewBase
+            - func initial()
+            - func startTrace(String, Int32)
+            - func update()
+        - class ViewBuilder
+            - let build
+            - ViewBuilder(() -> Unit)
+        - class ViewStackProcessor
+            - static func AllocateNewElmetIdForNextComponent()
+            - static func GetElmtIdToAccountFor()
+            - static func ImplicitPopBeforeContinue()
+            - static func StartGetAccessRecordingFor(Int64)
+            - static func StopGetAccessRecording()
+        - struct CArrInt32
+            - let head
+            - let size
+            - CArrInt32(CPointer\<Int32>, Int64)
+        - struct CJTouchTestInfo<sup>(deprecated)<sup>
+        - struct CTouchResult<sup>(deprecated)<sup>
+        - struct ExternalString
+            - init(String)
+            - func free()
+            - func isNull()
+            - func toString()
+        - struct FFiCheckboxGroupResult
+            - let nameBuffer
+            - let size
+            - let status
+            - FFiCheckboxGroupResult(Int32, Int64, CPointer\<CString>)
+        - class ForEach
+            - init(() -> Unit)
+            - static func create\<T>(Int64, CustomView, ArrayLike\<T>, ItemGenFuncType\<T>, KeyGenFuncType\<T>)
+            - static func create()
+            - func genChild()
+            - func initial()
+            - func pop()
+            - func update()
+        - class If
+            - init(() -> Unit)
+            - static func branchId(Int32)
+            - static func getBranchId()
+            - func genChild()
+            - func initial()
+            - func pop()
+            - func update()
+        - struct NativeDimension
+            - let unit
+            - let value
+            - NativeDimension(Float64, Int32)
+        - struct NativeLength
+            - let unitType
+            - let value
+            - NativeLength(Float64, Int32)
+        - struct NativeOffset
+            - let dx
+            - let dy
+            - NativeOffset(NativeLength, NativeLength)
+        - struct NativeOptionBool
+            - let hasValue
+            - let value
+            - NativeOptionBool(Bool, Bool)
+        - struct NativeOptionCArrInt32
+            - let hasValue
+            - let value
+            - NativeOptionCArrInt32(Bool, CArrInt32)
+        - struct NativeOptionCString
+            - let hasValue
+            - let value
+            - NativeOptionCString(Bool, CString)
+            - func free()
+        - struct NativeOptionCallBack
+            - let hasValue
+            - let value
+            - NativeOptionCallBack(Bool, Int64)
+        - struct NativeOptionFloat32
+            - let hasValue
+            - let value
+            - NativeOptionFloat32(Bool, Float32)
+        - struct NativeOptionFloat64
+            - let hasValue
+            - let value
+            - NativeOptionFloat64(Bool, Float64)
+        - struct NativeOptionInt32
+            - let hasValue
+            - let value
+            - NativeOptionInt32(Bool, Int32)
+        - struct NativeOptionInt64
+            - let hasValue
+            - let value
+            - NativeOptionInt64(Bool, Int64)
+        - struct NativeOptionLength
+            - let hasValue
+            - let value
+            - NativeOptionLength(Bool, NativeLength)
+        - struct NativeOptionUInt32
+            - let hasValue
+            - let value
+            - NativeOptionUInt32(Bool, UInt32)
+        - struct NativeRectangle
+            - NativeRectangle(Float64, Int32, Float64, Int32, Float64, Int32, Float64, Int32)
+        - struct NativeResourceObject
+            - let bundleName
+            - let id
+            - let moduleName
+            - let paramsJsonStr
+            - let resType
+            - NativeResourceObject(CString, CString, Int32, Int32, CString)
+        - struct NativeTextShadowV2<sup>(deprecated)<sup>
+            - NativeTextShadowV2(Float64, Float64, Float64, UInt32, Bool, UInt32)
+        - struct NativeTextTimerShadow<sup>(deprecated)<sup>
+            - NativeTextTimerShadow(Float64, Float64, Float64, UInt32, Bool, UInt32)
+        - class SizeOptions
+            - var width
+            - var height
+            - SizeOptions(Length, Length)
+        - type VectorBoolHandle
+        - type VectorCJInt64Handle
+        - type VectorFloat32Handle
+        - type VectorFloat64Handle
+        - type VectorInt32Handle
+        - type VectorInt64Handle
+        - type VectorNativeTextTimerShadow<sup>(deprecated)<sup>
+        - type VectorUInt32Handle
+        - type VectorUInt8Handle
+            - [已停止维护的组件与接口]()
+                - [Panel](source_zh_cn/arkui-cj/cj-container-panel.md)
+    API索引列表:
+    - Panel
+        - 子组件
+        - 创建组件
+            - init(Bool, () -> Unit)
+        - 通用属性/通用事件
+        - 组件属性
+            - func backgroundMask(ResourceColor)
+            - func dragBar(Bool)
+            - func fullHeight(Length)
+            - func halfHeight(Length)
+            - func miniHeight(Length)
+            - func mode(PanelMode)
+            - func panelType(PanelType)
+            - func show(Bool)
+            - func showCloseIcon(Bool)
+        - 组件事件
+            - func onChange((Float64,Float64,PanelMode) -> Unit)
+            - func onHeightChange((Float64) -> Unit)
+        - 基础类型定义
+        - enum PanelType
+            - Minibar
+            - Foldable
+            - Temporary
+        - enum PanelMode
+            - Mini
+            - Half
+            - Full
+        - 示例代码
+        - [错误码]()
+            - [UI界面]()
+                - [动画错误码](source_zh_cn/errorcodes/cj-errorcode-animator.md)
+    API索引列表:
+    - 动画错误码
+        - 100001 内部错误
+            - [图形图像]()
+                - [屏幕错误码](source_zh_cn/errorcodes/cj-errorcode-display.md)
+    API索引列表:
+    - 屏幕错误码
+        - 1400001 无效的显示设备
+        - 1400002 无权限操作
+        - 1400003 系统服务工作异常
+                - [窗口错误码](source_zh_cn/errorcodes/cj-errorcode-window.md)
+    API索引列表:
+    - 窗口错误码
+        - 1300001 重复操作
+        - 1300002 窗口状态异常
+        - 1300003 系统服务工作异常
+        - 1300004 无权限操作
+        - 1300005 WindowStage异常
+        - 1300006 窗口上下文异常
+        - 1300007 WindowExtension拉起应用失败
+        - 1300008 显示设备异常
+        - 1300009 父窗口无效
+        - 1300010 全屏窗口的无效操作
+        - 1300011 销毁画中画窗口失败
+        - 1300012 画中画窗口状态异常
+        - 1300013 创建画中画窗口失败
+        - 1300014 画中画内部错误
+        - 1300015 重复操作画中画
+        - 1001 窗口空指针异常<sup>(deprecated)</sup>
+        - 1002 无效的窗口类型<sup>(deprecated)</sup>
+        - 1003 无效的窗口参数<sup>(deprecated)</sup>
+        - 1004 元能力服务异常<sup>(deprecated)</sup>
+        - 1005 IPC通信失败<sup>(deprecated)</sup>
+        - 1007 WindowExtension拉起应用失败<sup>(deprecated)</sup>
+    - [ArkWeb（方舟Web）]()
+        - [仓颉API]()
+            - [ohos.webview（Webview）](source_zh_cn/apis/ArkWeb/cj-apis-webview.md)
+    API索引列表:
+    - ohos.webview（Webview）
+        - 导入模块
+                import kit.ArkWeb.*
+        - 使用说明
+        - 权限列表
+                ohos.permission.APPROXIMATELY_LOCATION
+                ohos.permission.LOCATION
+                ohos.permission.LOCATION_IN_BACKGROUND
+                ohos.permission.INTERNET
+        - func once(String, () -> Unit)
+        - class AdsBlockManager
+            - static func addAdsBlockAllowedList(Array\<String>)
+            - static func addAdsBlockDisallowedList(Array\<String>)
+            - static func clearAdsBlockAllowedList()
+            - static func clearAdsBlockDisallowedList()
+            - static func removeAdsBlockAllowedList(Array\<String>)
+            - static func removeAdsBlockDisallowedList(Array\<String>)
+            - static func setAdsBlockRules(String, Bool)
+        - class BackForwardCacheOptions
+            - var size
+            - var timeToLive
+            - BackForwardCacheOptions(Int32, Int32)
+        - class BackForwardCacheSupportedFeatures
+            - var mediaTakeOver
+            - var nativeEmbed
+            - BackForwardCacheSupportedFeatures(Bool, Bool)
+        - class BackForwardList
+            - prop currentIndex
+            - prop size
+            - func getItemAtIndex(Int32)
+        - class GeolocationPermissions
+            - static func allowGeolocation(String, Bool)
+            - static func deleteAllGeolocation(Bool)
+            - static func deleteGeolocation(String, Bool)
+            - static func getAccessibleGeolocation(String, Bool)
+            - static func getStoredGeolocation(Bool)
+        - class JsMessageExt
+            - func getArray()
+            - func getArrayBuffer()
+            - func getBoolean()
+            - func getNumber()
+            - func getString()
+            - func getType()
+        - class MediaSourceInfo
+            - MediaSourceInfo(String, String, SourceType)
+        - class NativeMediaPlayerBridge
+            - init()
+            - func enterFullscreen()
+            - func exitFullscreen()
+            - func pause()
+            - func play()
+            - func release()
+            - func resumePlayer()
+            - func seek(Float64)
+            - func setMuted(Bool)
+            - func setPlaybackRate(Float64)
+            - func setVolume(Float64)
+            - func suspendPlayer(SuspendType)
+            - func updateRect(Float64, Float64, Float64, Float64)
+        - class NativeMediaPlayerHandler
+            - init()
+            - func handleBufferedEndTimeChanged(Float64)
+            - func handleDurationChanged(Float64)
+            - func handleEnded()
+            - func handleError(MediaError, String)
+            - func handleFullscreenChanged(Bool)
+            - func handleMutedChanged(Bool)
+            - func handleNetworkStateChanged(NetworkState)
+            - func handlePlaybackRateChanged(Float64)
+            - func handleReadyStateChanged(ReadyState)
+            - func handleSeekFinished()
+            - func handleSeeking()
+            - func handleStatusChanged(PlaybackStatus)
+            - func handleTimeUpdate(Float64)
+            - func handleVideoSizeChanged(Float64, Float64)
+            - func handleVolumeChanged(Float64)
+        - class NativeMediaPlayerSurfaceInfo
+            - NativeMediaPlayerSurfaceInfo(String, RectEvent)
+        - class ScrollOffset
+            - var x
+            - var y
+            - init(Float32, Float32)
+        - class WebCookieManager
+            - static func clearAllCookies(Bool)
+            - static func clearSessionCookie()
+            - static func configCookie(String, String, Bool)
+            - static func configCookie(String, String, Bool, Bool)
+            - static func existCookie(Bool)
+            - static func fetchCookie(String, Bool)
+            - static func isCookieAllowed()
+            - static func isThirdPartyCookieAllowed()
+            - static func putAcceptCookieEnabled(Bool)
+            - static func putAcceptThirdPartyCookieEnabled(Bool)
+            - static func saveCookie(() -> Unit)
+        - class WebCustomScheme
+            - var isCodeCacheSupported
+            - var isCspBypassing
+            - var isDisplayIsolated
+            - var isLocal
+            - var isSecure
+            - var isStandard
+            - var isSupportCORS
+            - var isSupportFetch
+            - var schemeName
+            - init(String)
+        - class WebDataBase
+            - static func deleteHttpAuthCredentials()
+            - static func existHttpAuthCredentials()
+            - static func getHttpAuthCredentials(String, String)
+            - static func saveHttpAuthCredentials(String, String, String, String)
+        - class WebDownloadDelegate
+            - init()
+            - func onBeforeDownload((WebDownloadItem) -> Unit)
+            - func onDownloadFailed((WebDownloadItem) -> Unit)
+            - func onDownloadFinish((WebDownloadItem) -> Unit)
+            - func onDownloadUpdated((WebDownloadItem) -> Unit)
+        - class WebDownloadItem
+            - static func deserialize(Array\<UInt8>)
+            - func cancel()
+            - func getCurrentSpeed()
+            - func getFullPath()
+            - func getGuid()
+            - func getLastErrorCode()
+            - func getMethod()
+            - func getMimeType()
+            - func getPercentComplete()
+            - func getReceivedBytes()
+            - func getState()
+            - func getSuggestedFileName()
+            - func getTotalBytes()
+            - func getUrl()
+            - func pause()
+            - func resume()
+            - func serialize()
+            - func start(String)
+        - class WebDownloadManager
+            - static func resumeDownload(WebDownloadItem)
+            - static func setDownloadDelegate(WebDownloadDelegate)
+        - class WebHttpBodyStream
+            - func getPosition()
+            - func getSize()
+            - func initialize()
+            - func isChunked()
+            - func isEof()
+            - func isInMemory()
+            - func read(Int32)
+        - class WebMessageExt
+            - func getError()
+            - func getArray()
+            - func getArrayBuffer()
+            - func getBoolean()
+            - func getNumber()
+            - func getString()
+            - func getType()
+            - func setArray(Array\<String>)
+            - func setArray(Array\<Int64>)
+            - func setArray(Array\<Float64>)
+            - func setArray(Array\<Bool>)
+            - func setArrayBuffer(Array\<UInt8>)
+            - func setBoolean(Bool)
+            - func setError(Error)
+            - func setNumber(Float64)
+            - func setString(String)
+            - func setType(WebMessageType)
+        - class WebMessagePort
+            - prop isExtentionType
+            - func close()
+            - func onMessageEvent((WebMessage) -> Unit)
+            - func onMessageEventExt((WebMessageExt) -> Unit)
+            - func postMessageEvent(WebMessage)
+            - func postMessageEventExt(WebMessageExt)
+        - class WebResourceHandler
+            - func didFail(WebNetErrorList)
+            - func didFinish()
+            - func didReceiveResponse(WebSchemeHandlerResponse)
+            - func didReceiveResponseBody(Array\<UInt8>)
+        - class WebSchemeHandler
+            - init()
+            - func onRequestStart((WebSchemeHandlerRequest, WebResourceHandler) -> Bool)
+            - func onRequestStop((WebSchemeHandlerRequest) -> Unit)
+        - class WebSchemeHandlerRequest
+            - func getFrameUrl()
+            - func getHeader()
+            - func getHttpBodyStream()
+            - func getReferrer()
+            - func getRequestMethod()
+            - func getRequestResourceType()
+            - func getRequestUrl()
+            - func hasGesture()
+            - func isMainFrame()
+        - class WebSchemeHandlerResponse
+            - init()
+            - func getEncoding()
+            - func getHeaderByName(String)
+            - func getMimeType()
+            - func getNetErrorCode()
+            - func getStatus()
+            - func getStatusText()
+            - func getUrl()
+            - func setEncoding(String)
+            - func setHeaderByName(String, String, Bool)
+            - func setMimeType(String)
+            - func setNetErrorCode(WebNetErrorList)
+            - func setStatus(Int32)
+            - func setStatusText(String)
+            - func setUrl(String)
+        - class WebStorage
+            - static func deleteAllData(Bool)
+            - static func deleteOrigin(String)
+            - static func getOriginQuota(String, AsyncCallback\<Int64>)
+            - static func getOriginUsage(String, AsyncCallback\<Int64>)
+            - static func getOrigins(AsyncCallback\<Array\<WebStorageOrigin>>)
+        - class WebviewController
+            - init()
+            - init(String)
+            - static func addIntelligentTrackingPreventionBypassingList(Array\<String>)
+            - static func clearHostIP(String)
+            - static func clearIntelligentTrackingPreventionBypassingList()
+            - static func clearPrefetchedResource(Array\<String>)
+            - static func clearServiceWorkerWebSchemeHandler()
+            - static func customizeSchemes(Array\<WebCustomScheme>)
+            - static func enableBackForwardCache(BackForwardCacheSupportedFeatures)
+            - static func enableWholeWebPageDrawing()
+            - static func getRenderProcessMode()
+            - static func initializeWebEngine()
+            - static func pauseAllTimers()
+            - static func prefetchResource(RequestInfo, Array\<WebHeader>, String, Int32)
+            - static func prepareForPageLoad(String, Bool, Int32)
+            - static func removeIntelligentTrackingPreventionBypassingList(Array\<String>)
+            - static func resumeAllTimers()
+            - static func setConnectionTimeout(Int32)
+            - static func setHostIP(String, String, Int32)
+            - static func setHttpDns(SecureDnsMode, String)
+            - static func setRenderProcessMode(RenderProcessMode)
+            - static func setServiceWorkerWebSchemeHandler(String, WebSchemeHandler)
+            - static func setWebDebuggingAccess(Bool)
+            - static func warmupServiceWorker(String)
+            - func accessBackward()
+            - func accessForward()
+            - func accessStep(Int32)
+            - func backOrForward(Int32)
+            - func backward()
+            - func clearClientAuthenticationCache()
+            - func clearHistory()
+            - func clearMatches()
+            - func clearSslCache()
+            - func clearWebSchemeHandler()
+            - func closeAllMediaPresentations()
+            - func closeCamera()
+            - func createWebMessagePorts(Bool)
+            - func deleteJavaScriptRegister(String)
+            - func enableAdsBlock(Bool)
+            - func enableIntelligentTrackingPrevention(Bool)
+            - func enableSafeBrowsing(Bool)
+            - func forward()
+            - func getBackForwardEntries()
+            - func getCertificate()
+            - func getCustomUserAgent()
+            - func getFavicon()
+            - func getHitTest()
+            - func getHitTestValue()
+            - func getLastJavascriptProxyCallingFrameUrl()
+            - func getMediaPlaybackState()
+            - func getOriginalUrl()
+            - func getPageHeight()
+            - func getPrintBackground()
+            - func getScrollable()
+            - func getScrollOffset()
+            - func getSecurityLevel()
+            - func getSurfaceId()
+            - func getTitle()
+            - func getUrl()
+            - func getUserAgent()
+            - func getWebId()
+            - func hasImage(AsyncCallback\<Bool>)
+            - func injectOfflineResources(Array\<OfflineResourceMap>)
+            - func isAdsBlockEnabled()
+            - func isAdsBlockEnabledForCurPage()
+            - func isIncognitoMode()
+            - func isIntelligentTrackingPreventionEnabled()
+            - func isSafeBrowsingEnabled()
+            - func loadData(String, String, String, String, String)
+            - func loadUrl(String)
+            - func loadUrl(AppResource)
+            - func loadUrl(String, Array\<WebHeader>)
+            - func loadUrl(AppResource, Array\<WebHeader>)
+            - func onActive()
+            - func onCreateNativeMediaPlayer(CreateNativeMediaPlayerCallback)
+            - func onInactive()
+            - func pageDown(Bool)
+            - func pageUp(Bool)
+            - func pauseAllMedia()
+            - func postMessage(String, Array\<WebMessagePort>, String)
+            - func postUrl(String, Array\<UInt8>)
+            - func precompileJavaScript(String, String, CacheOptions)
+            - func precompileJavaScript(String, Array\<UInt8>, CacheOptions)
+            - func prefetchPage(String)
+            - func prefetchPage(String, Array\<WebHeader>)
+            - func refresh()
+            - func registerJavaScriptProxy(Array\<(String) -> String>, String, Array\<String>)
+            - func registerJavaScriptProxy(Array\<(String) -> String>, String, Array\<String>, String)
+            - func removeCache(Bool)
+            - func requestFocus()
+            - func restoreWebState(Array\<UInt8>)
+            - func resumeAllMedia()
+            - func runJavaScript(String, AsyncCallback\<String>)
+            - func runJavaScriptExt(String, AsyncCallback\<JsMessageExt>)
+            - func runJavaScriptExt(Array\<UInt8>, AsyncCallback\<JsMessageExt>)
+            - func scrollBy(Float32, Float32, Int32)
+            - func scrollByWithResult(Float32, Float32)
+            - func scrollTo(Float32, Float32, Int32)
+            - func searchAllAsync(String)
+            - func searchNext(Bool)
+            - func serializeWebState()
+            - func setAudioMuted(Bool)
+            - func setBackForwardCacheOptions(BackForwardCacheOptions)
+            - func setCustomUserAgent(String)
+            - func setDownloadDelegate(WebDownloadDelegate)
+            - func setNetworkAvailable(Bool)
+            - func setPathAllowingUniversalAccess(Array\<String>)
+            - func setPrintBackground(Bool)
+            - func setScrollable(Bool)
+            - func setScrollable(Bool, ScrollType)
+            - func setUrlTrustList(String)
+            - func setWebSchemeHandler(String, WebSchemeHandler)
+            - func slideScroll(Float32, Float32)
+            - func startCamera()
+            - func startDownload(String)
+            - func stop()
+            - func stopAllMedia()
+            - func stopCamera()
+            - func storeWebArchive(String, Bool, AsyncCallback\<String>)
+            - func terminateRenderProcess()
+            - func webPageSnapshot(SnapshotInfo, AsyncCallback\<SnapshotResult>)
+            - func zoom(Float32)
+            - func zoomIn()
+            - func zoomOut()
+        - class CacheOptions
+            - var responseHeaders
+            - CacheOptions(Array\<WebHeader>)
+        - class Error
+            - let errorMsg
+            - let errorName
+            - Error(String, String)
+        - class HistoryItem
+            - let historyRawUrl
+            - let historyUrl
+            - let icon
+            - let title
+            - HistoryItem(?PixelMap, String, String, String)
+        - class HitTestValue
+            - let extra
+            - let hitTestType
+        - class MediaInfo
+            - let attributes
+            - let controlList
+            - let controlsShown
+            - let embedID
+            - let headers
+            - let mediaSrcList
+            - let mediaType
+            - let muted
+            - let posterUrl
+            - let preload
+            - let surfaceInfo
+            - MediaInfo(String, MediaType, Array\<MediaSourceInfo>, NativeMediaPlayerSurfaceInfo, Bool, Array\<String>, Bool, String, Preload, HashMap\<String, String>, HashMap\<String, String>)
+        - class OfflineResourceMap
+            - OfflineResourceMap(Array\<String>, Array\<UInt8>, Array\<WebHeader>, OfflineResourceType)
+        - class RectEvent
+            - let height
+            - let width
+            - let x
+            - let y
+            - RectEvent(Float64, Float64, Float64, Float64)
+        - class RequestInfo
+            - var formData
+            - var method
+            - var url
+            - RequestInfo(String, String, String)
+        - struct SizeOptions
+            - var width
+            - var height
+            - SizeOptions(Length, Length)
+        - class SnapshotInfo
+            - var id
+            - var size
+            - SnapshotInfo(String, SizeOptions)
+        - class SnapshotResult
+            - var id
+            - var image
+            - var size
+            - var status
+            - SnapshotResult(?String, ?PixelMap, ?Bool, ?SizeOptions)
+        - class WebHeader
+            - var headerKey
+            - var headerValue
+            - WebHeader(String, String)
+        - class WebStorageOrigin
+            - var origin
+            - var quota
+            - var usage
+            - WebStorageOrigin(String, Int64, Int64)
+        - enum JsMessageType
+            - ARRAY
+            - ARRAY_BUFFER
+            - BOOLEAN
+            - NOTSUPPORT
+            - NUMBER
+            - STRING
+            - func !=(JsMessageType)
+            - func ==(JsMessageType)
+            - func toString()
+        - enum MediaError
+            - DECODE_ERROR
+            - FORMAT_ERROR
+            - NETWORK_ERROR
+            - func !=(MediaError)
+            - func ==(MediaError)
+            - func toString()
+        - enum MediaPlaybackState
+            - NONE
+            - PAUSED
+            - PLAYING
+            - STOPPED
+            - func !=(MediaPlaybackState)
+            - func ==(MediaPlaybackState)
+            - func toString()
+        - enum MediaType
+            - AUDIO
+            - VIDEO
+            - func !=(MediaType)
+            - func ==(MediaType)
+            - func toString()
+        - enum MessageArrayValue
+            - ARRAYBOOL(Array\<Bool>)
+            - ARRAYF64(Array\<Float64>)
+            - ARRAYI64(Array\<Int64>)
+            - ARRAYSTRING(Array\<String>)
+            - func !=(MessageArrayValue)
+            - func ==(MessageArrayValue)
+            - func toString()
+        - enum NetworkState
+            - EMPTY
+            - IDLE
+            - LOADING
+            - NETWORK_ERROR
+            - func !=(NetworkState)
+            - func ==(NetworkState)
+            - func toString()
+        - enum OfflineResourceType
+            - CLASSIC_JS
+            - CSS
+            - IMAGE
+            - MODULE_JS
+            - func !=(OfflineResourceType)
+            - func ==(OfflineResourceType)
+            - func toString()
+        - enum PlaybackStatus
+            - PAUSED
+            - PLAYING
+            - func !=(PlaybackStatus)
+            - func ==(PlaybackStatus)
+            - func toString()
+        - enum Preload
+            - AUTO
+            - METADATA
+            - NONE
+            - func !=(Preload)
+            - func ==(Preload)
+            - func toString()
+        - enum ReadyState
+            - HAVE_CURRENT_DATA
+            - HAVE_ENOUGH_DATA
+            - HAVE_FUTURE_DATA
+            - HAVE_METADATA
+            - HAVE_NOTHING
+            - func !=(ReadyState)
+            - func ==(ReadyState)
+            - func toString()
+        - enum RenderProcessMode
+            - MULTIPLE
+            - SINGLE
+            - func !=(RenderProcessMode)
+            - func ==(RenderProcessMode)
+            - func toString()
+        - enum SecureDnsMode
+            - AUTO
+            - OFF
+            - SECURE_ONLY
+            - func !=(SecureDnsMode)
+            - func ==(SecureDnsMode)
+            - func toString()
+        - enum SecurityLevel
+            - DANGEROUS
+            - NONE
+            - SECURE
+            - WARNING
+            - func !=(SecurityLevel)
+            - func ==(SecurityLevel)
+            - func toString()
+        - enum SourceType
+            - MSE
+            - URL
+            - func !=(SourceType)
+            - func ==(SourceType)
+            - func toString()
+        - enum SuspendType
+            - AUTO_CLEANUP
+            - ENTER_BACKGROUND
+            - ENTER_BACK_FORWARD_CACHE
+            - func !=(SuspendType)
+            - func ==(SuspendType)
+            - func getValue()
+            - func toString()
+        - enum WebDownloadErrorCode
+            - CRASH
+            - ERROR_UNKNOWN
+            - FILE_ACCESS_DENIED
+            - FILE_BLOCKED
+            - FILE_FAILED
+            - FILE_HASH_MISMATCH
+            - FILE_NAME_TOO_LONG
+            - FILE_NO_SPACE
+            - FILE_SAME_AS_SOURCE
+            - FILE_TOO_LARGE
+            - FILE_TOO_SHORT
+            - FILE_TRANSIENT_ERROR
+            - NETWORK_DISCONNECTED
+            - NETWORK_FAILED
+            - NETWORK_INVALID_REQUEST
+            - NETWORK_SERVER_DOWN
+            - NETWORK_TIMEOUT
+            - SERVER_BAD_CONTENT
+            - SERVER_CERT_PROBLEM
+            - SERVER_CONTENT_LENGTH_MISMATCH
+            - SERVER_CROSS_ORIGIN_REDIRECT
+            - SERVER_FAILED
+            - SERVER_FORBIDDEN
+            - SERVER_NO_RANGE
+            - SERVER_UNAUTHORIZED
+            - SERVER_UNREACHABLE
+            - USER_CANCELED
+            - USER_SHUTDOWN
+            - func !=(WebDownloadErrorCode)
+            - func ==(WebDownloadErrorCode)
+            - func toString()
+        - enum WebDownloadState
+            - CANCELED
+            - COMPLETE
+            - INTERRUPTED
+            - IN_PROGRESS
+            - PAUSED
+            - PENDING
+            - UNKNOWN
+            - func !=(WebDownloadState)
+            - func ==(WebDownloadState)
+            - func toString()
+        - enum WebHitTestType
+            - EditText
+            - Email
+            - HttpAnchor
+            - HttpAnchorImg
+            - Img
+            - Map
+            - Phone
+            - Unknown
+            - func !=(WebHitTestType)
+            - func ==(WebHitTestType)
+            - func toString()
+        - enum WebMessage
+            - ARRAY_BUFFER(Array\<UInt8>)
+            - STRING(String)
+            - func !=(WebMessage)
+            - func ==(WebMessage)
+            - func toString()
+        - enum WebMessageType
+            - ARRAY
+            - ARRAY_BUFFER
+            - BOOLEAN
+            - ERROR
+            - NOTSUPPORT
+            - NUMBER
+            - STRING
+            - func !=(WebMessageType)
+            - func ==(WebMessageType)
+            - func toString()
+        - enum WebResourceType
+            - CSP_REPORT
+            - FAVICON
+            - FONT_RESOURCE
+            - IMAGE
+            - MAIN_FRAME
+            - MEDIA
+            - NAVIGATION_PRELOAD_MAIN_FRAME
+            - NAVIGATION_PRELOAD_SUB_FRAME
+            - OBJECT
+            - PING
+            - PLUGIN_RESOURCE
+            - PREFETCH
+            - SCRIPT
+            - SERVICE_WORKER
+            - SHARED_WORKER
+            - STYLE_SHEET
+            - SUB_FRAME
+            - SUB_RESOURCE
+            - WORKER
+            - XHR
+            - func !=(WebResourceType)
+            - func ==(WebResourceType)
+            - func toString()
+        - enum ScrollType
+            - EVENT
+        - type CreateNativeMediaPlayerCallback
+            - [ohos.web.net_error_list（ArkWeb网络协议栈错误列表）](source_zh_cn/apis/ArkWeb/cj-apis-web-net_error_list.md)
+    API索引列表:
+    - ohos.web.net_error_list（ArkWeb网络协议栈错误列表）
+        - 导入模块
+                import kit.ArkWeb.*
+        - enum WebNetErrorList
+            - ERR_ABORTED
+            - ERR_ACCESS_DENIED
+            - ERR_ADDRESS_INVALID
+            - ERR_ADDRESS_IN_USE
+            - ERR_ADDRESS_UNREACHABLE
+            - ERR_ADD_USER_CERT_FAILED
+            - ERR_ALPN_NEGOTIATION_FAILED
+            - ERR_BAD_SSL_CLIENT_AUTH_CERT
+            - ERR_BLOCKED_BY_ADMINISTRATOR
+            - ERR_BLOCKED_BY_CLIENT
+            - ERR_BLOCKED_BY_CSP
+            - ERR_BLOCKED_BY_ORB
+            - ERR_BLOCKED_BY_RESPONSE
+            - ERR_CACHED_IP_ADDRESS_SPACE_BLOCKED_BY_LOCAL_NETWORK_ACCESS_POLICY
+            - ERR_CACHE_AUTH_FAILURE_AFTER_READ
+            - ERR_CACHE_CHECKSUM_MISMATCH
+            - ERR_CACHE_CHECKSUM_READ_FAILURE
+            - ERR_CACHE_CREATE_FAILURE
+            - ERR_CACHE_DOOM_FAILURE
+            - ERR_CACHE_ENTRY_NOT_SUITABLE
+            - ERR_CACHE_LOCK_TIMEOUT
+            - ERR_CACHE_MISS
+            - ERR_CACHE_OPEN_FAILURE
+            - ERR_CACHE_OPEN_OR_CREATE_FAILURE
+            - ERR_CACHE_OPERATION_UNSUPPORTED
+            - ERR_CACHE_RACE
+            - ERR_CACHE_READ_FAILURE
+            - ERR_CACHE_WRITE_FAILURE
+            - ERR_CERTIFICATE_TRANSPARENCY_REQUIRED
+            - ERR_CERT_AUTHORITY_INVALID
+            - ERR_CERT_COMMON_NAME_INVALID
+            - ERR_CERT_CONTAINS_ERRORS
+            - ERR_CERT_DATABASE_CHANGED
+            - ERR_CERT_DATE_INVALID
+            - ERR_CERT_END
+            - ERR_CERT_INVALID
+            - ERR_CERT_KNOWN_INTERCEPTION_BLOCKED
+            - ERR_CERT_NAME_CONSTRAINT_VIOLATION
+            - ERR_CERT_NON_UNIQUE_NAME
+            - ERR_CERT_NO_REVOCATION_MECHANISM
+            - ERR_CERT_REVOKED
+            - ERR_CERT_SYMANTEC_LEGACY
+            - ERR_CERT_UNABLE_TO_CHECK_REVOCATION
+            - ERR_CERT_VALIDITY_TOO_LONG
+            - ERR_CERT_VERIFIER_CHANGED
+            - ERR_CERT_WEAK_KEY
+            - ERR_CERT_WEAK_SIGNATURE_ALGORITHM
+            - ERR_CLEARTEXT_NOT_PERMITTED
+            - ERR_CLIENT_AUTH_CERT_TYPE_UNSUPPORTED
+            - ERR_CONNECTION_ABORTED
+            - ERR_CONNECTION_CLOSED
+            - ERR_CONNECTION_FAILED
+            - ERR_CONNECTION_REFUSED
+            - ERR_CONNECTION_RESET
+            - ERR_CONNECTION_TIMED_OUT
+            - ERR_CONTENT_DECODING_FAILED
+            - ERR_CONTENT_DECODING_INIT_FAILED
+            - ERR_CONTENT_LENGTH_MISMATCH
+            - ERR_CONTEXT_SHUT_DOWN
+            - ERR_CT_CONSISTENCY_PROOF_PARSING_FAILED
+            - ERR_CT_STH_INCOMPLETE
+            - ERR_CT_STH_PARSING_FAILED
+            - ERR_DISALLOWED_URL_SCHEME
+            - ERR_DNS_CACHE_MISS
+            - ERR_DNS_MALFORMED_RESPONSE
+            - ERR_DNS_NAME_HTTPS_ONLY
+            - ERR_DNS_NO_MATCHING_SUPPORTED_ALPN
+            - ERR_DNS_REQUEST_CANCELED
+            - ERR_DNS_SEARCH_EMPTY
+            - ERR_DNS_SECURE_RESOLVER_HOSTNAME_RESOLUTION_FAILED
+            - ERR_DNS_SERVER_FAILED
+            - ERR_DNS_SERVER_REQUIRES_TCP
+            - ERR_DNS_SORT_ERROR
+            - ERR_DNS_TIMED_OUT
+            - ERR_EARLY_DATA_REJECTED
+            - ERR_ECH_FALLBACK_CERTIFICATE_INVALID
+            - ERR_ECH_NOT_NEGOTIATED
+            - ERR_EMPTY_RESPONSE
+            - ERR_ENCODING_CONVERSION_FAILED
+            - ERR_ENCODING_DETECTION_FAILED
+            - ERR_FAILED
+            - ERR_FILE_EXISTS
+            - ERR_FILE_NOT_FOUND
+            - ERR_FILE_NO_SPACE
+            - ERR_FILE_PATH_TOO_LONG
+            - ERR_FILE_TOO_LARGE
+            - ERR_FILE_VIRUS_INFECTED
+            - ERR_FTP_BAD_COMMAND_SEQUENCE
+            - ERR_FTP_COMMAND_UNSUPPORTED
+            - ERR_FTP_FAILED
+            - ERR_FTP_FILE_BUSY
+            - ERR_FTP_SERVICE_UNAVAILABLE
+            - ERR_FTP_SYNTAX_ERROR
+            - ERR_FTP_TRANSFER_ABORTED
+            - ERR_H2_OR_QUIC_REQUIRED
+            - ERR_HOST_RESOLVER_QUEUE_TOO_LARGE
+            - ERR_HTTP2_CLAIMED_PUSHED_STREAM_RESET_BY_SERVER
+            - ERR_HTTP2_CLIENT_REFUSED_STREAM
+            - ERR_HTTP2_COMPRESSION_ERROR
+            - ERR_HTTP2_FLOW_CONTROL_ERROR
+            - ERR_HTTP2_FRAME_SIZE_ERROR
+            - ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY
+            - ERR_HTTP2_PING_FAILED
+            - ERR_HTTP2_PROTOCOL_ERROR
+            - ERR_HTTP2_PUSHED_RESPONSE_DOES_NOT_MATCH
+            - ERR_HTTP2_PUSHED_STREAM_NOT_AVAILABLE
+            - ERR_HTTP2_RST_STREAM_NO_ERROR_RECEIVED
+            - ERR_HTTP2_SERVER_REFUSED_STREAM
+            - ERR_HTTP2_STREAM_CLOSED
+            - ERR_HTTPS_PROXY_TUNNEL_RESPONSE_REDIRECT
+            - ERR_HTTP_1_1_REQUIRED
+            - ERR_HTTP_RESPONSE_CODE_FAILURE
+            - ERR_ICANN_NAME_COLLISION
+            - ERR_IMPORT_CA_CERT_FAILED
+            - ERR_IMPORT_CA_CERT_NOT_CA
+            - ERR_IMPORT_CERT_ALREADY_EXISTS
+            - ERR_IMPORT_SERVER_CERT_FAILED
+            - ERR_INCOMPLETE_CHUNKED_ENCODING
+            - ERR_INCOMPLETE_HTTP2_HEADERS
+            - ERR_INCONSISTENT_IP_ADDRESS_SPACE
+            - ERR_INSECURE_RESPONSE
+            - ERR_INSUFFICIENT_RESOURCES
+            - ERR_INTERNET_DISCONNECTED
+            - ERR_INVALID_ARGUMENT
+            - ERR_INVALID_AUTH_CREDENTIALS
+            - ERR_INVALID_CHUNKED_ENCODING
+            - ERR_INVALID_ECH_CONFIG_LIST
+            - ERR_INVALID_HANDLE
+            - ERR_INVALID_HTTP_RESPONSE
+            - ERR_INVALID_REDIRECT
+            - ERR_INVALID_RESPONSE
+            - ERR_INVALID_SIGNED_EXCHANGE
+            - ERR_INVALID_URL
+            - ERR_INVALID_WEB_BUNDLE
+            - ERR_IO_PENDING
+            - ERR_KEY_GENERATION_FAILED
+            - ERR_MALFORMED_IDENTITY
+            - ERR_MANDATORY_PROXY_CONFIGURATION_FAILED
+            - ERR_METHOD_UNSUPPORTED
+            - ERR_MISCONFIGURED_AUTH_ENVIRONMENT
+            - ERR_MISSING_AUTH_CREDENTIALS
+            - ERR_MSG_TOO_BIG
+            - ERR_NAME_NOT_RESOLVED
+            - ERR_NAME_RESOLUTION_FAILED
+            - ERR_NETWORK_ACCESS_DENIED
+            - ERR_NETWORK_CHANGED
+            - ERR_NETWORK_IO_SUSPENDED
+            - ERR_NOT_IMPLEMENTED
+            - ERR_NO_BUFFER_SPACE
+            - ERR_NO_PRIVATE_KEY_FOR_CERT
+            - ERR_NO_SSL_VERSIONS_ENABLED
+            - ERR_NO_SUPPORTED_PROXIES
+            - ERR_OUT_OF_MEMORY
+            - ERR_PAC_NOT_IN_DHCP
+            - ERR_PAC_SCRIPT_FAILED
+            - ERR_PAC_SCRIPT_TERMINATED
+            - ERR_PKCS12_IMPORT_BAD_PASSWORD
+            - ERR_PKCS12_IMPORT_FAILED
+            - ERR_PKCS12_IMPORT_INVALID_FILE
+            - ERR_PKCS12_IMPORT_INVALID_MAC
+            - ERR_PKCS12_IMPORT_UNSUPPORTED
+            - ERR_PRECONNECT_MAX_SOCKET_LIMIT
+            - ERR_PRIVATE_KEY_EXPORT_FAILED
+            - ERR_PROXY_AUTH_REQUESTED
+            - ERR_PROXY_AUTH_REQUESTED_WITH_NO_CONNECTION
+            - ERR_PROXY_AUTH_UNSUPPORTED
+            - ERR_PROXY_CERTIFICATE_INVALID
+            - ERR_PROXY_CONNECTION_FAILED
+            - ERR_PROXY_HTTP_1_1_REQUIRED
+            - ERR_QUIC_GOAWAY_REQUEST_CAN_BE_RETRIED
+            - ERR_QUIC_HANDSHAKE_FAILED
+            - ERR_QUIC_PROTOCOL_ERROR
+            - ERR_QUIC_UNKNOWN_CERT_ROOT
+            - ERR_READ_IF_READY_NOT_IMPLEMENTED
+            - ERR_REQUEST_RANGE_NOT_SATISFIABLE
+            - ERR_RESPONSE_BODY_TOO_BIG_TO_DRAIN
+            - ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_DISPOSITION
+            - ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_LENGTH
+            - ERR_RESPONSE_HEADERS_MULTIPLE_LOCATION
+            - ERR_RESPONSE_HEADERS_TOO_BIG
+            - ERR_RESPONSE_HEADERS_TRUNCATED
+            - ERR_SELF_SIGNED_CERT_GENERATION_FAILED
+            - ERR_SOCKET_CONNECTED
+            - ERR_SOCKET_NOT_CONNECTED
+            - ERR_SOCKET_RECEIVE_BUFFER_SIZE_UNCHANGEABLE
+            - ERR_SOCKET_SEND_BUFFER_SIZE_UNCHANGEABLE
+            - ERR_SOCKET_SET_RECEIVE_BUFFER_SIZE_ERROR
+            - ERR_SOCKET_SET_SEND_BUFFER_SIZE_ERROR
+            - ERR_SOCKS_CONNECTION_FAILED
+            - ERR_SOCKS_CONNECTION_HOST_UNREACHABLE
+            - ERR_SSL_BAD_PEER_PUBLIC_KEY
+            - ERR_SSL_BAD_RECORD_MAC_ALERT
+            - ERR_SSL_CLIENT_AUTH_CERT_BAD_FORMAT
+            - ERR_SSL_CLIENT_AUTH_CERT_NEEDED
+            - ERR_SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY
+            - ERR_SSL_CLIENT_AUTH_NO_COMMON_ALGORITHMS
+            - ERR_SSL_CLIENT_AUTH_PRIVATE_KEY_ACCESS_DENIED
+            - ERR_SSL_CLIENT_AUTH_SIGNATURE_FAILED
+            - ERR_SSL_DECOMPRESSION_FAILURE_ALERT
+            - ERR_SSL_DECRYPT_ERROR_ALERT
+            - ERR_SSL_HANDSHAKE_NOT_COMPLETED
+            - ERR_SSL_KEY_USAGE_INCOMPATIBLE
+            - ERR_SSL_NO_RENEGOTIATION
+            - ERR_SSL_OBSOLETE_CIPHER
+            - ERR_SSL_OBSOLETE_VERSION_OR_CIPHER
+            - ERR_SSL_PINNED_KEY_NOT_IN_CERT_CHAIN
+            - ERR_SSL_PROTOCOL_ERROR
+            - ERR_SSL_RENEGOTIATION_REQUESTED
+            - ERR_SSL_SERVER_CERT_BAD_FORMAT
+            - ERR_SSL_SERVER_CERT_CHANGED
+            - ERR_SSL_UNRECOGNIZED_NAME_ALERT
+            - ERR_SSL_VERSION_OR_CIPHER_MISMATCH
+            - ERR_SYN_REPLY_NOT_RECEIVED
+            - ERR_TEMPORARILY_THROTTLED
+            - ERR_TIMED_OUT
+            - ERR_TLS13_DOWNGRADE_DETECTED
+            - ERR_TOO_MANY_ACCEPT_CH_RESTARTS
+            - ERR_TOO_MANY_REDIRECTS
+            - ERR_TOO_MANY_RETRIES
+            - ERR_TRUST_TOKEN_OPERATION_FAILED
+            - ERR_TRUST_TOKEN_OPERATION_SUCCESS_WITHOUT_SENDING_REQUEST
+            - ERR_TUNNEL_CONNECTION_FAILED
+            - ERR_UNABLE_TO_REUSE_CONNECTION_FOR_PROXY_AUTH
+            - ERR_UNDOCUMENTED_SECURITY_LIBRARY_STATUS
+            - ERR_UNEXPECTED
+            - ERR_UNEXPECTED_PROXY_AUTH
+            - ERR_UNEXPECTED_SECURITY_LIBRARY_STATUS
+            - ERR_UNKNOWN_URL_SCHEME
+            - ERR_UNRECOGNIZED_FTP_DIRECTORY_LISTING_FORMAT
+            - ERR_UNSAFE_PORT
+            - ERR_UNSAFE_REDIRECT
+            - ERR_UNSUPPORTED_AUTH_SCHEME
+            - ERR_UPLOAD_FILE_CHANGED
+            - ERR_UPLOAD_STREAM_REWIND_NOT_SUPPORTED
+            - ERR_WINSOCK_UNEXPECTED_WRITTEN_BYTES
+            - ERR_WRONG_VERSION_ON_EARLY_DATA
+            - ERR_WS_PROTOCOL_ERROR
+            - ERR_WS_THROTTLE_QUEUE_TOO_LARGE
+            - ERR_WS_UPGRADE
+            - NET_OK
+            - func !=(WebNetErrorList)
+            - func ==(WebNetErrorList)
+            - func toString()
+        - [错误码]()
+            - [Webview错误码](source_zh_cn/errorcodes/cj-errorcode-webview.md)
+    API索引列表:
+    - Webview错误码
+        - 17100001 WebviewController没有和具体的Web组件关联
+        - 17100002 Url格式错误
+        - 17100003 resource路径错误
+        - 17100004 功能开关未打开
+        - 17100005 cookie value格式错误
+        - 17100006 无法注册message port回调
+        - 17100007 无效的前进后退操作
+        - 17100008 删除不存在的javaScriptProxy
+        - 17100009 上一次的zoomin/out操作缩放失败
+        - 17100010 无法使用该端口发送消息
+        - 17100011 输入参数origin错误
+        - 17100012 无可获取的webstorage源
+        - 17100013 预连接时，输入socket数目无效
+        - 17100014 类型和值不匹配
+        - 17100015 申请内存失败
+        - 17100016 下载任务没有处于暂停状态
+        - 17100017 当前的WebviewController是无效的
+        - 17100018 没有设置一个委托类来接收下载状态
+        - 17100019 下载还没开始
+        - 17100020 注册自定义协议失败
+        - 17100021 WebResourceHandler已经失效
+        - 17100022 WebHttpBodyStream初始化失败
+    - [Background Tasks Kit（后台任务开发服务）]()
+        - [仓颉API]()
+            - [ohos.background_task_mgr（后台任务管理）](source_zh_cn/apis/BackgroundTasksKit/cj-apis-background_task_mgr.md)
+    API索引列表:
+    - ohos.background_task_mgr（后台任务管理）
+        - 导入模块
+                import kit.BackgroundTasksKit.*
+        - 使用说明
+        - func cancelSuspendDelay(Int32)
+        - func getRemainingDelayTime(Int32)
+        - func requestSuspendDelay(String, () -> Unit)
+        - func stopBackgroundRunning(StageContext)
+        - class DelaySuspendInfo
+            - let actualDelayTime
+            - let requestId
+            - DelaySuspendInfo(Int32, Int32)
+        - enum BackgroundMode
+            - AUDIO_PLAYBACK
+            - AUDIO_RECORDING
+            - BLUETOOTH_INTERACTION
+            - DATA_TRANSFER
+            - LOCATION
+            - MULTI_DEVICE_CONNECTION
+            - TASK_KEEPING
+            - VOIP
+            - [ohos.work_scheduler（延迟任务调度）](source_zh_cn/apis/BackgroundTasksKit/cj-apis-work_scheduler.md)
+    API索引列表:
+    - ohos.work_scheduler（延迟任务调度）
+        - 导入模块
+                import kit.BackgroundTasksKit.*
+        - 使用说明
+        - func getWorkStatus(Int32)
+        - func isLastWorkTimeOut(Int32)
+        - func obtainAllWorks()
+        - func startWork(WorkInfo)
+        - func stopAndClearWorks()
+        - func stopWork(WorkInfo, Bool)
+        - class WorkInfo
+            - var abilityName
+            - var batteryLevel
+            - var batteryStatus
+            - var bundleName
+            - var chargerType
+            - var idleWaitTime
+            - var isCharging
+            - var isDeepIdle
+            - var isPersisted
+            - var isRepeat
+            - var netWorkType
+            - var parameters
+            - var repeatCount
+            - var repeatCycvarime
+            - var storageRequest
+            - var workId
+            - init(Int32, String, String, ?NetworkType, ?Bool, ?ChargingType, ?Int32, ?BatteryStatus, ?StorageRequest, ?Bool, ?Int32, ?Int32, ?Bool, ?Bool, ?Int32)
+            - init(Int32, String, String, HashMap\<String, WorkSchedulerValueType>, ?NetworkType, ?Bool, ?ChargingType, ?Int32, ?BatteryStatus, ?StorageRequest, ?Bool, ?Int32, ?Int32, ?Bool, ?Bool, ?Int32)
+        - enum BatteryStatus
+            - BATTERY_STATUS_LOW
+            - BATTERY_STATUS_LOW_OR_OKAY
+            - BATTERY_STATUS_OKAY
+        - enum ChargingType
+            - CHARGING_PLUGGED_AC
+            - CHARGING_PLUGGED_ANY
+            - CHARGING_PLUGGED_USB
+            - CHARGING_PLUGGED_WIRELESS
+        - enum NetworkType
+            - NETWORK_TYPE_ANY
+            - NETWORK_TYPE_BLUETOOTH
+            - NETWORK_TYPE_ETHERNET
+            - NETWORK_TYPE_MOBILE
+            - NETWORK_TYPE_WIFI
+            - NETWORK_TYPE_WIFI_P2P
+        - enum StorageRequest
+            - STORAGE_LEVEL_LOW
+            - STORAGE_LEVEL_LOW_OR_OKAY
+            - STORAGE_LEVEL_OKAY
+        - enum WorkSchedulerValueType
+            - BOOL(Bool)
+            - FLOAT64(Float64)
+            - INT(Int32)
+            - STRING(String)
+            - func !=(WorkSchedulerValueType)
+            - func toString()
+        - [错误码]()
+            - [backgroundTaskManager错误码](source_zh_cn/errorcodes/cj-errorcode-background_task_mgr.md)
+    API索引列表:
+    - backgroundTaskManager错误码
+        - 9800001 内存操作失败
+        - 9800002 Parcel读写操作失败
+        - 9800003 IPC通信失败
+        - 9800004 系统服务失败
+        - 9800005 长时任务校验失败
+        - 9800006 长时任务通知信息校验失败
+        - 9800007 长时任务信息存储失败
+        - 9900001 短时任务调用方信息校验失败
+        - 9900002 短时任务校验失败
+        - 18700001 资源申请接口信息校验失败
+            - [workScheduler错误码](source_zh_cn/errorcodes/cj-errorcode-work_scheduler.md)
+    API索引列表:
+    - workScheduler错误码
+        - 9700001 内存操作失败
+        - 9700002 Parcel读写操作失败
+        - 9700003 系统服务失败
+        - 9700004 workInfo校验失败
+        - 9700005 StartWork失败
+    - [Core File Kit（文件基础服务）]()
+        - [仓颉API]()
+            - [ohos.file_fileuri（文件URI）](source_zh_cn/apis/CoreFileKit/cj-apis-file_fileuri.md)
+    API索引列表:
+    - ohos.file_fileuri（文件URI）
+        - 导入模块
+                import kit.CoreFileKit.*
+        - 使用说明
+        - class FileUri
+            - prop name
+            - prop path
+            - init(String)
+            - static func getUriFromPath(String)
+            - func toString()
+            - [ohos.file_fs（文件管理）](source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md)
+    API索引列表:
+    - ohos.file_fs（文件管理）
+        - 导入模块
+                import kit.CoreFileKit.*
+        - 使用说明
+        - class ConflictFileException
+            - let data
+        - class CopyOptions
+            - prop copySignal
+            - prop progressListener
+            - init(ProgressListener, TaskSignal)
+        - class File
+            - prop fd
+            - prop name
+            - prop path
+            - func getParent()
+            - func tryLock(Bool)
+            - func unLock()
+        - class FileFs
+            - static func access(String)
+            - static func access(String, AccessModeType)
+            - static func access(String, AccessModeType, AccessFlagType)
+            - static func close(Int32)
+            - static func close(File)
+            - static func copy(String, String, CopyOptions)
+            - static func copy(String, String)
+            - static func copyDir(String, String, Int32)
+            - static func copyFile(String, String, Int32)
+            - static func copyFile(String, Int32, Int32)
+            - static func copyFile(Int32, String, Int32)
+            - static func copyFile(Int32, Int32, Int32)
+            - static func createRandomAccessFile(String, Int64)
+            - static func createRandomAccessFile(File, Int64)
+            - static func createStream(String, String)
+            - static func createWatcher(String, UInt32, WatchEventListener)
+            - static func dup(Int32)
+            - static func fdatasync(Int32)
+            - static func fdopenStream(Int32, String)
+            - static func fsync(Int32)
+            - static func getxattr(String, String)
+            - static func listFile(String, ListFileOptions)
+            - static func lseek(Int32, Int64, WhenceType)
+            - static func lstat(String)
+            - static func mkdir(String)
+            - static func mkdir(String, Bool)
+            - static func mkdtemp(String)
+            - static func moveDir(String, String, Int32)
+            - static func moveFile(String, String, Int32)
+            - static func open(String, Int64)
+            - static func read(Int32, Array\<Byte>, ReadOptions)
+            - static func readLines(String, Options)
+            - static func readText(String, ReadTextOptions)
+            - static func rename(String, String)
+            - static func rmdir(String)
+            - static func setxattr(String, String, String)
+            - static func stat(Int32)
+            - static func stat(String)
+            - static func truncate(String, Int64)
+            - static func truncate(Int32, Int64)
+            - static func unlink(String)
+            - static func utimes(String, Float64)
+            - static func write(Int32, Array\<Byte>, WriteOptions)
+            - static func write(Int32, String, WriteOptions)
+        - class ProgressListener
+            - init((Progress) -> Unit)
+            - func invoke(Progress)
+        - class RandomAccessFile
+            - prop fd
+            - prop filePointer
+            - func close()
+            - func read(Array\<Byte>, ReadOptions)
+            - func setFilePointer(Int64)
+            - func write(String, WriteOptions)
+            - func write(Array\<Byte>, WriteOptions)
+        - class ReaderIterator
+            - func next()
+        - class Stat
+            - prop atime
+            - prop ctime
+            - prop gid
+            - prop ino
+            - prop location
+            - prop mode
+            - prop mtime
+            - prop size
+            - prop uid
+            - func isBlockDevice()
+            - func isCharacterDevice()
+            - func isDirectory()
+            - func isFIFO()
+            - func isFile()
+            - func isSocket()
+            - func isSymbolicLink()
+        - class Stream
+            - func close()
+            - func flush()
+            - func read(Array\<Byte>, ReadOptions)
+            - func write(String, WriteOptions)
+            - func write(Array\<Byte>, WriteOptions)
+        - class TaskSignal
+            - init()
+            - func cancel()
+        - class WatchEventListener
+            - init((WatchEvent) -> Unit)
+            - func invoke(WatchEvent)
+        - class WatchEvent
+            - let cookie
+            - let event
+            - let fileName
+        - class Watcher
+            - func start()
+            - func stop()
+        - struct ConflictFiles
+            - let destFile
+            - let srcFile
+            - ConflictFiles(String, String)
+        - struct Filter
+            - var displayName
+            - var excludeMedia
+            - var fileSizeOver
+            - var lastModifiedAfter
+            - var mimeType
+            - var suffix
+            - Filter(Array\<String>, Array\<String>, Array\<String>, ?Int64, ?Float64, Bool)
+        - struct ListFileOptions
+            - let filter
+            - let listNum
+            - let recursion
+            - ListFileOptions(Bool, Int32, Filter)
+        - struct Options
+            - var encoding
+            - Options(String)
+        - struct Progress
+            - let processedSize
+            - let totalSize
+        - struct ReadOptions
+            - var length
+            - var offset
+            - ReadOptions(Option\<UIntNative>, Option\<Int64>)
+        - struct ReadTextOptions
+            - var encoding
+            - var length
+            - var offset
+            - ReadTextOptions(Option\<Int64>, Int64, String)
+        - struct ReaderIteratorResult
+            - let done
+            - let value
+        - struct WriteOptions
+            - var encoding
+            - var length
+            - var offset
+            - WriteOptions(Option\<UIntNative>, Option\<Int64>, String)
+        - enum AccessFlagType
+            - LOCAL
+        - enum AccessModeType
+            - EXIST
+            - WRITE
+            - READ
+            - READ_AND_WRITE
+        - enum LocationType
+            - LOCAL
+            - CLOUD
+        - enum OpenMode
+            - APPEND
+            - CREATE
+            - DIR
+            - NOFOLLOW
+            - NONBLOCK
+            - READ_ONLY
+            - READ_WRITE
+            - SYNC
+            - TRUNC
+            - WRITE_ONLY
+            - prop mode
+        - enum WhenceType
+            - SEEK_CUR
+            - SEEK_END
+            - SEEK_SET
+            - prop whenceType
+            - [ohos.file_fs.interop（文件管理互操作）](source_zh_cn/apis/CoreFileKit/cj-apis-file_fs-interop.md)
+    API索引列表:
+    - ohos.file_fs.interop（文件管理互操作）
+        - 导入模块
+                import kit.CoreFileKit.*
+        - interface JSSystemObjectInteropType
+            - static func fromJSValue(JSContext, JSValue)
+            - func toJSValue(JSContext)
+        - class Stream
+            - func toJSValue(JSContext)
+            - static func fromJSValue(JSContext, JSValue)
+        - class File
+            - func toJSValue(JSContext)
+            - static func fromJSValue(JSContext, JSValue)
+        - class RandomAccessFile
+            - func toJSValue(JSContext)
+            - static func fromJSValue(JSContext, JSValue)
+            - [ohos.file_picker（选择器）](source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md)
+    API索引列表:
+    - ohos.file_picker（选择器）
+        - 导入模块
+                import kit.CoreFileKit.*
+        - 使用说明
+        - class AudioViewPicker
+            - AudioViewPicker(UIAbilityContext)
+            - func save(AsyncCallback\<Array\<String>>, AudioSaveOptions)
+            - func select(AsyncCallback\<Array\<String>>, AudioSelectOptions)
+        - class DocumentSelectOptions
+            - var authMode
+            - var defaultFilePathUri
+            - var fileSuffixFilters
+            - var maxSelectNumber
+            - var selectMode
+            - DocumentSelectOptions(Int64, ?String, Array\<String>, DocumentSelectMode, Bool)
+        - class DocumentViewPicker
+            - DocumentViewPicker(UIAbilityContext)
+            - func getSelectedIndex()
+            - func save(AsyncCallback\<Array\<String>>, DocumentSaveOptions)
+            - func select(AsyncCallback\<Array\<String>>, DocumentSelectOptions)
+        - class PhotoViewPicker
+            - PhotoViewPicker(UIAbilityContext)
+            - func save(AsyncCallback\<Array\<String>>, PhotoSaveOptions)
+            - func select(AsyncCallback\<PhotoSelectResult>, PhotoSelectOptions)
+        - struct AudioSaveOptions
+            - var newFileNames
+            - AudioSaveOptions(Array\<String>)
+        - struct AudioSelectOptions
+            - var maxSelectNumber
+            - AudioSelectOptions(Int64)
+        - struct DocumentSaveOptions
+            - var defaultFilePathUri
+            - var fileSuffixChoices
+            - var newFileNames
+            - var pickerMode
+            - DocumentSaveOptions(Array\<String>, ?String, Array\<String>, DocumentPickerMode)
+        - struct PhotoSaveOptions
+            - var newFileNames
+            - PhotoSaveOptions(Array\<String>)
+        - struct PhotoSelectOptions
+            - var MIMEType
+            - var maxSelectNumber
+            - PhotoSelectOptions(PhotoViewMIMETypes, Int64)
+        - struct PhotoSelectResult
+            - var isOriginalPhoto
+            - var photoUris
+            - PhotoSelectResult(Array\<String>, Bool)
+        - enum DocumentPickerMode
+            - DEFAULT
+            - DOWNLOAD
+            - operator func !=(DocumentPickerMode)
+            - operator func ==(DocumentPickerMode)
+        - enum DocumentSelectMode
+            - FILE
+            - FOLDER
+            - MIXED
+        - enum PhotoViewMIMETypes
+            - IMAGE_TYPE
+            - IMAGE_VIDEO_TYPE
+            - VIDEO_TYPE
+            - [ohos.file_statvfs（文件系统空间统计）](source_zh_cn/apis/CoreFileKit/cj-apis-file_statvfs.md)
+    API索引列表:
+    - ohos.file_statvfs（文件系统空间统计）
+        - 导入模块
+                import kit.CoreFileKit.*
+        - 使用说明
+        - class Statfs
+            - static func getFreeSize(String)
+            - static func getTotalSize(String)
+            - [ohos.file_storage_statistics（应用空间统计）](source_zh_cn/apis/CoreFileKit/cj-apis-file_storage_statistics.md)
+    API索引列表:
+    - ohos.file_storage_statistics（应用空间统计）
+        - 导入模块
+                import kit.CoreFileKit.*
+        - 使用说明
+        - func getCurrentBundleStats()
+        - func getFreeSize()
+        - func getTotalSize()
+        - class BundleStats
+            - var appSize
+            - var cacheSize
+            - var dataSize
+        - [错误码]()
+            - [文件管理错误码](source_zh_cn/errorcodes/cj-errorcode-filemanagement.md)
+    API索引列表:
+    - 文件管理错误码
+        - 基础文件IO错误码
+            - 13900001 操作不允许
+            - 13900002 没有这个文件或目录
+            - 13900003 没有这样的进程
+            - 13900004 系统调用被中断
+            - 13900005 I/O错误
+            - 13900006 没有这个设备或地址
+            - 13900007 参数列表太长
+            - 13900008 坏的文件描述符
+            - 13900009 没有子进程
+            - 13900010 资源暂时不可用
+            - 13900011 内存溢出
+            - 13900012 拒绝许可
+            - 13900013 错误的地址
+            - 13900014 设备或资源忙
+            - 13900015 文件存在
+            - 13900016 无效的交叉链接
+            - 13900017 设备不存在
+            - 13900018 不是一个目录
+            - 13900019 是一个目录
+            - 13900020 无效的参数
+            - 13900021 打开太多的文件描述符
+            - 13900022 打开的文件过多
+            - 13900023 文本文件忙
+            - 13900024 文件太大
+            - 13900025 设备上没有空间
+            - 13900026 非法移位
+            - 13900027 只读文件系统
+            - 13900028 太多的链接
+            - 13900029 资源死锁错误
+            - 13900030 文件名太长
+            - 13900031 功能没有实现
+            - 13900032 目录非空
+            - 13900033 符号链接层次太多
+            - 13900034 操作被阻塞
+            - 13900035 请求描述符无效
+            - 13900036 设备不是字符流
+            - 13900037 无可用数据
+            - 13900038 对于定义的数据类型值太大
+            - 13900039 文件描述符在坏状态
+            - 13900040 应该重新启动被中断的系统调用
+            - 13900041 超出磁盘配额
+            - 13900042 未知错误
+            - 13900043 没有可用的锁
+            - 13900044 网络无法访问
+            - 13900045 连接失败
+            - 13900046 连接失败
+        - 用户数据管理错误码
+            - 14000001 文件名非法
+            - 14000002 非法URI
+            - 14000003 文件后缀非法
+            - 14000004 文件已进入回收站
+            - 14000011 系统内部错误
+            - 14000014 成员名非法
+        - 空间统计错误码
+            - 13600001 IPC通信失败
+            - 13600002 文件系统类型不支持
+            - 13600003 挂载失败
+            - 13600004 卸载失败
+            - 13600005 卷状态错误
+            - 13600006 创建目录或者节点失败
+            - 13600007 删除目录或者节点失败
+            - 13600008 操作对象不存在
+            - 13600009 用户id超出范围
+        - 公共文件访问错误码
+            - 14300001 IPC通信失败
+            - 14300002 URI格式错误
+            - 14300003 查询server端ability信息失败
+            - 14300004 js-server实际返回的结果异常
+            - 14300005 notify注册失败
+            - 14300006 notify移除失败
+            - 14300007 notify代理初始化失败
+            - 14300008 js-server端通知代理失败
+        - 端云同步错误码
+            - 22400001 云端状态未ready
+            - 22400002  网络不可用
+            - 22400003  告警电量
+    - [Form Kit（卡片开发服务）]()
+        - [仓颉API]()
+            - [ohos.app.form.formBindingData（卡片数据绑定类）](source_zh_cn/apis/FormKit/cj-apis-app-form-formBindingData.md)
+    API索引列表:
+    - ohos.app.form.formBindingData（卡片数据绑定类）
+        - 导入模块
+                import kit.FormKit.*
+        - 使用说明
+        - func createFormBindingData(?String)
+        - class FormBindingData
+            - var data
+            - var proxies
+            - FormBindingData(String, ?Array\<ProxyData>)
+        - class ProxyData
+            - var key
+            - var subscriberId
+            - ProxyData(String, ?String)
+            - [ohos.form.form_extension_ability（FormExtensionAbility）](source_zh_cn/apis/FormKit/cj-apis-form-form-extension-ability.md)
+    API索引列表:
+    - ohos.form.form_extension_ability（FormExtensionAbility）
+        - 导入模块
+                import kit.FormKit.*
+        - 使用说明
+        - class FormExtensionAbility
+            - prop context
+            - static func registerCreator(String, () -> FormExtensionAbility)
+            - func onAcquireFormState(Want)
+            - func onAddForm(Want)
+            - func onCastToNormalForm(String)
+            - func onChangeFormVisibility(HashMap\<String,Int32>)
+            - func onConfigurationUpdate(AbilityConfiguration)
+            - func onFormEvent(String, String)
+            - func onRemoveForm(String)
+            - func onStop()
+            - func onUpdateForm(String, String)
+        - class FormExtensionContext
+            - [ohos.form.form_info（FormInfo）](source_zh_cn/apis/FormKit/cj-apis-form-form-info.md)
+    API索引列表:
+    - ohos.form.form_info（FormInfo）
+        - 导入模块
+                import kit.FormKit.*
+        - class FormInfo
+            - prop abilityName
+            - prop bundleName
+            - prop colorMode
+            - prop customizeData
+            - prop defaultDimension
+            - prop description
+            - prop descriptionId
+            - prop displayName
+            - prop displayNameId
+            - prop formConfigAbility
+            - prop formType
+            - prop formVisibleNotify
+            - prop isDefault
+            - prop isDynamic
+            - prop jsComponentName
+            - prop moduleName
+            - prop name
+            - prop scheduledUpdateTime
+            - prop supportDimensions
+            - prop supportedShapes
+            - prop transparencyEnabled
+            - prop updateDuration
+            - prop updateEnabled
+        - class FormInfoFilter
+            - prop moduleName
+            - init(String)
+        - enum ColorMode
+            - ModeAuto
+            - ModeDark
+            - ModeLight
+            - func !=(ColorMode)
+            - func ==(ColorMode)
+            - func toString()
+        - enum FormDimension
+            - Dimension11
+            - Dimension64
+            - Dimension12
+            - Dimension21
+            - Dimension22
+            - Dimension24
+            - Dimension44
+            - func !=(FormDimension)
+            - func ==(FormDimension)
+            - func getValue()
+            - func toString()
+        - enum FormParam
+            - AbilityNameKey
+            - BundleNameKey
+            - DimensionKey
+            - FormLocationKey
+            - FormPermissionGrantedKey
+            - FormPermissionNameKey
+            - FormRenderingModeKey
+            - HeightKey
+            - HostBgInverseColorKey
+            - IdentityKey
+            - LaunchReasonKey
+            - ModuleNameKey
+            - NameKey
+            - ParamFormCustomizeKey
+            - TemporaryKey
+            - WidthKey
+            - func !=(FormParam)
+            - func ==(FormParam)
+            - func getValue()
+        - enum FormShape
+            - Circle
+            - Rect
+            - func !=(FormShape)
+            - func ==(FormShape)
+            - func toString()
+        - enum FormState
+            - Default
+            - Ready
+            - Unknown
+            - func !=(FormState)
+            - func ==(FormState)
+            - func toString()
+        - enum FormType
+            - Ets
+            - Js
+            - func !=(FormType)
+            - func ==(FormType)
+            - func toString()
+            - [ohos.form.form_provider（FormProvider）](source_zh_cn/apis/FormKit/cj-apis-form-form-provider.md)
+    API索引列表:
+    - ohos.form.form_provider（FormProvider）
+        - 导入模块
+                import kit.FormKit.*
+        - 使用说明
+        - class FormProvider
+            - static func getFormsInfo(FormInfoFilter)
+            - static func setFormNextRefreshTime(String, Int32)
+            - static func updateForm(String, FormBindingData)
+        - [错误码]()
+            - [卡片错误码](source_zh_cn/errorcodes/cj-errorcode-form.md)
+    API索引列表:
+    - 卡片错误码
+        - 16500050 进程间通信失败
+        - 16500060 连接服务失败
+        - 16500100 获取卡片配置信息失败
+        - 16501000 内部功能错误
+        - 16501001 卡片ID不存在
+        - 16501002 卡片数量达到上限
+        - 16501003 无法操作指定卡片
+        - 16501006 卡片渲染服务连接失败
+        - 16501007 卡片不可信
+        - 16501008 等待卡片加桌超时
+        - 2293761 内部服务错误
+        - 2293766 包管理获取请求的应用包名不存在
+        - 2293767 无效参数
+        - 2293795 获取包管理服务失败
+        - 2293798 获取卡片管理服务失败
+        - 2293802 获取系统能力管理服务失败
+    - [IME Kit（输入法开发服务）]()
+        - [仓颉API]()
+            - [ohos.input_method（输入法框架）](source_zh_cn/apis/IMEKit/cj-apis-inputmethod.md)
+    API索引列表:
+    - ohos.input_method（输入法框架）
+        - 导入模块
+                import kit.IMEKit.*
+        - 使用说明
+        - 权限列表
+                ohos.permission.CONNECT_IME_ABILITY
+        - const MAX_TYPE_NUM
+        - func getController()
+        - func getCurrentInputMethod()
+        - func getCurrentInputMethodSubtype()
+        - func getDefaultInputMethod()
+        - func getSetting()
+        - func getSystemInputMethodConfigAbility()
+        - class CursorInfo
+            - let height
+            - let left
+            - let top
+            - let width
+            - CursorInfo(Float64, Float64, Float64, Float64)
+        - class FunctionKey
+            - let enterKeyType
+            - FunctionKey(EnterKeyType)
+        - class InputAttribute
+            - let enterKeyType
+            - let textInputType
+            - InputAttribute(TextInputType, EnterKeyType)
+        - class InputMethodController
+            - func attach(Bool, TextConfig)
+            - func attach(Bool, TextConfig, RequestKeyboardReason)
+            - func changeSelection(String, Int32, Int32)
+            - func detach()
+            - func hideSoftKeyboard()
+            - func hideTextInput()
+            - func off(IMFEventType, ?CallbackObject)
+            - func on(IMFEventType, Callback1Argument\<String>)
+            - func on(IMFEventType, Callback1Argument\<Int32>)
+            - func on(IMFEventType, Callback1Argument\<KeyboardStatus>)
+            - func on(IMFEventType, Callback1Argument\<FunctionKey>)
+            - func on(IMFEventType, Callback1Argument\<Direction>)
+            - func on(IMFEventType, Callback1Argument\<ExtendAction>)
+            - func on(IMFEventType, Callback1ArgumentWithReturn\<Int32, String>)
+            - func on(IMFEventType, CallbackWithReturn\<Int32>)
+            - func on(IMFEventType, Callback1Argument\<Range>)
+            - func on(IMFEventType, Callback1Argument\<Movement>)
+            - func setCallingWindow(UInt32)
+            - func showSoftKeyboard()
+            - func showTextInput()
+            - func showTextInput(RequestKeyboardReason)
+            - func stopInputSession()
+            - func updateAttribute(InputAttribute)
+            - func updateCursor(CursorInfo)
+        - class InputMethodProperty
+            - let icon
+            - let iconId
+            - let id
+            - let label
+            - let labelId
+            - let name
+            - InputMethodProperty(String, String, String, UInt32, String, UInt32)
+            - func toString()
+        - class InputMethodSetting
+            - func getAllInputMethods()
+            - func getInputMethods(Bool)
+            - func listCurrentInputMethodSubtype()
+            - func listInputMethodSubtype(InputMethodProperty)
+            - func off(IMFEventType, ?Callback2Argument\<InputMethodProperty,InputMethodSubtype>)
+            - func on(IMFEventType, Callback2Argument\<InputMethodProperty,InputMethodSubtype>)
+            - func showOptionalInputMethods()
+        - class InputMethodSubtype
+            - let icon
+            - let iconId
+            - let id
+            - let label
+            - let labelId
+            - let language
+            - let locale
+            - let mode
+            - let name
+            - InputMethodSubtype(String, String, String, String, ?String, ?UInt32, ?String, ?UInt32, ?String)
+            - func toString()
+        - class InputWindowInfo
+            - let height
+            - let left
+            - let name
+            - let top
+            - let width
+            - InputWindowInfo(String, Int32, Int32, Int32, Int32)
+        - class Movement
+            - let direction
+            - Movement(Direction)
+        - class Range
+            - let end
+            - let start
+            - Range(Int32, Int32)
+        - class TextConfig
+            - var cursorInfo
+            - var inputAttribute
+            - var selection
+            - var windowId
+            - TextConfig(InputAttribute, CursorInfo, Range, UInt32)
+        - enum Direction
+            - CURSOR_DOWN
+            - CURSOR_LEFT
+            - CURSOR_RIGHT
+            - CURSOR_UP
+        - enum EnterKeyType
+            - DONE
+            - GO
+            - NEWLINE
+            - NEXT
+            - NONE
+            - PREVIOUS
+            - SEARCH
+            - SEND
+            - UNSPECIFIED
+        - enum ExtendAction
+            - COPY
+            - CUT
+            - PASTE
+            - SELECT_ALL
+        - enum IMFEventType
+            - DeleteLeft
+            - DeleteRight
+            - GetLeftTextOfCursor
+            - GetRightTextOfCursor
+            - GetTextIndexAtCursor
+            - HandleExtendAction
+            - ImeChange
+            - InsertText
+            - MoveCursor
+            - SelectByMovement
+            - SelectByRange
+            - SendFunctionKey
+            - SendKeyboardStatus
+            - func toString()
+        - enum KeyboardStatus
+            - HIDE
+            - NONE
+            - SHOW
+        - enum RequestKeyboardReason
+            - None
+            - Mouse
+            - Touch
+            - Other
+            - func !=(RequestKeyboardReason)
+            - func ==(RequestKeyboardReason)
+            - func toString()
+        - enum TextInputType
+            - DATETIME
+            - EMAIL_ADDRESS
+            - MULTILINE
+            - NONE
+            - NUMBER
+            - NUMBER_PASSWORD
+            - PHONE
+            - TEXT
+            - URL
+            - VISIBLE_PASSWORD
+        - [错误码]()
+            - [输入法框架错误码](source_zh_cn/errorcodes/cj-errorcode-inputmethod.md)
+    API索引列表:
+    - 输入法框架错误码
+        - 12800001 包管理服务异常
+        - 12800002 输入法应用异常
+        - 12800003 客户端应用异常
+        - 12800004 不是输入法应用
+        - 12800005 配置固化失败
+        - 12800006 输入法控制器异常
+        - 12800007 输入法设置器异常
+        - 12800008 输入法管理服务异常
+        - 12800009 输入法客户端未绑定
+        - 12800010 不是系统配置的默认输入法
+        - 12800013 窗口管理服务错误
+    - [IPC Kit（进程间通信服务）]()
+        - [仓颉API]()
+            - [ohos.rpc（RPC通信）](source_zh_cn/apis/IPCKit/cj-apis-rpc.md)
+    API索引列表:
+    - ohos.rpc（RPC通信）
+        - 导入模块
+                import kit.IPCKit.*
+        - 使用说明
+        - interface IRemoteBroker
+            - func asObject()
+        - interface IRemoteObject
+            - func getDescriptor()
+            - func getLocalInterface(String)
+            - func isObjectDead()
+            - func registerDeathRecipient(DeathRecipient, Int32)
+            - func sendMessageRequest(UInt32, MessageSequence, MessageSequence, MessageOption, Callback1Argument\<RequestResult>)
+            - func unregisterDeathRecipient(DeathRecipient, Int32)
+        - interface Parcelable
+            - func marshalling(MessageSequence)
+            - func unmarshalling(MessageSequence)
+        - class Ashmem
+            - static const PROT_EXEC
+            - static const PROT_NONE
+            - static const PROT_READ
+            - static const PROT_WRITE
+            - static func create(String, Int32)
+            - static func create(Ashmem)
+            - func closeAshmem()
+            - func getAshmemSize()
+            - func mapReadWriteAshmem()
+            - func mapReadonlyAshmem()
+            - func mapTypedAshmem(UInt32)
+            - func readDataFromAshmem(Int64, Int64)
+            - func setProtectionType(UInt32)
+            - func unmapAshmem()
+            - func writeDataToAshmem(Array\<Byte>, Int64, Int64)
+        - class DeathRecipient
+            - func onRemoteDied()
+        - class ErrorCode
+            - static const CALL_JS_METHOD_ERROR
+            - static const CHECK_PARAM_ERROR
+            - static const COMMUNICATION_ERROR
+            - static const ONLY_PROXY_OBJECT_PERMITTED_ERROR
+            - static const ONLY_REMOTE_OBJECT_PERMITTED_ERROR
+            - static const OS_DUP_ERROR
+            - static const OS_IOCTL_ERROR
+            - static const OS_MMAP_ERROR
+            - static const PARCEL_MEMORY_ALLOC_ERROR
+            - static const PROXY_OR_REMOTE_OBJECT_INVALID_ERROR
+            - static const READ_DATA_FROM_MESSAGE_SEQUENCE_ERROR
+            - static const READ_FROM_ASHMEM_ERROR
+            - static const WRITE_DATA_TO_MESSAGE_SEQUENCE_ERROR
+            - static const WRITE_TO_ASHMEM_ERROR
+        - class IPCSkeleton
+            - static func flushCmdBuffer(IRemoteObject)
+            - static func getCallingDeviceID()
+            - static func getCallingPid()
+            - static func getCallingTokenId()
+            - static func getCallingUid()
+            - static func getContextObject()
+            - static func getLocalDeviceID()
+            - static func isLocalCalling()
+        - class MessageOption
+            - static const TF_ACCEPT_FDS
+            - static const TF_ASYNC
+            - static const TF_SYNC
+            - static const TF_WAIT_TIME
+            - init(Bool, Int32)
+            - func getFlags()
+            - func getWaitTime()
+            - func isAsync()
+            - func setAsync(Bool)
+            - func setFlags(Int32)
+            - func setWaitTime(Int32)
+        - class MessageSequence
+            - static func closeFileDescriptor(Int32)
+            - static func create()
+            - static func dupFileDescriptor(Int32)
+            - func containFileDescriptors()
+            - func getCapacity()
+            - func getRawDataCapacity()
+            - func getReadPosition()
+            - func getReadableBytes()
+            - func getSize()
+            - func getWritableBytes()
+            - func getWritePosition()
+            - func readAshmem()
+            - func readBoolean()
+            - func readBooleanArray(ArrayList\<Bool>)
+            - func readBooleanArray()
+            - func readByte()
+            - func readByteArray(ArrayList\<Int8>)
+            - func readByteArray()
+            - func readChar()
+            - func readCharArray(ArrayList\<UInt8>)
+            - func readCharArray()
+            - func readDouble()
+            - func readDoubleArray(ArrayList\<Float64>)
+            - func readDoubleArray()
+            - func readException()
+            - func readFileDescriptor()
+            - func readFloat()
+            - func readFloat32Array()
+            - func readFloat64Array()
+            - func readFloatArray(ArrayList\<Float32>)
+            - func readFloatArray()
+            - func readInt()
+            - func readInt16Array()
+            - func readInt32Array()
+            - func readInt64Array()
+            - func readInt8Array()
+            - func readIntArray(ArrayList\<Int32>)
+            - func readIntArray()
+            - func readInterfaceToken()
+            - func readLong()
+            - func readLongArray(ArrayList\<Int64>)
+            - func readLongArray()
+            - func readParcelable(Parcelable)
+            - func readParcelableArray(Array\<Parcelable>)
+            - func readRawDataBuffer(Int64)
+            - func readShort()
+            - func readShortArray(ArrayList\<Int16>)
+            - func readShortArray()
+            - func readString()
+            - func readStringArray(ArrayList\<String>)
+            - func readStringArray()
+            - func readUInt16Array()
+            - func readUInt32Array()
+            - func readUInt64Array()
+            - func readUInt8Array()
+            - func reclaim()
+            - func rewindRead(UInt32)
+            - func rewindWrite(UInt32)
+            - func setCapacity(UInt32)
+            - func setSize(UInt32)
+            - func writeAshmem(Ashmem)
+            - func writeBoolean(Bool)
+            - func writeBooleanArray(Array\<Bool>)
+            - func writeByte(Int8)
+            - func writeByteArray(Array\<Int8>)
+            - func writeChar(UInt8)
+            - func writeCharArray(Array\<UInt8>)
+            - func writeDouble(Float64)
+            - func writeDoubleArray(Array\<Float64>)
+            - func writeFileDescriptor(Int32)
+            - func writeFloat(Float32)
+            - func writeFloat32Array(Array\<Float32>)
+            - func writeFloat64Array(Array\<Float64>)
+            - func writeFloatArray(Array\<Float32>)
+            - func writeInt(Int32)
+            - func writeInt16Array(Array\<Int16>)
+            - func writeInt32Array(Array\<Int32>)
+            - func writeInt64Array(Array\<Int64>)
+            - func writeInt8Array(Array\<Int8>)
+            - func writeIntArray(Array\<Int32>)
+            - func writeInterfaceToken(String)
+            - func writeLong(Int64)
+            - func writeLongArray(Array\<Int64>)
+            - func writeNoException()
+            - func writeParcelable(Parcelable)
+            - func writeParcelableArray(Array\<Parcelable>)
+            - func writeRawDataBuffer(Array\<Byte>, Int64)
+            - func writeShort(Int16)
+            - func writeShortArray(Array\<Int16>)
+            - func writeString(String)
+            - func writeStringArray(Array\<String>)
+            - func writeUInt16Array(Array\<UInt16>)
+            - func writeUInt32Array(Array\<UInt32>)
+            - func writeUInt64Array(Array\<UInt64>)
+            - func writeUInt8Array(Array\<UInt8>)
+        - class RemoteObject
+            - init(String)
+            - func getCallingPid()
+            - func getCallingUid()
+            - func getDescriptor()
+            - func getLocalInterface(String)
+            - func isObjectDead()
+            - func modifyLocalInterface(IRemoteBroker, String)
+            - func registerDeathRecipient(DeathRecipient, Int32)
+            - func sendMessageRequest(UInt32, MessageSequence, MessageSequence, MessageOption, Callback1Argument\<RequestResult>)
+            - func unregisterDeathRecipient(DeathRecipient, Int32)
+        - class RemoteProxy
+            - static const DUMP_TRANSACTION
+            - static const INTERFACE_TRANSACTION
+            - static const MAX_TRANSACTION_ID
+            - static const MIN_TRANSACTION_ID
+            - static const PING_TRANSACTION
+            - func getDescriptor()
+            - func getLocalInterface(String)
+            - func isObjectDead()
+            - func registerDeathRecipient(DeathRecipient, Int32)
+            - func sendMessageRequest(UInt32, MessageSequence, MessageSequence, MessageOption, Callback1Argument\<RequestResult>)
+            - func unregisterDeathRecipient(DeathRecipient, Int32)
+        - struct RequestResult
+            - let code
+            - let data
+            - let errCode
+            - let reply
+            - RequestResult(Int32, UInt32, MessageSequence, MessageSequence)
+        - enum TypeCode
+            - BIGINT64_ARRAY
+            - BIGUINT64_ARRAY
+            - FLOAT32_ARRAY
+            - FLOAT64_ARRAY
+            - INT16_ARRAY
+            - INT32_ARRAY
+            - INT8_ARRAY
+            - UINT16_ARRAY
+            - UINT32_ARRAY
+            - UINT8_ARRAY
+            - func !=(TypeCode)
+            - func ==(TypeCode)
+            - func toString()
+            - [ohos.rpc.interop（IRemoteObject互操作）](source_zh_cn/apis/IPCKit/cj-apis-rpc-interop.md)
+    API索引列表:
+    - ohos.rpc.interop（IRemoteObject互操作）
+        - 导入模块
+                import kit.IPCKit.*
+        - func fromJSValue(JSContext, JSValue)
+        - interface SystemObjectInteropTypeToJS
+            - func toJSValue(JSContext)
+        - class RemoteObject
+            - func toJSValue(JSContext)
+        - class RemoteProxy
+            - func toJSValue(JSContext)
+        - [错误码]()
+            - [ipc错误码](source_zh_cn/errorcodes/cj-errorcode-rpc.md)
+    API索引列表:
+    - RPC错误码
+        - 1900001 系统调用mmap失败
+        - 1900002 系统调用ioctl失败
+        - 1900003 共享内存写数据失败
+        - 1900004 共享内存读数据失败
+        - 1900005 ipc对象权限错误
+        - 1900006 ipc对象权限错误
+        - 1900007 远端对象通信失败
+        - 1900008 非法的ipc对象
+        - 1900009 向MessageSequence写入数据失败
+        - 1900010 读取MessageSequence数据失败
+        - 1900011 内存分配失败
+        - 1900012 JS方法失败
+        - 1900013 系统调用dup失败
+    - [Localization Kit（本地化开发服务）]()
+        - [仓颉API]()
+            - [ohos.i18n（国际化-I18n）](source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md)
+    API索引列表:
+    - ohos.i18n（国际化-I18n）
+        - 导入模块
+                import kit.LocalizationKit.*
+        - 使用说明
+        - func getCalendar(String, ?String)
+        - func getInstance(String)
+        - func getLineInstance(String)
+        - func getTimeZone(String)
+        - func isRTL(String)
+        - class BreakIterator
+            - func current()
+            - func first()
+            - func following(Int32)
+            - func getLineBreakText()
+            - func isBoundary(Int32)
+            - func last()
+            - func next(Int32)
+            - func previous()
+            - func setLineBreakText(String)
+        - class Calendar
+            - func add(String, Int32)
+            - func compareDays(DateTime)
+            - func get(String)
+            - func getDisplayName(String)
+            - func getFirstDayOfWeek()
+            - func getMinimalDaysInFirstWeek()
+            - func getTimeInMillis()
+            - func getTimeZone()
+            - func isWeekend(?DateTime)
+            - func set(Int32, Int32, Int32, Int32, Int32, Int32)
+            - func setFirstDayOfWeek(Int32)
+            - func setMinimalDaysInFirstWeek(Int32)
+            - func setTime(DateTime)
+            - func setTime(Float64)
+            - func setTimeZone(String)
+        - class EntityInfoItem
+            - let \`type`
+            - let begin
+            - let end
+        - class EntityRecognizer
+            - init(?String)
+            - func findEntityInfo(String)
+        - class HolidayInfoItem
+            - let baseName
+            - let day
+            - let localNames
+            - let month
+            - let year
+        - class HolidayLocalName
+            - let language
+            - let name
+            - HolidayLocalName(String, String)
+        - class HolidayManager
+            - init(String)
+            - func getHolidayInfoItemArray(?Int32)
+            - func isHoliday(?DateTime)
+        - class I18NUtil
+            - static func getBestMatchLocale(String, Array\<String>)
+            - static func getDateOrder(String)
+            - static func getThreeLetterLanguage(String)
+            - static func getThreeLetterRegion(String)
+            - static func getTimePeriodName(Int32, ?String)
+            - static func unitConvert(UnitInfo, UnitInfo, Float64, String, ?String)
+        - class IndexUtil
+            - init(String)
+            - func addLocale(String)
+            - func getIndex(String)
+            - func getIndexList()
+        - class Normalizer
+            - static func getInstance(NormalizerMode)
+            - func normalize(String)
+        - class PhoneNumberFormat
+            - init(String, ?PhoneNumberFormatOptions)
+            - func format(String)
+            - func getLocationName(String, String)
+            - func isValidNumber(String)
+        - class PhoneNumberFormatOptions
+            - let formatType
+            - PhoneNumberFormatOptions(?String)
+        - class System
+            - static func getAppPreferredLanguage()
+            - static func getDisplayCountry(String, String, Bool)
+            - static func getDisplayLanguage(String, String, Bool)
+            - static func getFirstPreferredLanguage()
+            - static func getPreferredLanguageList()
+            - static func getSystemCountries(String)
+            - static func getSystemLanguage()
+            - static func getSystemLanguages()
+            - static func getSystemLocale()
+            - static func getSystemRegion()
+            - static func getUsingLocalDigit()
+            - static func is24HourClock()
+            - static func isSuggested(String, ?String)
+            - static func setAppPreferredLanguage(String)
+        - class TimeZone
+            - static func getAvailableIDs()
+            - static func getAvailableZoneCityIDs()
+            - static func getCityDisplayName(String, String)
+            - static func getTimezoneFromCity(String)
+            - static func getTimezonesByLocation(Float64, Float64)
+            - func getDisplayName(?String, ?Bool)
+            - func getID()
+            - func getOffset(?Float64)
+            - func getRawOffset()
+        - class Transliterator
+            - static func getAvailableIDs()
+            - static func getInstance(String)
+            - func transform(String)
+        - class Unicode
+            - static func getType(String)
+            - static func isDigit(String)
+            - static func isIdeograph(String)
+            - static func isLetter(String)
+            - static func isLowerCase(String)
+            - static func isRTL(String)
+            - static func isSpaceChar(String)
+            - static func isUpperCase(String)
+            - static func isWhitespace(String)
+        - class UnitInfo
+            - var measureSystem
+            - var unit
+            - UnitInfo(String, String)
+        - enum NormalizerMode
+            - NFC
+            - NFD
+            - NFKC
+            - NFKD
+            - func !=(NormalizerMode)
+            - func ==(NormalizerMode)
+            - func toString()
+            - [ohos.intl（国际化-Intl）](source_zh_cn/apis/LocalizationKit/cj-apis-intl.md)
+    API索引列表:
+    - ohos.intl（国际化-Intl）
+        - 导入模块
+                import kit.LocalizationKit.*
+        - 使用说明
+        - class Collator
+            - init()
+            - init(String, ?CollatorOptions)
+            - init(Array\<String>, ?CollatorOptions)
+            - func compare(String, String)
+            - func resolvedOptions()
+        - class DateTimeFormat
+            - init()
+            - init(String, ?DateTimeOptions)
+            - init(Array\<String>, ?DateTimeOptions)
+            - func format(DateTime)
+            - func formatRange(DateTime, DateTime)
+            - func resolvedOptions()
+        - class Locale
+            - prop baseName
+            - prop calendar
+            - prop caseFirst
+            - prop collation
+            - prop hourCycle
+            - prop language
+            - prop numberingSystem
+            - prop numeric
+            - prop region
+            - prop script
+            - init()
+            - init(String, ?LocaleOptions)
+            - func maximize()
+            - func minimize()
+            - func toString()
+        - class NumberFormat
+            - init()
+            - init(String, ?NumberOptions)
+            - init(Array\<String>, ?NumberOptions)
+            - func format(Float64)
+            - func resolvedOptions()
+        - class PluralRules
+            - init()
+            - init(String, ?PluralRulesOptions)
+            - init(Array\<String>, ?PluralRulesOptions)
+            - func select(Float64)
+        - class RelativeTimeFormat
+            - init()
+            - init(String, ?RelativeTimeFormatInputOptions)
+            - init(Array\<String>, ?RelativeTimeFormatInputOptions)
+            - func format(Float64, String)
+            - func formatToParts(Float64, String)
+            - func resolvedOptions()
+        - struct CollatorOptions
+            - var caseFirst
+            - var collation
+            - var ignorePunctuation
+            - var localeMatcher
+            - var numeric
+            - var sensitivity
+            - var usage
+            - CollatorOptions(String, String, String, Bool, String, Bool, String)
+        - struct DateTimeOptions
+            - var dateStyle
+            - var day
+            - var dayPeriod
+            - var era
+            - var formatMatcher
+            - var hour
+            - var hour12
+            - var hourCycle
+            - var locale
+            - var localeMatcher
+            - var minute
+            - var month
+            - var numberingSystem
+            - var second
+            - var timeStyle
+            - var timeZone
+            - var timeZoneName
+            - var weekday
+            - var year
+            - DateTimeOptions(String, String, String, String, String, String, Bool, String, String, String, String, String, String, String, String, String, String, String, String)
+        - struct LocaleOptions
+            - var calendar
+            - var caseFirst
+            - var collation
+            - var hourCycle
+            - var numberingSystem
+            - var numeric
+            - LocaleOptions(String, String, String, String, Bool, String)
+        - struct NumberOptions
+            - var compactDisplay
+            - var currency
+            - var currencyDisplay
+            - var currencySign
+            - var locale
+            - var localeMather
+            - var maximumFractionDigits
+            - var maximumSignificantDigits
+            - var minimumFractionDigits
+            - var minimumIntegerDigits
+            - var minimumSignificantDigits
+            - var notation
+            - var numberingSystem
+            - var signDisplay
+            - var style
+            - var unit
+            - var unitDispaly
+            - var unitUsage
+            - var useGrouping
+            - NumberOptions(String, String, String, String, String, String, String, String, String, String, String, String, String, Bool, Int64, Int64, Int64, Int64, Int64)
+        - struct PluralRulesOptions
+            - var localeMatcher
+            - var maximumFractionDigits
+            - var maximumSignificantDigits
+            - var minimumFractionDigits
+            - var minimumIntegerDigits
+            - var minimumSignificantDigits
+            - var ptype
+            - PluralRulesOptions(String, String, Int64, Int64, Int64, Int64, Int64)
+        - struct RelativeTimeFormatInputOptions
+            - var localeMatcher
+            - var numeric
+            - var style
+            - RelativeTimeFormatInputOptions(String, String, String)
+        - struct RelativeTimeFormatResolvedOptions
+            - var localeMatcher
+            - var numberingSystem
+            - var numeric
+            - var style
+            - RelativeTimeFormatResolvedOptions(String, String, String, String)
+            - [ohos.resource_manager（资源管理）](source_zh_cn/apis/LocalizationKit/cj-apis-resource_manager.md)
+    API索引列表:
+    - ohos.resource_manager（资源管理）
+        - 导入模块
+                import kit.LocalizationKit.*
+        - 使用说明
+        - func \_\_GenerateResource\_\_(String, String, String, Int32, String, Array\<Any>, Int32)
+        - class AppResource
+            - let bundleName
+            - let id
+            - let moduleName
+            - let params
+            - let resType
+            - AppResource(String, String, Int32, ?Array\<Any>, ?Int32)
+        - class Configuration
+            - var colorMode
+            - var deviceType
+            - var direction
+            - var locale
+            - var mcc
+            - var mnc
+            - var screenDensity
+            - init(Direction, String)
+            - init(Direction, String)
+            - func toString()
+        - class DeviceCapability
+            - let deviceType
+            - let screenDensity
+            - DeviceCapability(ScreenDensity, DeviceType)
+            - func toString()
+        - class DrawableDescriptor
+        - class RawFileDescriptor
+            - let fd
+            - let length
+            - let offset
+            - RawFileDescriptor(Int32, Int64, Int64)
+        - class ResourceManager
+            - static func getResourceManager(StageContext)
+            - static func getSystemResourceManager()
+            - func addResource(String)
+            - func closeRawFd(String)
+            - func getBoolean(Int32)
+            - func getBoolean(AppResource)
+            - func getBooleanByName(String)
+            - func getColor(AppResource)
+            - func getColor(Int32)
+            - func getColorByName(String)
+            - func getConfiguration()
+            - func getDeviceCapability()
+            - func getDrawableDescriptor(Int32, UInt32)
+            - func getDrawableDescriptor(AppResource, UInt32)
+            - func getDrawableDescriptorByName(String, UInt32)
+            - func getLocales(Bool)
+            - func getMediaBase64ByName(String, UInt32)
+            - func getMediaByName(String, UInt32)
+            - func getMediaContent(Int32, UInt32)
+            - func getMediaContent(AppResource, UInt32)
+            - func getMediaContentBase64(Int32, UInt32)
+            - func getMediaContentBase64(AppResource, UInt32)
+            - func getNumber(Int32)
+            - func getNumber(AppResource)
+            - func getNumberByName(String)
+            - func getOverrideConfiguration()
+            - func getOverrideResourceManager(Configuration)
+            - func getPluralStringByName(String, Int64)
+            - func getPluralStringValue(Int32, Int64)
+            - func getPluralStringValue(AppResource, Int64)
+            - func getRawFd(String)
+            - func getRawFileContent(String)
+            - func getRawFileList(String)
+            - func getString(Int32)
+            - func getString(Int32, Array\<FormatArgs>)
+            - func getString(AppResource)
+            - func getString(AppResource, Array\<FormatArgs>)
+            - func getStringArrayByName(String)
+            - func getStringArrayValue(Int32)
+            - func getStringArrayValue(AppResource)
+            - func getStringByName(String)
+            - func getStringByName(String, Array\<FormatArgs>)
+            - func getSymbol(Int32)
+            - func getSymbol(AppResource)
+            - func getSymbolByName(String)
+            - func removeResource(String)
+        - enum ColorMode
+            - Dark
+            - Light
+            - func !=(ColorMode)
+            - func ==(ColorMode)
+            - func toString()
+        - enum DeviceType
+            - DEVICE_TYPE_2IN1
+            - DEVICE_TYPE_CAR
+            - DEVICE_TYPE_PC
+            - DEVICE_TYPE_PHONE
+            - DEVICE_TYPE_TABLET
+            - DEVICE_TYPE_TV
+            - DEVICE_TYPE_WEARABLE
+            - static func parse(Int32)
+            - func getValue()
+        - enum Direction
+            - DIRECTION_HORIZONTAL
+            - DIRECTION_VERTICAL
+            - static func parse(Int32)
+            - func getValue()
+        - enum FormatArgs
+            - FLOAT(Float32)
+            - INT(Int32)
+            - STRING(String)
+        - enum Number
+            - FLOAT(Float32)
+            - INT(Int32)
+        - enum ScreenDensity
+            - SCREEN_LDPI
+            - SCREEN_MDPI
+            - SCREEN_SDPI
+            - SCREEN_XLDPI
+            - SCREEN_XXLDPI
+            - SCREEN_XXXLDPI
+            - static func parse(Int32)
+            - func getValue()
+        - [错误码]()
+            - [I18n错误码](source_zh_cn/errorcodes/cj-errorcode-i18n.md)
+    API索引列表:
+    - I18n错误码
+        - 890001 参数类型错误
+            - [资源管理错误码](source_zh_cn/errorcodes/cj-errorcode-resource-manager.md)
+    API索引列表:
+    - 资源管理错误码
+        - 9001001 无效的资源id
+        - 9001002 根据当前资源id，找不到匹配的资源
+        - 9001003 无效的资源名称
+        - 9001004 根据当前资源名称，找不到匹配的资源
+        - 9001005 无效的相对路径
+        - 9001006 循环引用
+        - 9001007 根据当前id获取的资源格式化失败
+        - 9001008 根据当前名称获取的资源格式化失败
+        - 9001009 获取系统资源管理器失败
+        - 9001010 无效的overlay路径
+- [系统]()
+    - [安全]()
+        - [Asset Store Kit（关键资产存储服务）]()
+            - [仓颉API]()
+                - [ohos.asset_store（关键资产存储服务）](source_zh_cn/apis/AssetStoreKit/cj-apis-asset_store.md)
+    API索引列表:
+    - ohos.asset_store（关键资产存储服务）
+        - 导入模块
+                import kit.AssetStoreKit.*
+        - 使用说明
+        - func add(Array\<AssetParam>)
+        - func postQuery(Array\<AssetParam>)
+        - func preQuery(Array\<AssetParam>)
+        - func query(Array\<AssetParam>)
+        - func remove(Array\<AssetParam>)
+        - func update(Array\<AssetParam>, Array\<AssetParam>)
+        - class AssetTag
+            - static const ACCESSIBILITY
+            - static const ALIAS
+            - static const AUTH_CHALLENGE
+            - static const AUTH_TOKEN
+            - static const AUTH_TYPE
+            - static const AUTH_VALIDITY_PERIOD
+            - static const CONFLICT_RESOLUTION
+            - static const DATA_LABEL_CRITICAL_1
+            - static const DATA_LABEL_CRITICAL_2
+            - static const DATA_LABEL_CRITICAL_3
+            - static const DATA_LABEL_CRITICAL_4
+            - static const DATA_LABEL_NORMAL_1
+            - static const DATA_LABEL_NORMAL_2
+            - static const DATA_LABEL_NORMAL_3
+            - static const DATA_LABEL_NORMAL_4
+            - static const DATA_LABEL_NORMAL_LOCAL_1
+            - static const DATA_LABEL_NORMAL_LOCAL_2
+            - static const DATA_LABEL_NORMAL_LOCAL_3
+            - static const DATA_LABEL_NORMAL_LOCAL_4
+            - static const IS_PERSISTENT
+            - static const OPERATION_TYPE
+            - static const REQUIRE_PASSWORD_SET
+            - static const RETURN_LIMIT
+            - static const RETURN_OFFSET
+            - static const RETURN_ORDERED_BY
+            - static const RETURN_TYPE
+            - static const SECRET
+            - static const SYNC_TYPE
+            - static const UPDATE_TIME
+        - struct AssetAccessibility
+            - static const DEVICE_FIRST_UNLOCKED
+            - static const DEVICE_POWERED_ON
+            - static const DEVICE_UNLOCKED
+        - struct AssetAuthType
+            - static const ANY
+            - static const NONE
+        - struct AssetConflictResolution
+            - static const OVERWRITE
+            - static const THROW_ERROR
+        - struct AssetOperationType
+            - static const NEED_LOGOUT
+            - static const NEED_SYNC
+        - struct AssetReturnType
+            - static const ALL
+            - static const ATTRIBUTES
+        - struct AssetSyncType
+            - static const NEVER
+            - static const THIS_DEVICE
+            - static const TRUSTED_ACCOUNT
+            - static const TRUSTED_DEVICE
+        - struct AssetTagType
+            - static const BOOL
+            - static const BYTES
+            - static const NUMBER
+        - struct ErrorCode
+            - static const ACCESS_DENIED
+            - static const ACCESS_TOKEN_ERROR
+            - static const ACCOUNT_ERROR
+            - static const ASSET_SUCCESS
+            - static const BMS_ERROR
+            - static const CRYPTO_ERROR
+            - static const DATABASE_ERROR
+            - static const DATA_CORRUPTED
+            - static const DUPLICATED
+            - static const FILE_OPERATION_ERROR
+            - static const GET_SYSTEM_TIME_ERROR
+            - static const INVALID_ARGUMENT
+            - static const IPC_ERROR
+            - static const LIMIT_EXCEEDED
+            - static const NOT_FOUND
+            - static const NOT_SYSTEM_APPLICATION
+            - static const OUT_OF_MEMORY
+            - static const PERMISSION_DENIED
+            - static const SERVICE_UNAVAILABLE
+            - static const STATUS_MISMATCH
+            - static const UNSUPPORTED
+        - enum AssetParam
+            - ACCESSIBILITY(UInt32)
+            - ALIAS(Array\<UInt8>)
+            - AUTH_CHALLENGE(Array\<UInt8>)
+            - AUTH_TOKEN(Array\<UInt8>)
+            - AUTH_TYPE(UInt32)
+            - AUTH_VALIDITY_PERIOD(UInt32)
+            - CJ_UNKNOWN_TYPE
+            - CONFLICT_RESOLUTION(UInt32)
+            - DATA_LABEL_CRITICAL_1(Array\<UInt8>)
+            - DATA_LABEL_CRITICAL_2(Array\<UInt8>)
+            - DATA_LABEL_CRITICAL_3(Array\<UInt8>)
+            - DATA_LABEL_CRITICAL_4(Array\<UInt8>)
+            - DATA_LABEL_NORMAL_1(Array\<UInt8>)
+            - DATA_LABEL_NORMAL_2(Array\<UInt8>)
+            - DATA_LABEL_NORMAL_3(Array\<UInt8>)
+            - DATA_LABEL_NORMAL_4(Array\<UInt8>)
+            - DATA_LABEL_NORMAL_LOCAL_1(Array\<UInt8>)
+            - DATA_LABEL_NORMAL_LOCAL_2(Array\<UInt8>)
+            - DATA_LABEL_NORMAL_LOCAL_3(Array\<UInt8>)
+            - DATA_LABEL_NORMAL_LOCAL_4(Array\<UInt8>)
+            - IS_PERSISTENT(Bool)
+            - OPERATION_TYPE(UInt32)
+            - REQUIRE_PASSWORD_SET(Bool)
+            - RETURN_LIMIT(UInt32)
+            - RETURN_OFFSET(UInt32)
+            - RETURN_ORDERED_BY(UInt32)
+            - RETURN_TYPE(UInt32)
+            - SECRET(Array\<UInt8>)
+            - SYNC_TYPE(UInt32)
+            - UPDATE_TIME(Array\<UInt8>)
+            - func getTag()
+            - [错误码]()
+                - [关键资产存储服务(ASSET)错误码](source_zh_cn/errorcodes/cj-errorcode-asset.md)
+    API索引列表:
+    - 关键资产存储服务(ASSET)错误码
+        - 24000001 关键资产服务不可用
+        - 24000002 未找到关键资产
+        - 24000003 关键资产已存在
+        - 24000004 拒绝访问关键资产
+        - 24000005 锁屏状态不匹配
+        - 24000006 系统内存不足
+        - 24000007 关键资产损坏
+        - 24000008 数据库操作失败
+        - 24000009 算法库操作失败
+        - 24000010 进程通信错误
+        - 24000011 包管理服务异常
+        - 24000012 账号系统异常
+        - 24000013 访问控制服务异常
+        - 24000014 文件操作失败
+        - 24000015 获取系统时间失败
+        - 24000016 缓存数量超限
+        - 24000017 该子功能不支持
+        - [Crypto Architecture Kit（加解密算法框架服务）]()
+            - [仓颉API]()
+                - [ohos.crypto（加解密算法库框架）](source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md)
+    API索引列表:
+    - ohos.crypto（加解密算法库框架）
+        - 导入模块
+                import kit.CryptoArchitectureKit.*
+        - 使用说明
+        - func createAsyKeyGenerator(String)
+        - func createAsyKeyGeneratorBySpec(AsyKeySpec)
+        - func createCipher(String)
+        - func createKdf(String)
+        - func createKeyAgreement(String)
+        - func createMac(String)
+        - func createMd(String)
+        - func createRandom()
+        - func createSign(String)
+        - func createSymKeyGenerator(String)
+        - func createVerify(String)
+        - interface AsyKeySpec
+            - prop algName
+            - prop specType
+        - interface ECField
+            - prop fieldType
+        - interface KdfSpec
+            - prop algName
+        - interface Key
+            - prop algName
+            - prop format
+            - func getEncoded()
+        - interface ParamsSpec
+            - prop algName
+            - prop iv
+        - class AsyKeyGenerator
+            - prop algName
+            - func convertKey(?DataBlob, ?DataBlob)
+            - func convertPemKey(?String, ?String)
+            - func generateKeyPair()
+        - class AsyKeyGeneratorBySpec
+            - prop algName
+            - func generateKeyPair()
+            - func generatePriKey()
+            - func generatePubKey()
+        - class Cipher
+            - prop algName
+            - func \`init\`(CryptoMode, Key, ?ParamsSpec)
+            - func doFinal(?DataBlob)
+            - func getCipherSpec(CipherSpecItem)
+            - func setCipherSpec(CipherSpecItem, Array\<UInt8>)
+            - func update(DataBlob)
+        - class DHCommonParamsSpec
+            - prop algName
+            - prop g
+            - prop l
+            - prop p
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt, BigInt, IntNative)
+        - class DHKeyPairSpec
+            - prop algName
+            - prop params
+            - prop pk
+            - prop sk
+            - prop specType
+            - init(DHCommonParamsSpec, BigInt, BigInt)
+        - class DHKeyUtil
+            - static func genDHCommonParamsSpec(Int32, Int32)
+        - class DHPriKeySpec
+            - prop algName
+            - prop params
+            - prop sk
+            - prop specType
+            - init(DHCommonParamsSpec, BigInt)
+        - class DHPubKeySpec
+            - prop algName
+            - prop params
+            - prop pk
+            - prop specType
+            - init(DHCommonParamsSpec, BigInt)
+        - class DSACommonParamsSpec
+            - prop algName
+            - prop g
+            - prop p
+            - prop q
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt, BigInt, BigInt)
+        - class DSAKeyPairSpec
+            - prop algName
+            - prop params
+            - prop pk
+            - prop sk
+            - prop specType
+            - init(DSACommonParamsSpec, BigInt, BigInt)
+        - class DSAPubKeySpec
+            - prop algName
+            - prop params
+            - prop pk
+            - prop specType
+            - init(DSACommonParamsSpec, BigInt)
+        - class ECCCommonParamsSpec
+            - prop a
+            - prop algName
+            - prop b
+            - prop field
+            - prop g
+            - prop h
+            - prop n
+            - prop specType
+            - init(String, AsyKeySpecType, ECField, BigInt, BigInt, Point, BigInt, Int32)
+        - class ECCKeyPairSpec
+            - prop algName
+            - prop params
+            - prop pk
+            - prop sk
+            - prop specType
+            - init(ECCCommonParamsSpec, BigInt, Point)
+        - class ECCKeyUtil
+            - static func convertPoint(String, Array\<UInt8>)
+            - static func genECCCommonParamsSpec(String)
+            - static func getEncodedPoint(String, Point, String)
+        - class ECCPriKeySpec
+            - prop algName
+            - prop params
+            - prop sk
+            - prop specType
+            - init(ECCCommonParamsSpec, BigInt)
+        - class ECCPubKeySpec
+            - prop algName
+            - prop params
+            - prop pk
+            - prop specType
+            - init(ECCCommonParamsSpec, Point)
+        - class ECFieldFp
+            - prop fieldType
+            - prop p
+            - init(String, BigInt)
+        - class ED25519KeyPairSpec
+            - prop algName
+            - prop pk
+            - prop sk
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt, BigInt)
+        - class ED25519PriKeySpec
+            - prop algName
+            - prop sk
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt)
+        - class ED25519PubKeySpec
+            - prop algName
+            - prop pk
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt)
+        - class HKDFSpec
+            - prop algName
+            - prop info
+            - prop key
+            - prop keySize
+            - prop salt
+            - init(String, Array\<UInt8>, Array\<UInt8>, Array\<UInt8>, Int32)
+        - class Kdf
+            - prop algName
+            - func generateSecret(KdfSpec)
+        - class KeyAgreement
+            - prop algName
+            - func generateSecret(PriKey, PubKey)
+        - class KeyPair
+            - prop priKey
+            - prop pubKey
+        - class Mac
+            - prop algName
+            - func \`init\`(SymKey)
+            - func doFinal()
+            - func getMacLength()
+            - func update(DataBlob)
+        - class Md
+            - prop algName
+            - func digest()
+            - func getMdLength()
+            - func update(DataBlob)
+        - class PBKDF2Spec
+            - prop algName
+            - prop iterations
+            - prop keySize
+            - prop password
+            - prop salt
+            - init(String, Array\<UInt8>, Array\<UInt8>, Int32, Int32)
+        - class Point
+            - prop x
+            - prop y
+            - init(BigInt, BigInt)
+        - class PriKey
+            - func clearMem()
+            - func getAsyKeySpec(AsyKeySpecItem)
+            - func getEncodedDer(String)
+            - func getEncodedPem(String)
+        - class PubKey
+            - func getAsyKeySpec(AsyKeySpecItem)
+            - func getEncodedDer(String)
+            - func getEncodedPem(String)
+        - class RSACommonParamsSpec
+            - prop algName
+            - prop n
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt)
+        - class RSAKeyPairSpec
+            - prop algName
+            - prop params
+            - prop pk
+            - prop sk
+            - prop specType
+            - init(RSACommonParamsSpec, BigInt, BigInt)
+        - class RSAPubKeySpec
+            - prop algName
+            - prop params
+            - prop pk
+            - prop specType
+            - init(RSACommonParamsSpec, BigInt)
+        - class Random
+            - prop algName
+            - func generateRandom(Int32)
+            - func setSeed(DataBlob)
+        - class SM2CipherTextSpec
+            - prop cipherTextData
+            - prop hashData
+            - prop xCoordinate
+            - prop yCoordinate
+            - init(BigInt, BigInt, Array\<UInt8>, Array\<UInt8>)
+        - class SM2CryptoUtil
+            - static func genCipherTextBySpec(SM2CipherTextSpec, String)
+            - static func getCipherTextSpec(DataBlob, String)
+        - class Sign
+            - prop algName
+            - func getSignSpec(SignSpecItem)
+            - func initialize(PriKey)
+            - func setSignSpec(SignSpecItem, Int32)
+            - func setSignSpec(SignSpecItem, Array\<UInt8>)
+            - func sign(?DataBlob)
+            - func update(DataBlob)
+        - class SymKey
+            - func clearMem()
+        - class SymKeyGenerator
+            - prop algName
+            - func convertKey(DataBlob)
+            - func generateSymKey()
+        - class Verify
+            - prop algName
+            - func getVerifySpec(SignSpecItem)
+            - func initialize(PubKey)
+            - func recover(DataBlob)
+            - func setVerifySpec(SignSpecItem, Int32)
+            - func setVerifySpec(SignSpecItem, Array\<UInt8>)
+            - func update(DataBlob)
+            - func verify(?DataBlob, DataBlob)
+        - class X25519KeyPairSpec
+            - prop algName
+            - prop pk
+            - prop sk
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt, BigInt)
+        - class X25519PriKeySpec
+            - prop algName
+            - prop sk
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt)
+        - class X25519PubKeySpec
+            - prop algName
+            - prop pk
+            - prop specType
+            - init(String, AsyKeySpecType, BigInt)
+        - struct CcmParamsSpec
+            - prop aad
+            - prop authTag
+            - prop iv
+            - init(String, DataBlob, DataBlob, DataBlob)
+        - struct DataBlob
+            - let data
+            - DataBlob(Array\<UInt8>)
+        - struct GcmParamsSpec
+            - prop aad
+            - prop authTag
+            - prop iv
+            - init(String, DataBlob, DataBlob, DataBlob)
+        - struct IvParamsSpec
+            - prop iv
+            - init(String, DataBlob)
+        - enum AsyKeySpecItem
+            - DH_G_BN
+            - DH_L_NUM
+            - DH_PK_BN
+            - DH_P_BN
+            - DH_SK_BN
+            - DSA_G_BN
+            - DSA_PK_BN
+            - DSA_P_BN
+            - DSA_Q_BN
+            - DSA_SK_BN
+            - ECC_A_BN
+            - ECC_B_BN
+            - ECC_CURVE_NAME_STR
+            - ECC_FIELD_SIZE_NUM
+            - ECC_FIELD_TYPE_STR
+            - ECC_FP_P_BN
+            - ECC_G_X_BN
+            - ECC_G_Y_BN
+            - ECC_H_NUM
+            - ECC_N_BN
+            - ECC_PK_X_BN
+            - ECC_PK_Y_BN
+            - ECC_SK_BN
+            - ED25519_PK_BN
+            - ED25519_SK_BN
+            - RSA_N_BN
+            - RSA_PK_BN
+            - RSA_SK_BN
+            - X25519_PK_BN
+            - X25519_SK_BN
+            - func !=(AsyKeySpecItem)
+            - func ==(AsyKeySpecItem)
+            - func toString()
+        - enum AsyKeySpecType
+            - COMMON_PARAMS_SPEC
+            - KEY_PAIR_SPEC
+            - PRIVATE_KEY_SPEC
+            - PUBLIC_KEY_SPEC
+            - func !=(AsyKeySpecType)
+            - func ==(AsyKeySpecType)
+            - func toString()
+        - enum CipherSpecItem
+            - OAEP_MD_NAME_STR
+            - OAEP_MGF1_MD_STR
+            - OAEP_MGF1_PSRC_UINT8ARR
+            - OAEP_MGF_NAME_STR
+            - SM2_MD_NAME_STR
+            - func !=(CipherSpecItem)
+            - func ==(CipherSpecItem)
+            - func toString()
+        - enum CryptoMode
+            - DECRYPT_MODE
+            - ENCRYPT_MODE
+            - func !=(CryptoMode)
+            - func ==(CryptoMode)
+            - func toString()
+        - enum Result
+            - ERR_CRYPTO_OPERATION
+            - ERR_OUT_OF_MEMORY
+            - ERR_RUNTIME_ERROR
+            - INVALID_PARAMS
+            - NOT_SUPPORT
+            - func getValue()
+            - func toString()
+        - enum ResultSpec
+            - BIGINT(BigInt)
+            - NUMBER(Int32)
+            - STRING(String)
+            - UINT8ARR(Array\<UInt8>)
+            - func toString()
+        - enum SignSpecItem
+            - PSS_MD_NAME_STR
+            - PSS_MGF1_MD_STR
+            - PSS_MGF_NAME_STR
+            - PSS_SALT_LEN_NUM
+            - PSS_TRAILER_FIELD_NUM
+            - SM2_USER_ID_UINT8ARR
+            - func !=(SignSpecItem)
+            - func ==(SignSpecItem)
+            - func toString()
+            - [错误码]()
+                - [crypto framework错误码](source_zh_cn/errorcodes/cj-errorcode-crypto.md)
+    API索引列表:
+    - crypto framework错误码
+        - 17620001 内存错误
+        - 17620002 运行时错误
+        - 17630001 算法相关的操作错误，调用三方算法库API出错
+        - [Device Certificate Kit（设备证书服务）]()
+            - [仓颉API]()
+                - [ohos.cert（证书算法库框架）](source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md)
+    API索引列表:
+    - ohos.cert（证书模块）
+        - 导入模块
+                import kit.DeviceCertificateKit.*
+        - 使用说明
+        - func buildX509CertChain(CertChainBuildParameters)
+        - func createCertCRLCollection(Array\<X509Cert>, ?Array\<X509CRL>)
+        - func createCertChainValidator(String)
+        - func createCertExtension(EncodingBlob)
+        - func createTrustAnchorsWithKeyStore(Array\<UInt8>, String)
+        - func createX500DistinguishedName(String)
+        - func createX500DistinguishedName(Array\<UInt8>)
+        - func createX509CRL(EncodingBlob)
+        - func createX509Cert(EncodingBlob)
+        - func createX509CertChain(EncodingBlob)
+        - func createX509CertChain(Array\<X509Cert>)
+        - class CertCRLCollection
+            - func selectCRLs(X509CRLMatchParameters)
+            - func selectCerts(X509CertMatchParameters)
+        - class CertChainBuildParameters
+            - var certMatchParameters
+            - var maxLength
+            - var validationParameters
+            - CertChainBuildParameters(X509CertMatchParameters, CertChainValidationParameters, ?Int32)
+        - class CertChainBuildResult
+            - let certChain
+            - let validationResult
+        - class CertChainData
+            - var count
+            - var data
+            - var encodingFormat
+            - CertChainData(Array\<UInt8>, UInt32, UInt32)
+        - class CertChainValidationParameters
+            - var certCRLs
+            - var date
+            - var keyUsage
+            - var policy
+            - var revocationCheckParam
+            - var sslHostname
+            - let trustAnchors
+            - CertChainValidationParameters(Array\<X509TrustAnchor>)
+        - class CertChainValidationResult
+            - let entityCert
+            - let trustAnchor
+        - class CertChainValidator
+            - let algorithm
+            - func validate(CertChainData)
+        - class CertExtension
+            - func checkCA()
+            - func getEncoded()
+            - func getEntry(ExtensionEntryType, DataBlob)
+            - func getOidList(ExtensionOidType)
+            - func hasUnsupportedCriticalExtension()
+        - class DataBlob
+            - var data
+            - DataBlob(Array\<UInt8>)
+        - class EncodingBlob
+            - var data
+            - var encodingFormat
+            - EncodingBlob(Array\<UInt8>, UInt32)
+        - class GeneralName
+            - var \`type`
+            - var name
+            - GeneralName(GeneralNameType, ?Array\<UInt8>)
+        - class RevocationCheckParameter
+            - var crlDownloadURI
+            - var ocspDigest
+            - var ocspRequestExtension
+            - var ocspResponderCert
+            - var ocspResponderURI
+            - var ocspResponses
+            - var options
+        - class X500DistinguishedName
+            - func getEncoded()
+            - func getName(String)
+            - func getName()
+        - class X509CRL
+            - func getEncoded()
+            - func getExtensions()
+            - func getExtensionsObject()
+            - func getIssuerName()
+            - func getIssuerX500DistinguishedName()
+            - func getLastUpdate()
+            - func getNextUpdate()
+            - func getRevokedCert(BigInt)
+            - func getRevokedCertWithCert(X509Cert)
+            - func getRevokedCerts()
+            - func getSignature()
+            - func getSignatureAlgName()
+            - func getSignatureAlgOid()
+            - func getSignatureAlgParams()
+            - func getTBSInfo()
+            - func getType()
+            - func getVersion()
+            - func hashCode()
+            - func isMatch(X509CRLMatchParameters)
+            - func isRevoked(X509Cert)
+            - func toString()
+            - func verify(PubKey)
+        - class X509CRLEntry
+            - func getCertIssuer()
+            - func getCertIssuerX500DistinguishedName()
+            - func getEncoded()
+            - func getExtensions()
+            - func getExtensionsObject()
+            - func getRevocationDate()
+            - func getSerialNumber()
+            - func hasExtensions()
+            - func hashCode()
+            - func toString()
+        - class X509CRLMatchParameters
+            - var issuer
+            - var maxCRL
+            - var minCRL
+            - var updateDateTime
+            - var x509Cert
+        - class X509Cert
+            - func checkValidityWithDate(String)
+            - func getBasicConstraints()
+            - func getCRLDistributionPoint()
+            - func getCertSerialNumber()
+            - func getEncoded()
+            - func getExtKeyUsage()
+            - func getExtensionsObject()
+            - func getIssuerAltNames()
+            - func getIssuerName()
+            - func getIssuerX500DistinguishedName()
+            - func getItem(CertItemType)
+            - func getKeyUsage()
+            - func getNotAfterTime()
+            - func getNotBeforeTime()
+            - func getPublicKey()
+            - func getSignature()
+            - func getSignatureAlgName()
+            - func getSignatureAlgOid()
+            - func getSignatureAlgParams()
+            - func getSubjectAltNames()
+            - func getSubjectName()
+            - func getSubjectName(EncodingType)
+            - func getSubjectX500DistinguishedName()
+            - func getVersion()
+            - func hashCode()
+            - func isMatch(X509CertMatchParameters)
+            - func toString()
+            - func verify(PubKey)
+        - class X509CertChain
+            - func getCertList()
+            - func hashCode()
+            - func toString()
+            - func validate(CertChainValidationParameters)
+        - class X509CertMatchParameters
+            - var authorityKeyIdentifier
+            - var certPolicy
+            - var extendedKeyUsage
+            - var issuer
+            - var keyUsage
+            - var matchAllSubjectAltNames
+            - var minPathLenConstraint
+            - var nameConstraints
+            - var privateKeyValid
+            - var publicKey
+            - var publicKeyAlgID
+            - var serialNumber
+            - var subject
+            - var subjectAlternativeNames
+            - var subjectKeyIdentifier
+            - var validDate
+            - var x509Cert
+        - class X509TrustAnchor
+            - var CACert
+            - var CAPubKey
+            - var CASubject
+            - var nameConstraints
+            - init()
+        - class CertResult
+            - static const ERR_CERT_HAS_EXPIRED
+            - static const ERR_CERT_NOT_YET_VALID
+            - static const ERR_CERT_SIGNATURE_FAILURE
+            - static const ERR_CRYPTO_OPERATION
+            - static const ERR_KEYUSAGE_NO_CERTSIGN
+            - static const ERR_KEYUSAGE_NO_DIGITAL_SIGNATURE
+            - static const ERR_OUT_OF_MEMORY
+            - static const ERR_RUNTIME_ERROR
+            - static const ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY
+            - static const INVALID_PARAMS
+            - static const NOT_SUPPORT
+            - static const SUCCESS
+        - class EncodingFormat
+            - static const FORMAT_DER
+            - static const FORMAT_PEM
+            - static const FORMAT_PKCS7
+        - enum CertItemType
+            - CERT_ITEM_TYPE_EXTENSIONS
+            - CERT_ITEM_TYPE_ISSUER_UNIQUE_ID
+            - CERT_ITEM_TYPE_PUBLIC_KEY
+            - CERT_ITEM_TYPE_SUBJECT_UNIQUE_ID
+            - CERT_ITEM_TYPE_TBS
+            - func !=(CertItemType)
+            - func ==(CertItemType)
+            - func toString()
+        - enum EncodingType
+            - ENCODING_UTF8
+            - func !=(EncodingType)
+            - func ==(EncodingType)
+            - func toString()
+        - enum ExtensionEntryType
+            - EXTENSION_ENTRY_TYPE_ENTRY
+            - EXTENSION_ENTRY_TYPE_ENTRY_CRITICAL
+            - EXTENSION_ENTRY_TYPE_ENTRY_VALUE
+            - func !=(ExtensionEntryType)
+            - func ==(ExtensionEntryType)
+            - func getValue()
+            - func toString()
+        - enum ExtensionOidType
+            - EXTENSION_OID_TYPE_ALL
+            - EXTENSION_OID_TYPE_CRITICAL
+            - EXTENSION_OID_TYPE_UNCRITICAL
+            - func !=(ExtensionOidType)
+            - func ==(ExtensionOidType)
+            - func getValue()
+            - func toString()
+        - enum GeneralNameType
+            - GENERAL_NAME_TYPE_DIRECTORY_NAME
+            - GENERAL_NAME_TYPE_DNS_NAME
+            - GENERAL_NAME_TYPE_EDI_PARTY_NAME
+            - GENERAL_NAME_TYPE_IP_ADDRESS
+            - GENERAL_NAME_TYPE_OTHER_NAME
+            - GENERAL_NAME_TYPE_REGISTERED_ID
+            - GENERAL_NAME_TYPE_RFC822_NAME
+            - GENERAL_NAME_TYPE_UNIFORM_RESOURCE_ID
+            - GENERAL_NAME_TYPE_X400_ADDRESS
+            - func !=(GeneralNameType)
+            - func ==(GeneralNameType)
+            - func getValue()
+            - func toString()
+        - enum KeyUsageType
+            - KEYUSAGE_CRL_SIGN
+            - KEYUSAGE_DATA_ENCIPHERMENT
+            - KEYUSAGE_DECIPHER_ONLY
+            - KEYUSAGE_DIGITAL_SIGNATURE
+            - KEYUSAGE_ENCIPHER_ONLY
+            - KEYUSAGE_KEY_AGREEMENT
+            - KEYUSAGE_KEY_CERT_SIGN
+            - KEYUSAGE_KEY_ENCIPHERMENT
+            - KEYUSAGE_NON_REPUDIATION
+            - func !=(KeyUsageType)
+            - func ==(KeyUsageType)
+            - func getValue()
+            - func toString()
+        - enum RevocationCheckOptions
+            - REVOCATION_CHECK_OPTION_ACCESS_NETWORK
+            - REVOCATION_CHECK_OPTION_FALLBACK_LOCAL
+            - REVOCATION_CHECK_OPTION_FALLBACK_NO_PREFER
+            - REVOCATION_CHECK_OPTION_PREFER_OCSP
+            - func !=(RevocationCheckOptions)
+            - func ==(RevocationCheckOptions)
+            - func getValue()
+            - func toString()
+        - enum ValidationPolicyType
+            - VALIDATION_POLICY_TYPE_SSL
+            - VALIDATION_POLICY_TYPE_X509
+            - func !=(ValidationPolicyType)
+            - func ==(ValidationPolicyType)
+            - func getValue()
+            - func toString()
+                - [ohos.cert_manager（证书管理模块）](source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert_manager.md)
+    API索引列表:
+    - ohos.cert_manager（证书管理模块）
+        - 导入模块
+                import kit.DeviceCertificateKit.*
+        - 权限列表
+                ohos.permission.ACCESS_CERT_MANAGER
+        - 使用说明
+        - func \`init\`(String, CMSignatureSpec)
+        - func abort(CMHandle)
+        - func finish(CMHandle, Array\<UInt8>)
+        - func finish(CMHandle)
+        - func getAllUserTrustedCertificates()
+        - func getPrivateCertificate(String)
+        - func getPublicCertificate(String)
+        - func getUserTrustedCertificate(String)
+        - func installPrivateCertificate(Array\<UInt8>, String, String)
+        - func isAuthorizedApp(String)
+        - func uninstallPrivateCertificate(String)
+        - func update(CMHandle, Array\<UInt8>)
+        - class CMHandle
+        - class CMSignatureSpec
+            - var digest
+            - var padding
+            - var purpose
+            - CMSignatureSpec(CmKeyPurpose, ?CmKeyPadding, ?CmKeyDigest)
+        - class CertAbstract
+            - let certAlias
+            - let state
+            - let subjectName
+            - let uri
+        - class CertInfo
+            - let cert
+            - let certAlias
+            - let fingerprintSha256
+            - let issuerName
+            - let notAfter
+            - let notBefore
+            - let serial
+            - let state
+            - let subjectName
+            - let uri
+        - class Credential
+            - let alias
+            - let certNum
+            - let credentialData
+            - let credentialType
+            - let keyNum
+            - let keyUri
+        - class CredentialAbstract
+            - let alias
+            - let credentialType
+            - let keyUri
+        - class ErrorCode
+            - static const ALIAS_LENGTH_REACHED_LIMIT
+            - static const DEVICE_ENTER_ADVSECMODE
+            - static const HAS_NO_PERMISSION
+            - static const INNER_FAILURE
+            - static const INVALID_CERT_FORMAT
+            - static const MAX_CERT_COUNT_REACHED
+            - static const NOT_FOUND
+            - static const NOT_SYSTEM_APP
+            - static const NO_AUTHORIZATION
+            - static const PARAM_ERROR
+            - static const PASSWORD_IS_ERROR
+        - enum CmKeyDigest
+            - CM_DIGEST_MD5
+            - CM_DIGEST_NONE
+            - CM_DIGEST_SHA1
+            - CM_DIGEST_SHA224
+            - CM_DIGEST_SHA256
+            - CM_DIGEST_SHA384
+            - CM_DIGEST_SHA512
+            - func !=(CmKeyDigest)
+            - func ==(CmKeyDigest)
+            - func toString()
+        - enum CmKeyPadding
+            - CM_PADDING_NONE
+            - CM_PADDING_PKCS1_V1_5
+            - CM_PADDING_PSS
+            - func !=(CmKeyPadding)
+            - func ==(CmKeyPadding)
+            - func toString()
+        - enum CmKeyPurpose
+            - CM_KEY_PURPOSE_SIGN
+            - CM_KEY_PURPOSE_VERIFY
+            - func !=(CmKeyPurpose)
+            - func ==(CmKeyPurpose)
+            - func toString()
+            - [错误码]()
+                - [证书错误码](source_zh_cn/errorcodes/cj-errorcode-cert-framework.md)
+    API索引列表:
+    - 证书错误码(Cert)
+        - 19020001 内存错误
+        - 19020002 运行时错误
+        - 19030001 算法相关的操作错误，调用三方算法库API出错
+        - 19030002 证书签名验证错误
+        - 19030003 证书尚未生效
+        - 19030004 证书过期
+        - 19030005 无法获取证书的颁发者
+        - 19030006 证书的秘钥用途不包括证书签名
+        - 19030007 证书的秘钥用途不包括数字签名
+                - [证书管理错误码](source_zh_cn/errorcodes/cj-errorcode-cert-manager.md)
+    API索引列表:
+    - 证书管理错误码
+        - 17500001 内部错误
+        - 17500002 证书不存在
+        - 17500003 证书或凭据无效
+        - 17500004 证书或凭据数量达到上限
+        - 17500005 应用未经用户授权
+        - [Universal Keystore Kit（密钥管理服务）]()
+            - [仓颉API]()
+                - [ohos.security_huks（通用密钥库系统）](source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md)
+    API索引列表:
+    - ohos.security_huks（通用密钥库系统）
+        - 导入模块
+                import kit.UniversalKeystoreKit.*
+        - 使用说明
+        - func abortSession(HuksHandle, HuksOptions)
+        - func anonAttestKeyItem(String, HuksOptions)
+        - func attestKeyItem(String, HuksOptions)
+        - func deleteKeyItem(String, HuksOptions)
+        - func exportKeyItem(String, HuksOptions)
+        - func finishSession(HuksHandle, HuksOptions)
+        - func finishSession(HuksHandle, HuksOptions, Array\<UInt8>)
+        - func generateKeyItem(String, HuksOptions)
+        - func getKeyItemProperties(String, HuksOptions)
+        - func getSdkVersion()
+        - func importKeyItem(String, HuksOptions)
+        - func importWrappedKeyItem(String, String, HuksOptions)
+        - func initSession(String, HuksOptions)
+        - func isKeyItemExist(String, HuksOptions)
+        - func listAliases(HuksOptions)
+        - func updateSession(HuksHandle, HuksOptions)
+        - func updateSession(HuksHandle, HuksOptions, Array\<UInt8>)
+        - class HuksAuthAccessType
+            - static const HUKS_AUTH_ACCESS_ALWAYS_VALID
+            - static const HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD
+            - static const HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL
+        - class HuksAuthStorageLevel
+            - static const HUKS_AUTH_STORAGE_LEVEL_CE
+            - static const HUKS_AUTH_STORAGE_LEVEL_DE
+            - static const HUKS_AUTH_STORAGE_LEVEL_ECE
+        - class HuksChallengePosition
+            - static const HUKS_CHALLENGE_POS_0
+            - static const HUKS_CHALLENGE_POS_1
+            - static const HUKS_CHALLENGE_POS_2
+            - static const HUKS_CHALLENGE_POS_3
+        - class HuksChallengeType
+            - static const HUKS_CHALLENGE_TYPE_CUSTOM
+            - static const HUKS_CHALLENGE_TYPE_NONE
+            - static const HUKS_CHALLENGE_TYPE_NORMAL
+        - class HuksCipherMode
+            - static const HUKS_MODE_CBC
+            - static const HUKS_MODE_CCM
+            - static const HUKS_MODE_CFB
+            - static const HUKS_MODE_CTR
+            - static const HUKS_MODE_ECB
+            - static const HUKS_MODE_GCM
+            - static const HUKS_MODE_OFB
+        - class HuksExceptionErrCode
+            - static const HUKS_ERR_CODE_CALL_SERVICE_FAILED
+            - static const HUKS_ERR_CODE_COMMUNICATION_FAIL
+            - static const HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST
+            - static const HUKS_ERR_CODE_CRYPTO_FAIL
+            - static const HUKS_ERR_CODE_EXTERNAL_ERROR
+            - static const HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED
+            - static const HUKS_ERR_CODE_FILE_OPERATION_FAIL
+            - static const HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+            - static const HUKS_ERR_CODE_INSUFFICIENT_MEMORY
+            - static const HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+            - static const HUKS_ERR_CODE_ITEM_NOT_EXIST
+            - static const HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED
+            - static const HUKS_ERR_CODE_KEY_AUTH_TIME_OUT
+            - static const HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED
+            - static const HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+            - static const HUKS_ERR_CODE_NOT_SUPPORTED_API
+            - static const HUKS_ERR_CODE_NOT_SYSTEM_APP
+            - static const HUKS_ERR_CODE_PERMISSION_FAIL
+            - static const HUKS_ERR_CODE_SESSION_LIMIT
+        - class HuksHandle
+        - class HuksImportKeyType
+            - static const HUKS_KEY_TYPE_KEY_PAIR
+            - static const HUKS_KEY_TYPE_PRIVATE_KEY
+            - static const HUKS_KEY_TYPE_PUBLIC_KEY
+        - class HuksKeyAlg
+            - static const HUKS_ALG_3DES
+            - static const HUKS_ALG_AES
+            - static const HUKS_ALG_CMAC
+            - static const HUKS_ALG_DES
+            - static const HUKS_ALG_DH
+            - static const HUKS_ALG_DSA
+            - static const HUKS_ALG_ECC
+            - static const HUKS_ALG_ECDH
+            - static const HUKS_ALG_ED25519
+            - static const HUKS_ALG_HKDF
+            - static const HUKS_ALG_HMAC
+            - static const HUKS_ALG_PBKDF2
+            - static const HUKS_ALG_RSA
+            - static const HUKS_ALG_SM2
+            - static const HUKS_ALG_SM3
+            - static const HUKS_ALG_SM4
+            - static const HUKS_ALG_X25519
+        - class HuksKeyDigest
+            - static const HUKS_DIGEST_MD5
+            - static const HUKS_DIGEST_NONE
+            - static const HUKS_DIGEST_SHA1
+            - static const HUKS_DIGEST_SHA224
+            - static const HUKS_DIGEST_SHA256
+            - static const HUKS_DIGEST_SHA384
+            - static const HUKS_DIGEST_SHA512
+            - static const HUKS_DIGEST_SM3
+        - class HuksKeyFlag
+            - static const HUKS_KEY_FLAG_AGREE_KEY
+            - static const HUKS_KEY_FLAG_DERIVE_KEY
+            - static const HUKS_KEY_FLAG_GENERATE_KEY
+            - static const HUKS_KEY_FLAG_IMPORT_KEY
+        - class HuksKeyGenerateType
+            - static const HUKS_KEY_GENERATE_TYPE_AGREE
+            - static const HUKS_KEY_GENERATE_TYPE_DEFAULT
+            - static const HUKS_KEY_GENERATE_TYPE_DERIVE
+        - class HuksKeyPadding
+            - static const HUKS_PADDING_ISO_IEC_9796_2
+            - static const HUKS_PADDING_ISO_IEC_9797_1
+            - static const HUKS_PADDING_NONE
+            - static const HUKS_PADDING_OAEP
+            - static const HUKS_PADDING_PKCS1_V1_5
+            - static const HUKS_PADDING_PKCS5
+            - static const HUKS_PADDING_PKCS7
+            - static const HUKS_PADDING_PSS
+        - class HuksKeyPurpose
+            - static const HUKS_KEY_PURPOSE_AGREE
+            - static const HUKS_KEY_PURPOSE_DECRYPT
+            - static const HUKS_KEY_PURPOSE_DERIVE
+            - static const HUKS_KEY_PURPOSE_ENCRYPT
+            - static const HUKS_KEY_PURPOSE_MAC
+            - static const HUKS_KEY_PURPOSE_SIGN
+            - static const HUKS_KEY_PURPOSE_UNWRAP
+            - static const HUKS_KEY_PURPOSE_VERIFY
+            - static const HUKS_KEY_PURPOSE_WRAP
+        - class HuksKeySize
+            - static const HUKS_3DES_KEY_SIZE_128
+            - static const HUKS_3DES_KEY_SIZE_192
+            - static const HUKS_AES_KEY_SIZE_128
+            - static const HUKS_AES_KEY_SIZE_192
+            - static const HUKS_AES_KEY_SIZE_256
+            - static const HUKS_AES_KEY_SIZE_512
+            - static const HUKS_CURVE25519_KEY_SIZE_256
+            - static const HUKS_DES_KEY_SIZE_64
+            - static const HUKS_DH_KEY_SIZE_2048
+            - static const HUKS_DH_KEY_SIZE_3072
+            - static const HUKS_DH_KEY_SIZE_4096
+            - static const HUKS_ECC_KEY_SIZE_224
+            - static const HUKS_ECC_KEY_SIZE_256
+            - static const HUKS_ECC_KEY_SIZE_384
+            - static const HUKS_ECC_KEY_SIZE_521
+            - static const HUKS_RSA_KEY_SIZE_1024
+            - static const HUKS_RSA_KEY_SIZE_2048
+            - static const HUKS_RSA_KEY_SIZE_3072
+            - static const HUKS_RSA_KEY_SIZE_4096
+            - static const HUKS_RSA_KEY_SIZE_512
+            - static const HUKS_RSA_KEY_SIZE_768
+            - static const HUKS_SM2_KEY_SIZE_256
+            - static const HUKS_SM4_KEY_SIZE_128
+        - class HuksKeyStorageType
+            - static const HUKS_STORAGE_KEY_EXPORT_ALLOWED
+            - static const HUKS_STORAGE_ONLY_USED_IN_HUKS
+            - static const HUKS_STORAGE_PERSISTENT <sup>(deprecated)</sup>
+            - static const HUKS_STORAGE_TEMP <sup>(deprecated)</sup>
+        - class HuksOptions
+            - static let NONE
+            - var inData
+            - var properties
+            - HuksOptions(Option\<Array\<HuksParam>>, Option\<Array\<UInt8>>)
+        - class HuksParam
+            - let tag
+            - let value
+            - HuksParam(HuksTag, HuksParamValue)
+        - class HuksReturnResult
+            - let certChains
+            - let outData
+            - let properties
+            - HuksReturnResult(Option\<Array\<UInt8>>, Option\<Array\<HuksParam>>, Option\<Array\<String>>)
+        - class HuksRsaPssSaltLenType
+            - static const HUKS_RSA_PSS_SALT_LEN_DIGEST
+            - static const HUKS_RSA_PSS_SALT_LEN_MAX
+        - class HuksSecureSignType
+            - static const HUKS_SECURE_SIGN_WITH_AUTHINFO
+        - class HuksSendType
+            - static const HUKS_SEND_TYPE_ASYNC
+            - static const HUKS_SEND_TYPE_SYNC
+        - class HuksSessionHandle
+            - let challenge
+            - let handle
+            - HuksSessionHandle(HuksHandle, Option\<Array\<UInt8>>)
+        - class HuksTagType
+            - static const HUKS_TAG_TYPE_BOOL
+            - static const HUKS_TAG_TYPE_BYTES
+            - static const HUKS_TAG_TYPE_INT
+            - static const HUKS_TAG_TYPE_INVALID
+            - static const HUKS_TAG_TYPE_UINT
+            - static const HUKS_TAG_TYPE_ULONG
+        - class HuksUnwrapSuite
+            - static const HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING
+            - static const HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING
+        - class HuksUserAuthMode
+            - static const HUKS_USER_AUTH_MODE_COAUTH
+            - static const HUKS_USER_AUTH_MODE_LOCAL
+        - class HuksUserAuthType
+            - static const HUKS_USER_AUTH_TYPE_FACE
+            - static const HUKS_USER_AUTH_TYPE_FINGERPRINT
+            - static const HUKS_USER_AUTH_TYPE_PIN
+        - enum HuksParamValue
+            - boolean(Bool)
+            - int32(Int32)
+            - uint32(UInt32)
+            - uint64(UInt64)
+            - bytes(Array\<UInt8>)
+            - func toBool()
+            - func toBytes()
+            - func toInt32()
+            - func toUInt32()
+            - func toUInt64()
+            - func |(HuksParamValue)
+        - enum HuksTag
+            - HUKS_TAGS_CANGJIE_UNKNOWN(UInt32)
+            - HUKS_TAG_ACCESS_TIME <sup>(deprecated)</sup>
+            - HUKS_TAG_ACTIVE_DATETIME <sup>(deprecated)</sup>
+            - HUKS_TAG_AE_TAG
+            - HUKS_TAG_AGREE_ALG
+            - HUKS_TAG_AGREE_PRIVATE_KEY_ALIAS
+            - HUKS_TAG_AGREE_PUBLIC_KEY
+            - HUKS_TAG_AGREE_PUBLIC_KEY_IS_KEY_ALIAS
+            - HUKS_TAG_ALGORITHM
+            - HUKS_TAG_ALL_USERS
+            - HUKS_TAG_ASSOCIATED_DATA
+            - HUKS_TAG_ASYMMETRIC_PRIVATE_KEY_DATA
+            - HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA
+            - HUKS_TAG_ATTESTATION_APPLICATION_ID
+            - HUKS_TAG_ATTESTATION_APPLICATION_ID_TYPE
+            - HUKS_TAG_ATTESTATION_BASE64
+            - HUKS_TAG_ATTESTATION_CHALLENGE
+            - HUKS_TAG_ATTESTATION_ID_ALIAS
+            - HUKS_TAG_ATTESTATION_ID_BRAND <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_DEVICE <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_IMEI <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_MANUFACTURER <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_MEID <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_MODEL <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_PRODUCT <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_SEC_LEVEL_INFO
+            - HUKS_TAG_ATTESTATION_ID_SERIAL <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_SOCID <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_UDID <sup>(deprecated)</sup>
+            - HUKS_TAG_ATTESTATION_ID_VERSION_INFO
+            - HUKS_TAG_ATTESTATION_MODE
+            - HUKS_TAG_AUTH_STORAGE_LEVEL
+            - HUKS_TAG_AUTH_TIMEOUT
+            - HUKS_TAG_AUTH_TOKEN
+            - HUKS_TAG_BLOCK_MODE
+            - HUKS_TAG_CHALLENGE_POS
+            - HUKS_TAG_CHALLENGE_TYPE
+            - HUKS_TAG_CREATION_DATETIME <sup>(deprecated)</sup>
+            - HUKS_TAG_CRYPTO_CTX <sup>(deprecated)</sup>
+            - HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG
+            - HUKS_TAG_DERIVE_ALG <sup>(deprecated)</sup>
+            - HUKS_TAG_DERIVE_FACTOR <sup>(deprecated)</sup>
+            - HUKS_TAG_DERIVE_KEY_SIZE
+            - HUKS_TAG_DERIVE_MAIN_KEY <sup>(deprecated)</sup>
+            - HUKS_TAG_DIGEST
+            - HUKS_TAG_IMPORT_KEY_TYPE
+            - HUKS_TAG_INFO
+            - HUKS_TAG_INVALID <sup>(deprecated)</sup>
+            - HUKS_TAG_IS_ALLOWED_WRAP
+            - HUKS_TAG_IS_ASYNCHRONIZED
+            - HUKS_TAG_IS_KEY_ALIAS
+            - HUKS_TAG_IS_KEY_HANDLE <sup>(deprecated)</sup>
+            - HUKS_TAG_ITERATION
+            - HUKS_TAG_IV
+            - HUKS_TAG_KEY
+            - HUKS_TAG_KEY_ALIAS
+            - HUKS_TAG_KEY_AUTH_ACCESS_TYPE
+            - HUKS_TAG_KEY_AUTH_ID
+            - HUKS_TAG_KEY_AUTH_PURPOSE
+            - HUKS_TAG_KEY_DOMAIN
+            - HUKS_TAG_KEY_FLAG
+            - HUKS_TAG_KEY_GENERATE_TYPE
+            - HUKS_TAG_KEY_ROLE
+            - HUKS_TAG_KEY_SECURE_SIGN_TYPE
+            - HUKS_TAG_KEY_SIZE
+            - HUKS_TAG_KEY_STORAGE_FLAG
+            - HUKS_TAG_KEY_TYPE
+            - HUKS_TAG_KEY_VERSION <sup>(deprecated)</sup>
+            - HUKS_TAG_KEY_WRAP_TYPE
+            - HUKS_TAG_NONCE
+            - HUKS_TAG_NO_AUTH_REQUIRED
+            - HUKS_TAG_ORIGINATION_EXPIRE_DATETIME <sup>(deprecated)</sup>
+            - HUKS_TAG_OS_PATCHLEVEL <sup>(deprecated)</sup>
+            - HUKS_TAG_OS_VERSION <sup>(deprecated)</sup>
+            - HUKS_TAG_PACKAGE_NAME <sup>(deprecated)</sup>
+            - HUKS_TAG_PADDING
+            - HUKS_TAG_PAYLOAD_LEN <sup>(deprecated)</sup>
+            - HUKS_TAG_PROCESS_NAME <sup>(deprecated)</sup>
+            - HUKS_TAG_PURPOSE
+            - HUKS_TAG_PWD <sup>(deprecated)</sup>
+            - HUKS_TAG_RSA_PSS_SALT_LEN_TYPE
+            - HUKS_TAG_SALT
+            - HUKS_TAG_SECURE_KEY_ALIAS <sup>(deprecated)</sup>
+            - HUKS_TAG_SECURE_KEY_UUID <sup>(deprecated)</sup>
+            - HUKS_TAG_SYMMETRIC_KEY_DATA
+            - HUKS_TAG_UNWRAP_ALGORITHM_SUITE
+            - HUKS_TAG_USAGE_EXPIRE_DATETIME <sup>(deprecated)</sup>
+            - HUKS_TAG_USER_AUTH_MODE
+            - HUKS_TAG_USER_AUTH_TYPE
+            - HUKS_TAG_USER_ID
+            - HUKS_TAG_USES_TIME <sup>(deprecated)</sup>
+            - static func parse(UInt32)
+            - func getValue()
+            - [错误码]()
+                - [huks错误码](source_zh_cn/errorcodes/cj-errorcode-huks.md)
+    API索引列表:
+    - HUKS错误码
+        - 12000001 该子功能不支持（特性）
+        - 12000002 缺少密钥算法参数
+        - 12000003 无效的密钥算法参数
+        - 12000004 文件错误
+        - 12000005 进程通信错误
+        - 12000006 算法库操作失败
+        - 12000007 密钥访问失败 - 密钥已失效
+        - 12000008 密钥访问失败 - 密钥认证失败
+        - 12000009 密钥访问失败 - 密钥访问超时
+        - 12000010 密钥操作会话数已达上限
+        - 12000011 目标对象不存在
+        - 12000012 外部错误
+        - 12000013 密钥设置生物访问控制时，待绑定的凭据不存在
+        - 12000014 内存不足
+        - 12000015 调用其他系统服务失败
+        - 12000016 需要锁屏密码但未设置
+        - [User Authentication Kit（用户认证服务）]()
+            - [仓颉API]()
+                - [ohos.user_auth（用户认证）](source_zh_cn/apis/UserAuthenticationKit/cj-apis-user_auth.md)
+    API索引列表:
+    - ohos.user_auth（用户认证）
+        - 导入模块
+                import kit.UserAuthenticationKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BIOMETRIC
+        - 使用说明
+        - func getAvailableStatus(UserAuthType, AuthTrustLevel)
+        - func getEnrolledState(UserAuthType)
+        - func getUserAuthInstance(AuthParam, WidgetParam)
+        - class AuthParam
+            - let authTrustLevel
+            - let authType
+            - let challenge
+            - let reuseUnlockResult
+            - AuthParam(Array\<Byte>, Array\<UserAuthType>, AuthTrustLevel, ?ReuseUnlockResult)
+        - class EnrolledState
+            - let credentialCount
+            - let credentialDigest
+        - class ReuseUnlockResult
+            - let reuseDuration
+            - let reuseMode
+            - ReuseUnlockResult(ReuseMode, UInt64)
+        - class UserAuthInstance
+            - func cancel()
+            - func off(String)
+            - func on(String, (UserAuthResult) -> Unit)
+            - func start()
+        - class UserAuthResult
+            - let authType
+            - let enrolledState
+            - let result
+            - let token
+        - class WidgetParam
+            - let navigationButtonText
+            - let title
+            - WidgetParam(String, ?String)
+        - class UserAuthResultCode
+            - static const BUSY
+            - static const CANCELED
+            - static const CANCELED_FROM_WIDGET
+            - static const FAIL
+            - static const GENERAL_ERROR
+            - static const HARDWARE_NOT_SUPPORTED
+            - static const LOCKED
+            - static const NOT_ENROLLED
+            - static const OHOS_CHECK_PERMISSION_FAILED
+            - static const OHOS_CHECK_SYSTEM_APP_FAILED
+            - static const OHOS_INVALID_PARAM
+            - static const PIN_EXPIRED
+            - static const SUCCESS
+            - static const TIMEOUT
+            - static const TRUST_LEVEL_NOT_SUPPORT
+            - static const TYPE_NOT_SUPPORT
+        - enum AuthTrustLevel
+            - ATL1
+            - ATL2
+            - ATL3
+            - ATL4
+            - func getValue()
+        - enum ReuseMode
+            - AUTH_TYPE_IRRELEVANT
+            - AUTH_TYPE_RELEVANT
+            - func getValue()
+        - enum UserAuthType
+            - FACE
+            - FINGERPRINT
+            - PIN
+            - func getValue()
+            - [错误码]()
+                - [用户认证错误码](source_zh_cn/errorcodes/cj-errorcode-user-auth.md)
+    API索引列表:
+    - 用户认证错误码
+        - 12500001 认证失败
+        - 12500002 一般的操作错误
+        - 12500003 认证被取消
+        - 12500004 认证操作超时
+        - 12500005 认证类型不支持
+        - 12500006 认证信任等级不支持
+        - 12500007 认证服务已经繁忙
+        - 12500009 认证被锁定
+        - 12500010 该类型的凭据没有录入
+        - 12500011 提示/通知切换自定义认证
+        - 12500013 密码过期
+    - [网络]()
+        - [Connectivity Kit（短距通信服务）]()
+            - [仓颉API]()
+                - [ohos.bluetooth.a2dp（蓝牙a2dp模块）](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-a2dp.md)
+    API索引列表:
+    - ohos.bluetooth.a2dp（蓝牙a2dp模块）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BLUETOOTH
+        - 使用说明
+        - func createA2dpSrcProfile()
+        - class A2dpSourceProfile
+            - func getConnectedDevices()
+            - func getConnectionState(String)
+            - func getPlayingState(String)
+            - func off(ProfileCallbackType, CallbackObject)
+            - func off(ProfileCallbackType)
+            - func on(ProfileCallbackType, Callback1Argument\<StateChangeParam>)
+        - class CodecInfo
+            - var codecBitsPerSample
+            - var codecChannelMode
+            - var codecSampleRate
+            - var codecType
+        - enum CodecBitsPerSample
+            - CODEC_BITS_PER_SAMPLE_16
+            - CODEC_BITS_PER_SAMPLE_24
+            - CODEC_BITS_PER_SAMPLE_32
+            - CODEC_BITS_PER_SAMPLE_NONE
+            - func !=(CodecBitsPerSample)
+            - func ==(CodecBitsPerSample)
+            - func toString()
+        - enum CodecChannelMode
+            - CODEC_CHANNEL_MODE_MONO
+            - CODEC_CHANNEL_MODE_NONE
+            - CODEC_CHANNEL_MODE_STEREO
+            - func !=(CodecChannelMode)
+            - func ==(CodecChannelMode)
+            - func toString()
+        - enum CodecSampleRate
+            - CODEC_SAMPLE_RATE_176400
+            - CODEC_SAMPLE_RATE_192000
+            - CODEC_SAMPLE_RATE_44100
+            - CODEC_SAMPLE_RATE_48000
+            - CODEC_SAMPLE_RATE_88200
+            - CODEC_SAMPLE_RATE_96000
+            - CODEC_SAMPLE_RATE_NONE
+            - func !=(CodecSampleRate)
+            - func ==(CodecSampleRate)
+            - func toString()
+        - enum CodecType
+            - CODEC_TYPE_AAC
+            - CODEC_TYPE_INVALID
+            - CODEC_TYPE_L2HC
+            - CODEC_TYPE_SBC
+            - func !=(CodecType)
+            - func ==(CodecType)
+            - func toString()
+        - enum PlayingState
+            - STATE_NOT_PLAYING
+            - STATE_PLAYING
+            - func !=(PlayingState)
+            - func ==(PlayingState)
+            - func toString()
+                - [ohos.bluetooth.access（蓝牙access模块）](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-access.md)
+    API索引列表:
+    - ohos.bluetooth.access（蓝牙access模块）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BLUETOOTH
+        - 使用说明
+        - func disableBluetooth()
+        - func enableBluetooth()
+        - func getState()
+        - func off(BluetoothAccessCallbackType, ?CallbackObject)
+        - func on(BluetoothAccessCallbackType, Callback1Argument\<BluetoothState>)
+        - enum BluetoothAccessCallbackType
+            - STATE_CHANGE
+            - func !=(BluetoothAccessCallbackType)
+            - func ==(BluetoothAccessCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum BluetoothState
+            - STATE_BLE_ON
+            - STATE_BLE_TURNING_OFF
+            - STATE_BLE_TURNING_ON
+            - STATE_OFF
+            - STATE_ON
+            - STATE_TURNING_OFF
+            - STATE_TURNING_ON
+            - func !=(BluetoothState)
+            - func ==(BluetoothState)
+            - func toString()
+                - [ohos.bluetooth.baseProfile（蓝牙baseProfile模块）](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-baseProfile.md)
+    API索引列表:
+    - ohos.bluetooth.baseProfile（蓝牙baseProfile模块）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BLUETOOTH
+        - 使用说明
+        - interface BaseProfile
+            - func getConnectedDevices()
+            - func getConnectionState(String)
+            - func off(ProfileCallbackType, CallbackObject)
+            - func off(ProfileCallbackType)
+            - func on(ProfileCallbackType, Callback1Argument\<StateChangeParam>)
+        - class StateChangeParam
+            - let cause
+            - let deviceId
+            - let state
+        - enum DisconnectCause
+            - CONNECT_FAIL_INTERNAL
+            - CONNECT_FROM_CAR
+            - CONNECT_FROM_KEYBOARD
+            - CONNECT_FROM_MOUSE
+            - TOO_MANY_CONNECTED_DEVICES
+            - USER_DISCONNECT
+            - func !=(DisconnectCause)
+            - func ==(DisconnectCause)
+            - func toString()
+        - enum ProfileCallbackType
+            - CONNECTION_STATE_CHANGE
+            - func !=(ProfileCallbackType)
+            - func ==(ProfileCallbackType)
+            - func hashCode()
+            - func toString()
+                - [ohos.bluetooth.ble（蓝牙ble模块）](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-ble.md)
+    API索引列表:
+    - ohos.bluetooth.ble（蓝牙ble模块）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BLUETOOTH
+        - 使用说明
+        - func createGattClientDevice(String)
+        - func createGattServer()
+        - func disableAdvertising(AdvertisingDisableParams)
+        - func enableAdvertising(AdvertisingEnableParams)
+        - func getConnectedBLEDevices()
+        - func off(BluetoothBleCallbackType, ?CallbackObject)
+        - func on(BluetoothBleCallbackType, Callback1Argument\<AdvertisingStateChangeInfo>)
+        - func on(BluetoothBleCallbackType, Callback1Argument\<Array\<ScanResult>>)
+        - func startAdvertising(AdvertiseSetting, AdvertiseData, ?AdvertiseData)
+        - func startAdvertising(AdvertisingParams)
+        - func startBLEScan(Array\<ScanFilter>, ?ScanOptions)
+        - func stopAdvertising()
+        - func stopAdvertising(UInt32)
+        - func stopBLEScan()
+        - class AdvertiseData
+            - var includeDeviceName
+            - var manufactureData
+            - var serviceData
+            - var serviceUuids
+            - AdvertiseData(Array\<String>, Array\<ManufactureData>, Array\<ServiceData>, Bool)
+        - class AdvertiseSetting
+            - var connectable
+            - var interval
+            - var txPower
+            - init(UInt16, Int8, Bool)
+        - class AdvertisingDisableParams
+            - var advertisingId
+            - AdvertisingDisableParams(UInt32)
+        - class AdvertisingEnableParams
+            - var advertisingId
+            - var duration
+            - AdvertisingEnableParams(UInt32, UInt16)
+        - class AdvertisingParams
+            - var advertisingData
+            - var advertisingResponse
+            - var advertisingSettings
+            - var duration
+            - AdvertisingParams(AdvertiseSetting, AdvertiseData, AdvertiseData, UInt16)
+        - class AdvertisingStateChangeInfo
+            - var advertisingId
+            - var state
+        - class BLECharacteristic
+            - var characteristicUuid
+            - var characteristicValue
+            - var descriptors
+            - var properties
+            - var serviceUuid
+            - BLECharacteristic(String, String, Array\<Byte>, Array\<BLEDescriptor>, GattProperties)
+        - class BLEConnectionChangeState
+            - var state
+            - let deviceId
+            - BLEConnectionChangeState(String, ProfileConnectionState)
+        - class BLEDescriptor
+            - var characteristicUuid
+            - var descriptorUuid
+            - var descriptorValue
+            - var serviceUuid
+            - BLEDescriptor(String, String, String, Array\<Byte>)
+        - class CharacteristicReadRequest
+            - let characteristicUuid
+            - let deviceId
+            - let offset
+            - let serviceUuid
+            - let transId
+            - CharacteristicReadRequest(String, Int32, Int32, String, String)
+        - class CharacteristicWriteRequest
+            - let characteristicUuid
+            - let deviceId
+            - let isPrepared
+            - let needRsp
+            - let offset
+            - let serviceUuid
+            - let transId
+            - let value
+            - CharacteristicWriteRequest(String, Int32, Int32, Bool, Bool, Array\<Byte>, String, String)
+        - class DescriptorReadRequest
+            - let characteristicUuid
+            - let descriptorUuid
+            - let deviceId
+            - let offset
+            - let serviceUuid
+            - let transId
+            - DescriptorReadRequest(String, Int32, Int32, String, String, String)
+        - class DescriptorWriteRequest
+            - let characteristicUuid
+            - let descriptorUuid
+            - let deviceId
+            - let isPrepared
+            - let needRsp
+            - let offset
+            - let serviceUuid
+            - let transId
+            - let value
+            - DescriptorWriteRequest(String, Int32, Int32, Bool, Bool, Array\<Byte>, String, String, String)
+        - class GattClientDevice
+            - func close()
+            - func connect()
+            - func disconnect()
+            - func getDeviceName()
+            - func getRssiValue((?BusinessException,?Int32) -> Unit)
+            - func getServices()
+            - func off(BluetoothBleGattClientDeviceCallbackType, ?CallbackObject)
+            - func on(BluetoothBleGattClientDeviceCallbackType, Callback1Argument\<BLECharacteristic>)
+            - func on(BluetoothBleGattClientDeviceCallbackType, Callback1Argument\<BLEConnectionChangeState>)
+            - func on(BluetoothBleGattClientDeviceCallbackType, Callback1Argument\<Int32>)
+            - func readCharacteristicValue(BLECharacteristic, (?BusinessException,?BLECharacteristic) -> Unit)
+            - func readDescriptorValue(BLEDescriptor, (?BusinessException,?BLEDescriptor) -> Unit)
+            - func setBLEMtuSize(Int32)
+            - func setCharacteristicChangeIndication(BLECharacteristic, Bool)
+            - func setCharacteristicChangeNotification(BLECharacteristic, Bool)
+            - func writeCharacteristicValue(BLECharacteristic, GattWriteType, (?BusinessException) -> Unit)
+            - func writeDescriptorValue(BLEDescriptor, (?BusinessException) -> Unit)
+        - class GattProperties
+            - GattProperties(Bool, Bool, Bool, Bool, Bool)
+        - class GattServer
+            - func addService(GattService)
+            - func close()
+            - func notifyCharacteristicChanged(String, NotifyCharacteristic)
+            - func off(BluetoothBleGattServerCallbackType, ?CallbackObject)
+            - func on(BluetoothBleGattServerCallbackType, Callback1Argument\<CharacteristicReadRequest>)
+            - func on(BluetoothBleGattServerCallbackType, Callback1Argument\<CharacteristicWriteRequest>)
+            - func on(BluetoothBleGattServerCallbackType, Callback1Argument\<DescriptorReadRequest>)
+            - func on(BluetoothBleGattServerCallbackType, Callback1Argument\<DescriptorWriteRequest>)
+            - func on(BluetoothBleGattServerCallbackType, Callback1Argument\<BLEConnectionChangeState>)
+            - func on(BluetoothBleGattServerCallbackType, Callback1Argument\<Int32>)
+            - func removeService(String)
+            - func sendResponse(ServerResponse)
+        - class GattService
+            - var characteristics
+            - var includeServices
+            - var isPrimary
+            - var serviceUuid
+            - GattService(String, Bool, Array\<BLECharacteristic>, Array\<GattService>)
+        - class ManufactureData
+            - var manufactureId
+            - var manufactureValue
+            - ManufactureData(UInt16, Array\<Byte>)
+        - class NotifyCharacteristic
+            - var characteristicUuid
+            - var characteristicValue
+            - var confirm
+            - var serviceUuid
+            - NotifyCharacteristic(String, String, Array\<Byte>, Bool)
+        - class ScanFilter
+            - var deviceId
+            - var manufactureData
+            - var manufactureDataMask
+            - var manufactureId
+            - var name
+            - var serviceData
+            - var serviceDataMask
+            - var serviceSolicitationUuid
+            - var serviceSolicitationUuidMask
+            - var serviceUuid
+            - var serviceUuidMask
+            - init()
+        - class ScanOptions
+            - var dutyMode
+            - var interval
+            - var matchMode
+            - var phyType
+            - init(Int32, ScanDuty, MatchMode, PhyType)
+        - class ScanResult
+            - let connectable
+            - let data
+            - let deviceId
+            - let deviceName
+            - let rssi
+        - class ServerResponse
+            - let deviceId
+            - let offset
+            - let status
+            - let transId
+            - let value
+            - ServerResponse(String, Int32, Int32, Int32, Array\<Byte>)
+        - class ServiceData
+            - var serviceUuid
+            - var serviceValue
+            - ServiceData(String, Array\<Byte>)
+        - enum AdvertisingState
+            - DISABLED
+            - ENABLED
+            - STARTED
+            - STOPPED
+            - func !=(AdvertisingState)
+            - func ==(AdvertisingState)
+            - func toString()
+        - enum BluetoothBleCallbackType
+            - ADVERTISING_STATE_CHANGE
+            - BLE_DEVICE_FIND
+            - func !=(BluetoothBleCallbackType)
+            - func ==(BluetoothBleCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum BluetoothBleGattClientDeviceCallbackType
+            - BLE_CHARACTERISTIC_CHANGE
+            - BLE_CONNECTION_STATE_CHANGE
+            - BLE_MTU_CHANGE
+            - func !=(BluetoothBleGattClientDeviceCallbackType)
+            - func ==(BluetoothBleGattClientDeviceCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum BluetoothBleGattServerCallbackType
+            - BLE_MTU_CHANGE
+            - CHARACTERISTIC_READ
+            - CHARACTERISTIC_WRITE
+            - CONNECTION_STATE_CHANGE
+            - DESCRIPTOR_READ
+            - DESCRIPTOR_WRITE
+            - func !=(BluetoothBleGattServerCallbackType)
+            - func ==(BluetoothBleGattServerCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum GattWriteType
+            - WRITE
+            - WRITE_NO_RESPONSE
+            - func !=(GattWriteType)
+            - func ==(GattWriteType)
+            - func toString()
+        - enum MatchMode
+            - MATCH_MODE_AGGRESSIVE
+            - MATCH_MODE_STICKY
+            - func !=(MatchMode)
+            - func ==(MatchMode)
+            - func toString()
+        - enum PhyType
+            - PHY_LE_1M
+            - PHY_LE_ALL_SUPPORTED
+            - func !=(PhyType)
+            - func ==(PhyType)
+            - func toString()
+        - enum ScanDuty
+            - SCAN_MODE_BALANCED
+            - SCAN_MODE_LOW_LATENCY
+            - SCAN_MODE_LOW_POWER
+            - func !=(ScanDuty)
+            - func ==(ScanDuty)
+            - func toString()
+                - [ohos.bluetooth.connection（蓝牙connection模块）](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-connection.md)
+    API索引列表:
+    - ohos.bluetooth.connection（蓝牙connection模块）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BLUETOOTH
+        - 使用说明
+        - func getBluetoothScanMode()
+        - func getLocalName()
+        - func getPairState(String)
+        - func getPairedDevices()
+        - func getProfileConnectionState(?ProfileId)
+        - func getRemoteDeviceBatteryInfo(String)
+        - func getRemoteDeviceClass(String)
+        - func getRemoteDeviceName(String)
+        - func getRemoteProfileUuids(String)
+        - func isBluetoothDiscovering()
+        - func off(BluetoothConnectionCallbackType, ?CallbackObject)
+        - func on(BluetoothConnectionCallbackType, Callback1Argument\<BatteryInfo>)
+        - func on(BluetoothConnectionCallbackType, Callback1Argument\<Array\<String>>)
+        - func on(BluetoothConnectionCallbackType, Callback1Argument\<BondStateParam>)
+        - func on(BluetoothConnectionCallbackType, Callback1Argument\<PinRequiredParam>)
+        - func pairDevice(String)
+        - func setBluetoothScanMode(ScanMode, Int32)
+        - func setDevicePairingConfirmation(String, Bool)
+        - func setDevicePinCode(String, String)
+        - func setLocalName(String)
+        - func setRemoteDeviceName(String, String)
+        - func startBluetoothDiscovery()
+        - func stopBluetoothDiscovery()
+        - class BatteryInfo
+            - let batteryLevel
+            - let boxBatteryLevel
+            - let boxChargeState
+            - let leftEarBatteryLevel
+            - let leftEarChargeState
+            - let rightEarBatteryLevel
+            - let rightEarChargeState
+        - class BondStateParam
+            - let cause
+            - let deviceId
+            - let state
+        - class DeviceClass
+            - let classOfDevice
+            - let majorClass
+            - let majorMinorClass
+        - class PinRequiredParam
+            - let deviceId
+            - let pinCode
+        - enum BluetoothConnectionCallbackType
+            - BATTERY_CHANGE
+            - BLUETOOTH_DEVICE_FIND
+            - BOND_STATE_CHANGE
+            - PIN_REQUIRED
+            - func !=(BluetoothConnectionCallbackType)
+            - func ==(BluetoothConnectionCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum BluetoothTransport
+            - TRANSPORT_BR_EDR
+            - TRANSPORT_LE
+            - func !=(BluetoothTransport)
+            - func ==(BluetoothTransport)
+            - func toString()
+        - enum BondState
+            - BOND_STATE_BONDED
+            - BOND_STATE_BONDING
+            - BOND_STATE_INVALID
+            - func !=(BondState)
+            - func ==(BondState)
+            - func toString()
+        - enum DeviceChargeState
+            - DEVICE_NORMAL_CHARGE_IN_CHARGING
+            - DEVICE_NORMAL_CHARGE_NOT_CHARGED
+            - DEVICE_SUPER_CHARGE_IN_CHARGING
+            - DEVICE_SUPER_CHARGE_NOT_CHARGED
+            - func !=(DeviceChargeState)
+            - func ==(DeviceChargeState)
+            - func toString()
+        - enum ScanMode
+            - SCAN_MODE_CONNECTABLE
+            - SCAN_MODE_CONNECTABLE_GENERAL_DISCOVERABLE
+            - SCAN_MODE_CONNECTABLE_LIMITED_DISCOVERABLE
+            - SCAN_MODE_GENERAL_DISCOVERABLE
+            - SCAN_MODE_LIMITED_DISCOVERABLE
+            - SCAN_MODE_NONE
+            - func !=(ScanMode)
+            - func ==(ScanMode)
+            - func toString()
+        - enum UnbondCause
+            - AUTH_FAILURE
+            - AUTH_REJECTED
+            - INTERNAL_ERROR
+            - REMOTE_DEVICE_DOWN
+            - USER_REMOVED
+            - func !=(UnbondCause)
+            - func ==(UnbondCause)
+            - func toString()
+                - [ohos.bluetooth.constant（蓝牙constant模块）](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-constant.md)
+    API索引列表:
+    - ohos.bluetooth.constant（蓝牙constant模块）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - enum MajorClass
+            - MAJOR_AUDIO_VIDEO
+            - MAJOR_COMPUTER
+            - MAJOR_HEALTH
+            - MAJOR_IMAGING
+            - MAJOR_MISC
+            - MAJOR_NETWORKING
+            - MAJOR_PERIPHERAL
+            - MAJOR_PHONE
+            - MAJOR_TOY
+            - MAJOR_UNCATEGORIZED
+            - MAJOR_WEARABLE
+            - func !=(MajorClass)
+            - func ==(MajorClass)
+            - func toString()
+        - enum MajorMinorClass
+            - AUDIO_VIDEO_CAMCORDER
+            - AUDIO_VIDEO_CAR_AUDIO
+            - AUDIO_VIDEO_HANDSFREE
+            - AUDIO_VIDEO_HEADPHONES
+            - AUDIO_VIDEO_HIFI_AUDIO
+            - AUDIO_VIDEO_LOUDSPEAKER
+            - AUDIO_VIDEO_MICROPHONE
+            - AUDIO_VIDEO_PORTABLE_AUDIO
+            - AUDIO_VIDEO_SET_TOP_BOX
+            - AUDIO_VIDEO_UNCATEGORIZED
+            - AUDIO_VIDEO_VCR
+            - AUDIO_VIDEO_VIDEO_CAMERA
+            - AUDIO_VIDEO_VIDEO_CONFERENCING
+            - AUDIO_VIDEO_VIDEO_DISPLAY_AND_LOUDSPEAKER
+            - AUDIO_VIDEO_VIDEO_GAMING_TOY
+            - AUDIO_VIDEO_VIDEO_MONITOR
+            - AUDIO_VIDEO_WEARABLE_HEADSET
+            - COMPUTER_DESKTOP
+            - COMPUTER_HANDHELD_PC_PDA
+            - COMPUTER_LAPTOP
+            - COMPUTER_PALM_SIZE_PC_PDA
+            - COMPUTER_SERVER
+            - COMPUTER_TABLET
+            - COMPUTER_UNCATEGORIZED
+            - COMPUTER_WEARABLE
+            - HEALTH_ANKLE_PROSTHESIS
+            - HEALTH_BLOOD_PRESSURE
+            - HEALTH_BODY_COMPOSITION_ANALYZER
+            - HEALTH_DATA_DISPLAY
+            - HEALTH_GENERIC_HEALTH_MANAGER
+            - HEALTH_GLUCOSE
+            - HEALTH_KNEE_PROSTHESIS
+            - HEALTH_MEDICATION_MONITOR
+            - HEALTH_PEAK_FLOW_MONITOR
+            - HEALTH_PERSONAL_MOBILITY_DEVICE
+            - HEALTH_PULSE_OXIMETER
+            - HEALTH_PULSE_RATE
+            - HEALTH_STEP_COUNTER
+            - HEALTH_THERMOMETER
+            - HEALTH_UNCATEGORIZED
+            - HEALTH_WEIGHING
+            - IMAGING_CAMERA
+            - IMAGING_DISPLAY
+            - IMAGING_PRINTER
+            - IMAGING_SCANNER
+            - IMAGING_UNCATEGORIZED
+            - NETWORK_17_TO_33_UTILIZED
+            - NETWORK_1_TO_17_UTILIZED
+            - NETWORK_33_TO_50_UTILIZED
+            - NETWORK_60_TO_67_UTILIZED
+            - NETWORK_67_TO_83_UTILIZED
+            - NETWORK_83_TO_99_UTILIZED
+            - NETWORK_FULLY_AVAILABLE
+            - NETWORK_NO_SERVICE
+            - PERIPHERAL_CARD_READER
+            - PERIPHERAL_DIGITAL_PEN
+            - PERIPHERAL_DIGITIZER_TABLET
+            - PERIPHERAL_GAMEPAD
+            - PERIPHERAL_GESTURAL_INPUT
+            - PERIPHERAL_JOYSTICK
+            - PERIPHERAL_KEYBOARD
+            - PERIPHERAL_KEYBOARD_POINTING
+            - PERIPHERAL_NON_KEYBOARD_NON_POINTING
+            - PERIPHERAL_POINTING_DEVICE
+            - PERIPHERAL_REMOTE_CONTROL
+            - PERIPHERAL_SCANNER_RFID
+            - PERIPHERAL_SENSING_DEVICE
+            - PERIPHERAL_UNCATEGORIZED
+            - PHONE_CELLULAR
+            - PHONE_CORDLESS
+            - PHONE_ISDN
+            - PHONE_MODEM_OR_GATEWAY
+            - PHONE_SMART
+            - PHONE_UNCATEGORIZED
+            - TOY_CONTROLLER
+            - TOY_DOLL_ACTION_FIGURE
+            - TOY_GAME
+            - TOY_ROBOT
+            - TOY_UNCATEGORIZED
+            - TOY_VEHICLE
+            - WEARABLE_GLASSES
+            - WEARABLE_HELMET
+            - WEARABLE_JACKET
+            - WEARABLE_PAGER
+            - WEARABLE_UNCATEGORIZED
+            - WEARABLE_WRIST_WATCH
+            - func !=(MajorMinorClass)
+            - func ==(MajorMinorClass)
+            - func toString()
+        - enum ProfileConnectionState
+            - STATE_CONNECTED
+            - STATE_CONNECTING
+            - STATE_DISCONNECTED
+            - STATE_DISCONNECTING
+            - func !=(ProfileConnectionState)
+            - func ==(ProfileConnectionState)
+            - func toString()
+        - enum ProfileId
+            - PROFILE_A2DP_SOURCE
+            - PROFILE_HANDSFREE_AUDIO_GATEWAY
+            - PROFILE_HID_HOST
+            - PROFILE_PAN_NETWORK
+            - func !=(ProfileId)
+            - func ==(ProfileId)
+            - func toString()
+        - enum ProfileUuids
+            - PROFILE_UUID_A2DP_SINK
+            - PROFILE_UUID_A2DP_SRC
+            - PROFILE_UUID_AVRCP_CT
+            - PROFILE_UUID_AVRCP_TG
+            - PROFILE_UUID_HFP_AG
+            - PROFILE_UUID_HFP_HF
+            - PROFILE_UUID_HID
+            - PROFILE_UUID_HOGP
+            - PROFILE_UUID_HSP_AG
+            - PROFILE_UUID_HSP_HS
+            - PROFILE_UUID_UNKNOWN
+            - func !=(ProfileUuids)
+            - func ==(ProfileUuids)
+            - func toString()
+                - [ohos.bluetooth.hfp(蓝牙hfp模块)](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-hfp.md)
+    API索引列表:
+    - ohos.bluetooth.hfp（蓝牙hfp模块）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BLUETOOTH
+        - 使用说明
+        - func createHfpAgProfile()
+        - class HandsFreeAudioGatewayProfile
+            - func getConnectedDevices()
+            - func getConnectionState(String)
+            - func off(ProfileCallbackType, CallbackObject)
+            - func off(ProfileCallbackType)
+            - func on(ProfileCallbackType, Callback1Argument\<StateChangeParam>)
+                - [ohos.bluetooth.hid(蓝牙hid模块)](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-hid.md)
+    API索引列表:
+    - ohos.bluetooth.hid（蓝牙hid模块）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BLUETOOTH
+        - 使用说明
+        - func createHidHostProfile()
+        - class HidHostProfile
+            - func getConnectedDevices()
+            - func getConnectionState(String)
+            - func off(ProfileCallbackType, CallbackObject)
+            - func off(ProfileCallbackType)
+            - func on(ProfileCallbackType, Callback1Argument\<StateChangeParam>)
+                - [ohos.bluetooth.socket(蓝牙socket模块)](source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-socket.md)
+    API索引列表:
+    - ohos.bluetooth.socket(蓝牙socket模块)
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.ACCESS_BLUETOOTH
+        - 使用说明
+        - func getDeviceId(Int32)
+        - func off(BluetoothSocketCallbackType, Int32, ?CallbackObject)
+        - func on(BluetoothSocketCallbackType, Int32, Callback1Argument\<Array\<Byte>>)
+        - func sppAccept(Int32, (?BusinessException,?Int32) -> Unit)
+        - func sppCloseClientSocket(Int32)
+        - func sppCloseServerSocket(Int32)
+        - func sppConnect(String, SppOptions, (?BusinessException,?Int32) -> Unit)
+        - func sppListen(String, SppOptions)
+        - func sppWrite(Int32, Array\<UInt8>)
+        - class SppOptions
+            - var secure
+            - var sppType
+            - var uuid
+            - SppOptions(String, Bool, SppType)
+        - enum BluetoothSocketCallbackType
+            - SppRead
+            - func !=(BluetoothSocketCallbackType)
+            - func ==(BluetoothSocketCallbackType)
+            - func toString()
+        - enum SppType
+            - SppRfcomm
+            - func !=(SppType)
+            - func ==(SppType)
+            - func toString()
+                - [ohos.nfc.cardEmulation（标准NFC-cardEmulation）](source_zh_cn/apis/ConnectivityKit/cj-apis-nfc-cardEmulation.md)
+    API索引列表:
+    - ohos.nfc.cardEmulation (标准NFC-cardEmulation)
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.NFC_CARD_EMULATION
+        - 使用说明
+        - func hasHceCapability()
+        - func isDefaultService(ElementName, CardType)
+        - class HceService
+            - func on(NfcEventType, Callback1Argument\<Array\<UInt8>>)
+            - func start(ElementName, Array\<String>)
+            - func stop(ElementName)
+            - func transmit(Array\<UInt8>, Callback0Argument)
+        - enum CardType
+            - OTHER
+            - PAYMENT
+            - func !=(CardType)
+            - func ==(CardType)
+            - func toString()
+        - enum NfcEventType
+            - HceCmd
+            - func !=(NfcEventType)
+            - func ==(NfcEventType)
+            - func toString()
+                - [ohos.security_element（安全单元的通道管理）](source_zh_cn/apis/ConnectivityKit/cj-apis-security_element.md)
+    API索引列表:
+    - ohos.security_element（安全单元的通道管理）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 使用说明
+        - func createService()
+        - class Channel
+            - func close()
+            - func getSelectResponse()
+            - func getSession()
+            - func isBasicChannel()
+            - func isClosed()
+            - func transmit(Array\<Int32>)
+        - class Reader
+            - func closeSessions()
+            - func getName()
+            - func isSecureElementPresent()
+            - func openSession()
+        - class SEService
+            - func getReaders()
+            - func getVersion()
+            - func isConnected()
+            - func shutdown()
+        - class Session
+            - func close()
+            - func closeChannels()
+            - func getATR()
+            - func getReader()
+            - func isClosed()
+            - func openBasicChannel(Array\<Int32>)
+            - func openBasicChannel(Array\<Int32>, Int32)
+            - func openLogicalChannel(Array\<Int32>)
+            - func openLogicalChannel(Array\<Int32>, Int32)
+        - enum ServiceState
+            - CONNECTED
+            - DISCONNECTED
+            - func !=(ServiceState)
+            - func ==(ServiceState)
+            - func toString()
+                - [ohos.wifi_manager（WLAN）](source_zh_cn/apis/ConnectivityKit/cj-apis-wifi_manager.md)
+    API索引列表:
+    - ohos.wifi_manager（WLAN）
+        - 导入模块
+                import kit.ConnectivityKit.*
+        - 权限列表
+                ohos.permission.GET_WIFI_INFO
+                ohos.permission.SET_WIFI_INFO
+        - 使用说明
+        - func addCandidateConfig(WifiDeviceConfig)
+        - func connectToCandidateConfig(Int32)
+        - func createGroup(WifiP2PConfig)
+        - func getCandidateConfigs()
+        - func getCountryCode()
+        - func getCurrentGroup()
+        - func getIpInfo()
+        - func getIpv6Info()
+        - func getLinkedInfo()
+        - func getP2pLinkedInfo()
+        - func getP2pLocalDevice()
+        - func getP2pPeerDevices()
+        - func getScanInfoList()
+        - func getSignalLevel(Int32, Int32)
+        - func isBandTypeSupported(WifiBandType)
+        - func isConnected()
+        - func isFeatureSupported(Int64)
+        - func isMeteredHotspot()
+        - func isWifiActive()
+        - func offHotspotStateChange(?WifiCallback1\<Int32>)
+        - func offP2pConnectionChange(?WifiCallback1\<WifiP2pLinkedInfo>)
+        - func offP2pDeviceChange(?WifiCallback1\<WifiP2pDevice>)
+        - func offP2pDiscoveryChange(?WifiCallback1\<Int32>)
+        - func offP2pPeerDeviceChange(?WifiCallback1\<Array\<WifiP2pDevice>>)
+        - func offP2pPersistentGroupChange(?WifiCallback0)
+        - func offP2pStateChange(?WifiCallback1\<Int32>)
+        - func offWifiConnectionChange(?WifiCallback1\<Int32>)
+        - func offWifiRssiChange(?WifiCallback1\<Int32>)
+        - func offWifiScanStateChange(?WifiCallback1\<Int32>)
+        - func offWifiStateChange(?WifiCallback1\<Int32>)
+        - func onHotspotStateChange(WifiCallback1\<Int32>)
+        - func onP2pConnectionChange(WifiCallback1\<WifiP2pLinkedInfo>)
+        - func onP2pDeviceChange(WifiCallback1\<WifiP2pDevice>)
+        - func onP2pDiscoveryChange(WifiCallback1\<Int32>)
+        - func onP2pPeerDeviceChange(WifiCallback1\<Array\<WifiP2pDevice>>)
+        - func onP2pPersistentGroupChange(WifiCallback0)
+        - func onP2pStateChange(WifiCallback1\<Int32>)
+        - func onWifiConnectionChange(WifiCallback1\<Int32>)
+        - func onWifiRssiChange(WifiCallback1\<Int32>)
+        - func onWifiScanStateChange(WifiCallback1\<Int32>)
+        - func onWifiStateChange(WifiCallback1\<Int32>)
+        - func p2pCancelConnect()
+        - func p2pConnect(WifiP2PConfig)
+        - func removeCandidateConfig(Int32)
+        - func removeGroup()
+        - func startDiscoverDevices()
+        - func stopDiscoverDevices()
+        - class IpInfo
+            - let gateway
+            - let ipAddress
+            - let leaseDuration
+            - let netmask
+            - let primaryDns
+            - let secondDns
+            - let serverIp
+        - class Ipv6Info
+            - let gateway
+            - let globalIpv6Address
+            - let linkIpv6Address
+            - let netmask
+            - let primaryDNS
+            - let randomGlobalIpv6Address
+            - let randomUniqueIpv6Address
+            - let secondDNS
+            - let uniqueIpv6Address
+            - func toString()
+        - class WifiCallback0
+            - init(() -> Unit)
+            - func invoke()
+        - class WifiCallback1
+            - init((T) -> Unit)
+            - func invoke(T)
+        - class WifiDeviceConfig
+            - var eapConfig
+            - var wapiConfig
+            - let bssid
+            - let bssidType
+            - let isHiddenSsid
+            - let preSharedKey
+            - let securityType
+            - let ssid
+            - WifiDeviceConfig(String, String, WifiSecurityType, ?String, ?DeviceAddressType, ?Bool, ?WifiEapConfig, ?WifiWapiConfig)
+            - func toString()
+        - class WifiEapConfig
+            - let altSubjectMatch
+            - let anonymousIdentity
+            - let caCertAlias
+            - let caPath
+            - let certEntry
+            - let certPassword
+            - let clientCertAlias
+            - let domainSuffixMatch
+            - let eapMethod
+            - let eapSubId
+            - let identity
+            - let password
+            - let phase2Method
+            - let plmn
+            - let realm
+            - WifiEapConfig(EapMethod, Phase2Method, String, String, String, String, String, String, Array\<UInt8>, String, String, String, String, String, Int32)
+            - func toString()
+        - class WifiInfoElem
+            - let content
+            - let eid
+            - func toString()
+        - class WifiLinkedInfo
+            - let band
+            - let bssid
+            - let channelWidth
+            - let connState
+            - let frequency
+            - let ipAddress
+            - let isHiLinkNetwork
+            - let isHidden
+            - let isRestricted
+            - let linkSpeed
+            - let macAddress
+            - let macType
+            - let maxSupportedRxLinkSpeed
+            - let maxSupportedTxLinkSpeed
+            - let rssi
+            - let rxLinkSpeed
+            - let ssid
+            - let supportedWifiCategory
+            - let wifiStandard
+            - func toString()
+        - class WifiP2PConfig
+            - let deviceAddress
+            - let deviceAddressType
+            - let goBand
+            - let groupName
+            - let netId
+            - let passphrase
+            - WifiP2PConfig(String, Int32, String, String, GroupOwnerBand, DeviceAddressType)
+            - func toString()
+        - class WifiP2pDevice
+            - let deviceAddress
+            - let deviceAddressType
+            - let deviceName
+            - let deviceStatus
+            - let groupCapabilities
+            - let primaryDeviceType
+            - func toString()
+        - class WifiP2pGroupInfo
+            - let clientDevices
+            - let frequency
+            - let goIpAddress
+            - let groupName
+            - let interfaceName
+            - let isP2pGo
+            - let networkId
+            - let ownerInfo
+            - let passphrase
+            - func toString()
+        - class WifiP2pLinkedInfo
+            - let connectState
+            - let groupOwnerAddr
+            - let isGroupOwner
+            - func toString()
+        - class WifiScanInfo
+            - let band
+            - let bssid
+            - let bssidType
+            - let capabilities
+            - let centerFrequency0
+            - let centerFrequency1
+            - let channelWidth
+            - let frequency
+            - let infoElems
+            - let isHiLinkNetwork
+            - let rssi
+            - let securityType
+            - let ssid
+            - let supportedWifiCategory
+            - let timestamp
+            - func toString()
+        - class WifiWapiConfig
+            - let wapiAsCert
+            - let wapiPskType
+            - let wapiUserCert
+            - WifiWapiConfig(WapiPskType, String, String)
+            - func toString()
+        - enum ConnState
+            - AUTHENTICATING
+            - CONNECTED
+            - CONNECTING
+            - DISCONNECTED
+            - DISCONNECTING
+            - OBTAINING_IPADDR
+            - SCANNING
+            - UNKNOWN
+            - func toString()
+        - enum DeviceAddressType
+            - RANDOM_DEVICE_ADDRESS
+            - REAL_DEVICE_ADDRESS
+            - func toString()
+        - enum EapMethod
+            - EAP_AKA
+            - EAP_AKA_PRIME
+            - EAP_NONE
+            - EAP_PEAP
+            - EAP_PWD
+            - EAP_SIM
+            - EAP_TLS
+            - EAP_TTLS
+            - EAP_UNAUTH_TLS
+            - func toString()
+            - func ==(EapMethod)
+        - enum GroupOwnerBand
+            - GO_BAND_2GHZ
+            - GO_BAND_5GHZ
+            - GO_BAND_AUTO
+            - func toString()
+        - enum P2pConnectState
+            - CONNECTED
+            - DISCONNECTED
+            - func toString()
+        - enum P2pDeviceStatus
+            - AVAILABLE
+            - CONNECTED
+            - FAILED
+            - INVITED
+            - UNAVAILABLE
+            - func toString()
+        - enum Phase2Method
+            - PHASE2_AKA
+            - PHASE2_AKA_PRIME
+            - PHASE2_GTC
+            - PHASE2_MSCHAP
+            - PHASE2_MSCHAPV2
+            - PHASE2_NONE
+            - PHASE2_PAP
+            - PHASE2_SIM
+            - func toString()
+        - enum WapiPskType
+            - WAPI_PSK_ASCII
+            - WAPI_PSK_HEX
+            - func toString()
+        - enum WifiBandType
+            - WIFI_BAND_2G
+            - WIFI_BAND_5G
+            - WIFI_BAND_60G
+            - WIFI_BAND_6G
+            - WIFI_BAND_NONE
+            - func toString()
+        - enum WifiCategory
+            - DEFAULT
+            - WIFI6
+            - WIFI6_PLUS
+            - func toString()
+        - enum WifiChannelWidth
+            - WIDTH_160MHZ
+            - WIDTH_20MHZ
+            - WIDTH_40MHZ
+            - WIDTH_80MHZ
+            - WIDTH_80MHZ_PLUS
+            - WIDTH_INVALID
+            - func toString()
+        - enum WifiSecurityType
+            - WIFI_SEC_TYPE_EAP
+            - WIFI_SEC_TYPE_EAP_SUITE_B
+            - WIFI_SEC_TYPE_INVALID
+            - WIFI_SEC_TYPE_OPEN
+            - WIFI_SEC_TYPE_OWE
+            - WIFI_SEC_TYPE_PSK
+            - WIFI_SEC_TYPE_SAE
+            - WIFI_SEC_TYPE_WAPI_CERT
+            - WIFI_SEC_TYPE_WAPI_PSK
+            - WIFI_SEC_TYPE_WEP
+            - func toString()
+            - func ==(WifiSecurityType)
+        - enum WifiStandard
+            - WIFI_STANDARD_11A
+            - WIFI_STANDARD_11AC
+            - WIFI_STANDARD_11AD
+            - WIFI_STANDARD_11AX
+            - WIFI_STANDARD_11B
+            - WIFI_STANDARD_11G
+            - WIFI_STANDARD_11N
+            - WIFI_STANDARD_UNDEFINED
+            - func toString()
+            - [错误码]()
+                - [蓝牙服务子系统错误码](source_zh_cn/errorcodes/cj-errorcode-bluetooth_manager.md)
+    API索引列表:
+    - 蓝牙服务子系统错误码
+        - 2900001
+        - 2900003
+        - 2900004
+        - 2900005
+        - 2900006
+        - 2900008
+        - 2900099
+        - 2900100
+        - 2901000
+        - 2901001
+        - 2901054
+                - [WIFI错误码](source_zh_cn/errorcodes/cj-errorcode-wifi-manager.md)
+    API索引列表:
+    - WIFI错误码
+        - 2401000 STA内部异常
+        - 2501000 STA内部异常
+        - 2501001 STA功能未打开
+        - 2601000 Hotspot模块异常
+        - 2701000 AP扩展模块异常
+        - 2801000 P2P模块异常
+        - 2501003 服务打开失败
+        - 2501004 服务关闭失败
+                - [NFC错误码](source_zh_cn/errorcodes/cj-errorcode-nfc.md)
+    API索引列表:
+    - NFC错误码
+        - 3100101
+        - 3100201
+        - 3100202
+        - 3100203
+        - 3100204
+        - 3100301
+        - 3200101
+                - [SE（secureElement）错误码](source_zh_cn/errorcodes/cj-errorcode-secure_element.md)
+    API索引列表:
+    - SE（secureElement）错误码
+        - 3300101 SE服务状态异常
+        - 3300102 没有这样的SE异常
+        - 3300103 无法获取访问控制规则异常
+        - 3300104 SE芯片IO异常
+        - [Distributed Service Kit（分布式管理服务）]()
+            - [仓颉API]()
+                - [ohos.distributed_device_manager（设备管理）](source_zh_cn/apis/DistributedServiceKit/cj-apis-distributed_device_manager.md)
+    API索引列表:
+    - ohos.distributed_device_manager（设备管理）
+        - 导入模块
+                import kit.DistributedServiceKit.*
+        - 权限列表
+                ohos.permission.DISTRIBUTED_DATASYNC
+        - 使用说明
+        - func createDeviceManager(String)
+        - func releaseDeviceManager(DeviceManager)
+        - class DeviceBasicInfo
+            - let deviceId
+            - let deviceName
+            - let deviceType
+            - let networkId
+            - DeviceBasicInfo(String, String, Int32, String)
+        - class DeviceManager
+            - func bindTarget(String, HashMap\<String, ValueType>)
+            - func getAvailableDeviceList()
+            - func getDeviceName(String)
+            - func getDeviceType(String)
+            - func getLocalDeviceId()
+            - func getLocalDeviceName()
+            - func getLocalDeviceNetworkId()
+            - func getLocalDeviceType()
+            - func off(DeviceStatusType, CallbackObject)
+            - func on(DeviceStatusType, CallbackObject)
+            - func startDiscovering(HashMap\<String, ValueType>, ?HashMap\<String, ValueType>)
+            - func stopDiscovering()
+            - func unBindTarget(String)
+        - enum DeviceStateChange
+            - AVAILABLE
+            - UNAVAILABLE
+            - UNKNOWN
+            - func !=(DeviceStateChange)
+            - func ==(DeviceStateChange)
+            - func toString()
+        - enum DeviceStatusType
+            - DEVICE_NAME_CHANGE
+            - DEVICE_STATE_CHANGE
+            - DISCOVER_FAILURE
+            - DISCOVER_SUCCESS
+            - UNKNOWN
+            - func !=(DeviceStatusType)
+            - func ==(DeviceStatusType)
+            - func toString()
+        - enum ValueType
+            - Integer(Int64)
+            - Str(String)
+            - func !=(ValueType)
+            - func ==(ValueType)
+            - func toString()
+            - [错误码]()
+                - [设备管理错误码](source_zh_cn/errorcodes/cj-errorcode-distributed_device_manager.md)
+    API索引列表:
+    - 设备管理错误码
+        - 11600101 服务调用异常
+        - 11600102 获取服务失败
+        - 11600103 认证业务不可用
+        - 11600104 发现业务不可用
+        - 11600105 发布业务不可用
+        - [Network Kit（网络服务）]()
+            - [仓颉API]()
+                - [ohos.net.connection（网络连接管理）](source_zh_cn/apis/NetworkKit/cj-apis-net-connection.md)
+    API索引列表:
+    - ohos.net.connection（网络连接管理）
+        - 导入模块
+                import kit.NetworkKit.*
+        - 权限列表
+                ohos.permission.GET_NETWORK_INFO
+                ohos.permission.INTERNET
+        - 使用说明
+        - func createNetConnection(?NetSpecifier, UInt32)
+        - func getAddressesByName(String)
+        - func getAllNets()
+        - func getAppNet()
+        - func getConnectionProperties(NetHandle)
+        - func getDefaultHttpProxy()
+        - func getDefaultNet()
+        - func getNetCapabilities(NetHandle)
+        - func hasDefaultNet()
+        - func isDefaultNetMetered()
+        - func reportNetConnected(NetHandle)
+        - func reportNetDisconnected(NetHandle)
+        - func setAppNet(NetHandle)
+        - class ConnectionProperties
+            - let dnses
+            - let domains
+            - let interfaceName
+            - let linkAddresses
+            - let mtu
+            - let routes
+            - ConnectionProperties(String, String, Array\<LinkAddress>, Array\<NetAddress>, Array\<RouteInfo>, UInt16)
+        - class HttpProxy
+            - let exclusionList
+            - let host
+            - let port
+            - HttpProxy(?String, ?UInt16, ?Array\<String>)
+        - class LinkAddress
+            - let address
+            - let prefixLength
+            - LinkAddress(NetAddress, Int32)
+        - class NetAddress
+            - let address
+            - let family
+            - let port
+            - NetAddress(String, ?UInt32, ?UInt16)
+        - class NetCapabilities
+            - let bearerTypes
+            - let linkDownBandwidthKbps
+            - let linkUpBandwidthKbps
+            - let networkCap
+            - NetCapabilities(Array\<NetBearType>, ?UInt32, ?UInt32, ?Array\<NetCap>)
+        - class NetCapabilityInfo
+            - let netCap
+            - let netHandle
+            - NetCapabilityInfo(NetHandle, ?NetCapabilities)
+        - class NetConnection
+            - func onNetAvailable((NetHandle) -> Unit)
+            - func onNetBlockStatusChange((NetHandle, Bool) -> Unit)
+            - func onNetCapabilitiesChange((NetCapabilityInfo) -> Unit)
+            - func onNetConnectionPropertiesChange((NetHandle, ConnectionProperties) -> Unit)
+            - func onNetLost((NetHandle) -> Unit)
+            - func onNetUnavailable(() -> Unit)
+            - func register()
+            - func unregister()
+        - class NetHandle
+            - let netId
+            - NetHandle(Int32)
+            - func getAddressByName(String)
+            - func getAddressesByName(String)
+            - func toString()
+        - class NetSpecifier
+            - let bearerPrivateIdentifier
+            - let netCapabilities
+            - NetSpecifier(NetCapabilities, ?String)
+        - class RouteInfo
+            - let destination
+            - let gateway
+            - let hasGateway
+            - let interfaceName
+            - let isDefaultRoute
+            - RouteInfo(String, LinkAddress, NetAddress, Bool, Bool)
+        - enum NetBearType
+            - BEARER_CELLULAR
+            - BEARER_ETHERNET
+            - BEARER_WIFI
+            - BEARER_BLUETOOTH
+            - BEARER_VPN
+        - enum NetCap
+            - NET_CAPABILITY_INTERNET
+            - NET_CAPABILITY_MMS
+            - NET_CAPABILITY_NOT_METERED
+            - NET_CAPABILITY_NOT_VPN
+            - NET_CAPABILITY_VALIDATED
+            - NET_CAPABILITY_PORTAL
+            - NET_CAPABILITY_CHECKING_CONNECTIVITY
+                - [ohos.net.connection.interop（网络连接管理互操作）](source_zh_cn/apis/NetworkKit/cj-apis-net-connection-interop.md)
+    API索引列表:
+    - ohos.net.connection.interop（网络连接管理互操作）
+        - 导入模块
+                import kit.NetworkKit.*
+        - interface JSSystemObjectInteropType
+            - static func fromJSValue(JSContext, JSValue)
+            - func toJSValue(JSContext)
+        - class NetHandle
+            - func toJSValue(JSContext)
+            - static func fromJSValue(JSContext, JSValue)
+                - [ohos.net.http（数据请求）](source_zh_cn/apis/NetworkKit/cj-apis-net-http.md)
+    API索引列表:
+    - ohos.net.http（数据请求）
+        - 导入模块
+                import kit.NetworkKit.*
+        - 权限列表
+                ohos.permission.INTERNET
+        - 使用说明
+        - func createHttp()
+        - func createHttpResponseCache(UInt32)
+        - class ClientCert
+            - let certPath
+            - let certType
+            - let keyPassword
+            - let keyPath
+            - ClientCert(String, String, CertType, ?String)
+        - class DataReceiveProgressInfo
+            - let receiveSize
+            - let totalSize
+        - class DataSendProgressInfo
+            - let sendSize
+            - let totalSize
+        - class HttpRequest
+            - func destroy()
+            - func offDataEnd()
+            - func offDataReceive()
+            - func offDataReceiveProgress()
+            - func offDataSendProgress()
+            - func offHeadersReceive()
+            - func onDataEnd(() -> Unit)
+            - func onDataReceive((Array\<Byte>) -> Unit)
+            - func onDataReceiveProgress((DataReceiveProgressInfo) -> Unit)
+            - func onDataSendProgress((DataSendProgressInfo) -> Unit)
+            - func onHeadersReceive((HashMap\<String,String>) -> Unit)
+            - func onceHeadersReceive((HashMap\<String,String>) -> Unit)
+            - func request(String, (?BusinessException,?HttpResponse) -> Unit, ?HttpRequestOptions)
+            - func requestInStream(String, (?BusinessException,?UInt32) -> Unit, ?HttpRequestOptions)
+        - class HttpRequestOptions
+            - let caPath
+            - let clientCert
+            - let connectTimeout
+            - let dnsOverHttps
+            - let dnsServers
+            - let expectDataType
+            - let extraData
+            - let header
+            - let maxLimit
+            - let method
+            - let multiFormDataList
+            - let priority
+            - let readTimeout
+            - let resumeFrom
+            - let resumeTo
+            - let usingCache
+            - let usingProtocol
+            - let usingProxy
+            - HttpRequestOptions(RequestMethod, ?HttpData, ?HttpDataType, Bool, UInt32, ?HashMap\<String,String>, UInt32, UInt32, ?HttpProtocol, UsingProxy, ?String, ?Int64, ?Int64, ?ClientCert, ?String, ?Array\<String>, UInt32, ?Array\<MultiFormData>)
+        - class HttpResponse
+            - let cookies
+            - let header
+            - let performanceTiming
+            - let responseCode
+            - let result
+            - let resultType
+            - func toString()
+        - class HttpResponseCache
+            - func delete()
+            - func flush()
+        - class MultiFormData
+            - let contentType
+            - let data
+            - let filePath
+            - let name
+            - let remoteFileName
+            - MultiFormData(String, String, ?String, ?HttpData, ?String)
+        - class PerformanceTiming
+            - let dnsTiming
+            - let firstReceiveTiming
+            - let firstSendTiming
+            - let redirectTiming
+            - let responseBodyTiming
+            - let responseHeaderTiming
+            - let tcpTiming
+            - let tlsTiming
+            - let totalFinishTiming
+            - let totalTiming
+            - func toString()
+        - enum CertType
+            - DER
+            - P12
+            - PEM
+        - enum HttpData
+            - ARRAY_DATA(Array\<Byte>)
+            - STRING_DATA(String)
+            - func toString()
+        - enum HttpDataType
+            - ARRAY_BUFFER
+            - STRING
+        - enum HttpProtocol
+            - HTTP1_1
+            - HTTP2
+            - HTTP3
+        - enum RequestMethod
+            - CONNECT
+            - DELETE
+            - GET
+            - HEAD
+            - OPTIONS
+            - POST
+            - PUT
+            - TRACE
+            - func getValue()
+        - enum ResponseCode
+            - ACCEPTED
+            - BAD_GATEWAY
+            - BAD_METHOD
+            - BAD_REQUEST
+            - CLIENT_TIMEOUT
+            - CONFLICT
+            - CREATED
+            - ENTITY_TOO_LARGE
+            - EXPECTATION_FAILED
+            - FAILED_DEPENDENCY
+            - FORBIDDEN
+            - GATEWAY_TIMEOUT
+            - GONE
+            - INSUFFICIENT_STORAGE
+            - INTERNAL_ERROR
+            - LENGTH_REQUIRED
+            - LOCKED
+            - LOOP_DETECTED
+            - MISDIRECTED_REQUEST
+            - MOVED_PERM
+            - MOVED_TEMP
+            - MULT_CHOICE
+            - NETWORK_AUTHENTICATION_REQUIRED
+            - NOT_ACCEPTABLE
+            - NOT_AUTHORITATIVE
+            - NOT_EXTENDED
+            - NOT_FOUND
+            - NOT_IMPLEMENTED
+            - NOT_MODIFIED
+            - NO_CONTENT
+            - OK
+            - PARTIAL
+            - PAYMENT_REQUIRED
+            - PRECONDITION_REQUIRED
+            - PRECON_FAILED
+            - PROXY_AUTH
+            - REQUESTED_RANGE_NOT_SATISFIABLE
+            - REQUEST_HEADER_FIELDS_TOO_LARGE
+            - REQ_TOO_LONG
+            - RESET
+            - SEE_OTHER
+            - TEAPOT
+            - TOO_EARLY
+            - TOO_MANY_REQUESTS
+            - UNAUTHORIZED
+            - UNAVAILABLE
+            - UNAVAILABLE_FOR_LEGAL_REASONS
+            - UNPROCESSABLE_ENTITY
+            - UNSUPPORTED_TYPE
+            - UPGRADE_REQUIRED
+            - USE_PROXY
+            - VARIANT_ALSO_NEGOTIATES
+            - VERSION
+            - static func parse(UInt32)
+            - func getValue()
+        - enum UsingProxy
+            - NOT_USE
+            - USE_DEFAULT
+            - USE_SPECIFIED(HttpProxy)
+        - 完整示例
+                - [ohos.net.networkSecurity（网络安全）](source_zh_cn/apis/NetworkKit/cj-apis-net-network-security.md)
+    API索引列表:
+    - ohos.net.networkSecurity（网络安全）
+        - 导入模块
+                import kit.NetworkKit.*
+        - 权限列表
+                ohos.permission.INTERNET
+        - 使用说明
+        - func certVerification(CertBlob, ?CertBlob)
+        - class CertBlob
+            - var data
+            - var \`type`
+            - init(CertType, CertData)
+        - enum CertData
+            - ArrayData(Array\<Byte>)
+            - StringData(String)
+        - enum CertType
+            - CertTypeDer
+            - CertTypePem
+                - [ohos.net.webSocket（WebSocket连接）](source_zh_cn/apis/NetworkKit/cj-apis-net-webSocket.md)
+    API索引列表:
+    - ohos.net.webSocket（WebSocket连接）
+        - 导入模块
+                import kit.NetworkKit.*
+        - 权限列表
+                ohos.permission.INTERNET
+        - 使用说明
+        - func createWebSocket()
+        - class CloseResult
+            - let code
+            - let reason
+            - CloseResult(UInt32, String)
+        - class WebSocket
+            - func close(AsyncCallback\<Bool>, ?WebSocketCloseOptions)
+            - func connect(String, AsyncCallback\<Bool>, ?WebSocketRequestOptions)
+            - func off(OnOffType, ?CallbackObject)
+            - func on(OnOffType, WebSocketAsyncCallback\<HashMap\<UInt32,String>>)
+            - func on(OnOffType, WebSocketAsyncCallback\<MessageData>)
+            - func on(OnOffType, WebSocketAsyncCallback\<CloseResult>)
+            - func on(OnOffType, WebSocketErrorCallback)
+            - func on(OnOffType, Callback0Argument)
+            - func on(OnOffType, Callback1Argument\<ResponseHeaders>)
+            - func send(MessageData, AsyncCallback\<Bool>)
+        - class WebSocketAsyncCallback
+            - WebSocketAsyncCallback((Option\<AsyncError>, Option\<T>) -> Unit)
+            - func invoke(Option\<AsyncError>, Option\<T>)
+        - class WebSocketClientCert
+            - let certPath
+            - let keyPassword
+            - let keyPath
+            - WebSocketClientCert(String, String, ?String)
+        - class WebSocketCloseOptions
+            - let code
+            - let reason
+            - WebSocketCloseOptions(UInt32, String)
+        - class WebSocketErrorCallback
+            - WebSocketErrorCallback((BusinessException) -> Unit)
+            - func invoke(BusinessException)
+        - class WebSocketHttpProxy
+            - let exclusionList
+            - let host
+            - let password
+            - let port
+            - let username
+            - WebSocketHttpProxy(?String, ?UInt16, ?Array\<String>, ?String, ?String)
+        - class WebSocketRequestOptions
+            - var caPath
+            - var clientCert
+            - var header
+            - var protocol
+            - var proxy
+            - WebSocketRequestOptions(?HashMap\<String,String>, String, ?WebSocketClientCert, ProxyConfiguration, String)
+        - enum MessageData
+            - ARRAY_DATA(Array\<Byte>)
+            - STRING_DATA(String)
+            - func toString()
+        - enum OnOffType
+            - CLOSE
+            - DATAEND
+            - ERROR
+            - HEADERRECEIVE
+            - MESSAGE
+            - OPEN
+            - func !=(OnOffType)
+            - func ==(OnOffType)
+            - func toString()
+        - enum ProxyConfiguration
+            - HTTPPROXY(WebSocketHttpProxy)
+            - NO_PROXY
+            - SYSTEM
+        - enum ResponseHeaders
+            - ARRAY_STRING_DATA(Array\<String>)
+            - MAP_DATA(HashMap\<String, String>)
+            - UNDEFINED_DATA
+            - func toString()
+        - 完整示例
+            - [错误码]()
+                - [HTTP错误码](source_zh_cn/errorcodes/cj-errorcode-net-http.md)
+    API索引列表:
+    - HTTP错误码
+        - 2300001 不支持的协议
+        - 2300003 URL格式错误
+        - 2300005 代理服务器域名解析失败
+        - 2300006 域名解析失败
+        - 2300007 无法连接到服务器
+        - 2300008 服务器返回非法数据
+        - 2300009 拒绝对远程资源的访问
+        - 2300016 HTT2帧层错误
+        - 2300018 服务器返回数据不完整
+        - 2300023 向磁盘/应用程序写入接收数据失败
+        - 2300025 上传失败
+        - 2300026 从文件/应用程序中打开/读取本地数据失败
+        - 2300027 内存不足
+        - 2300028 操作超时
+        - 2300047 重定向次数达到最大值
+        - 2300052 服务器没有返回内容
+        - 2300055 发送网络数据失败
+        - 2300056 接收网络数据失败
+        - 2300058 本地SSL证书错误
+        - 2300059 无法使用指定的密码
+        - 2300060 远程服务器SSL证书或SSH秘钥不正确
+        - 2300061 无法识别或错误的HTTP编码格式
+        - 2300063 超出最大文件大小
+        - 2300070 服务器磁盘空间不足
+        - 2300073 服务器返回文件已存在
+        - 2300077 SSL CA证书不存在或没有访问权限
+        - 2300078 URL请求的文件不存在
+        - 2300094 身份校验失败
+        - 2300999 未知错误
+                - [webSocket错误码](source_zh_cn/errorcodes/cj-errorcode-net-websocket.md)
+    API索引列表:
+    - webSocket错误码
+        - 2302001 Websocket URL错误
+        - 2302002 Websocket 证书不存在
+        - 2302003 Websocket 连接已经存在
+        - 2302003 不允许访问域名
+        - 2302998 不允许访问域名
+        - 2302999 Websocket其他错误
+                - [网络连接管理错误码](source_zh_cn/errorcodes/cj-errorcode-net-connection.md)
+    API索引列表:
+    - 网络连接管理错误码
+        - 2100001 非法参数值
+        - 2100002 连接服务失败
+        - 2100003 系统内部错误
+        - 2101007 已存在相同的callback
+        - 2101008 callback不存在
+        - 2101022 请求数量超过最大值
+        - [Telephony Kit（蜂窝通信服务）]()
+            - [仓颉API]()
+                - [ohos.telephony_call（拨打电话）](source_zh_cn/apis/TelephonyKit/cj-apis-telephony_call.md)
+    API索引列表:
+    - ohos.telephony_call（拨打电话）
+        - 导入模块
+                import kit.TelephonyKit.*
+        - 使用说明
+        - class TelephonyCall
+            - static func formatPhoneNumber(String, NumberFormatOptions)
+            - static func formatPhoneNumberToE164(String, String)
+            - static func getCallState()
+            - static func hasCall()
+            - static func hasVoiceCapability()
+            - static func isEmergencyPhoneNumber(String, EmergencyNumberOptions)
+            - static func isEmergencyPhoneNumber(String)
+            - static func makeCall(String)
+            - static func makeCall(UIAbilityContext, String)
+        - class NumberFormatOptions
+            - let countryCode
+            - init(String)
+        - enum CallState
+            - CALL_STATE_ANSWERED
+            - CALL_STATE_IDLE
+            - CALL_STATE_OFFHOOK
+            - CALL_STATE_RINGING
+            - CALL_STATE_UNKNOWN
+            - func getValue()
+        - enum EmergencyNumberOptions
+            - SLOT_ID_ONE
+            - SLOT_ID_TWO
+                - [ohos.telephony_data（蜂窝数据）](source_zh_cn/apis/TelephonyKit/cj-apis-telephony_data.md)
+    API索引列表:
+    - ohos.telephony_data（蜂窝数据）
+        - 导入模块
+                import kit.TelephonyKit.*
+        - 权限列表
+                ohos.permission.GET_NETWORK_INFO
+        - 使用说明
+        - class TelephonyData
+            - static func getCellularDataFlowType()
+            - static func getCellularDataState()
+            - static func getDefaultCellularDataSimId()
+            - static func getDefaultCellularDataSlotId()
+            - static func isCellularDataEnabled()
+            - static func isCellularDataRoamingEnabled(Int32)
+        - enum DataConnectState
+            - DATA_STATE_CONNECTED
+            - DATA_STATE_CONNECTING
+            - DATA_STATE_DISCONNECTED
+            - DATA_STATE_SUSPENDED
+            - DATA_STATE_UNKNOWN
+            - func getValue()
+        - enum DataFlowType
+            - DATA_FLOW_TYPE_DORMANT
+            - DATA_FLOW_TYPE_DOWN
+            - DATA_FLOW_TYPE_NONE
+            - DATA_FLOW_TYPE_UP
+            - DATA_FLOW_TYPE_UP_DOWN
+            - func getValue()
+                - [ohos.telephony_observer（通信订阅管理）](source_zh_cn/apis/TelephonyKit/cj-apis-telephony_observer.md)
+    API索引列表:
+    - ohos.telephony_observer（通信订阅管理）
+        - 导入模块
+                import kit.TelephonyKit.*
+        - 权限列表
+                ohos.permission.GET_NETWORK_INFO
+        - 使用说明
+        - class CallStateInfo
+            - let number
+            - let state
+            - CallStateInfo(CallState, String)
+        - class DataConnectionStateInfo
+            - let network
+            - let state
+            - DataConnectionStateInfo(DataConnectState, RadioTechnology)
+        - class ObserverOptions
+            - var slotId
+            - ObserverOptions(Int32)
+        - class SimStateData
+            - let cardType
+            - let reason
+            - let state
+            - SimStateData(CardType, SimState, LockReason)
+        - class TelephonyObserver
+            - static func off(ObserverEventType, Callback1Argument\<NetworkState>)
+            - static func off(ObserverEventType, Callback1Argument\<Array\<SignalInformation>>)
+            - static func off(ObserverEventType, Callback1Argument\<CallStateInfo>)
+            - static func off(ObserverEventType, Callback1Argument\<DataConnectionStateInfo>)
+            - static func off(ObserverEventType, Callback1Argument\<DataFlowType>)
+            - static func off(ObserverEventType, Callback1Argument\<SimStateData>)
+            - static func off(ObserverEventType, Callback0Argument)
+            - static func off(ObserverEventType)
+            - static func on(ObserverEventType, Callback1Argument\<NetworkState>, ?ObserverOptions)
+            - static func on(ObserverEventType, Callback1Argument\<Array\<SignalInformation>>, ?ObserverOptions)
+            - static func on(ObserverEventType, Callback1Argument\<CallStateInfo>, ?ObserverOptions)
+            - static func on(ObserverEventType, Callback1Argument\<DataConnectionStateInfo>, ?ObserverOptions)
+            - static func on(ObserverEventType, Callback1Argument\<DataFlowType>, ?ObserverOptions)
+            - static func on(ObserverEventType, Callback1Argument\<SimStateData>, ?ObserverOptions)
+            - static func on(ObserverEventType, Callback0Argument)
+        - enum LockReason
+            - SIM_NONE
+            - SIM_PC_PIN
+            - SIM_PC_PUK
+            - SIM_PIN
+            - SIM_PN_PIN
+            - SIM_PN_PUK
+            - SIM_PP_PIN
+            - SIM_PP_PUK
+            - SIM_PUK
+            - SIM_PU_PIN
+            - SIM_PU_PUK
+            - SIM_SIM_PIN
+            - SIM_SIM_PUK
+            - func getValue()
+        - enum ObserverEventType
+            - CallStateChange
+            - CellularDataConnectionStateChange
+            - CellularDataFlowChange
+            - IccAccountInfoChange
+            - NetworkStateChange
+            - SignalInfoChange
+            - SimStateChange
+            - func toString()
+                - [ohos.telephony_radio（网络搜索）](source_zh_cn/apis/TelephonyKit/cj-apis-telephony_radio.md)
+    API索引列表:
+    - ohos.telephony_radio（网络搜索）
+        - 导入模块
+                import kit.TelephonyKit.*
+        - 权限列表
+                ohos.permission.GET_NETWORK_INFO
+        - 使用说明
+        - class NetworkRadioTech
+            - let csRadioTech
+            - let psRadioTech
+            - NetworkRadioTech(RadioTechnology, RadioTechnology)
+        - class NetworkState
+            - let cfgTech
+            - let isCaActive
+            - let isEmergency
+            - let isRoaming
+            - let longOperatorName
+            - let nsaState
+            - let plmnNumeric
+            - let regState
+            - let shortOperatorName
+            - NetworkState(String, String, String, Bool, RegState, RadioTechnology, NsaState, Bool, Bool)
+        - class SignalInformation
+            - let dBm
+            - let signalLevel
+            - let signalType
+            - SignalInformation(NetworkType, Int32, Int32)
+        - class TelephonyRadio
+            - static func getISOCountryCodeForNetwork(Int32)
+            - static func getNetworkSelectionMode(Int32)
+            - static func getNetworkState(Int32)
+            - static func getOperatorName(Int32)
+            - static func getPrimarySlotId()
+            - static func getRadioTech(Int32)
+            - static func getSignalInformation(Int32)
+            - static func isNRSupported()
+            - static func isRadioOn(Int32)
+        - enum NetworkSelectionMode
+            - NETWORK_SELECTION_AUTOMATIC
+            - NETWORK_SELECTION_MANUAL
+            - NETWORK_SELECTION_UNKNOWN
+            - func getValue()
+        - enum NetworkType
+            - NETWORK_TYPE_CDMA
+            - NETWORK_TYPE_GSM
+            - NETWORK_TYPE_LTE
+            - NETWORK_TYPE_NR
+            - NETWORK_TYPE_TDSCDMA
+            - NETWORK_TYPE_UNKNOWN
+            - NETWORK_TYPE_WCDMA
+            - func getValue()
+        - enum NsaState
+            - NSA_STATE_CONNECTED_DETECT
+            - NSA_STATE_DUAL_CONNECTED
+            - NSA_STATE_IDLE_DETECT
+            - NSA_STATE_NOT_SUPPORT
+            - NSA_STATE_NO_DETECT
+            - NSA_STATE_SA_ATTACHED
+            - func getValue()
+        - enum RadioTechnology
+            - RADIO_TECHNOLOGY_1XRTT
+            - RADIO_TECHNOLOGY_EHRPD
+            - RADIO_TECHNOLOGY_EVDO
+            - RADIO_TECHNOLOGY_GSM
+            - RADIO_TECHNOLOGY_HSPA
+            - RADIO_TECHNOLOGY_HSPAP
+            - RADIO_TECHNOLOGY_IWLAN
+            - RADIO_TECHNOLOGY_LTE
+            - RADIO_TECHNOLOGY_LTE_CA
+            - RADIO_TECHNOLOGY_NR
+            - RADIO_TECHNOLOGY_TD_SCDMA
+            - RADIO_TECHNOLOGY_UNKNOWN
+            - RADIO_TECHNOLOGY_WCDMA
+            - func getValue()
+        - enum RegState
+            - REG_STATE_EMERGENCY_CALL_ONLY
+            - REG_STATE_IN_SERVICE
+            - REG_STATE_NO_SERVICE
+            - REG_STATE_POWER_OFF
+            - func getValue()
+                - [ohos.telephony_sim（SIM卡管理）](source_zh_cn/apis/TelephonyKit/cj-apis-telephony_sim.md)
+    API索引列表:
+    - ohos.telephony_sim（SIM卡管理）
+        - 导入模块
+                import kit.TelephonyKit.*
+        - 权限列表
+                ohos.permission.GET_TELEPHONY_STATE
+        - 使用说明
+        - class IccAccountInfo
+            - let iccId
+            - let isActive
+            - let isEsim
+            - let showName
+            - let showNumber
+            - let simId
+            - let slotIndex
+        - class TelephonySim
+            - static func getActiveSimAccountInfoList()
+            - static func getCardType(Int32)
+            - static func getDefaultVoiceSimId()
+            - static func getDefaultVoiceSlotId()
+            - static func getISOCountryCodeForSim(Int32)
+            - static func getMaxSimCount()
+            - static func getOpKey(Int32)
+            - static func getOpName(Int32)
+            - static func getSimAccountInfo(Int32)
+            - static func getSimOperatorNumeric(Int32)
+            - static func getSimSpn(Int32)
+            - static func getSimState(Int32)
+            - static func hasOperatorPrivileges(Int32)
+            - static func hasSimCard(Int32)
+            - static func isSimActive(Int32)
+        - enum CardType
+            - CT_NATIONAL_ROAMING_CARD
+            - CU_DUAL_MODE_CARD
+            - DUAL_MODE_CG_CARD
+            - DUAL_MODE_TELECOM_LTE_CARD
+            - DUAL_MODE_UG_CARD
+            - SINGLE_MODE_ISIM_CARD
+            - SINGLE_MODE_RUIM_CARD
+            - SINGLE_MODE_SIM_CARD
+            - SINGLE_MODE_USIM_CARD
+            - UNKNOWN_CARD
+            - func getValue()
+        - enum SimState
+            - SIM_STATE_LOADED
+            - SIM_STATE_LOCKED
+            - SIM_STATE_NOT_PRESENT
+            - SIM_STATE_NOT_READY
+            - SIM_STATE_READY
+            - SIM_STATE_UNKNOWN
+            - func getValue()
+                - [ohos.telephony_sms（短信服务）](source_zh_cn/apis/TelephonyKit/cj-apis-telephony_sms.md)
+    API索引列表:
+    - ohos.telephony_sms（短信服务）
+        - 导入模块
+                import kit.BasicServicesKit.telephony_sms.*
+        - 使用说明
+        - func createMessage(Array\<Int32>, String)
+        - func getDefaultSmsSimId()
+        - func getDefaultSmsSlotId()
+        - func hasSmsCapability()
+        - class SendMessageOptions
+            - let content
+            - let deliveryCallback
+            - let destinationHost
+            - let destinationPort
+            - let sendCallback
+            - let serviceCenter
+            - let slotId
+            - SendMessageOptions(Int32, String, ContentType, String, UInt16, ?ISendShortMessageCallback, ?IDeliveryShortMessageCallback)
+        - class ShortMessage
+            - let hasReplyPath
+            - let isReplaceMessage
+            - let isSmsStatusReportMessage
+            - let messageClass
+            - let pdu
+            - let protocolId
+            - let scAddress
+            - let scTimestamp
+            - let status
+            - let visibleMessageBody
+            - let visibleRawAddress
+        - enum ContentType
+            - STRING(String)
+            - UINT8ARR(Array\<UInt8>)
+        - enum SendSmsResult
+            - SEND_SMS_FAILURE_RADIO_OFF
+            - SEND_SMS_FAILURE_SERVICE_UNAVAILABLE
+            - SEND_SMS_FAILURE_UNKNOWN
+            - SEND_SMS_SUCCESS
+            - func !=(SendSmsResult)
+            - func ==(SendSmsResult)
+            - func toString()
+        - enum ShortMessageClass
+            - FORWARD_MESSAGE
+            - INSTANT_MESSAGE
+            - OPTIONAL_MESSAGE
+            - SIM_MESSAGE
+            - UNKNOWN
+            - func !=(ShortMessageClass)
+            - func ==(ShortMessageClass)
+            - func toString()
+        - type IDeliveryShortMessageCallback
+        - type ISendShortMessageCallback
+            - [错误码]()
+                - [电话子系统错误码](source_zh_cn/errorcodes/cj-errorcode-telephony.md)
+    API索引列表:
+    - 电话子系统错误码
+        - 8300001 输入参数不在处理范围内
+        - 8300002 服务连接失败
+        - 8300003 系统内部错误
+        - 8300004 未识别SIM卡
+        - 8300005 开启飞行模式
+        - 8300006 网络不可用
+        - 8300999 未知错误
+        - 8301001 SIM卡未激活
+        - 8301002 SIM卡读取数据或者更新数据失败
+        - 8301003 随卡配置错误
+        - 8401001 UT连接失败
+    - [基础功能]()
+        - [Basic Services Kit（基础服务）]()
+            - [仓颉API]()
+                - [账号管理]()
+                    - [ohos.account.appAccount（应用账号管理）](source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md)
+    API索引列表:
+    - ohos.account.appAccount（应用账号管理）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 权限列表
+                ohos.permission.DISTRIBUTED_DATASYNC
+        - 使用说明
+        - func createAppAccountManager()
+        - class AppAccountInfo
+            - var owner
+            - var name
+            - AppAccountInfo(String, String)
+        - class AppAccountManager
+            - func checkAccountLabels(String, String, Array\<String>, AsyncCallback\<Bool>)
+            - func checkAppAccess(String, String)
+            - func checkAuthTokenVisibility(String, String, String)
+            - func checkDataSyncEnabled(String)
+            - func createAccount(String, ?CreateAccountOptions)
+            - func deleteAuthToken(String, String, String, String)
+            - func deleteCredential(String, String)
+            - func getAccountsByOwner(String)
+            - func getAllAccounts()
+            - func getAllAuthTokens(String, String)
+            - func getAuthList(String, String)
+            - func getAuthToken(String, String, String)
+            - func getCredential(String, String)
+            - func getCustomData(String, String)
+            - func off(OnOffType, ?Callback1Argument\<Array\<AppAccountInfo>>)
+            - func on(OnOffType, Array\<String>, Callback1Argument\<Array\<AppAccountInfo>>)
+            - func queryAuthenticatorInfo(String)
+            - func removeAccount(String)
+            - func selectAccountsByOptions(SelectAccountsOptions, AsyncCallback\<Array\<AppAccountInfo>>)
+            - func setAppAccess(String, String, Bool)
+            - func setAuthToken(String, String, String)
+            - func setAuthTokenVisibility(String, String, String, Bool)
+            - func setAuthenticatorProperties(String, AuthCallback, ?SetPropertiesOptions)
+            - func setCredential(String, String, String)
+            - func setCustomData(String, String, String)
+            - func setDataSyncEnabled(String, Bool)
+            - func verifyCredential(String, String, AuthCallback, ?VerifyCredentialOptions)
+        - class AuthCallback
+            - let onResult
+            - let onRequestRedirected
+            - let onRequestContinued
+            - AuthCallback((Int32, ?AuthResult) -> Unit, (Want) -> Unit, Option\<() -> Unit>)
+        - class AuthResult
+            - var account
+            - var tokenInfo
+            - AuthResult(?AppAccountInfo, ?AuthTokenInfo)
+        - class AuthTokenInfo
+            - var authType
+            - var token
+            - var account
+            - AuthTokenInfo(String, String, ?AppAccountInfo)
+        - class AuthenticatorInfo
+            - var owner
+            - var iconId
+            - var labelId
+            - AuthenticatorInfo(String, Int32, Int32)
+        - class CreateAccountImplicitlyOptions
+            - var requiredLabels
+            - var authType
+            - var parameters
+            - CreateAccountImplicitlyOptions(?Array\<String>, ?String, HashMap\<String, AppAccountValueType>)
+        - class CreateAccountOptions
+            - var customData
+            - CreateAccountOptions(?HashMap\<String, String>)
+        - class SelectAccountsOptions
+            - var allowedAccounts
+            - var allowedOwners
+            - var requiredLabels
+            - SelectAccountsOptions(?Array\<AppAccountInfo>, ?Array\<String>, ?Array\<String>)
+        - class SetPropertiesOptions
+            - var parameters
+            - var properties
+            - SetPropertiesOptions(HashMap\<String, AppAccountValueType>, HashMap\<String, AppAccountValueType>)
+        - class VerifyCredentialOptions
+            - var credential
+            - var credentialType
+            - var parameters
+            - VerifyCredentialOptions(String, String, HashMap\<String, AppAccountValueType>)
+        - enum AppAccountValueType
+            - ARRAYBOOL(Array\<Bool>)
+            - ARRAYF64(Array\<Float64>)
+            - ARRAYFD(Array\<Int32>)
+            - ARRAYI32(Array\<Int32>)
+            - ARRAYI64(Array\<Int64>)
+            - ARRSTRING(Array\<String>)
+            - BOOL(Bool)
+            - FD(Int32)
+            - FLOAT64(Float64)
+            - INT(Int32)
+            - STRING(String)
+        - enum Constants
+            - ACTION_AUTH
+            - ACTION_CREATE_ACCOUNT_IMPLICITLY
+            - ACTION_SET_AUTHENTICATOR_PROPERTIES
+            - ACTION_VERIFY_CREDENTIAL
+            - KEY_ACTION
+            - KEY_AUTH_TYPE
+            - KEY_BOOLEAN_RESULT
+            - KEY_CALLER_BUNDLE_NAME
+            - KEY_CALLER_PID
+            - KEY_CALLER_UID
+            - KEY_NAME
+            - KEY_OWNER
+            - KEY_REQUIRED_LABELS
+            - KEY_SESSION_ID
+            - KEY_TOKEN
+        - enum OnOffType
+            - ACCOUNTCHANGE
+            - func toString()
+                    - [ohos.account_distributedAccount（分布式账号管理）](source_zh_cn/apis/BasicServicesKit/cj-apis-account_distributedAccount.md)
+    API索引列表:
+    - ohos.account_distributedAccount（分布式账号管理）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 权限列表
+                ohos.permission.DISTRIBUTED_DATASYNC
+                ohos.permission.GET_DISTRIBUTED_ACCOUNTS
+                ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
+        - 使用说明
+        - func getDistributedAccountAbility()
+        - class DistributedAccountAbility
+            - func getOsAccountDistributedInfo()
+            - func setOsAccountDistributedInfo(DistributedInfo)
+        - class DistributedInfo
+            - let name
+            - let id
+            - let event
+            - let nickname
+            - let avatar
+            - let status
+            - let scalableData
+            - init(String, String, OhosAccountEvent, String, String, DistributedAccountStatus, String)
+        - enum DistributedAccountStatus
+            - LOGGED_IN
+            - NOT_LOGGED_IN
+        - enum OhosAccountEvent
+            - LOGIN
+            - LOGOFF
+            - LOGOUT
+            - TOKEN_INVALID
+                    - [ohos.account.osAccount（系统账号管理）](source_zh_cn/apis/BasicServicesKit/cj-apis-account-osAccount.md)
+    API索引列表:
+    - ohos.account.osAccount（系统账号管理）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 权限列表
+                ohos.permission.DISTRIBUTED_DATASYNC
+                ohos.permission.MANAGE_LOCAL_ACCOUNTS
+        - 使用说明
+        - func getAccountManager()
+        - class AccountManager
+            - func checkMultiOsAccountEnabled()
+            - func checkOsAccountTestable()
+            - func getActivatedOsAccountLocalIds()
+            - func getOsAccountCount()
+            - func getOsAccountLocalId()
+            - func getOsAccountLocalIdForDomain(DomainAccountInfo)
+            - func getOsAccountLocalIdForSerialNumber(Int64)
+            - func getOsAccountLocalIdForUid(Int32)
+            - func getOsAccountName()
+            - func getOsAccountType()
+            - func getSerialNumberForOsAccountLocalId(Int32)
+            - func isOsAccountConstraintEnabled(String)
+            - func isOsAccountUnlocked()
+            - func queryDistributedVirtualDeviceId()
+        - class DomainAccountInfo
+            - let accountName
+            - let domain
+            - DomainAccountInfo(String, String)
+        - class OsAccountInfo
+            - var constraints
+            - var distributedInfo
+            - var domainInfo
+            - var lastLoginTime
+            - var photo
+            - let \`type`
+            - let createTime
+            - let isActivated
+            - let isActived
+            - let isCreateCompleted
+            - let isUnlocked
+            - let isVerified
+            - let localId
+            - let localName
+            - let serialNumber
+            - OsAccountInfo(Int32, String, OsAccountType, Bool, Bool, Int64, Int64, Bool, Bool, Bool, Array\<String>, String, Int64, DistributedInfo, DomainAccountInfo)
+        - enum OsAccountType
+            - ADMIN
+            - GUEST
+            - NORMAL
+            - func toString()
+        - 系统账号约束列表
+                - [设备管理]()
+                    - [ohos.battery_info（电量信息）](source_zh_cn/apis/BasicServicesKit/cj-apis-battery_info.md)
+    API索引列表:
+    - ohos.battery_info（电量信息）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 使用说明
+        - class BatteryInfo
+            - static prop batteryCapacityLevel
+            - static prop batterySOC
+            - static prop batteryTemperature
+            - static prop chargingStatus
+            - static prop healthStatus
+            - static prop isBatteryPresent
+            - static prop nowCurrent
+            - static prop pluggedType
+            - static prop technology
+            - static prop voltage
+        - enum BatteryCapacityLevel
+            - LEVEL_CRITICAL
+            - LEVEL_FULL
+            - LEVEL_HIGH
+            - LEVEL_LOW
+            - LEVEL_NORMAL
+            - LEVEL_SHUTDOWN
+            - LEVEL_WARNING
+            - func !=(BatteryCapacityLevel)
+            - func ==(BatteryCapacityLevel)
+            - func toString()
+        - enum BatteryChargeState
+            - DISABLE
+            - ENABLE
+            - FULL
+            - NONE
+            - func !=(BatteryChargeState)
+            - func ==(BatteryChargeState)
+            - func toString()
+        - enum BatteryHealthState
+            - COLD
+            - DEAD
+            - GOOD
+            - OVERHEAT
+            - OVERVOLTAGE
+            - UNKNOWN
+            - func !=(BatteryHealthState)
+            - func ==(BatteryHealthState)
+            - func toString()
+        - enum BatteryPluggedType
+            - AC
+            - NONE
+            - USB
+            - WIRELESS
+            - func !=(BatteryPluggedType)
+            - func ==(BatteryPluggedType)
+            - func toString()
+        - enum CommonEventBatteryChangedKey
+            - EXTRA_CAPACITY_LEVEL
+            - EXTRA_CHARGE_STATE
+            - EXTRA_HEALTH_STATE
+            - EXTRA_PLUGGED_TYPE
+            - EXTRA_PRESENT
+            - EXTRA_SOC
+            - EXTRA_TECHNOLOGY
+            - EXTRA_TEMPERATURE
+            - EXTRA_VOLTAGE
+            - func !=(CommonEventBatteryChangedKey)
+            - func ==(CommonEventBatteryChangedKey)
+            - func toString()
+                    - [ohos.device_info（设备信息）](source_zh_cn/apis/BasicServicesKit/cj-apis-device_info.md)
+    API索引列表:
+    - ohos.device_info（设备信息）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 权限列表
+                ohos.permission.sec.ACCESS_UDID
+        - 使用说明
+        - class DeviceInfo
+            - static prop abiList
+            - static prop bootloaderVersion
+            - static prop brand
+            - static prop buildHost
+            - static prop buildRootHash
+            - static prop buildTime
+            - static prop buildType
+            - static prop buildUser
+            - static prop buildVersion
+            - static prop deviceType
+            - static prop displayVersion
+            - static prop distributionOSApiName
+            - static prop distributionOSApiVersion
+            - static prop distributionOSName
+            - static prop distributionOSReleaseType
+            - static prop distributionOSVersion
+            - static prop featureVersion
+            - static prop firstApiVersion
+            - static prop hardwareModel
+            - static prop hardwareProfile
+            - static prop incrementalVersion
+            - static prop majorVersion
+            - static prop manufacture
+            - static prop marketName
+            - static prop ODID
+            - static prop osFullName
+            - static prop osReleaseType
+            - static prop productModel
+            - static prop productSeries
+            - static prop sdkApiVersion
+            - static prop securityPatchTag
+            - static prop seniorVersion
+            - static prop serial
+            - static prop softwareModel
+            - static prop udid
+            - static prop versionId
+                    - [ohos.power（系统电源管理）](source_zh_cn/apis/BasicServicesKit/cj-apis-power.md)
+    API索引列表:
+    - ohos.power（系统电源管理）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 使用说明
+        - func getPowerMode()
+        - func isActive()
+        - func isStandby()
+        - enum DevicePowerMode
+            - MODE_EXTREME_POWER_SAVE
+            - MODE_NORMAL
+            - MODE_PERFORMANCE
+            - MODE_POWER_SAVE
+            - func getValue()
+                    - [ohos.running_lock（Runninglock锁）](source_zh_cn/apis/BasicServicesKit/cj-apis-running_lock.md)
+    API索引列表:
+    - ohos.running_lock（Runninglock锁）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 权限列表
+                ohos.permission.RUNNING_LOCK
+        - 使用说明
+        - func create(String, RunningLockType)
+        - func isSupported(RunningLockType)
+        - class RunningLock
+            - func hold(Int32)
+            - func isHolding()
+            - func unhold()
+        - enum RunningLockType
+            - PROXIMITY_SCREEN_CONTROL
+            - func toString()
+                    - [ohos.thermal（热管理）](source_zh_cn/apis/BasicServicesKit/cj-apis-thermal.md)
+    API索引列表:
+    - ohos.thermal（热管理）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 使用说明
+        - func getLevel()
+        - func registerThermalLevelCallback(Callback1Argument\<ThermalLevel>)
+        - func unregisterThermalLevelCallback(?Callback0Argument)
+        - enum ThermalLevel
+            - Cool
+            - Normal
+            - Warm
+            - Hot
+            - Overheated
+            - Warning
+            - Emergency
+            - Escape
+            - func !=(ThermalLevel)
+            - func ==(ThermalLevel)
+            - func toString()
+                - [数据文件处理]()
+                    - [ohos.pasteboard（剪贴板）](source_zh_cn/apis/BasicServicesKit/cj-apis-pasteboard.md)
+    API索引列表:
+    - ohos.pasteboard（剪贴板）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 权限列表
+                ohos.permission.READ_PASTEBOARD
+        - 使用说明
+        - const MIMETYPE_PIXELMAP
+        - const MIMETYPE_TEXT_HTML
+        - const MIMETYPE_TEXT_PLAIN
+        - const MIMETYPE_TEXT_URI
+        - const MIMETYPE_TEXT_WANT
+        - func createData(String, String)
+        - func createData(String, PixelMap)
+        - func createData(String, Array\<UInt8>)
+        - func createRecord(String, String)
+        - func createRecord(String, PixelMap)
+        - func createRecord(String, Array\<UInt8>)
+        - func getSystemPasteboard()
+        - class PasteData
+            - func addRecord(PasteDataRecord)
+            - func addRecord(String, String)
+            - func addRecord(String, PixelMap)
+            - func addRecord(String, Array\<UInt8>)
+            - func getMimeTypes()
+            - func getPrimaryHtml()
+            - func getPrimaryMimeType()
+            - func getPrimaryPixelMap()
+            - func getPrimaryText()
+            - func getPrimaryUri()
+            - func getProperty()
+            - func getRecord(Int32)
+            - func getRecordCount()
+            - func getTag()
+            - func hasType(String)
+            - func removeRecord(Int32)
+            - func replaceRecord(Int32, PasteDataRecord)
+            - func setProperty(PasteDataProperty)
+        - class PasteDataRecord
+            - let htmlText
+            - let mimeType
+            - let pixelMap
+            - let plainText
+            - let uri
+            - func toPlainText()
+        - class SystemPasteboard
+            - func clearData()
+            - func getData()
+            - func getDataSource()
+            - func hasData()
+            - func hasDataType(String)
+            - func isRemoteData()
+            - func setData(PasteData)
+        - struct PasteDataProperty
+            - var localOnly
+            - var mimeTypes
+            - var shareOption
+            - var tag
+            - var timestamp
+            - PasteDataProperty(Array\<String>, String, Int64, Bool, ShareOption)
+        - enum ShareOption
+            - CROSSDEVICE
+            - INAPP
+            - LOCALDEVICE
+            - func getValue()
+                    - [ohos.request.agent（上传下载）](source_zh_cn/apis/BasicServicesKit/cj-apis-request-agent.md)
+    API索引列表:
+    - ohos.request.agent（上传下载）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 权限列表
+                ohos.permission.INTERNET
+        - 使用说明
+        - func create(StageContext, Config)
+        - func getTask(StageContext, String, ?String)
+        - func remove(String)
+        - func search()
+        - func search(Filter)
+        - func show(String)
+        - func touch(String, String)
+        - class Config
+            - var action
+            - var begins
+            - var data
+            - var description
+            - var ends
+            - var extras
+            - var gauge
+            - var headers
+            - var index
+            - var metered
+            - var method
+            - var mode
+            - var network
+            - var overwrite
+            - var precise
+            - var priority
+            - var redirect
+            - var retry
+            - var roaming
+            - var saveas
+            - var title
+            - var token
+            - var url
+            - Config(Action, String, ?String, ?String, ?Mode, Bool, ?String, ?HashMap\<String, String>, ?ConfigDataType, ?String, Network, Bool, Bool, Bool, Bool, UInt32, Int64, Int64, Bool, Bool, ?String, UInt32, ?HashMap\<String, String>)
+        - class FileSpec
+            - var extras
+            - var filename
+            - var mimeType
+            - var path
+            - FileSpec(String, ?String, ?String, ?HashMap\<String, String>)
+        - class Filter
+            - var action
+            - var after
+            - var before
+            - var mode
+            - var state
+            - Filter(?String, ?Int64, ?Int64, ?State, ?Action, ?Mode)
+        - class FormItem
+            - var name
+            - var value
+            - FormItem(String, FormItemValueType)
+        - class HttpResponseMessage
+            - let headers
+            - let reason
+            - let statusCode
+            - let version
+        - class Progress
+            - let extras
+            - let index
+            - let processed
+            - let sizes
+            - let state
+            - Progress(State, UInt32, Int64, Array\<Int64>, HashMap\<String, String>)
+        - class Task
+            - let config
+            - let tid
+            - Task(String, Config)
+            - func off(String, ?CallbackObject)
+            - func on(String, Callback1Argument\<HttpResponseMessage>)
+            - func on(String, Callback1Argument\<Progress>)
+            - func pause()
+            - func resume()
+            - func start()
+            - func stop()
+        - class TaskInfo
+            - let action
+            - let ctime
+            - let data
+            - let description
+            - let extras
+            - let faults
+            - let gauge
+            - let mimeType
+            - let mode
+            - let mtime
+            - let priority
+            - let progress
+            - let reason
+            - let retry
+            - let saveas
+            - let tid
+            - let title
+            - let tries
+            - let url
+            - init(?String, ?String, ?String, ?String, ?ConfigDataType, String, String, String, Action, Mode, UInt32, String, Progress, Bool, UInt64, UInt64, Bool, UInt32, String, ?Faults, ?HashMap\<String, String>)
+        - enum Action
+            - DOWNLOAD
+            - UPLOAD
+            - func toString()
+        - enum BroadcastEvent
+            - COMPLETE
+            - prop value
+        - enum ConfigDataType
+            - FORMITEMS(Array\<FormItem>)
+            - STR(String)
+        - enum Faults
+            - DISCONNECTED
+            - FSIO
+            - OTHERS
+            - PROTOCOL
+            - TIMEOUT
+            - func toString()
+        - enum FormItemValueType
+            - FILE(FileSpec)
+            - FILES(Array\<FileSpec>)
+            - STR(String)
+        - enum Mode
+            - BACKGROUND
+            - FOREGROUND
+            - func toString()
+        - enum Network
+            - ANY
+            - CELLULAR
+            - WIFI
+            - func toString()
+        - enum State
+            - COMPLETED
+            - FAILED
+            - INITIALIZED
+            - PAUSED
+            - REMOVED
+            - RETRYING
+            - RUNNING
+            - STOPPED
+            - WAITING
+            - func toString()
+                    - [ohos.zlib（Zip模块）](source_zh_cn/apis/BasicServicesKit/cj-apis-zlib.md)
+    API索引列表:
+    - ohos.zlib
+        - 导入模块
+                import kit.BasicServicesKit.zlib.*
+        - func compressFile(String, String, ZipOptions)
+        - func compressFiles(Array\<String>, String, ZipOptions)
+        - func createChecksum()
+        - func createGZip()
+        - func createZip()
+        - func deCompressFile(String, String, Option\<ZipOptions>)
+        - func getOriginalSize(String)
+        - class Checksum
+            - func crc32(UInt64, Array\<Byte>)
+        - class GZip
+            - func gzclose()
+            - func gzdopen(Int32, String)
+            - func gzeof()
+            - func gzgets(Array\<Byte>)
+            - func gzopen(String, String)
+            - func gzputs(String)
+            - func gzread(Array\<Byte>)
+            - func gzwrite(Array\<Byte>, Int64)
+        - class ZStream
+            - let adler
+            - let availableIn
+            - let availableOut
+            - let dataType
+            - let nextIn
+            - let nextOut
+            - let totalIn
+            - let totalOut
+            - init(?Array\<Byte>, ?UInt32, ?UInt64, ?Array\<Byte>, ?UInt32, ?UInt64, ?Int32, ?UInt64)
+        - class Zip
+            - func compress(Array\<Byte>, Array\<Byte>, Int64)
+            - func compress2(Array\<Byte>, Array\<Byte>, CompressLevel, Int64)
+            - func compressBound(Int32)
+            - func deflate(ZStream, CompressFlushMode)
+            - func deflateEnd(ZStream)
+            - func deflateInit2(ZStream, CompressLevel, CompressMethod, Int32, MemLevel, CompressStrategy)
+            - func getZStream()
+            - func inflate(ZStream, CompressFlushMode)
+            - func inflateEnd(ZStream)
+            - func inflateInit(ZStream)
+            - func inflateInit2(ZStream, Int32)
+            - func uncompress(Array\<Byte>, Array\<Byte>, Int64)
+        - class ZipOptions
+            - let level
+            - let memLevel
+            - let strategy
+            - init(CompressLevel, MemLevel, CompressStrategy)
+        - class ZipOutputInfo
+            - let destLen
+            - let status
+        - enum CompressFlushMode
+            - Block
+            - Finish
+            - FullFlush
+            - NoFlush
+            - PartialFlush
+            - SyncFlush
+            - Trees
+            - func !=(CompressFlushMode)
+            - func ==(CompressFlushMode)
+            - func toString()
+        - enum CompressLevel
+            - COMPRESS_LEVEL_BEST_COMPRESSION
+            - COMPRESS_LEVEL_BEST_SPEED
+            - COMPRESS_LEVEL_DEFAULT_COMPRESSION
+            - COMPRESS_LEVEL_NO_COMPRESSION
+            - func !=(CompressLevel)
+            - func ==(CompressLevel)
+            - func toString()
+        - enum CompressMethod
+            - Deflated
+            - func !=(CompressMethod)
+            - func ==(CompressMethod)
+            - func toString()
+        - enum CompressStrategy
+            - COMPRESS_STRATEGY_DEFAULT_STRATEGY
+            - COMPRESS_STRATEGY_FILTERED
+            - COMPRESS_STRATEGY_FIXED
+            - COMPRESS_STRATEGY_HUFFMAN_ONLY
+            - COMPRESS_STRATEGY_RLE
+            - func !=(CompressStrategy)
+            - func ==(CompressStrategy)
+            - func toString()
+        - enum MemLevel
+            - MEM_LEVEL_DEFAULT
+            - MEM_LEVEL_MAX
+            - MEM_LEVEL_MIN
+            - func !=(MemLevel)
+            - func ==(MemLevel)
+            - func toString()
+        - enum ParallelStrategy
+            - ParallelStrategyParallelDecompression
+            - ParallelStrategySequential
+            - func !=(ParallelStrategy)
+            - func ==(ParallelStrategy)
+            - func toString()
+        - enum ReturnStatus
+            - NeedDict
+            - Ok
+            - StreamEnd
+            - func !=(ReturnStatus)
+            - func ==(ReturnStatus)
+            - func toString()
+                - [进程线程通信]()
+                    - [ohos.emitter（事件处理调度）](source_zh_cn/apis/BasicServicesKit/cj-apis-emitter.md)
+    API索引列表:
+    - ohos.emitter（事件处理调度）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 使用说明
+        - class InnerEvent
+            - var eventId
+            - var priority
+            - InnerEvent(UInt32, EventPriority)
+        - struct Emitter
+            - static func emit(InnerEvent, EventData)
+            - static func emit(String, Options, EventData)
+            - static func getListenerCount(UInt32)
+            - static func getListenerCount(String)
+            - static func off(UInt32)
+            - static func off(String)
+            - static func off(UInt32, EventCallback)
+            - static func off(String, EventCallback)
+            - static func on(InnerEvent, EventCallback)
+            - static func on(String, EventCallback)
+            - static func once(InnerEvent, EventCallback)
+            - static func once(String, EventCallback)
+        - struct EventCallback
+            - let callback
+            - let name
+            - EventCallback(String, (EventData) -> Unit)
+        - struct EventData
+            - var data
+            - EventData(HashMap\<String, EventDataType>)
+        - struct Options
+            - var priority
+            - Options(EventPriority)
+        - enum EventDataType
+            - BOOL(Bool)
+            - INT64(Int64)
+            - STRING(String)
+        - enum EventPriority
+            - HIGH
+            - IDLE
+            - IMMEDIATE
+            - LOW
+                    - [ohos.common_event_manager（公共事件模块）](source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md)
+    API索引列表:
+    - ohos.common_event_manager（公共事件模块）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 使用说明
+        - class CommonEventManager
+            - static func createSubscriber(CommonEventSubscribeInfo)
+            - static func publish(String)
+            - static func publish(String, CommonEventPublishData)
+            - static func subscribe(CommonEventSubscriber, (CommonEventData) -> Unit)
+            - static func unsubscribe(CommonEventSubscriber)
+        - class CommonEventSubscribeInfo
+            - prop events
+            - prop priority
+            - prop publisherBundleName
+            - prop publisherDeviceId
+            - prop publisherPermission
+            - prop userId
+            - init(Array\<String>, ?String, ?String, ?Int32, ?Int32, ?String)
+        - class CommonEventSubscriber
+            - func getCode()
+            - func setCode(Int32)
+            - func getData()
+            - func setData(String)
+            - func setCodeAndData(Int32, String)
+            - func isOrderedCommonEvent()
+            - func isStickyCommonEvent()
+            - func abortCommonEvent()
+            - func clearAbortCommonEvent()
+            - func getAbortCommonEvent()
+            - func getSubscribeInfo()
+            - func finishCommonEvent()
+        - struct CommonEventData
+            - let bundleName
+            - let code
+            - let data
+            - let event
+            - let parameters
+        - struct CommonEventPublishData
+            - let bundleName
+            - let code
+            - let data
+            - let isOrdered
+            - let isSticky
+            - let parameters
+            - let subscriberPermissions
+            - CommonEventPublishData(String, String, Int32, Array\<String>, Bool, Bool, HashMap\<String, ValueType>)
+        - struct Support
+            - static const COMMON_EVENT_ABILITY_ADDED
+            - static const COMMON_EVENT_ABILITY_REMOVED
+            - static const COMMON_EVENT_ABILITY_UPDATED
+            - static const COMMON_EVENT_ACCOUNT_DELETED
+            - static const COMMON_EVENT_AIRPLANE_MODE_CHANGED
+            - static const COMMON_EVENT_AUDIO_QUALITY_CHANGE
+            - static const COMMON_EVENT_BATTERY_CHANGED
+            - static const COMMON_EVENT_BATTERY_LOW
+            - static const COMMON_EVENT_BATTERY_OKAY
+            - static const COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT
+            - static const COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED
+            - static const COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED
+            - static const COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE
+            - static const COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE
+            - static const COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE
+            - static const COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT
+            - static const COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE
+            - static const COMMON_EVENT_BOOT_COMPLETED
+            - static const COMMON_EVENT_BUNDLE_REMOVED
+            - static const COMMON_EVENT_CALL_STATE_CHANGED
+            - static const COMMON_EVENT_CELLULAR_DATA_STATE_CHANGED
+            - static const COMMON_EVENT_CHARGE_IDLE_MODE_CHANGED
+            - static const COMMON_EVENT_CHARGE_TYPE_CHANGED
+            - static const COMMON_EVENT_CHARGING
+            - static const COMMON_EVENT_CLOSE_SYSTEM_DIALOGS
+            - static const COMMON_EVENT_CONFIGURATION_CHANGED
+            - static const COMMON_EVENT_CONNECTIVITY_CHANGE
+            - static const COMMON_EVENT_DATE_CHANGED
+            - static const COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED
+            - static const COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED
+            - static const COMMON_EVENT_DISCHARGING
+            - static const COMMON_EVENT_DISK_BAD_REMOVAL
+            - static const COMMON_EVENT_DISK_EJECT
+            - static const COMMON_EVENT_DISK_MOUNTED
+            - static const COMMON_EVENT_DISK_REMOVED
+            - static const COMMON_EVENT_DISK_UNMOUNTABLE
+            - static const COMMON_EVENT_DISK_UNMOUNTED
+            - static const COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGIN
+            - static const COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOFF
+            - static const COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT
+            - static const COMMON_EVENT_DISTRIBUTED_ACCOUNT_TOKEN_INVALID
+            - static const COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED
+            - static const COMMON_EVENT_DRIVE_MODE
+            - static const COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE
+            - static const COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE
+            - static const COMMON_EVENT_FOUNDATION_READY
+            - static const COMMON_EVENT_HOME_MODE
+            - static const COMMON_EVENT_HTTP_PROXY_CHANGE
+            - static const COMMON_EVENT_INCOMING_CALL_MISSED
+            - static const COMMON_EVENT_IVI_ACTIVE
+            - static const COMMON_EVENT_IVI_EXTREME_TEMPERATURE
+            - static const COMMON_EVENT_IVI_HIGH_TEMPERATURE
+            - static const COMMON_EVENT_IVI_LASTMODE_SAVE
+            - static const COMMON_EVENT_IVI_PAUSE
+            - static const COMMON_EVENT_IVI_SLEEP
+            - static const COMMON_EVENT_IVI_STANDBY
+            - static const COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL
+            - static const COMMON_EVENT_IVI_TEMPERATURE_RECOVERY
+            - static const COMMON_EVENT_IVI_VOLTAGE_ABNORMAL
+            - static const COMMON_EVENT_IVI_VOLTAGE_RECOVERY
+            - static const COMMON_EVENT_LOCALE_CHANGED
+            - static const COMMON_EVENT_LOCATION_MODE_STATE_CHANGED
+            - static const COMMON_EVENT_LOCKED_BOOT_COMPLETED
+            - static const COMMON_EVENT_MANAGE_PACKAGE_STORAGE
+            - static const COMMON_EVENT_MY_PACKAGE_REPLACED
+            - static const COMMON_EVENT_MY_PACKAGE_SUSPENDED
+            - static const COMMON_EVENT_MY_PACKAGE_UNSUSPENDED
+            - static const COMMON_EVENT_NETWORK_STATE_CHANGED
+            - static const COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED
+            - static const COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED
+            - static const COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED
+            - static const COMMON_EVENT_OFFICE_MODE
+            - static const COMMON_EVENT_OPERATOR_CONFIG_CHANGED
+            - static const COMMON_EVENT_PACKAGES_SUSPENDED
+            - static const COMMON_EVENT_PACKAGES_UNSUSPENDED
+            - static const COMMON_EVENT_PACKAGE_ADDED
+            - static const COMMON_EVENT_PACKAGE_CACHE_CLEARED
+            - static const COMMON_EVENT_PACKAGE_CHANGED
+            - static const COMMON_EVENT_PACKAGE_DATA_CLEARED
+            - static const COMMON_EVENT_PACKAGE_FIRST_LAUNCH
+            - static const COMMON_EVENT_PACKAGE_FULLY_REMOVED
+            - static const COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION
+            - static const COMMON_EVENT_PACKAGE_REMOVED
+            - static const COMMON_EVENT_PACKAGE_REPLACED
+            - static const COMMON_EVENT_PACKAGE_RESTARTED
+            - static const COMMON_EVENT_PACKAGE_VERIFIED
+            - static const COMMON_EVENT_POWER_CONNECTED
+            - static const COMMON_EVENT_POWER_DISCONNECTED
+            - static const COMMON_EVENT_POWER_SAVE_MODE_CHANGED
+            - static const COMMON_EVENT_PRIMARY_SLOT_ROAMING
+            - static const COMMON_EVENT_PRIVACY_STATE_CHANGED
+            - static const COMMON_EVENT_QUICK_FIX_APPLY_RESULT
+            - static const COMMON_EVENT_QUICK_FIX_REVOKE_RESULT
+            - static const COMMON_EVENT_RADIO_STATE_CHANGE
+            - static const COMMON_EVENT_SCREEN_LOCKED
+            - static const COMMON_EVENT_SCREEN_OFF
+            - static const COMMON_EVENT_SCREEN_ON
+            - static const COMMON_EVENT_SCREEN_UNLOCKED
+            - static const COMMON_EVENT_SET_PRIMARY_SLOT_STATUS
+            - static const COMMON_EVENT_SHUTDOWN
+            - static const COMMON_EVENT_SIGNAL_INFO_CHANGED
+            - static const COMMON_EVENT_SIM_CARD_DEFAULT_DATA_SUBSCRIPTION_CHANGED
+            - static const COMMON_EVENT_SIM_CARD_DEFAULT_MAIN_SUBSCRIPTION_CHANGED
+            - static const COMMON_EVENT_SIM_CARD_DEFAULT_SMS_SUBSCRIPTION_CHANGED
+            - static const COMMON_EVENT_SIM_CARD_DEFAULT_VOICE_SUBSCRIPTION_CHANGED
+            - static const COMMON_EVENT_SIM_STATE_CHANGED
+            - static const COMMON_EVENT_SLOT_CHANGE
+            - static const COMMON_EVENT_SMS_CB_RECEIVE_COMPLETED
+            - static const COMMON_EVENT_SMS_EMERGENCY_CB_RECEIVE_COMPLETED
+            - static const COMMON_EVENT_SMS_RECEIVE_COMPLETED
+            - static const COMMON_EVENT_SMS_WAPPUSH_RECEIVE_COMPLETED
+            - static const COMMON_EVENT_SPECIAL_CODE
+            - static const COMMON_EVENT_SPLIT_SCREEN
+            - static const COMMON_EVENT_SPN_INFO_CHANGED
+            - static const COMMON_EVENT_STK_ALPHA_IDENTIFIER
+            - static const COMMON_EVENT_STK_CARD_STATE_CHANGED
+            - static const COMMON_EVENT_STK_COMMAND
+            - static const COMMON_EVENT_STK_SESSION_END
+            - static const COMMON_EVENT_THERMAL_LEVEL_CHANGED
+            - static const COMMON_EVENT_TIMEZONE_CHANGED
+            - static const COMMON_EVENT_TIME_CHANGED
+            - static const COMMON_EVENT_TIME_TICK
+            - static const COMMON_EVENT_UID_REMOVED
+            - static const COMMON_EVENT_USB_ACCESSORY_ATTACHED
+            - static const COMMON_EVENT_USB_ACCESSORY_DETACHED
+            - static const COMMON_EVENT_USB_DEVICE_ATTACHED
+            - static const COMMON_EVENT_USB_DEVICE_DETACHED
+            - static const COMMON_EVENT_USB_PORT_CHANGED
+            - static const COMMON_EVENT_USB_STATE
+            - static const COMMON_EVENT_USER_ADDED
+            - static const COMMON_EVENT_USER_BACKGROUND
+            - static const COMMON_EVENT_USER_FOREGROUND
+            - static const COMMON_EVENT_USER_INFO_UPDATED
+            - static const COMMON_EVENT_USER_REMOVED
+            - static const COMMON_EVENT_USER_STARTED
+            - static const COMMON_EVENT_USER_STARTING
+            - static const COMMON_EVENT_USER_STOPPED
+            - static const COMMON_EVENT_USER_STOPPING
+            - static const COMMON_EVENT_USER_SWITCHED
+            - static const COMMON_EVENT_USER_UNLOCKED
+            - static const COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED
+            - static const COMMON_EVENT_VOLUME_BAD_REMOVAL
+            - static const COMMON_EVENT_VOLUME_EJECT
+            - static const COMMON_EVENT_VOLUME_MOUNTED
+            - static const COMMON_EVENT_VOLUME_REMOVED
+            - static const COMMON_EVENT_VOLUME_UNMOUNTED
+            - static const COMMON_EVENT_WIFI_AP_STA_JOIN
+            - static const COMMON_EVENT_WIFI_AP_STA_LEAVE
+            - static const COMMON_EVENT_WIFI_CONN_STATE
+            - static const COMMON_EVENT_WIFI_HOTSPOT_STATE
+            - static const COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE
+            - static const COMMON_EVENT_WIFI_P2P_CONN_STATE
+            - static const COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED
+            - static const COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED
+            - static const COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED
+            - static const COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED
+            - static const COMMON_EVENT_WIFI_P2P_STATE_CHANGED
+            - static const COMMON_EVENT_WIFI_POWER_STATE
+            - static const COMMON_EVENT_WIFI_RSSI_VALUE
+            - static const COMMON_EVENT_WIFI_SCAN_FINISHED
+            - static const COMMON_EVENT_ENTER_FORCE_SLEEP
+            - static const COMMON_EVENT_EXIT_FORCE_SLEEP
+            - static const COMMON_EVENT_ENTER_HIBERNATE
+            - static const COMMON_EVENT_EXIT_HIBERNATE
+            - static const COMMON_EVENT_MINORSMODE_ON
+            - static const COMMON_EVENT_MINORSMODE_OFF
+            - static const COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED
+        - enum ValueType
+            - ARRAYBOOL(Array\<Bool>)
+            - ARRAYF64(Array\<Float64>)
+            - ARRAYFD(Array\<Int32>)
+            - ARRAYI32(Array\<Int32>)
+            - ARRAYI64(Array\<Int64>)
+            - ARRSTRING(Array\<String>)
+            - BOOL(Bool)
+            - FD(Int32)
+            - FLOAT64(Float64)
+            - INT(Int32)
+            - STRING(String)
+                - [其他]()
+                    - [ohos.base（公共回调信息）](source_zh_cn/apis/BasicServicesKit/cj-apis-base.md)
+    API索引列表:
+    - ohos.base（公共回调信息）
+        - 导入模块
+                import ohos.base.*
+        - let AppLog
+        - let BaseLog
+        - class AsyncError
+            - let code
+            - AsyncError(Int32)
+        - class BusinessException
+            - let code
+            - init(Int32, String)
+            - func toString()
+        - class Callback0Argument
+            - func invoke()
+        - class Callback1Argument
+            - func invoke(A)
+        - class Callback1ArgumentWithReturn
+            - func invoke(A)
+        - class Callback2Argument
+            - func invoke(A, B)
+        - class Callback3ArgumentWithReturn
+            - func invoke(A, B, C)
+        - class CallbackObject
+        - class CallbackWithReturn
+            - func invoke()
+        - type AsyncCallback
+        - type Callback
+                    - [ohos.labels(标签信息)](source_zh_cn/apis/BasicServicesKit/cj-apis-labels.md)
+    API索引列表:
+    - ohos.labels（标签信息）
+        - 导入模块
+                import ohos.labels.*
+        - 使用说明
+        - interface PermissionValue
+            - func &(PermissionValue)
+            - func |(PermissionValue)
+        - class APILevel
+            - let atomicservice
+            - let crossplatform
+            - let deprecated
+            - let form
+            - let level
+            - let permission
+            - let stagemodelonly
+            - let syscap
+            - init(UInt8, Bool, Bool, UInt8, Bool, ?PermissionValue, Bool, String)
+        - class PermissionAnd
+            - init(PermissionValue, PermissionValue)
+            - func &(PermissionValue)
+            - func |(PermissionValue)
+        - class PermissionOr
+            - init(PermissionValue, PermissionValue)
+            - func &(PermissionValue)
+            - func |(PermissionValue)
+        - struct String
+            - func &(PermissionValue)
+            - func |(PermissionValue)
+                    - [ohos.settings（设置数据项名称）](source_zh_cn/apis/BasicServicesKit/cj-apis-settings.md)
+    API索引列表:
+    - ohos.settings（设置数据项名称）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 使用说明
+        - func getUriSync\<T>(T) where T <: ToString
+        - func getUriSync\<T, P>(T, P) where T <: ToStringP <: ToString
+        - func getValue\<T>(StageContext, T, String) where T <: ToString
+        - func getValue\<T, P>(StageContext, T, String, P) where T <: ToStringP <: ToString
+        - func registerKeyObserver\<T, P>(StageContext, T, P, Callback0Argument) where T <: ToStringP <: ToString
+        - func unregisterKeyObserver\<T, P>(StageContext, T, P) where T <: ToStringP <: ToString
+        - class DisplayAutoScreenBrightnessMode
+            - static let AUTO_SCREEN_BRIGHTNESS_MODE
+            - static let MANUAL_SCREEN_BRIGHTNESS_MODE
+        - class WirelessAirplantMode
+            - static let BLUETOOTH_RADIO
+            - static let CELL_RADIO
+            - static let NFC_RADIO
+            - static let WIFI_RADIO
+        - enum Date
+            - AUTO_GAIN_TIME
+            - AUTO_GAIN_TIME_ZONE
+            - DATE_FORMAT
+            - TIME_FORMAT
+            - func toString()
+        - enum Display
+            - ANIMATOR_DURATION_SCALE
+            - AUTO_SCREEN_BRIGHTNESS
+            - DEFAULT_SCREEN_ROTATION
+            - DISPLAY_INVERSION_STATUS
+            - FONT_SCALE
+            - SCREEN_BRIGHTNESS_STATUS
+            - SCREEN_OFF_TIMEOUT
+            - TRANSITION_ANIMATION_SCALE
+            - WINDOW_ANIMATION_SCALE
+            - func toString()
+        - enum DomainName
+            - DEVICE_SHARED
+            - USER_PROPERTY
+            - func toString()
+        - enum General
+            - ACCELEROMETER_ROTATION_STATUS
+            - ACCESSIBILITY_STATUS
+            - ACTIVATED_ACCESSIBILITY_SERVICES
+            - AIRPLANE_MODE_STATUS
+            - BOOT_COUNTING
+            - CONTACT_METADATA_SYNC_STATUS
+            - DEBUGGER_WAITING
+            - DEBUG_APP_PACKAGE
+            - DEVELOPMENT_SETTINGS_STATUS
+            - DEVICE_NAME
+            - DEVICE_PROVISION_STATUS
+            - END_BUTTON_ACTION
+            - GEOLOCATION_ORIGINS_ALLOWED
+            - HDC_STATUS
+            - SETUP_WIZARD_FINISHED
+            - SKIP_USE_HINTS
+            - TOUCH_EXPLORATION_STATUS
+            - USB_STORAGE_STATUS
+            - func toString()
+        - enum Input
+            - ACTIVATED_INPUT_METHODS
+            - ACTIVATED_INPUT_METHOD_SUB_MODE
+            - AUTO_CAPS_TEXT_INPUT
+            - AUTO_PUNCTUATE_TEXT_INPUT
+            - AUTO_REPLACE_TEXT_INPUT
+            - DEFAULT_INPUT_METHOD
+            - SELECTOR_VISIBILITY_FOR_INPUT_METHOD
+            - SHOW_PASSWORD_TEXT_INPUT
+            - func toString()
+        - enum Network
+            - DATA_ROAMING_STATUS
+            - HTTP_PROXY_CFG
+            - NETWORK_PREFERENCE_USAGE
+            - func toString()
+        - enum Phone
+            - RTT_CALLING_STATUS
+            - func toString()
+        - enum Sound
+            - AFFECTED_MODE_RINGER_STREAMS
+            - AFFECTED_MUTE_STREAMS
+            - DEFAULT_ALARM_ALERT
+            - DEFAULT_NOTIFICATION_SOUND
+            - DEFAULT_RINGTONE
+            - DTMF_TONE_TYPE_WHILE_DIALING
+            - DTMF_TONE_WHILE_DIALING
+            - HAPTIC_FEEDBACK_STATUS
+            - SOUND_EFFECTS_STATUS
+            - VIBRATE_STATUS
+            - VIBRATE_WHILE_RINGING
+            - func toString()
+        - enum TTS
+            - DEFAULT_TTS_PITCH
+            - DEFAULT_TTS_RATE
+            - DEFAULT_TTS_SYNTH
+            - ENABLED_TTS_PLUGINS
+            - func toString()
+        - enum Wireless
+            - AIRPLANE_MODE_RADIOS
+            - BLUETOOTH_DISCOVER_ABILITY_STATUS
+            - BLUETOOTH_DISCOVER_TIMEOUT
+            - BLUETOOTH_STATUS
+            - OWNER_LOCKDOWN_WIFI_CFG
+            - WIFI_DHCP_MAX_RETRY_COUNT
+            - WIFI_STATUS
+            - WIFI_TO_MOBILE_DATA_AWAKE_TIMEOUT
+            - WIFI_WATCHDOG_STATUS
+            - func toString()
+                    - [ohos.system_date_time（系统时间、时区）](source_zh_cn/apis/BasicServicesKit/cj-apis-system_date_time.md)
+    API索引列表:
+    - ohos.system_date_time（系统时间、时区）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 使用说明
+        - class SystemDateTime
+            - static func getCurrentTime(Bool)
+            - static func getRealActiveTime(Bool)
+            - static func getRealTime(Bool)
+            - static func getTime(Bool)
+            - static func getTimezone()
+            - static func getUptime(TimeType, Bool)
+        - enum TimeType
+            - ACTIVE
+            - STARTUP
+        - 支持的系统时区
+                    - [ohos.system_parameter_enhance（系统参数）](source_zh_cn/apis/BasicServicesKit/cj-apis-system_parameter_enhance.md)
+    API索引列表:
+    - ohos.system_parameter_enhance（系统参数）
+        - 导入模块
+                import kit.BasicServicesKit.*
+        - 使用说明
+        - class Systemparameter
+            - static func get(String, String)
+            - static func set(String, String)
+            - [错误码]()
+                - [RunningLock锁错误码](source_zh_cn/errorcodes/cj-errorcode-running-lock.md)
+    API索引列表:
+    - RunningLock锁错误码
+        - 4900101 连接服务失败
+                - [剪贴板错误码](source_zh_cn/errorcodes/cj-errorcode-pasteboard.md)
+    API索引列表:
+    - 剪贴板错误码
+        - 12900001 索引超过范围
+        - 12900002 Record数量超过最大限制
+        - 12900003 另外一个复制或粘贴正在进行
+        - 12900004 禁止复制
+        - 12900005 请求超时
+        - 12900006 设置已存在
+        - 77987860 没有数据
+                - [上传下载错误码](source_zh_cn/errorcodes/cj-errorcode-request.md)
+    API索引列表:
+    - 上传下载错误码
+        - 13400001 文件操作异常
+        - 13400002 文件路径异常
+        - 13400003 服务异常
+        - 13499999 其他错误
+        - 21900004 应用任务队列已满
+        - 21900005 任务模式错误
+        - 21900006 操作不存在的任务错误
+        - 21900007 在不支持的状态上的操作
+                - [时间时区错误码](source_zh_cn/errorcodes/cj-errorcode-time.md)
+    API索引列表:
+    - 时间时区服务错误码
+        - -1 时间时区服务异常
+                - [事件错误码](source_zh_cn/errorcodes/cj-errorcode-common_event_service.md)
+    API索引列表:
+    - 事件错误码
+        - 1500001 want中Action为空
+        - 1500002 沙箱应用无法发送公共事件
+        - 1500003 事件发送频率过高
+        - 1500004 无法发送系统公共事件
+        - 1500005 未找到订阅者
+        - 1500006 无效userId
+        - 1500007 IPC请求发送失败
+        - 1500008 读取数据失败
+        - 1500009 系统错误
+                - [系统参数错误码](source_zh_cn/errorcodes/cj-errorcode-system-parameter.md)
+    API索引列表:
+    - 系统参数错误码
+        - 14700101 系统参数查找失败
+        - 14700102 系统参数值无效
+        - 14700103 系统权限操作权限被拒绝
+        - 14700104 系统内部错误，包括内存不足，死锁等
+                - [系统电源管理错误码](source_zh_cn/errorcodes/cj-errorcode-power.md)
+    API索引列表:
+    - 系统电源管理错误码
+        - 4900101 连接服务失败
+                - [账号管理错误码](source_zh_cn/errorcodes/cj-errorcode-basic-account.md)
+    API索引列表:
+    - 账号管理错误码
+        - 12300001 系统服务异常
+        - 12300002 无效参数
+        - 12300003 账号不存在
+        - 12300004 账号已存在
+        - 12300005 不支持多用户
+        - 12300006 不支持的账号类型
+        - 12300007 账号数量已达上限
+        - 12300008 受限的账号
+        - 12300009 账号已激活
+        - 12300010 账号服务忙碌
+        - 12300011 事件监听器已注册
+        - 12300012 事件监听器未注册
+        - 12300013 网络异常
+        - 12300014 域账号未认证
+        - 12300015 短名称已存在
+        - 12300016 账号登录数已达上限
+        - 12300101 凭据不正确
+        - 12300102 凭据不存在
+        - 12300103 凭据输入器已注册
+        - 12300104 凭据输入器不存在
+        - 12300105 可信等级不支持
+        - 12300106 认证类型不支持
+        - 12300107 认证类型不存在
+        - 12300108 认证会话不存在
+        - 12300109 认证、凭据录入、更新等操作被取消
+        - 12300110 认证被锁定
+        - 12300111 认证超时
+        - 12300112 认证服务忙
+        - 12300113 认证服务不存在
+        - 12300114 认证服务异常
+        - 12300115 用户认证密码个数达到上限
+        - 12300116 凭证复杂度验证失败
+        - 12300117 PIN码过期
+        - 12400001 应用不存在
+        - 12400002 自定义数据不存在
+        - 12400003 自定义数据的数量已达上限
+        - 12400004 令牌数量已达上限
+        - 12400005 授权列表已达上限
+                - [zlib子系统错误码](source_zh_cn/errorcodes/cj-errorcode-zlib.md)
+    API索引列表:
+    - zlib子系统错误码
+        - 900001 传入的源文件错误
+        - 900002 传入的目标文件错误
+        - 900003 传入的源文件格式错误或者已损坏
+        - 17800002 传入的文件或访问模式错误
+        - 17800004 压缩流或解压流错误
+        - 17800005 传入的数据错误
+        - 17800006 内存分配失败错误
+        - 17800007 传入的缓冲区错误
+        - 17800009 内部结构错误
+        - [Input Kit（多模输入服务）]()
+            - [仓颉API]()
+                - [ohos.multimodalInput.inputEvent（输入事件）](source_zh_cn/apis/InputKit/cj-apis-multimodalInput-inputEvent.md)
+    API索引列表:
+    - ohos.multimodalInput.inputEvent（输入事件）
+        - 导入模块
+                import kit.InputKit.*
+        - class InputEvent
+            - var id
+            - var deviceId
+            - var actionTime
+            - var screenId
+            - var windowId
+            - InputEvent(Int32, Int32, Int64, Int32, Int32)
+                - [ohos.multimodalInput.keyCode（键值）](source_zh_cn/apis/InputKit/cj-apis-multimodalInput-keyCode.md)
+    API索引列表:
+    - ohos.multimodalInput.keyCode（键值）
+        - 导入模块
+                import kit.InputKit.*
+        - enum KeyCode
+            - KEYCODE_0
+            - KEYCODE_1
+            - KEYCODE_102ND
+            - KEYCODE_2
+            - KEYCODE_3
+            - KEYCODE_4
+            - KEYCODE_5
+            - KEYCODE_6
+            - KEYCODE_7
+            - KEYCODE_8
+            - KEYCODE_9
+            - KEYCODE_A
+            - KEYCODE_ADDRESSBOOK
+            - KEYCODE_AGAIN
+            - KEYCODE_ALTERASE
+            - KEYCODE_ALT_LEFT
+            - KEYCODE_ALT_RIGHT
+            - KEYCODE_APOSTROPHE
+            - KEYCODE_APPSELECT
+            - KEYCODE_ASPECT_RATIO
+            - KEYCODE_ASSISTANT
+            - KEYCODE_AT
+            - KEYCODE_AUDIO
+            - KEYCODE_B
+            - KEYCODE_BACK
+            - KEYCODE_BACKSLASH
+            - KEYCODE_BASSBOOST
+            - KEYCODE_BATTERY
+            - KEYCODE_BLUE
+            - KEYCODE_BLUETOOTH
+            - KEYCODE_BOOKMARKS
+            - KEYCODE_BREAK
+            - KEYCODE_BRIGHTNESS_CYCLE
+            - KEYCODE_BRIGHTNESS_DOWN
+            - KEYCODE_BRIGHTNESS_MAX
+            - KEYCODE_BRIGHTNESS_MIN
+            - KEYCODE_BRIGHTNESS_TOGGLE
+            - KEYCODE_BRIGHTNESS_UP
+            - KEYCODE_BRIGHTNESS_ZERO
+            - KEYCODE_BTN_0
+            - KEYCODE_BTN_1
+            - KEYCODE_BTN_2
+            - KEYCODE_BTN_3
+            - KEYCODE_BTN_4
+            - KEYCODE_BTN_5
+            - KEYCODE_BTN_6
+            - KEYCODE_BTN_7
+            - KEYCODE_BTN_8
+            - KEYCODE_BTN_9
+            - KEYCODE_BTN_MISC
+            - KEYCODE_BUTTONCONFIG
+            - KEYCODE_C
+            - KEYCODE_CALC
+            - KEYCODE_CALENDAR
+            - KEYCODE_CAMERA
+            - KEYCODE_CANCEL
+            - KEYCODE_CAPS_LOCK
+            - KEYCODE_CD
+            - KEYCODE_CHANNEL
+            - KEYCODE_CHANNELDOWN
+            - KEYCODE_CHANNELUP
+            - KEYCODE_CHAT
+            - KEYCODE_CLOSE
+            - KEYCODE_COFFEE
+            - KEYCODE_COMMA
+            - KEYCODE_COMPUTER
+            - KEYCODE_CONFIG
+            - KEYCODE_CONNECT
+            - KEYCODE_CONTROLPANEL
+            - KEYCODE_COPY
+            - KEYCODE_CTRL_LEFT
+            - KEYCODE_CTRL_RIGHT
+            - KEYCODE_CUT
+            - KEYCODE_CYCLEWINDOWS
+            - KEYCODE_D
+            - KEYCODE_DASHBOARD
+            - KEYCODE_DATABASE
+            - KEYCODE_DEL
+            - KEYCODE_DELETEFILE
+            - KEYCODE_DIRECTION_ROTATE_DISPLAY
+            - KEYCODE_DISPLAY_OFF
+            - KEYCODE_DOCUMENTS
+            - KEYCODE_DPAD_CENTER
+            - KEYCODE_DPAD_DOWN
+            - KEYCODE_DPAD_LEFT
+            - KEYCODE_DPAD_RIGHT
+            - KEYCODE_DPAD_UP
+            - KEYCODE_DVD
+            - KEYCODE_E
+            - KEYCODE_EDIT
+            - KEYCODE_EDITOR
+            - KEYCODE_EJECTCLOSECD
+            - KEYCODE_ENTER
+            - KEYCODE_ENVELOPE
+            - KEYCODE_EQUALS
+            - KEYCODE_ESCAPE
+            - KEYCODE_EXIT
+            - KEYCODE_EXPLORER
+            - KEYCODE_F
+            - KEYCODE_F1
+            - KEYCODE_F10
+            - KEYCODE_F11
+            - KEYCODE_F12
+            - KEYCODE_F13
+            - KEYCODE_F14
+            - KEYCODE_F15
+            - KEYCODE_F16
+            - KEYCODE_F17
+            - KEYCODE_F18
+            - KEYCODE_F19
+            - KEYCODE_F2
+            - KEYCODE_F20
+            - KEYCODE_F21
+            - KEYCODE_F22
+            - KEYCODE_F23
+            - KEYCODE_F24
+            - KEYCODE_F3
+            - KEYCODE_F4
+            - KEYCODE_F5
+            - KEYCODE_F6
+            - KEYCODE_F7
+            - KEYCODE_F8
+            - KEYCODE_F9
+            - KEYCODE_FILE
+            - KEYCODE_FINANCE
+            - KEYCODE_FIND
+            - KEYCODE_FN
+            - KEYCODE_FORWARD
+            - KEYCODE_FORWARDMAIL
+            - KEYCODE_FORWARD_DEL
+            - KEYCODE_FRONT
+            - KEYCODE_FULL_SCREEN
+            - KEYCODE_FUNCTION
+            - KEYCODE_G
+            - KEYCODE_GAMES
+            - KEYCODE_GOTO
+            - KEYCODE_GRAPHICSEDITOR
+            - KEYCODE_GRAVE
+            - KEYCODE_GREEN
+            - KEYCODE_H
+            - KEYCODE_HANGUEL
+            - KEYCODE_HANJA
+            - KEYCODE_HELP
+            - KEYCODE_HENKAN
+            - KEYCODE_HIRAGANA
+            - KEYCODE_HOME
+            - KEYCODE_HP
+            - KEYCODE_I
+            - KEYCODE_IMAGES
+            - KEYCODE_INFO
+            - KEYCODE_INSERT
+            - KEYCODE_ISO
+            - KEYCODE_J
+            - KEYCODE_JOURNAL
+            - KEYCODE_K
+            - KEYCODE_KATAKANA
+            - KEYCODE_KATAKANA_HIRAGANA
+            - KEYCODE_KBDILLUM_DOWN
+            - KEYCODE_KBDILLUM_TOGGLE
+            - KEYCODE_KBDILLUM_UP
+            - KEYCODE_KBDINPUTASSIST_ACCEPT
+            - KEYCODE_KBDINPUTASSIST_CANCEL
+            - KEYCODE_KBDINPUTASSIST_NEXT
+            - KEYCODE_KBDINPUTASSIST_NEXTGROUP
+            - KEYCODE_KBDINPUTASSIST_PREV
+            - KEYCODE_KBDINPUTASSIST_PREVGROUP
+            - KEYCODE_KBD_LAYOUT_NEXT
+            - KEYCODE_KEYBOARD
+            - KEYCODE_L
+            - KEYCODE_LAST
+            - KEYCODE_LEFT_BRACKET
+            - KEYCODE_LINEFEED
+            - KEYCODE_M
+            - KEYCODE_MACRO
+            - KEYCODE_MEDIA_CLOSE
+            - KEYCODE_MEDIA_EJECT
+            - KEYCODE_MEDIA_FAST_FORWARD
+            - KEYCODE_MEDIA_NEXT
+            - KEYCODE_MEDIA_PAUSE
+            - KEYCODE_MEDIA_PLAY
+            - KEYCODE_MEDIA_PLAY_PAUSE
+            - KEYCODE_MEDIA_PREVIOUS
+            - KEYCODE_MEDIA_RECORD
+            - KEYCODE_MEDIA_REPEAT
+            - KEYCODE_MEDIA_REWIND
+            - KEYCODE_MEDIA_STOP
+            - KEYCODE_MEMO
+            - KEYCODE_MENU
+            - KEYCODE_MESSENGER
+            - KEYCODE_META_LEFT
+            - KEYCODE_META_RIGHT
+            - KEYCODE_MINUS
+            - KEYCODE_MOVE
+            - KEYCODE_MOVE_END
+            - KEYCODE_MOVE_HOME
+            - KEYCODE_MSDOS
+            - KEYCODE_MUHENKAN
+            - KEYCODE_MUTE
+            - KEYCODE_N
+            - KEYCODE_NEW
+            - KEYCODE_NEWS
+            - KEYCODE_NEXT
+            - KEYCODE_NUMPAD_0
+            - KEYCODE_NUMPAD_1
+            - KEYCODE_NUMPAD_2
+            - KEYCODE_NUMPAD_3
+            - KEYCODE_NUMPAD_4
+            - KEYCODE_NUMPAD_5
+            - KEYCODE_NUMPAD_6
+            - KEYCODE_NUMPAD_7
+            - KEYCODE_NUMPAD_8
+            - KEYCODE_NUMPAD_9
+            - KEYCODE_NUMPAD_ADD
+            - KEYCODE_NUMPAD_COMMA
+            - KEYCODE_NUMPAD_DIVIDE
+            - KEYCODE_NUMPAD_DOT
+            - KEYCODE_NUMPAD_ENTER
+            - KEYCODE_NUMPAD_EQUALS
+            - KEYCODE_NUMPAD_LEFT_PAREN
+            - KEYCODE_NUMPAD_MULTIPLY
+            - KEYCODE_NUMPAD_PLUSMINUS
+            - KEYCODE_NUMPAD_RIGHT_PAREN
+            - KEYCODE_NUMPAD_SUBTRACT
+            - KEYCODE_NUM_LOCK
+            - KEYCODE_O
+            - KEYCODE_OPEN
+            - KEYCODE_P
+            - KEYCODE_PAGE_DOWN
+            - KEYCODE_PAGE_UP
+            - KEYCODE_PASTE
+            - KEYCODE_PC
+            - KEYCODE_PERIOD
+            - KEYCODE_PLAY
+            - KEYCODE_PLAYER
+            - KEYCODE_PLAYPAUSE
+            - KEYCODE_PLUS
+            - KEYCODE_POUND
+            - KEYCODE_POWER
+            - KEYCODE_PRESENTATION
+            - KEYCODE_PREVIOUS
+            - KEYCODE_PRINT
+            - KEYCODE_PROG1
+            - KEYCODE_PROG2
+            - KEYCODE_PROG3
+            - KEYCODE_PROG4
+            - KEYCODE_PROGRAM
+            - KEYCODE_PROPS
+            - KEYCODE_PVR
+            - KEYCODE_Q
+            - KEYCODE_QUESTION
+            - KEYCODE_R
+            - KEYCODE_RED
+            - KEYCODE_REDO
+            - KEYCODE_REFRESH
+            - KEYCODE_REPLY
+            - KEYCODE_RESTART
+            - KEYCODE_RFKILL
+            - KEYCODE_RIGHT_BRACKET
+            - KEYCODE_RO
+            - KEYCODE_S
+            - KEYCODE_SAT
+            - KEYCODE_SAVE
+            - KEYCODE_SCALE
+            - KEYCODE_SCREENLOCK
+            - KEYCODE_SCREENSAVER
+            - KEYCODE_SCROLLDOWN
+            - KEYCODE_SCROLLUP
+            - KEYCODE_SCROLL_LOCK
+            - KEYCODE_SEMICOLON
+            - KEYCODE_SEND
+            - KEYCODE_SENDFILE
+            - KEYCODE_SETUP
+            - KEYCODE_SHIFT_LEFT
+            - KEYCODE_SHIFT_RIGHT
+            - KEYCODE_SHOP
+            - KEYCODE_SHUFFLE
+            - KEYCODE_SLASH
+            - KEYCODE_SLEEP
+            - KEYCODE_SLOW
+            - KEYCODE_SOUND
+            - KEYCODE_SPACE
+            - KEYCODE_SPELLCHECK
+            - KEYCODE_SPORT
+            - KEYCODE_SPREADSHEET
+            - KEYCODE_STAR
+            - KEYCODE_STOP
+            - KEYCODE_STOPCD
+            - KEYCODE_SUBTITLE
+            - KEYCODE_SUSPEND
+            - KEYCODE_SWITCHVIDEOMODE
+            - KEYCODE_SYM
+            - KEYCODE_SYSRQ
+            - KEYCODE_T
+            - KEYCODE_TAB
+            - KEYCODE_TAPE
+            - KEYCODE_TASKMANAGER
+            - KEYCODE_TUNER
+            - KEYCODE_TV
+            - KEYCODE_TV2
+            - KEYCODE_U
+            - KEYCODE_UNDO
+            - KEYCODE_UNKNOWN
+            - KEYCODE_UWB
+            - KEYCODE_V
+            - KEYCODE_VCR
+            - KEYCODE_VCR2
+            - KEYCODE_VIDEO
+            - KEYCODE_VIDEOPHONE
+            - KEYCODE_VIDEO_NEXT
+            - KEYCODE_VIDEO_PREV
+            - KEYCODE_VIRTUAL_MULTITASK
+            - KEYCODE_VOICEMAIL
+            - KEYCODE_VOLUME_DOWN
+            - KEYCODE_VOLUME_MUTE
+            - KEYCODE_VOLUME_UP
+            - KEYCODE_W
+            - KEYCODE_WAKEUP
+            - KEYCODE_WLAN
+            - KEYCODE_WORDPROCESSOR
+            - KEYCODE_WWAN_WIMAX
+            - KEYCODE_X
+            - KEYCODE_XFER
+            - KEYCODE_Y
+            - KEYCODE_YELLOW
+            - KEYCODE_YEN
+            - KEYCODE_Z
+            - KEYCODE_ZENKAKU_HANKAKU
+            - KEYCODE_ZOOMIN
+            - KEYCODE_ZOOMOUT
+            - KEYCODE_ZOOMRESET
+            - KEYCODE_SEARCH
+            - KEYCODE_BUTTON_A
+            - KEYCODE_BUTTON_B
+            - KEYCODE_BUTTON_X
+            - KEYCODE_BUTTON_Y
+            - KEYCODE_BUTTON_L1
+            - KEYCODE_BUTTON_R1
+            - KEYCODE_BUTTON_L2
+            - KEYCODE_BUTTON_R2
+            - KEYCODE_BUTTON_SELECT
+            - KEYCODE_BUTTON_START
+            - KEYCODE_BUTTON_MODE
+            - KEYCODE_BUTTON_THUMBL
+            - KEYCODE_BUTTON_THUMBR
+            - func !=(KeyCode)
+            - func ==(KeyCode)
+            - func toString()
+                - [ohos.multimodalInput.keyEvent（按键输入事件）](source_zh_cn/apis/InputKit/cj-apis-multimodalInput-keyEvent.md)
+    API索引列表:
+    - ohos.multimodalInput.keyEvent（按键输入事件）
+        - 导入模块
+                import kit.InputKit.*
+        - class Key
+            - var code
+            - var pressedTime
+            - var deviceId
+            - Key(KeyCode, Int64, Int32)
+        - class KeyEvent
+            - var action
+            - var key
+            - var unicodeChar
+            - var keys
+            - var ctrlKey
+            - var altKey
+            - var shiftKey
+            - var logoKey
+            - var fnKey
+            - var capsLock
+            - var numLock
+            - var scrollLock
+            - init(InputEvent, Action, Key, UInt32, Array\<Key>, Bool, Bool, Bool, Bool, Bool, Bool, Bool, Bool)
+        - enum Action
+            - CANCEL
+            - DOWN
+            - UP
+            - func !=(Action)
+            - func ==(Action)
+            - func toString()
+    - [硬件]()
+        - [Sensor Service Kit（传感器服务）]()
+            - [仓颉API]()
+                - [ohos.sensor（传感器））](source_zh_cn/apis/SensorServiceKit/cj-apis-sensor.md)
+    API索引列表:
+    - ohos.sensor（传感器）
+        - 导入模块
+                import kit.SensorServiceKit.*
+        - 权限列表
+                ohos.permission.ACCELEROMETER
+                ohos.permission.GYROSCOPE
+                ohos.permission.READ_HEALTH_DATA
+        - 使用说明
+        - func getAngleVariation(Array\<Float32>, Array\<Float32>)
+        - func getDeviceAltitude(Float32, Float32)
+        - func getGeomagneticInfo(LocationOptions, Int64)
+        - func getInclination(Array\<Float32>)
+        - func getOrientation(Array\<Float32>)
+        - func getQuaternion(Array\<Float32>)
+        - func getRotationMatrix(Array\<Float32>)
+        - func getRotationMatrix(Array\<Float32>, Array\<Float32>)
+        - func getSensorList()
+        - func getSingleSensor(SensorId)
+        - func off(SensorId, ?CallbackObject)
+        - func on\<T>(SensorId, Callback1Argument\<T>, ?SensorOptions) where T <: Response
+        - func once\<T>(SensorId, Callback1Argument\<T>) where T <: Response
+        - func transformRotationMatrix(Array\<Float32>, CoordinatesOptions)
+        - class AccelerometerResponse
+            - var x
+            - var y
+            - var z
+            - AccelerometerResponse(Float32, Float32, Float32)
+        - class AccelerometerUncalibratedResponse
+            - var biasX
+            - var biasY
+            - var biasZ
+            - var x
+            - var y
+            - var z
+            - AccelerometerUncalibratedResponse(Float32, Float32, Float32, Float32, Float32, Float32)
+        - class AmbientTemperatureResponse
+            - var temperature
+            - AmbientTemperatureResponse(Float32)
+        - class BarometerResponse
+            - var pressure
+            - BarometerResponse(Float32)
+        - class GravityResponse
+            - var x
+            - var y
+            - var z
+            - GravityResponse(Float32, Float32, Float32)
+        - class GyroscopeResponse
+            - var x
+            - var y
+            - var z
+            - GyroscopeResponse(Float32, Float32, Float32)
+        - class GyroscopeUncalibratedResponse
+            - var biasX
+            - var biasY
+            - var biasZ
+            - var x
+            - var y
+            - var z
+            - GyroscopeUncalibratedResponse(Float32, Float32, Float32, Float32, Float32, Float32)
+        - class HallResponse
+            - var status
+            - HallResponse(Float32)
+        - class HeartRateResponse
+            - var heartRate
+            - HeartRateResponse(Float32)
+        - class HumidityResponse
+            - var humidity
+            - HumidityResponse(Float32)
+        - class LightResponse
+            - var colorTemperature
+            - var infraredLuminance
+            - var intensity
+            - LightResponse(Float32, ?Float32, ?Float32)
+        - class LinearAccelerometerResponse
+            - var x
+            - var y
+            - var z
+            - LinearAccelerometerResponse(Float32, Float32, Float32)
+        - class MagneticFieldResponse
+            - var x
+            - var y
+            - var z
+            - MagneticFieldResponse(Float32, Float32, Float32)
+        - class MagneticFieldUncalibratedResponse
+            - var biasX
+            - var biasY
+            - var biasZ
+            - var x
+            - var y
+            - var z
+            - MagneticFieldUncalibratedResponse(Float32, Float32, Float32, Float32, Float32, Float32)
+        - class OrientationResponse
+            - var alpha
+            - var beta
+            - var gamma
+            - OrientationResponse(Float32, Float32, Float32)
+        - class PedometerDetectionResponse
+            - var scalar
+            - PedometerDetectionResponse(Float32)
+        - class PedometerResponse
+            - var steps
+            - PedometerResponse(Float32)
+        - class ProximityResponse
+            - var distance
+            - ProximityResponse(Float32)
+        - class Response
+            - var accuracy
+            - var timestamp
+            - Response(Int64, SensorAccuracy)
+        - class RotationVectorResponse
+            - var w
+            - var x
+            - var y
+            - var z
+            - RotationVectorResponse(Float32, Float32, Float32, Float32)
+        - class SensorOptions
+            - var interval
+            - SensorOptions(IntervalOption)
+        - class SignificantMotionResponse
+            - var scalar
+            - SignificantMotionResponse(Float32)
+        - class WearDetectionResponse
+            - var value
+            - WearDetectionResponse(Float32)
+        - class CoordinatesOptions
+            - var x
+            - var y
+            - CoordinatesOptions(Int32, Int32)
+        - class GeomagneticResponse
+            - var deflectionAngle
+            - var geomagneticDip
+            - var levelIntensity
+            - var totalIntensity
+            - var x
+            - var y
+            - var z
+            - GeomagneticResponse(Float32, Float32, Float32, Float32, Float32, Float32, Float32)
+        - class LocationOptions
+            - var altitude
+            - var latitude
+            - var longitude
+            - LocationOptions(Float32, Float32, Float32)
+        - class RotationMatrixResponse
+            - var inclination
+            - var rotation
+            - RotationMatrixResponse(Array\<Float32>, Array\<Float32>)
+        - class Sensor
+            - var firmwareVersion
+            - var hardwareVersion
+            - var maxRange
+            - var maxSamplePeriod
+            - var minSamplePeriod
+            - var power
+            - var precision
+            - var sensorId
+            - var sensorName
+            - var vendorName
+            - Sensor(String, String, String, String, SensorId, Float32, Int64, Int64, Float32, Float32)
+        - enum IntervalOption
+            - GameMode
+            - NormalMode
+            - SensorNumber(Int64)
+            - UIMode
+            - func !=(IntervalOption)
+            - func ==(IntervalOption)
+            - func toString()
+        - enum SensorAccuracy
+            - ACCURACY_HIGH
+            - ACCURACY_LOW
+            - ACCURACY_MEDIUM
+            - ACCURACY_UNRELIABLE
+            - func !=(SensorAccuracy)
+            - func ==(SensorAccuracy)
+            - func toString()
+        - enum SensorId
+            - ACCELEROMETER
+            - ACCELEROMETER_UNCALIBRATED
+            - AMBIENT_LIGHT
+            - AMBIENT_TEMPERATURE
+            - BAROMETER
+            - GRAVITY
+            - GYROSCOPE
+            - GYROSCOPE_UNCALIBRATED
+            - HALL
+            - HEART_RATE
+            - HUMIDITY
+            - LINEAR_ACCELEROMETER
+            - MAGNETIC_FIELD
+            - MAGNETIC_FIELD_UNCALIBRATED
+            - ORIENTATION
+            - PEDOMETER
+            - PEDOMETER_DETECTION
+            - PROXIMITY
+            - ROTATION_VECTOR
+            - SIGNIFICANT_MOTION
+            - UNSUPPORTED
+            - WEAR_DETECTION
+            - func !=(SensorId)
+            - func ==(SensorId)
+            - func toString()
+                - [ohos.vibrator（振动）](source_zh_cn/apis/SensorServiceKit/cj-apis-vibrator.md)
+    API索引列表:
+    - ohos.vibrator（振动）
+        - 导入模块
+                import kit.SensorServiceKit.*
+        - 权限列表
+                ohos.permission.VIBRATE
+        - 使用说明
+        - func isHdHapticSupported()
+        - func isSupportEffect(EffectId)
+        - func startVibration(VibrateEffect, VibrateAttribute)
+        - func stopVibration(Option\<VibratorStopMode>)
+        - interface VibrateEffect
+            - prop effectType
+        - class HapticFileDescriptor
+            - var fd
+            - var length
+            - var offSet
+            - init(Int32, Int64, Int64)
+        - class VibrateAttribute
+            - var id
+            - var usage
+            - init(Usage, Int32)
+        - class VibrateFromFile
+            - prop effectType
+            - var fileType
+            - var hapticFd
+            - init(String, HapticFileDescriptor)
+        - class VibratePreset
+            - prop effectType
+            - var count
+            - var effectId
+            - var intensity
+            - var presetType
+            - init(String, String, Int32, Int32)
+        - class VibrateTime
+            - prop effectType
+            - var duration
+            - var timeType
+            - init(String, Int32)
+        - enum EffectId
+            - EFFECT_CLOCK_TIMER
+            - func toString()
+            - func !=(EffectId)
+            - func ==(EffectId)
+        - enum HapticFeedback
+            - EFFECT_HARD
+            - EFFECT_SHARP
+            - EFFECT_SOFT
+            - func toString()
+            - func !=(HapticFeedback)
+            - func ==(HapticFeedback)
+        - enum Usage
+            - ALARM
+            - COMMUNICATION
+            - MEDIA
+            - NOTIFICATION
+            - PHYSICALFEEDBACK
+            - RING
+            - SIMULATEREALITY
+            - TOUCH
+            - UNKNOWN
+            - func toString()
+            - func !=(Usage)
+            - func ==(Usage)
+        - enum VibratorStopMode
+            - VIBRATOR_STOP_MODE_PRESET
+            - VIBRATOR_STOP_MODE_TIME
+            - func toString()
+            - func !=(VibratorStopMode)
+            - func ==(VibratorStopMode)
+            - [错误码]()
+                - [传感器错误码](source_zh_cn/errorcodes/cj-errorcode-sensor.md)
+    API索引列表:
+    - 传感器错误码
+        - 14500101 传感器服务异常
+        - 14500102 设备不支持该传感器
+                - [振动错误码](source_zh_cn/errorcodes/cj-errorcode-vibrator.md)
+    API索引列表:
+    - 振动错误码
+        - 14600101 操作设备失败
+    - [调测调优]()
+        - [Performance Analysis Kit（性能分析服务）]()
+            - [仓颉API]()
+                - [ohos.faultlogger（故障日志获取）](source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-faultlogger.md)
+    API索引列表:
+    - ohos.faultlogger（故障日志获取）
+        - 导入模块
+                import kit.PerformanceAnalysisKit.*
+        - 使用说明
+        - class FaultLogger
+            - static func query(FaultType)
+        - class FaultLogInfo
+            - let faultType
+            - let fullLog
+            - let module
+            - let pid
+            - let reason
+            - let summary
+            - let timestamp
+            - let uid
+            - FaultLogInfo(Int32, Int32, FaultType, Int64, String, String, String, String)
+        - enum FaultType
+            - APP_FREEZE
+            - CPP_CRASH
+            - JS_CRASH
+            - NO_SPECIFIC
+            - func getValue()
+                - [ohos.hiappevent（应用事件打点）](source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hiappevent.md)
+    API索引列表:
+    - ohos.hiappevent（应用事件打点）
+        - 导入模块
+                import kit.PerformanceAnalysisKit.*
+        - 使用说明
+        - class AppEventPackage
+            - let data
+            - let packageId
+            - let row
+            - let size
+            - init(Int32, Int32, Int32, Array\<String>)
+        - class AppEventPackageHolder
+            - static func constructor(String)
+            - func setSize(Int32)
+            - func takeNext()
+        - class HiAppEvent
+            - static func addProcessor(Processor)
+            - static func addWatcher(Watcher)
+            - static func clearData()
+            - static func configure(ConfigOption)
+            - static func getUserId(String)
+            - static func getUserProperty(String)
+            - static func removeProcessor(Int64)
+            - static func removeWatcher(Watcher)
+        - static func setEventParam(HashMap\<String, ParamType>, String, String)
+            - static func setUserId(String, String)
+            - static func setUserProperty(String, String)
+            - static func write(AppEventInfo)
+        - class Processor
+            - let appId
+            - let batchReport
+            - let debugMode
+            - let eventConfigs
+            - let name
+            - let onBackgroundReport
+            - let onStartReport
+            - let periodReport
+            - let routeInfo
+            - let userIds
+            - let userProperties
+            - init(String, Bool, String, String, Bool, Bool, Int64, Int64, Array\<String>, Array\<String>, Array\<AppEventReportConfig>)
+        - struct AppEventReportConfig
+            - let domain
+            - let isRealTime
+            - let name
+            - init(String, String, Bool)
+        - struct AppEventFilter
+            - let domain
+            - let eventTypes
+            - let names
+            - init(String, Array\<EventType>, Array\<String>)
+        - struct AppEventGroup
+            - let appEventInfos
+            - let name
+            - init(String, Array\<AppEventInfo>)
+        - struct AppEventInfo
+            - let domain
+            - let event
+            - let name
+            - let params
+            - AppEventInfo(String, String, EventType, Array\<Parameters>)
+        - struct ConfigOption
+            - let disable
+            - let maxStorage
+            - ConfigOption(String, Bool)
+        - struct Parameters
+            - let key
+            - let value
+            - Parameters(String, ValueType)
+        - struct TriggerCondition
+            - let row
+            - let size
+            - let timeOut
+            - init(Int32, Int32, Int32)
+        - struct Watcher
+            - let appEventFilters
+            - let name
+            - let onReceive
+            - let onTrigger
+            - let triggerCondition
+            - init(String, TriggerCondition, Array\<AppEventFilter>, Option\<(Int32, Int32, AppEventPackageHolder) -> Unit>, Option\<(String, Array\<AppEventGroup>) -> Unit>)
+        - enum Domain
+            - OS
+            - prop value
+        - enum Event
+            - APP_CRASH
+            - APP_FREEZE
+            - APP_LAUNCH
+            - ADDRESS_SANITIZER
+            - BATTERY_USAGE
+            - CPU_USAGE_HIGH
+            - DISTRIBUTED_SERVICE_START
+            - MAIN_THREAD_JANK
+            - RESOURCE_OVERLIMIT
+            - SCROLL_JANK
+            - USER_LOGIN
+            - USER_LOGOUT
+            - prop value
+        - enum EventType
+            - BEHAVIOR
+            - FAULT
+            - SECURITY
+            - STATISTIC
+            - prop value
+        - enum Param
+            - DISTRIBUTED_SERVICE_INSTANCE_ID
+            - DISTRIBUTED_SERVICE_NAME
+            - USER_ID
+            - prop value
+        - enum ValueType
+            - ARRAYBOOL(Array\<Bool>)
+            - ARRAYF64(Array\<Float64>)
+            - ARRAYI32(Array\<Int32>)
+            - ARRAYI64(Array\<Int64>)
+            - ARRSTRING(Array\<String>)
+            - BOOL(Bool)
+            - FLOAT(Float64)
+            - INT(Int32)
+            - INT(Int64)
+            - STRING(String)
+            - prop value
+                - [ohos.hidebug（Debug调试）](source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hidebug.md)
+    API索引列表:
+    - ohos.hidebug（Debug调试）
+        - 导入模块
+                import kit.PerformanceAnalysisKit.*
+        - 权限列表
+                ohos.permission.DUMP
+        - 使用说明
+        - func getAppMemoryLimit()
+        - func getAppNativeMemInfo()
+        - func getAppThreadCpuUsage()
+        - func getCpuUsage()
+        - func getNativeHeapAllocatedSize()
+        - func getNativeHeapFreeSize()
+        - func getNativeHeapSize()
+        - func getPrivateDirty()
+        - func getPss()
+        - func getServiceDump(Int32, Int32, Array\<String>)
+        - func getSharedDirty()
+        - func getSystemCpuUsage()
+        - func getSystemMemInfo()
+        - func getVss()
+        - func isDebugState()
+        - func setAppResourceLimit(String, Int32, Bool)
+        - func startAppTraceCapture(Array\<UInt64>, TraceFlag, UInt32)
+        - func stopAppTraceCapture()
+        - class MemoryLimit
+            - let rssLimit
+            - let vssLimit
+        - class NativeMemInfo
+            - let privateClean
+            - let privateDirty
+            - let pss
+            - let rss
+            - let sharedClean
+            - let sharedDirty
+            - let vss
+        - class SystemMemInfo
+            - let availableMem
+            - let freeMem
+            - let totalMem
+        - class Tags
+            - static const ABILITY_MANAGER
+            - static const ARK
+            - static const ARKUI
+            - static const AUDIO
+            - static const BLUETOOTH
+            - static const CAMERA
+            - static const COMMON_LIBRARY
+            - static const DISTRIBUTED_AUDIO
+            - static const DISTRIBUTED_CAMERA
+            - static const DISTRIBUTED_DATA
+            - static const DISTRIBUTED_HARDWARE_DEVICE_MANAGER
+            - static const DISTRIBUTED_HARDWARE_FRAMEWORK
+            - static const DISTRIBUTED_INPUT
+            - static const DISTRIBUTED_SCHEDULER
+            - static const DISTRIBUTED_SCREEN
+            - static const FFRT
+            - static const FILE_MANAGEMENT
+            - static const GLOBAL_RESOURCE_MANAGER
+            - static const GRAPHICS
+            - static const HDF
+            - static const IMAGE
+            - static const MEDIA
+            - static const MISC
+            - static const MULTIMODAL_INPUT
+            - static const NET
+            - static const NOTIFICATION
+            - static const NWEB
+            - static const OHOS
+            - static const POWER_MANAGER
+            - static const RPC
+            - static const SAMGR
+            - static const WINDOW_MANAGER
+        - class ThreadCpuUsage
+            - let cpuUsage
+            - let threadId
+        - enum TraceFlag
+            - ALL_THREADS
+            - MAIN_THREAD
+                - [ohos.hilog（HiLog日志打印）](source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hilog.md)
+    API索引列表:
+    - ohos.hilog（HiLog日志打印）
+        - 导入模块
+                import kit.PerformanceAnalysisKit.*
+        - 使用说明
+        - class Hilog
+            - static func debug(UInt32, String, String)
+            - static func error(UInt32, String, String)
+            - static func fatal(UInt32, String, String)
+            - static func info(UInt32, String, String)
+            - static func isLoggable(UInt32, String, LogLevel)
+            - static func warn(UInt32, String, String)
+        - class HilogChannel
+            - init(UInt32, UInt32, String)
+            - func debug\<T>(T) where T <: ToString
+            - func error\<T>(T) where T <: ToString
+            - func fatal\<T>(T) where T <: ToString
+            - func info\<T>(T) where T <: ToString
+            - func isLoggable(UInt32)
+            - func warn\<T>(T) where T <: ToString
+        - enum LogLevel
+            - DEBUG
+            - ERROR
+            - FATAL
+            - INFO
+            - WARN
+                - [ohos.hi_tracechain（分布式跟踪）](source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hi_tracechain.md)
+    API索引列表:
+    - ohos.hi_tracechain（分布式跟踪）
+        - 导入模块
+                import kit.PerformanceAnalysisKit.*
+        - 使用说明
+        - class HiTraceChain
+            - static func begin(String, Int32)
+            - static func clearId()
+            - static func createSpan()
+            - static func enableFlag(HiTraceId, Int32)
+            - static func end(HiTraceId)
+            - static func getId()
+            - static func isFlagEnabled(HiTraceId, Int32)
+            - static func isValid(HiTraceId)
+            - static func setId(HiTraceId)
+            - static func tracepoint(HiTraceCommunicationMode, HiTraceTracepointType, HiTraceId, String)
+        - class HiTraceId
+            - var chainId
+            - var flags
+            - var parentSpanId
+            - var spanId
+            - init(UInt64, UInt64, UInt64, Int32)
+        - enum HiTraceCommunicationMode
+            - DEFAULT
+            - DEVICE
+            - PROCESS
+            - THREAD
+            - prop value
+        - enum HiTraceFlag
+            - D2D_TP_INFO
+            - DEFAULT
+            - DISABLE_LOG
+            - DONOT_CREATE_SPAN
+            - FAILURE_TRIGGER
+            - INCLUDE_ASYNC
+            - NO_BE_INFO
+            - TP_INFO
+            - prop value
+        - enum HiTraceTracepointType
+            - CR
+            - CS
+            - GENERAL
+            - SR
+            - SS
+            - prop value
+                - [ohos.hi_tracemeter（性能打点）](source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hi_tracemeter.md)
+    API索引列表:
+    - ohos.hi_tracemeter（性能打点）
+        - 导入模块
+                import kit.PerformanceAnalysisKit.*
+        - 使用说明
+        - class HiTraceMeter
+            - static func finishTrace(String, Int32)
+            - static func startTrace(String, Int32)
+            - static func traceByValue(String, Int32)
+                - [ohos.cj_leakwatcher（对象泄露检测）](source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-cj_leakwatcher.md)
+    API索引列表:
+    - ohos.cj_leakwatcher（对象泄露检测）
+        - 导入模块
+                import kit.PerformanceAnalysisKit.*
+        - 使用说明
+        - class CJLeakWatcher\<T>
+            - func enable(Bool)
+            - func watch(T, String)
+            - func check()
+            - func dump(String)
+            - [错误码]()
+                - [Faultlogger 错误码](source_zh_cn/errorcodes/cj-errorcode-faultlogger.md)
+    API索引列表:
+    - Faultlogger 错误码
+        - 10600001 服务未启动或故障
+                - [应用事件打点错误码](source_zh_cn/errorcodes/cj-errorcode-hiappevent.md)
+    API索引列表:
+    - 应用事件打点错误码
+        - 11100001 打点功能被关闭
+        - 11101001 非法的事件领域名称
+        - 11101002 非法的事件名称
+        - 11101003 非法的事件参数数量
+        - 11101004 非法的事件参数字符串长度
+        - 11101005 非法的事件参数名称
+        - 11101006 非法的事件参数数组长度
+        - 11101007 非法的事件自定义参数数量
+        - 11102001 非法的观察者名称
+        - 11102002 非法的过滤事件领域
+        - 11102003 非法的条数值
+        - 11102004 非法的大小值
+        - 11102005 非法的超时值
+        - 11103001 非法的最大存储配额值
+        - 11104001 非法的事件包大小值
+                - [Hidebug错误码](source_zh_cn/errorcodes/cj-errorcode-hidebug.md)
+    API索引列表:
+    - Hidebug错误码
+        - 11400101 系统服务获取失败
+        - 11400102 重复采集
+        - 11400103 权限校验失败
+        - 11400104 内部异常
+        - 11400105 没有开启trace
+                - [Hidebug CpuUsage错误码](source_zh_cn/errorcodes/cj-errorcode-hidebug-cpuusage.md)
+    API索引列表:
+    - Hidebug CpuUsage错误码
+        - 11400104 CpuUsage统计异常
+        - [Test Kit（应用测试服务）]()
+            - [仓颉API]()
+                - [ohos.ability_delegator_registry（AbilityDelegatorRegistry）](source_zh_cn/apis/TestKit/cj-apis-ability_delegator_registry.md)
+    API索引列表:
+    - ohos.ability_delegator_registry（AbilityDelegatorRegistry）
+        - 导入模块
+                import kit.TestKit.*
+        - 使用说明
+        - class AbilityDelegator
+            - func addAbilityMonitor(AbilityMonitor)
+            - func addAbilityStageMonitor(AbilityStageMonitor)
+            - func doAbilityBackground(UIAbility)
+            - func doAbilityForeground(UIAbility)
+            - func executeShellCommand(String, Int64)
+            - func finishTest(String, Int64)
+            - func getAbilityState(UIAbility)
+            - func getAppContext()
+            - func getCurrentTopAbility()
+            - func print(String)
+            - func removeAbilityMonitor(AbilityMonitor)
+            - func removeAbilityStageMonitor(AbilityStageMonitor)
+            - func startAbility(Want)
+            - func waitAbilityMonitor(AbilityMonitor)
+            - func waitAbilityMonitor(AbilityMonitor, Int64)
+            - func waitAbilityStageMonitor(AbilityStageMonitor)
+            - func waitAbilityStageMonitor(AbilityStageMonitor, Int64)
+        - class AbilityDelegatorArgs
+            - prop bundleName
+            - prop parameters
+            - prop testCaseNames
+            - prop testRunnerClassName
+        - class AbilityDelegatorRegistry
+            - static func getAbilityDelegator()
+            - static func getArguments()
+        - class AbilityMonitor
+            - var abilityName
+            - var moduleName
+            - var onAbilityBackground
+            - var onAbilityCreate
+            - var onAbilityDestroy
+            - var onAbilityForeground
+            - var onWindowStageCreate
+            - var onWindowStageDestroy
+            - var onWindowStageRestore
+            - AbilityMonitor(String, String, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit)
+        - class AbilityStageMonitor
+            - var moduleName
+            - var srcEntrance
+            - AbilityStageMonitor(String, String)
+        - class ShellCmdResult
+            - func dump()
+            - func getExitCode()
+            - func getStdResult()
+        - enum AbilityLifecycleState
+            - BACKGROUND
+            - CREATE
+            - DESTROY
+            - FOREGROUND
+            - UNINITIALIZED
+            - func !=(AbilityLifecycleState)
+            - func ==(AbilityLifecycleState)
+            - func toString()
+                - [ohos.ui_test（UI测试）](source_zh_cn/apis/TestKit/cj-apis-ui_test.md)
+    API索引列表:
+    - ohos.ui_test（UI测试）
+        - 导入模块
+                import kit.TestKit.*
+        - 使用说明
+        - 运行测试
+            - 准备工作
+            - 测试命令
+        - class Driver
+            - static func create()
+            - func assertComponentExist(On)
+            - func click(Int32, Int32)
+            - func createUIEventObserver()
+            - func delayMs(Int32)
+            - func doubleClick(Int32, Int32)
+            - func drag(Int32, Int32, Int32, Int32, Int32)
+            - func findComponent(On)
+            - func findComponents(On)
+            - func findWindow(WindowFilter)
+            - func fling(Point, Point, Int32, Int32)
+            - func fling(UiDirection, Int32)
+            - func getDisplayDensity()
+            - func getDisplayRotation()
+            - func getDisplaySize()
+            - func injectMultiPointerAction(PointerMatrix, Int32)
+            - func inputText(Point, String)
+            - func longClick(Int32, Int32)
+            - func mouseClick(Point, MouseButton, Option\<Int32>, Option\<Int32>)
+            - func mouseDoubleClick(Point, MouseButton, Option\<Int32>, Option\<Int32>)
+            - func mouseDrag(Point, Point, Int32)
+            - func mouseLongClick(Point, MouseButton, Option\<Int32>, Option\<Int32>)
+            - func mouseMoveTo(Point)
+            - func mouseMoveWithTrack(Point, Point, Int32)
+            - func mouseScroll(Point, Bool, Int32, Option\<Int32>, Option\<Int32>, Int32)
+            - func pressBack()
+            - func pressHome()
+            - func screenCap(String)
+            - func screenCapture(String, Option\<Rect>)
+            - func setDisplayRotation(DisplayRotation)
+            - func setDisplayRotationEnabled(Bool)
+            - func swipe(Int32, Int32, Int32, Int32, Int32)
+            - func triggerCombineKeys(Int32, Int32, Option\<Int32>)
+            - func triggerKey(Int32)
+            - func waitForComponent(On, Int32)
+            - func waitForIdle(Int32, Int32)
+            - func wakeUpDisplay()
+        - class On
+            - init()
+            - func checkable(Bool)
+            - func checked(Bool)
+            - func clickable(Bool)
+            - func description(String, ?MatchPattern)
+            - func enabled(Bool)
+            - func focused(Bool)
+            - func id(String)
+            - func inWindow(String)
+            - func isAfter(On)
+            - func isBefore(On)
+            - func longClickable(Bool)
+            - func onType(String)
+            - func scrollable(Bool)
+            - func selected(Bool)
+            - func text(String, MatchPattern)
+            - func within(On)
+        - class Point
+            - let x
+            - let y
+            - Point(IntNative, IntNative)
+        - class PointerMatrix
+            - static func create(IntNative, IntNative)
+            - func setPoint(IntNative, IntNative, Point)
+        - class Rect
+            - let bottom
+            - let left
+            - let right
+            - let top
+            - Rect(IntNative, IntNative, IntNative, IntNative)
+        - class TestRunner
+            - static func registerCreator(String, () -> TestRunner)
+            - func onRun()
+            - func onPrepare()
+        - class UIComponent
+            - func clearText()
+            - func click()
+            - func doubleClick()
+            - func dragTo(UIComponent)
+            - func getBounds()
+            - func getBoundsCenter()
+            - func getDescription()
+            - func getId()
+            - func getText()
+            - func getType()
+            - func inputText(String)
+            - func isCheckable()
+            - func isChecked()
+            - func isClickable()
+            - func isEnabled()
+            - func isFocused()
+            - func isLongClickable()
+            - func isScrollable()
+            - func isSelected()
+            - func longClick()
+            - func pinchIn(Float32)
+            - func pinchOut(Float32)
+            - func scrollSearch(On)
+            - func scrollToBottom(Int64)
+            - func scrollToTop(Int64)
+        - class UIElementInfo
+            - let bundleName
+            - let componentType
+            - let text
+            - UIElementInfo(String, String, String)
+        - class UIEventObserver
+            - func onceDialogShow((UIElementInfo) -> Unit)
+            - func onceToastShow((UIElementInfo) -> Unit)
+        - class UITest
+            - static func setup()
+        - class UiWindow
+            - func close()
+            - func focus()
+            - func getBounds()
+            - func getBundleName()
+            - func getTitle()
+            - func getWindowMode()
+            - func isActive()
+            - func isFocused()
+            - func maximize()
+            - func minimize()
+            - func moveTo(IntNative, IntNative)
+            - func resize(IntNative, IntNative, ResizeDirection)
+            - func resume()
+            - func split()
+        - class WindowFilter
+            - let active
+            - let bundleName
+            - let focused
+            - let title
+            - WindowFilter(?String, ?String, ?Bool, ?Bool)
+        - enum DisplayRotation
+            - ROTATION_0
+            - ROTATION_180
+            - ROTATION_270
+            - ROTATION_90
+        - enum MatchPattern
+            - CONTAINS
+            - ENDS_WITH
+            - EQUALS
+            - STARTS_WITH
+        - enum MouseButton
+            - MOUSE_BUTTON_LEFT
+            - MOUSE_BUTTON_MIDDLE
+            - MOUSE_BUTTON_RIGHT
+        - enum ResizeDirection
+            - DOWN
+            - LEFT
+            - LEFT_DOWN
+            - LEFT_UP
+            - RIGHT
+            - RIGHT_DOWN
+            - RIGHT_UP
+            - UP
+        - enum UiDirection
+            - DOWN
+            - LEFT
+            - RIGHT
+            - UP
+        - enum WindowMode
+            - FLOATING
+            - FULLSCREEN
+            - PRIMARY
+            - SECONDARY
+            - [错误码]()
+                - [uitest错误码](source_zh_cn/errorcodes/cj-errorcode-uitest.md)
+    API索引列表:
+    - uitest错误码
+        - 17000001 初始化失败
+        - 17000002 当前无法调用
+        - 17000003 断言失败
+        - 17000004 目标控件/窗口丢失
+        - 17000005 操作不支持
+- [媒体]()
+    - [Audio Kit（音频服务）]()
+        - [仓颉API]()
+            - [ohos.multimedia.audio（音频管理）](source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md)
+    API索引列表:
+    - ohos.multimedia.audio（音频管理）
+        - 导入模块
+                import kit.AudioKit.*
+        - 权限列表
+                ohos.permission.ACCESS_NOTIFICATION_POLICY
+                ohos.permission.MANAGE_AUDIO_CONFIG
+                ohos.permission.MICROPHONE
+                ohos.permission.MODIFY_AUDIO_SETTINGS
+        - 使用说明
+        - const DEFAULT_INTERRUPT_GROUP_ID
+        - const DEFAULT_VOLUME_GROUP_ID
+        - func createAudioCapturer(AudioCapturerOptions)
+        - func createAudioRenderer(AudioRendererOptions)
+        - func getAudioManager()
+        - class AudioCapturer
+            - prop state
+            - func getAudioStreamId()
+            - func getAudioTime()
+            - func getBufferSize()
+            - func getCapturerInfo()
+            - func getCurrentAudioCapturerChangeInfo()
+            - func getCurrentInputDevices()
+            - func getOverflowCount()
+            - func getStreamInfo()
+            - func off(AudioCapturerCallbackType, ?CallbackObject)
+            - func on(AudioCapturerCallbackType, Int64, Callback1Argument\<Int64>)
+            - func on(AudioCapturerCallbackType, Callback1Argument\<AudioCapturerChangeInfo>)
+            - func on(AudioCapturerCallbackType, Callback1Argument\<AudioDeviceDescriptors>)
+            - func on(AudioCapturerCallbackType, Callback1Argument\<Array\<Byte>>)
+            - func on(AudioCapturerCallbackType, Callback1Argument\<InterruptEvent>)
+            - func on(AudioCapturerCallbackType, Callback1Argument\<AudioState>)
+            - func release()
+            - func start()
+            - func stop()
+        - class AudioCapturerChangeInfo
+            - prop capturerInfo
+            - prop deviceDescriptors
+            - prop muted
+            - prop streamId
+        - class AudioCapturerInfo
+            - prop capturerFlags
+            - prop source
+            - AudioCapturerInfo(SourceType, Int32)
+        - class AudioCapturerOptions
+            - prop capturerInfo
+            - prop streamInfo
+            - AudioCapturerOptions(AudioCapturerInfo, AudioStreamInfo)
+        - class AudioDeviceDescriptor
+            - prop address
+            - prop channelCounts
+            - prop channelMasks
+            - prop deviceRole
+            - prop deviceType
+            - prop displayName
+            - prop encodingTypes
+            - prop id
+            - prop name
+            - prop sampleRates
+        - class AudioManager
+            - func getAudioScene()
+            - func getRoutingManager()
+            - func getSessionManager()
+            - func getStreamManager()
+            - func getVolumeManager()
+        - class AudioRenderer
+            - prop state
+            - func drain()
+            - func flush()
+            - func getAudioEffectMode()
+            - func getAudioStreamId()
+            - func getAudioTime()
+            - func getBufferSize()
+            - func getCurrentOutputDevices()
+            - func getMaxStreamVolume()
+            - func getMinStreamVolume()
+            - func getRendererInfo()
+            - func getSilentModeAndMixWithOthers()
+            - func getSpeed()
+            - func getStreamInfo()
+            - func getUnderflowCount()
+            - func getVolume()
+            - func off(AudioRendererCallbackType, ?CallbackObject)
+            - func on(AudioRendererCallbackType, Callback1ArgumentWithReturn\<Array\<Byte>, AudioDataCallbackResult>)
+            - func on(AudioRendererCallbackType, Callback1Argument\<AudioStreamDeviceChangeInfo>)
+            - func on(AudioRendererCallbackType, Callback1Argument\<AudioDeviceDescriptors>)
+            - func on(AudioRendererCallbackType, Callback1Argument\<AudioState>)
+            - func on(AudioRendererCallbackType, Callback1Argument\<InterruptEvent>)
+            - func on(AudioRendererCallbackType, Int64, Callback1Argument\<Int64>)
+            - func pause()
+            - func release()
+            - func setAudioEffectMode(AudioEffectMode)
+            - func setChannelBlendMode(ChannelBlendMode)
+            - func setDefaultOutputDevice(DeviceType)
+            - func setInterruptMode(InterruptMode)
+            - func setSilentModeAndMixWithOthers(Bool)
+            - func setSpeed(Float64)
+            - func setVolume(Float64)
+            - func setVolumeWithRamp(Float64, Int32)
+            - func start()
+            - func stop()
+        - class AudioRendererChangeInfo
+            - prop deviceDescriptors
+            - prop rendererInfo
+            - prop streamId
+        - class AudioRendererInfo
+            - prop rendererFlags
+            - prop usage
+            - AudioRendererInfo(StreamUsage, Int32)
+        - class AudioRendererOptions
+            - prop privacyType
+            - prop rendererInfo
+            - prop streamInfo
+            - AudioRendererOptions(AudioRendererInfo, AudioStreamInfo, AudioPrivacyType)
+        - class AudioRoutingManager
+            - func getAvailableDevices(DeviceUsage)
+            - func getDevices(DeviceFlag)
+            - func getPreferredInputDeviceForCapturerInfo(AudioCapturerInfo)
+            - func getPreferredOutputDeviceForRendererInfo(AudioRendererInfo)
+            - func isCommunicationDeviceActive(CommunicationDeviceType)
+            - func off(AudioRoutingManagerCallbackType, ?CallbackObject)
+            - func on(AudioRoutingManagerCallbackType, DeviceFlag, Callback1Argument\<DeviceChangeAction>)
+            - func on(AudioRoutingManagerCallbackType, AudioCapturerInfo, Callback1Argument\<AudioDeviceDescriptors>)
+            - func on(AudioRoutingManagerCallbackType, DeviceUsage, Callback1Argument\<DeviceChangeAction>)
+            - func on(AudioRoutingManagerCallbackType, AudioRendererInfo, Callback1Argument\<AudioDeviceDescriptors>)
+            - func setCommunicationDevice(CommunicationDeviceType, Bool)
+        - class AudioSessionDeactivatedEvent
+            - let reason
+            - init(AudioSessionDeactivatedReason)
+        - class AudioSessionManager
+            - func activateAudioSession(AudioSessionStrategy)
+            - func deactivateAudioSession()
+            - func isAudioSessionActivated(): Bool
+            - func off(AudioSessionManagerCallbackType, ?CallbackObject)
+            - func on(AudioSessionManagerCallbackType, Callback1Argument\<AudioSessionDeactivatedEvent>)
+        - class AudioSessionStrategy
+            - let concurrencyMode
+            - init(AudioConcurrencyMode)
+        - class AudioStreamDeviceChangeInfo
+            - prop changeReason
+            - prop devices
+        - class AudioStreamInfo
+            - prop channelLayout
+            - prop channels
+            - prop encodingType
+            - prop sampleFormat
+            - prop samplingRate
+            - AudioStreamInfo(AudioChannel, AudioEncodingType, AudioSampleFormat, AudioSamplingRate, AudioChannelLayout)
+        - class AudioStreamManager
+            - func getAudioEffectInfoArray(StreamUsage)
+            - func getCurrentAudioCapturerInfoArray()
+            - func getCurrentAudioRendererInfoArray()
+            - func isActive(AudioVolumeType)
+            - func off(AudioStreamManagerCallbackType, ?CallbackObject)
+            - func on(AudioStreamManagerCallbackType, Callback1Argument\<AudioCapturerChangeInfoArray>)
+            - func on(AudioStreamManagerCallbackType, Callback1Argument\<AudioRendererChangeInfoArray>)
+        - class AudioVolumeGroupManager
+            - func getMaxAmplitudeForInputDevice(AudioDeviceDescriptor)
+            - func getMaxAmplitudeForOutputDevice(AudioDeviceDescriptor)
+            - func getMaxVolume(AudioVolumeType)
+            - func getMinVolume(AudioVolumeType)
+            - func getRingerMode()
+            - func getSystemVolumeInDb(AudioVolumeType, Int32, DeviceType)
+            - func getVolume(AudioVolumeType)
+            - func isMicrophoneMute()
+            - func isMute(AudioVolumeType)
+            - func isVolumeUnadjustable()
+            - func off(AudioVolumeGroupManagerCallbackType, ?CallbackObject)
+            - func on(AudioVolumeGroupManagerCallbackType, Callback1Argument\<MicStateChangeEvent>)
+            - func on(AudioVolumeGroupManagerCallbackType, Callback1Argument\<AudioRingMode>)
+        - class AudioVolumeManager
+            - func getVolumeGroupManager(Int32)
+            - func off(AudioVolumeManagerCallbackType, ?CallbackObject)
+            - func on(AudioVolumeManagerCallbackType, Callback1Argument\<VolumeEvent>)
+        - class DeviceChangeAction
+            - prop \`type\`
+            - prop deviceDescriptors
+        - class InterruptEvent
+            - prop eventType
+            - prop forceType
+            - prop hintType
+        - class MicStateChangeEvent
+            - prop mute
+        - class VolumeEvent
+            - prop updateUi
+            - prop volume
+            - prop volumeType
+        - enum AudioCapturerCallbackType
+            - AUDIO_CAPTURER_CHANGE
+            - AUDIO_INTERRUPT
+            - INPUT_DEVICE_CHANGE
+            - MARK_REACH
+            - PERIOD_REACH
+            - READ_DATA
+            - STATE_CHANGE
+            - func !=(AudioCapturerCallbackType)
+            - func ==(AudioCapturerCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AudioChannel
+            - CHANNEL_1
+            - CHANNEL_10
+            - CHANNEL_12
+            - CHANNEL_14
+            - CHANNEL_16
+            - CHANNEL_2
+            - CHANNEL_3
+            - CHANNEL_4
+            - CHANNEL_5
+            - CHANNEL_6
+            - CHANNEL_7
+            - CHANNEL_8
+            - CHANNEL_9
+            - func !=(AudioChannel)
+            - func ==(AudioChannel)
+            - func toString()
+        - enum AudioChannelLayout
+            - CH_LAYOUT_10POINT2
+            - CH_LAYOUT_2POINT0POINT2
+            - CH_LAYOUT_2POINT1
+            - CH_LAYOUT_2POINT1POINT2
+            - CH_LAYOUT_3POINT0
+            - CH_LAYOUT_3POINT0POINT2
+            - CH_LAYOUT_3POINT1
+            - CH_LAYOUT_3POINT1POINT2
+            - CH_LAYOUT_4POINT0
+            - CH_LAYOUT_4POINT1
+            - CH_LAYOUT_5POINT0
+            - CH_LAYOUT_5POINT0_BACK
+            - CH_LAYOUT_5POINT1
+            - CH_LAYOUT_5POINT1POINT2
+            - CH_LAYOUT_5POINT1POINT4
+            - CH_LAYOUT_5POINT1_BACK
+            - CH_LAYOUT_6POINT0
+            - CH_LAYOUT_6POINT0_FRONT
+            - CH_LAYOUT_6POINT1
+            - CH_LAYOUT_6POINT1_BACK
+            - CH_LAYOUT_6POINT1_FRONT
+            - CH_LAYOUT_7POINT0
+            - CH_LAYOUT_7POINT0_FRONT
+            - CH_LAYOUT_7POINT1
+            - CH_LAYOUT_7POINT1POINT2
+            - CH_LAYOUT_7POINT1POINT4
+            - CH_LAYOUT_7POINT1_WIDE
+            - CH_LAYOUT_7POINT1_WIDE_BACK
+            - CH_LAYOUT_9POINT1POINT4
+            - CH_LAYOUT_9POINT1POINT6
+            - CH_LAYOUT_AMB_ORDER1_ACN_N3D
+            - CH_LAYOUT_AMB_ORDER1_ACN_SN3D
+            - CH_LAYOUT_AMB_ORDER1_FUMA
+            - CH_LAYOUT_AMB_ORDER2_ACN_N3D
+            - CH_LAYOUT_AMB_ORDER2_ACN_SN3D
+            - CH_LAYOUT_AMB_ORDER2_FUMA
+            - CH_LAYOUT_AMB_ORDER3_ACN_N3D
+            - CH_LAYOUT_AMB_ORDER3_ACN_SN3D
+            - CH_LAYOUT_AMB_ORDER3_FUMA
+            - CH_LAYOUT_HEXADECAGONAL
+            - CH_LAYOUT_HEXAGONAL
+            - CH_LAYOUT_MONO
+            - CH_LAYOUT_OCTAGONAL
+            - CH_LAYOUT_QUAD
+            - CH_LAYOUT_QUAD_SIDE
+            - CH_LAYOUT_STEREO
+            - CH_LAYOUT_STEREO_DOWNMIX
+            - CH_LAYOUT_SURROUND
+            - CH_LAYOUT_UNKNOWN
+            - func !=(AudioChannelLayout)
+            - func ==(AudioChannelLayout)
+            - func toString()
+        - enum AudioConcurrencyMode
+            - CONCURRENCY_DEFAULT
+            - CONCURRENCY_DUCK_OTHERS
+            - CONCURRENCY_MIX_WITH_OTHERS
+            - CONCURRENCY_PAUSE_OTHERS
+            - func !=(AudioConcurrencyMode)
+            - func ==(AudioConcurrencyMode)
+            - func toString()
+        - enum AudioDataCallbackResult
+            - INVALID
+            - VALID
+            - func !=(AudioDataCallbackResult)
+            - func ==(AudioDataCallbackResult)
+            - func toString()
+        - enum AudioEffectMode
+            - EFFECT_DEFAULT
+            - EFFECT_NONE
+            - func !=(AudioEffectMode)
+            - func ==(AudioEffectMode)
+            - func toString()
+        - enum AudioEncodingType
+            - ENCODING_TYPE_INVALID
+            - ENCODING_TYPE_RAW
+            - func !=(AudioEncodingType)
+            - func ==(AudioEncodingType)
+            - func toString()
+        - enum AudioErrors
+            - ERROR_ILLEGAL_STATE
+            - ERROR_INVALID_PARAM
+            - ERROR_NO_MEMORY
+            - ERROR_STREAM_LIMIT
+            - ERROR_SYSTEM
+            - ERROR_TIMEOUT
+            - ERROR_UNSUPPORTED
+            - func !=(AudioErrors)
+            - func ==(AudioErrors)
+            - func toString()
+        - enum AudioPrivacyType
+            - PRIVACY_TYPE_PRIVATE
+            - PRIVACY_TYPE_PUBLIC
+            - func !=(AudioPrivacyType)
+            - func ==(AudioPrivacyType)
+            - func toString()
+        - enum AudioRendererCallbackType
+            - AR_AUDIO_INTERRUPT
+            - AR_MARK_PEACH
+            - AR_OUTPUT_DEVICE_CHANGE
+            - AR_OUTPUT_DEVICE_CHANGE_WITH_INFO
+            - AR_PERIOD_REACH
+            - AR_STATE_CHANGE
+            - AR_WRITE_DATA
+            - func !=(AudioRendererCallbackType)
+            - func ==(AudioRendererCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AudioRendererRate
+            - RENDER_RATE_DOUBLE
+            - RENDER_RATE_HALF
+            - RENDER_RATE_NORMAL
+            - func !=(AudioRendererRate)
+            - func ==(AudioRendererRate)
+            - func toString()
+        - enum AudioRingMode
+            - RINGER_MODE_NORMAL
+            - RINGER_MODE_SILENT
+            - RINGER_MODE_VIBRATE
+            - func !=(AudioRingMode)
+            - func ==(AudioRingMode)
+            - func toString()
+        - enum AudioRoutingManagerCallbackType
+            - AVAILABLE_DEVICE_CHANGE
+            - DEVICE_CHANGE
+            - PREFERRED_INPUT_DEVICE_CHANGE_FOR_CAPTURER_INFO
+            - PREFERR_OUTPUT_DEVICE_CHANGE_FOR_RENDERER_INFO
+            - func !=(AudioRoutingManagerCallbackType)
+            - func ==(AudioRoutingManagerCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AudioSampleFormat
+            - SAMPLE_FORMAT_F32LE
+            - SAMPLE_FORMAT_INVALID
+            - SAMPLE_FORMAT_S16LE
+            - SAMPLE_FORMAT_S24LE
+            - SAMPLE_FORMAT_S32LE
+            - SAMPLE_FORMAT_U8
+            - func !=(AudioSampleFormat)
+            - func ==(AudioSampleFormat)
+            - func toString()
+        - enum AudioSamplingRate
+            - SAMPLE_RATE_11025
+            - SAMPLE_RATE_12000
+            - SAMPLE_RATE_16000
+            - SAMPLE_RATE_176400
+            - SAMPLE_RATE_192000
+            - SAMPLE_RATE_22050
+            - SAMPLE_RATE_24000
+            - SAMPLE_RATE_32000
+            - SAMPLE_RATE_44100
+            - SAMPLE_RATE_48000
+            - SAMPLE_RATE_64000
+            - SAMPLE_RATE_8000
+            - SAMPLE_RATE_88200
+            - SAMPLE_RATE_96000
+            - func !=(AudioSamplingRate)
+            - func ==(AudioSamplingRate)
+            - func toString()
+        - enum AudioScene
+            - AUDIO_SCENE_DEFAULT
+            - AUDIO_SCENE_PHONE_CALL
+            - AUDIO_SCENE_RINGING
+            - AUDIO_SCENE_VOICE_CHAT
+            - func !=(AudioScene)
+            - func ==(AudioScene)
+            - func toString()
+        - enum AudioSessionDeactivatedReason
+            - DEACTIVATED_LOWER_PRIORITY
+            - DEACTIVATED_TIMEOUT
+            - func !=(AudioSessionDeactivatedReason)
+            - func ==(AudioSessionDeactivatedReason)
+            - func toString()
+        - enum AudioSessionManagerCallbackType
+            - AudioSessionDeactivated
+            - func !=(AudioSessionManagerCallbackType)
+            - func ==(AudioSessionManagerCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AudioState
+            - STATE_INVALID
+            - STATE_NEW
+            - STATE_PAUSED
+            - STATE_PREPARED
+            - STATE_RELEASED
+            - STATE_RUNNING
+            - STATE_STOPPED
+            - func !=(AudioState)
+            - func ==(AudioState)
+            - func toString()
+        - enum AudioStreamDeviceChangeReason
+            - REASON_NEW_DEVICE_AVAILABLE
+            - REASON_OLD_DEVICE_UNAVAILABLE
+            - REASON_OVERRODE
+            - REASON_UNKNOWN
+            - func !=(AudioStreamDeviceChangeReason)
+            - func ==(AudioStreamDeviceChangeReason)
+            - func toString()
+        - enum AudioStreamManagerCallbackType
+            - CAPTURER_CHANGE
+            - RENDERER_CHANGE
+            - func !=(AudioStreamManagerCallbackType)
+            - func ==(AudioStreamManagerCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AudioVolumeGroupManagerCallbackType
+            - MICSTATE_CHANGE
+            - RING_MODE_CHANGE
+            - func !=(AudioVolumeGroupManagerCallbackType)
+            - func ==(AudioVolumeGroupManagerCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AudioVolumeManagerCallbackType
+            - VOLUME_CHANGE
+            - func !=(AudioVolumeManagerCallbackType)
+            - func ==(AudioVolumeManagerCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AudioVolumeType
+            - ACCESSIBILITY
+            - ALARM
+            - MEDIA
+            - RINGTONE
+            - VOICE_ASSISTANT
+            - VOICE_CALL
+            - func !=(AudioVolumeType)
+            - func ==(AudioVolumeType)
+            - func toString()
+        - enum ChannelBlendMode
+            - MODE_ALL_LEFT
+            - MODE_ALL_RIGHT
+            - MODE_BLEND_LR
+            - MODE_DEFAULT
+            - func !=(ChannelBlendMode)
+            - func ==(ChannelBlendMode)
+            - func toString()
+        - enum CommunicationDeviceType
+            - SPEAKER
+            - func !=(CommunicationDeviceType)
+            - func ==(CommunicationDeviceType)
+            - func toString()
+        - enum DeviceChangeType
+            - CONNECT
+            - DISCONNECT
+            - func !=(DeviceChangeType)
+            - func ==(DeviceChangeType)
+            - func toString()
+        - enum DeviceFlag
+            - ALL_DEVICES_FLAG
+            - INPUT_DEVICES_FLAG
+            - OUTPUT_DEVICES_FLAG
+            - func !=(DeviceFlag)
+            - func ==(DeviceFlag)
+            - func toString()
+        - enum DeviceRole
+            - INPUT_DEVICE
+            - OUTPUT_DEVICE
+            - func !=(DeviceRole)
+            - func ==(DeviceRole)
+            - func toString()
+        - enum DeviceType
+            - BLUETOOTH_A2DP
+            - BLUETOOTH_SCO
+            - DEFAULT
+            - DISPLAY_PORT
+            - EARPIECE
+            - INVALID
+            - MIC
+            - REMOTE_CAST
+            - SPEAKER
+            - USB_HEADSET
+            - WIRED_HEADPHONES
+            - WIRED_HEADSET
+            - func !=(DeviceType)
+            - func ==(DeviceType)
+            - func toString()
+        - enum DeviceUsage
+            - ALL_CALL_DEVICES
+            - ALL_MEDIA_DEVICES
+            - CALL_INPUT_DEVICES
+            - CALL_OUTPUT_DEVICES
+            - MEDIA_INPUT_DEVICES
+            - MEDIA_OUTPUT_DEVICES
+            - func !=(DeviceUsage)
+            - func ==(DeviceUsage)
+            - func toString()
+        - enum InterruptForceType
+            - INTERRUPT_FORCE
+            - INTERRUPT_SHARE
+            - func !=(InterruptForceType)
+            - func ==(InterruptForceType)
+            - func toString()
+        - enum InterruptHint
+            - INTERRUPT_HINT_DUCK
+            - INTERRUPT_HINT_NONE
+            - INTERRUPT_HINT_PAUSE
+            - INTERRUPT_HINT_RESUME
+            - INTERRUPT_HINT_STOP
+            - INTERRUPT_HINT_UNDUCK
+            - func !=(InterruptHint)
+            - func ==(InterruptHint)
+            - func toString()
+        - enum InterruptMode
+            - INDEPENDENT_MODE
+            - SHARE_MODE
+            - func !=(InterruptMode)
+            - func ==(InterruptMode)
+            - func toString()
+        - enum InterruptType
+            - INTERRUPT_TYPE_BEGIN
+            - INTERRUPT_TYPE_END
+            - func !=(InterruptType)
+            - func ==(InterruptType)
+            - func toString()
+        - enum SourceType
+            - SOURCE_TYPE_CAMCORDER
+            - SOURCE_TYPE_INVALID
+            - SOURCE_TYPE_MIC
+            - SOURCE_TYPE_VOICE_COMMUNICATION
+            - SOURCE_TYPE_VOICE_MESSAGE
+            - SOURCE_TYPE_VOICE_RECOGNITION
+            - func !=(SourceType)
+            - func ==(SourceType)
+            - func toString()
+        - enum StreamUsage
+            - STREAM_USAGE_ACCESSIBILITY
+            - STREAM_USAGE_ALARM
+            - STREAM_USAGE_AUDIOBOOK
+            - STREAM_USAGE_GAME
+            - STREAM_USAGE_MOVIE
+            - STREAM_USAGE_MUSIC
+            - STREAM_USAGE_NAVIGATION
+            - STREAM_USAGE_NOTIFICATION
+            - STREAM_USAGE_RINGTONE
+            - STREAM_USAGE_UNKNOWN
+            - STREAM_USAGE_VIDEO_COMMUNICATION
+            - STREAM_USAGE_VOICE_ASSISTANT
+            - STREAM_USAGE_VOICE_COMMUNICATION
+            - STREAM_USAGE_VOICE_MESSAGE
+            - func !=(StreamUsage)
+            - func ==(StreamUsage)
+            - func toString()
+        - type AudioCapturerChangeInfoArray
+        - type AudioDeviceDescriptors
+        - type AudioEffectInfoArray
+        - type AudioRendererChangeInfoArray
+        - type AudioRendererWriteDataCallback
+            - [ohos.multimedia.audio_haptic（音振协同）](source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio_haptic.md)
+    API索引列表:
+    - ohos.multimedia.audio_haptic（音振协同）
+        - 导入模块
+                import kit.AudioKit.*
+        - 权限列表
+                ohos.permission.VIBRATE
+        - 使用说明
+        - func getAudioHapticManager()
+        - class AudioHapticManager
+            - func createPlayer(Int32, AudioHapticPlayerOptions)
+            - func registerSource(String, String)
+            - func setAudioLatencyMode(Int32, AudioLatencyMode)
+            - func setStreamUsage(Int32, StreamUsage)
+            - func unregisterSource(Int32)
+        - class AudioHapticPlayer
+            - func isMuted(AudioHapticType)
+            - func off(AudioHapticPlayerCallBackType, ?CallbackObject)
+            - func on(AudioHapticPlayerCallBackType, Callback0Argument)
+            - func on(AudioHapticPlayerCallBackType, Callback1Argument\<InterruptEvent>)
+            - func release()
+            - func start()
+            - func stop()
+        - class AudioHapticPlayerOptions
+            - var muteAudio
+            - var muteHaptics
+            - AudioHapticPlayerOptions(Bool, Bool)
+            - func toString()
+        - enum AudioHapticPlayerCallBackType
+            - AHP_AUDIO_INTERRRUPT
+            - AHP_END_OF_STREAM
+            - func !=(AudioHapticPlayerCallBackType)
+            - func ==(AudioHapticPlayerCallBackType)
+        - enum AudioHapticType
+            - AUDIO_HAPTIC_TYPE_AUDIO
+            - AUDIO_HAPTIC_TYPE_HAPTIC
+            - func !=(AudioHapticType)
+            - func ==(AudioHapticType)
+            - func toString()
+        - enum AudioLatencyMode
+            - AUDIO_LATENCY_MODE_FAST
+            - AUDIO_LATENCY_MODE_NORMAL
+            - func !=(AudioLatencyMode)
+            - func ==(AudioLatencyMode)
+            - func toString()
+        - [错误码]()
+            - [Audio错误码](source_zh_cn/errorcodes/cj-errorcode-multimedia-audio.md)
+    API索引列表:
+    - Audio错误码
+        - 6800101 无效入参
+        - 6800102 分配内存失败
+        - 6800103 状态不支持
+        - 6800104 参数选项不支持
+        - 6800105 处理超时
+        - 6800201 音频流数量达到极限
+        - 6800301 系统处理异常
+    - [AVSession Kit（音视频播控服务）]()
+        - [仓颉API]()
+            - [ohos.multimedia_avsession（媒体会话管理）](source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md)
+    API索引列表:
+    - ohos.multimedia_avsession（媒体会话管理）
+        - 导入模块
+                import kit.AVSessionKit.*
+        - 使用说明
+        - func createAVSession(CPointer\<Unit>, String, AVSessionType)
+        - class AVCallState
+            - var muted
+            - var state
+            - AVCallState(CallState, Bool)
+        - class AVCastControlCommand
+            - prop parameter
+            - var command
+            - AVCastControlCommand(AVCastControlCommandType)
+        - class AVCastController
+            - func getAVPlaybackState()
+            - func getCurrentItem()
+            - func getValidCommands()
+            - func off(AVCastControllerEventType, ?Callback1Argument\<AVPlaybackState>)
+            - func off(AVCastControllerEventType, ?Callback1Argument\<AVQueueItem>)
+            - func off(AVCastControllerEventType, ?Callback0Argument)
+            - func off(AVCastControllerEventType, ?Callback1Argument\<Int32>)
+            - func off(AVCastControllerEventType, ?Callback1Argument\<Array\<AVCastControlCommandType>>)
+            - func off(AVCastControllerEventType, ?Callback1Argument\<BusinessException>)
+            - func off(AVCastControllerEventType, ?Callback2Argument\<String, Array\<UInt8>>)
+            - func on(AVCastControllerEventType, Array\<AVPlaybackStateFilter>, Callback1Argument\<AVPlaybackState>)
+            - func on(AVCastControllerEventType, Callback1Argument\<AVQueueItem>)
+            - func on(AVCastControllerEventType, Callback0Argument)
+            - func on(AVCastControllerEventType, Callback1Argument\<Int32>)
+            - func on(AVCastControllerEventType, Callback1Argument\<Array\<AVCastControlCommandType>>)
+            - func on(AVCastControllerEventType, Callback1Argument\<BusinessException>)
+            - func on(AVCastControllerEventType, Callback2Argument\<String, Array\<UInt8>>)
+            - func prepare(AVQueueItem)
+            - func processMediaKeyResponse(String, Array\<UInt8>)
+            - func release()
+            - func sendControlCommand(AVCastControlCommand)
+            - func start(AVQueueItem)
+        - class AVControlCommand
+            - prop parameter
+            - var command
+            - AVControlCommand(AVControlCommandType)
+        - class AVMediaDescription
+            - var albumCoverUri
+            - var albumTitle
+            - var appName
+            - var artist
+            - var assetId
+            - var creditsPosition
+            - var dataSrc
+            - var description
+            - var displayTags
+            - var drmScheme
+            - var duration
+            - var extras
+            - var fdSrc
+            - var lyricContent
+            - var lyricUri
+            - var mediaImage
+            - var mediaSize
+            - var mediaType
+            - var mediaUri
+            - var startPosition
+            - var subtitle
+            - var title
+            - AVMediaDescription(String, ?String, ?String, ?String, ?ValueType, ?HashMap\<String, ValueType>, ?String, ?String, ?Int32, ?String, ?String, ?String, ?String, ?String, ?AVFileDescriptor, ?AVDataSrcDescriptor, ?String, ?Int64, ?Int64, ?Int64, ?String, ?DisplayTag)
+            - init(String)
+        - class AVMetadata
+            - var album
+            - var artist
+            - var assetId
+            - var author
+            - var avQueueId
+            - var avQueueImage
+            - var avQueueName
+            - var composer
+            - var description
+            - var displayTags
+            - var drmSchemes
+            - var duration
+            - var filter
+            - var lyric
+            - var mediaImage
+            - var nextAssetId
+            - var previousAssetId
+            - var publishDate
+            - var skipIntervals
+            - var subtitle
+            - var title
+            - var writer
+            - AVMetadata(String, ?String, ?String, ?String, ?String, ?String, ?ValueType, ?String, ?String, ?String, ?Int64, ?ValueType, ?DateTime, ?String, ?String, ?String, ?String, ?String, ?Array\<ProtocolType>, ?Array\<String>, ?SkipIntervals, ?DisplayTag)
+            - init(String)
+        - class AVPlaybackState
+            - var activeItemId
+            - var bufferedTime
+            - var duration
+            - var extras
+            - var isFavorite
+            - var loopMode
+            - var maxVolume
+            - var muted
+            - var position
+            - var speed
+            - var state
+            - var videoHeight
+            - var videoWidth
+            - var volume
+            - AVPlaybackState(?PlaybackState, ?Float64, ?PlaybackPosition, ?Int64, ?LoopMode, ?Bool, ?Int32, ?Int32, ?Int32, ?Bool, ?Int32, ?Int32, ?Int32, ?HashMap\<String, ValueType>)
+            - init()
+        - class AVQueueItem
+            - var description
+            - var itemId
+            - AVQueueItem(Int32, ?AVMediaDescription)
+            - init(Int32)
+        - class AVSession
+            - let sessionId
+            - let sessionType
+            - func activate()
+            - func deactivate()
+            - func destroy()
+            - func dispatchSessionEvent(String, HashMap\<String, ValueType>)
+            - func getAVCastController()
+            - func getAllCastDisplays()
+            - func getController()
+            - func getOutputDevice()
+            - func off(AVSessionEventType, ?CallbackObject)
+            - func on(AVSessionEventType, Callback0Argument)
+            - func on(AVSessionEventType, Callback1Argument\<Int32>)
+            - func on(AVSessionEventType, Callback1Argument\<Int64>)
+            - func on(AVSessionEventType, Callback1Argument\<Float64>)
+            - func on(AVSessionEventType, Callback1Argument\<String>)
+            - func on(AVSessionEventType, Callback1Argument\<CastDisplayInfo>)
+            - func on(AVSessionEventType, Callback1Argument\<LoopMode>)
+            - func on(AVSessionEventType, Callback2Argument\<ConnectionState, OutputDeviceInfo>)
+            - func on(AVSessionEventType, Callback2Argument\<String, HashMap\<String, ValueType>>)
+            - func on(AVSessionEventType, Callback1Argument\<KeyEvent>)
+            - func setAVCallState(AVCallState)
+            - func setAVMetadata(AVMetadata)
+            - func setAVPlaybackState(AVPlaybackState)
+            - func setAVQueueItems(Array\<AVQueueItem>)
+            - func setAVQueueTitle(String)
+            - func setCallMetadata(CallMetadata)
+            - func setExtras(HashMap\<String, ValueType>)
+            - func setLaunchAbility(WantAgent)
+            - func stopCasting()
+        - class AVSessionController
+            - prop sessionId
+            - func destroy()
+            - func getAVCallState()
+            - func getAVMetadata()
+            - func getAVPlaybackState()
+            - func getAVQueueItems()
+            - func getAVQueueTitle()
+            - func getCallMetadata()
+            - func getExtras()
+            - func getLaunchAbility()
+            - func getOutputDevice()
+            - func getRealPlaybackPosition()
+            - func getValidCommands()
+            - func isActive()
+            - func off(AVSessionControllerEventType, ?CallbackObject)
+            - func on(AVSessionControllerEventType, Array\<KeyOfCallMetadata>, Callback1Argument\<CallMetadata>)
+            - func on(AVSessionControllerEventType, Array\<KeyOfCallState>, Callback1Argument\<AVCallState>)
+            - func on(AVSessionControllerEventType, Callback0Argument)
+            - func on(AVSessionControllerEventType, Array\<KeyOfPlaybackState>, Callback1Argument\<AVPlaybackState>)
+            - func on(AVSessionControllerEventType, Array\<KeyOfMetaData>, Callback1Argument\<AVMetadata>)
+            - func on(AVSessionControllerEventType, Callback1Argument\<Bool>)
+            - func on(AVSessionControllerEventType, Callback1Argument\<AVControlCommandType>)
+            - func on(AVSessionControllerEventType, Callback2Argument\<ConnectionState, OutputDeviceInfo>)
+            - func on(AVSessionControllerEventType, Callback2Argument\<String, HashMap\<String, ValueType>>)
+            - func on(AVSessionControllerEventType, Callback1Argument\<HashMap\<String, ValueType>>)
+            - func on(AVSessionControllerEventType, Callback1Argument\<AVQueueItem>)
+            - func on(AVSessionControllerEventType, Callback1Argument\<String>)
+            - func sendAVKeyEvent(KeyEvent)
+            - func sendCommonCommand(String, HashMap\<String, ValueType>)
+            - func sendControlCommand(AVControlCommand)
+            - func skipToQueueItem(Int32)
+        - class CallMetadata
+            - var avatar
+            - var name
+            - var phoneNumber
+            - CallMetadata(?String, ?String, ?PixelMap)
+            - init()
+        - class CastDisplayInfo
+            - var height
+            - var id
+            - var name
+            - var state
+            - var width
+            - CastDisplayInfo(UInt64, String, CastDisplayState, Int32, Int32)
+        - class DeviceInfo
+            - var castCategory
+            - var deviceId
+            - var deviceName
+            - var deviceType
+            - var supportedDrmCapabilities
+            - var supportedProtocols
+            - DeviceInfo(AVCastCategory, String, String, DeviceType, ?Array\<ProtocolType>, ?Array\<String>)
+            - init(AVCastCategory, String, String, DeviceType)
+        - class OutputDeviceInfo
+            - var devices
+            - OutputDeviceInfo(Array\<DeviceInfo>)
+        - class PlaybackPosition
+            - var elapsedTime
+            - var updateTime
+            - init(Int64, Int64)
+        - enum AVCastCategory
+            - CATEGORY_LOCAL
+            - CATEGORY_REMOTE
+            - func !=(AVCastCategory)
+            - func ==(AVCastCategory)
+            - func toString()
+        - enum AVCastControlCommandParameterType
+            - INT32(Int32)
+            - LOOP_MODE(LoopMode)
+            - SPEED(PlaybackSpeed)
+        - enum AVCastControlCommandType
+            - CAST_CONTROL_CMD_FAST_FORWARD
+            - CAST_CONTROL_CMD_INVALID
+            - CAST_CONTROL_CMD_PAUSE
+            - CAST_CONTROL_CMD_PLAY
+            - CAST_CONTROL_CMD_PLAY_NEXT
+            - CAST_CONTROL_CMD_PLAY_PREVIOUS
+            - CAST_CONTROL_CMD_REWIND
+            - CAST_CONTROL_CMD_SEEK
+            - CAST_CONTROL_CMD_SET_LOOP_MODE
+            - CAST_CONTROL_CMD_SET_SPEED
+            - CAST_CONTROL_CMD_SET_VOLUME
+            - CAST_CONTROL_CMD_STOP
+            - CAST_CONTROL_CMD_TOGGLE_FAVORITE
+            - CAST_CONTROL_CMD_TOGGLE_MUTE
+            - func !=(AVCastControlCommandType)
+            - func ==(AVCastControlCommandType)
+            - func hashCode()
+            - func toString()
+        - enum AVCastControllerEventType
+            - CAST_CONTROLLER_END_OF_STREAM
+            - CAST_CONTROLLER_ERROR
+            - CAST_CONTROLLER_KEY_REQUEST
+            - CAST_CONTROLLER_MEDIA_ITEM_CHANGE
+            - CAST_CONTROLLER_PLAYBACK_STATE_CHANGE
+            - CAST_CONTROLLER_PLAY_NEXT
+            - CAST_CONTROLLER_PLAY_PREVIOUS
+            - CAST_CONTROLLER_REQUEST_PLAY
+            - CAST_CONTROLLER_SEEK_DONE
+            - CAST_CONTROLLER_VALID_COMMAND_CHANGE
+            - func !=(AVCastControllerEventType)
+            - func ==(AVCastControllerEventType)
+            - func toString()
+        - enum AVControlCommandParameterType
+            - FLOAT64(Float64)
+            - INT32(Int32)
+            - INT64(Int64)
+            - LOOP_MODE(LoopMode)
+            - STRING(String)
+        - enum AVControlCommandType
+            - SESSION_CMD_AVCALL_ANSWER
+            - SESSION_CMD_AVCALL_HANG_UP
+            - SESSION_CMD_AVCALL_TOGGLE_CALL_MUTE
+            - SESSION_CMD_FAST_FORWARD
+            - SESSION_CMD_INVALID
+            - SESSION_CMD_PAUSE
+            - SESSION_CMD_PLAY
+            - SESSION_CMD_PLAY_FROM_ASSETID
+            - SESSION_CMD_PLAY_NEXT
+            - SESSION_CMD_PLAY_PREVIOUS
+            - SESSION_CMD_REWIND
+            - SESSION_CMD_SEEK
+            - SESSION_CMD_SET_LOOP_MODE
+            - SESSION_CMD_SET_SPEED
+            - SESSION_CMD_STOP
+            - SESSION_CMD_TOGGLE_FAVORITE
+            - func !=(AVControlCommandType)
+            - func ==(AVControlCommandType)
+            - func hashCode()
+            - func toString()
+        - enum AVPlaybackStateFilter
+            - FILTER_ALL
+            - FILTER_KEY_ACTIVE_ITEM_ID
+            - FILTER_KEY_BUFFERED_TIME
+            - FILTER_KEY_DURATION
+            - FILTER_KEY_EXTRAS
+            - FILTER_KEY_IS_FAVORITE
+            - FILTER_KEY_LOOP_MODE
+            - FILTER_KEY_MAX_VOLUME
+            - FILTER_KEY_MUTED
+            - FILTER_KEY_POSITION
+            - FILTER_KEY_SPEED
+            - FILTER_KEY_STATE
+            - FILTER_KEY_VIDEO_HEIGHT
+            - FILTER_KEY_VIDEO_WIDTH
+            - FILTER_KEY_VOLUME
+            - func !=(AVPlaybackStateFilter)
+            - func ==(AVPlaybackStateFilter)
+            - func toString()
+        - enum AVSessionControllerEventType
+            - EVENT_ACTIVE_STATE_CHANGE
+            - EVENT_AVCALL_META_DATA_CHANGE
+            - EVENT_AVCALL_STATE_CHANGE
+            - EVENT_EXTRAS_CHANGE
+            - EVENT_META_DATA_CHANGE
+            - EVENT_OUTPUT_DEVICE_CHANGE
+            - EVENT_PLAYBACK_STATE_CHANGE
+            - EVENT_QUEUE_ITEMS_CHANGE
+            - EVENT_QUEUE_TITLE_CHANGE
+            - EVENT_SESSION_DESTROY
+            - EVENT_SESSION_EVENT_CHANGE
+            - EVENT_VALID_COMMAND_CHANGE
+            - func !=(AVSessionControllerEventType)
+            - func ==(AVSessionControllerEventType)
+            - func toString()
+        - enum AVSessionEventType
+            - Answer
+            - CastDisplayChange
+            - CommonCommand
+            - FastForward
+            - HandleKeyEvent
+            - HangUp
+            - OutputDeviceChange
+            - Pause
+            - Play
+            - PlayFromAssetId
+            - PlayNext
+            - PlayPrevious
+            - Rewind
+            - Seek
+            - SetLoopMode
+            - SetSpeed
+            - SkipToQueueItem
+            - Stop
+            - ToggleCallMute
+            - ToggleFavorite
+            - func !=(AVSessionEventType)
+            - func ==(AVSessionEventType)
+            - func toString()
+        - enum AVSessionType
+            - SESSION_TYPE_AUDIO
+            - SESSION_TYPE_VIDEO
+            - SESSION_TYPE_VIDEO_CALL
+            - SESSION_TYPE_VOICE_CALL
+            - func !=(AVSessionType)
+            - func ==(AVSessionType)
+            - func toString()
+        - enum CallState
+            - CALL_STATE_ACTIVE
+            - CALL_STATE_DIALING
+            - CALL_STATE_DISCONNECTING
+            - CALL_STATE_HOLDING
+            - CALL_STATE_IDLE
+            - CALL_STATE_INCOMING
+            - CALL_STATE_WAITING
+            - func !=(CallState)
+            - func ==(CallState)
+            - func toString()
+        - enum CastDisplayState
+            - STATE_OFF
+            - STATE_ON
+            - func !=(CastDisplayState)
+            - func ==(CastDisplayState)
+            - func toString()
+        - enum ConnectionState
+            - STATE_CONNECTED
+            - STATE_CONNECTING
+            - STATE_DISCONNECTED
+            - func !=(ConnectionState)
+            - func ==(ConnectionState)
+            - func toString()
+        - enum DeviceType
+            - DEVICE_TYPE_BLUETOOTH
+            - DEVICE_TYPE_LOCAL
+            - DEVICE_TYPE_SMART_SPEAKER
+            - DEVICE_TYPE_TV
+            - func !=(DeviceType)
+            - func ==(DeviceType)
+            - func toString()
+        - enum DisplayTag
+            - TAG_AUDIO_VIVID
+            - func !=(DisplayTag)
+            - func ==(DisplayTag)
+            - func toString()
+        - enum KeyOfCallMetadata
+            - KEY_OF_CALLMETADATA_AVATAR
+            - KEY_OF_CALLMETADATA_NAME
+            - KEY_OF_CALLMETADATA_PHONENUMBER
+            - func !=(KeyOfCallMetadata)
+            - func ==(KeyOfCallMetadata)
+            - func toString()
+        - enum KeyOfCallState
+            - KEY_OF_CALLSTATE_MUTED
+            - KEY_OF_CALLSTATE_STATE
+            - func !=(KeyOfCallState)
+            - func ==(KeyOfCallState)
+            - func toString()
+        - enum KeyOfMetaData
+            - META_KEY_ALBUM
+            - META_KEY_ARTIST
+            - META_KEY_ASSET_ID
+            - META_KEY_AUTHOR
+            - META_KEY_AVQUEUE_ID
+            - META_KEY_AVQUEUE_IMAGE
+            - META_KEY_AVQUEUE_IMAGE_URI
+            - META_KEY_AVQUEUE_NAME
+            - META_KEY_COMPOSER
+            - META_KEY_DESCRIPTION
+            - META_KEY_DISPLAY_TAGS
+            - META_KEY_DRM_SCHEMES
+            - META_KEY_DURATION
+            - META_KEY_FILTER
+            - META_KEY_LYRIC
+            - META_KEY_MEDIA_IMAGE
+            - META_KEY_MEDIA_IMAGE_URI
+            - META_KEY_NEXT_ASSET_ID
+            - META_KEY_PREVIOUS_ASSET_ID
+            - META_KEY_PUBLISH_DATE
+            - META_KEY_SKIP_INTERVALS
+            - META_KEY_SUBTITLE
+            - META_KEY_TITLE
+            - META_KEY_WRITER
+            - func !=(KeyOfMetaData)
+            - func ==(KeyOfMetaData)
+            - func toString()
+        - enum KeyOfPlaybackState
+            - PLAYBACK_KEY_ACTIVE_ITEM_ID
+            - PLAYBACK_KEY_BUFFERED_TIME
+            - PLAYBACK_KEY_DURATION
+            - PLAYBACK_KEY_EXTRAS
+            - PLAYBACK_KEY_IS_FAVORITE
+            - PLAYBACK_KEY_LOOP_MODE
+            - PLAYBACK_KEY_MAX_VOLUME
+            - PLAYBACK_KEY_MUTED
+            - PLAYBACK_KEY_POSITION
+            - PLAYBACK_KEY_SPEED
+            - PLAYBACK_KEY_STATE
+            - PLAYBACK_KEY_VIDEO_HEIGHT
+            - PLAYBACK_KEY_VIDEO_WIDTH
+            - PLAYBACK_KEY_VOLUME
+            - func !=(KeyOfPlaybackState)
+            - func ==(KeyOfPlaybackState)
+            - func toString()
+        - enum LoopMode
+            - LOOP_MODE_CUSTOM
+            - LOOP_MODE_LIST
+            - LOOP_MODE_SEQUENCE
+            - LOOP_MODE_SHUFFLE
+            - LOOP_MODE_SINGLE
+            - func !=(LoopMode)
+            - func ==(LoopMode)
+            - func toString()
+        - enum PlaybackState
+            - PLAYBACK_STATE_BUFFERING
+            - PLAYBACK_STATE_COMPLETED
+            - PLAYBACK_STATE_ERROR
+            - PLAYBACK_STATE_FAST_FORWARD
+            - PLAYBACK_STATE_IDLE
+            - PLAYBACK_STATE_INITIAL
+            - PLAYBACK_STATE_PAUSE
+            - PLAYBACK_STATE_PLAY
+            - PLAYBACK_STATE_PREPARE
+            - PLAYBACK_STATE_RELEASED
+            - PLAYBACK_STATE_REWIND
+            - PLAYBACK_STATE_STOP
+            - func !=(PlaybackState)
+            - func ==(PlaybackState)
+            - func toString()
+        - enum ProtocolType
+            - TYPE_CAST_PLUS_STREAM
+            - TYPE_DLNA
+            - TYPE_LOCAL
+            - func !=(ProtocolType)
+            - func ==(ProtocolType)
+            - func toString()
+        - enum SkipIntervals
+            - SECONDS_10
+            - SECONDS_15
+            - SECONDS_30
+            - func !=(SkipIntervals)
+            - func ==(SkipIntervals)
+            - func toString()
+        - enum ValueType
+            - ARRAYBOOL(Array\<Bool>)
+            - ARRAYF64(Array\<Float64>)
+            - ARRAYFD(Array\<Int32>)
+            - ARRAYI32(Array\<Int32>)
+            - ARRAYI64(Array\<Int64>)
+            - ARRSTRING(Array\<String>)
+            - BOOL(Bool)
+            - FD(Int32)
+            - FLOAT64(Float64)
+            - HASH_MAP(HashMap\<String, ValueType>)
+            - INT32(Int32)
+            - INT64(Int64)
+            - LOOP_MODE(LoopMode)
+            - NULL(Option\<Int32>)
+            - PIXEL_MAP(PixelMap)
+            - STRING(String)
+            - [ohos.multimedia-avcast_picker_param（投播组件）](source_zh_cn/apis/AVSessionKit/cj-apis-multimedia-avcast_pick_param.md)
+    API索引列表:
+    - ohos.multimedia.avcast_picker_param (投播组件)
+        - 导入模块
+                import kit.AVSessionKit.*
+        - 使用说明
+        - enum AVCastPickerState
+            - StateAppearing
+            - StateDisappearing
+            - func !=(AVCastPickerState)
+            - func ==(AVCastPickerState)
+            - func toString()
+        - [错误码]()
+            - [媒体会话管理错误码](source_zh_cn/errorcodes/cj-errorcode-multimedia-avsession.md)
+    API索引列表:
+    - 媒体会话管理错误码
+        - 6600101 会话服务端异常
+        - 6600102 会话不存在
+        - 6600103 会话控制器不存在
+        - 6600104 远端会话连接失败
+        - 6600105 无效会话命令
+        - 6600106 会话未激活
+        - 6600107 命令&消息过载
+        - 6600108 设备连接失败
+        - 6600109 远端会话不存在
+    - [Camera Kit（相机服务）]()
+        - [仓颉API]()
+            - [ohos.multimedia.camera（相机管理）](source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera.md)
+    API索引列表:
+    - ohos.multimedia.camera（相机管理）
+        - 导入模块
+                import kit.CameraKit.*
+        - 权限列表
+                ohos.permission.CAMERA
+                ohos.permission.MICROPHONE
+        - 使用说明
+        - func getCameraManager(UIAbilityContext)
+        - interface AutoExposure
+            - func getExposureMode()
+            - func getExposureValue()
+            - func getMeteringPoint()
+            - func setExposureBias(Float32)
+            - func setExposureMode(ExposureMode)
+            - func setMeteringPoint(Point)
+        - interface AutoExposureQuery
+            - func getExposureBiasRange()
+            - func isExposureModeSupported(ExposureMode)
+        - interface CameraOutput
+            - func release()
+        - interface ColorManagement
+            - func getActiveColorSpace()
+            - func setColorSpace(ColorSpace)
+        - interface ColorManagementQuery
+            - func getSupportedColorSpaces()
+        - interface Flash
+            - func getFlashMode()
+            - func setFlashMode(FlashMode)
+        - interface FlashQuery
+            - func hasFlash()
+            - func isFlashModeSupported(FlashMode)
+        - interface Focus
+            - func getFocalLength()
+            - func getFocusMode()
+            - func getFocusPoint()
+            - func setFocusMode(FocusMode)
+            - func setFocusPoint(Point)
+        - interface FocusQuery
+            - func isFocusModeSupported(FocusMode)
+        - interface Session
+            - func addInput(CameraInput)
+            - func addOutput(CameraOutput)
+            - func beginConfig()
+            - func canAddInput(CameraInput)
+            - func canAddOutput(CameraOutput)
+            - func commitConfig()
+            - func release()
+            - func removeInput(CameraInput)
+            - func removeOutput(CameraOutput)
+            - func start()
+            - func stop()
+        - interface Stabilization
+            - func getActiveVideoStabilizationMode()
+            - func setVideoStabilizationMode(VideoStabilizationMode)
+        - interface StabilizationQuery
+            - func isVideoStabilizationModeSupported(VideoStabilizationMode)
+        - interface Zoom
+            - func getZoomRatio()
+            - func setSmoothZoom(Float32, SmoothZoomMode)
+            - func setSmoothZoom(Float32)
+            - func setZoomRatio(Float32)
+        - interface ZoomQuery
+            - func getZoomRatioRange()
+        - class CameraInput
+            - func close()
+            - func off(CameraCallbackType, CameraDevice, Callback1Argument\<BusinessException>)
+            - func off(CameraCallbackType, CameraDevice)
+            - func on(CameraCallbackType, CameraDevice, Callback1Argument\<BusinessException>)
+            - func open()
+            - func open(Bool)
+        - class CameraDevice
+            - let cameraId
+            - let cameraOrientation
+            - let cameraPosition
+            - let cameraType
+            - let connectionType
+        - class CameraManager
+            - func createCameraInput(CameraDevice)
+            - func createCameraInput(CameraPosition, CameraType)
+            - func createMetadataOutput(Array\<MetadataObjectType>)
+            - func createPhotoOutput()
+            - func createPhotoOutput(Profile)
+            - func createPreviewOutput(Profile, String)
+            - func createPreviewOutput(String)
+            - func createSession(SceneMode)
+            - func createVideoOutput(VideoProfile, String)
+            - func createVideoOutput(String)
+            - func getSupportedCameras()
+            - func getSupportedOutputCapability(CameraDevice, SceneMode)
+            - func getSupportedSceneModes(CameraDevice)
+            - func getTorchMode()
+            - func isCameraMuted()
+            - func isTorchModeSupported(TorchMode)
+            - func isTorchSupported()
+            - func off(CameraCallbackType, Callback1Argument\<CameraStatusInfo>)
+            - func off(CameraCallbackType, Callback1Argument\<FoldStatusInfo>)
+            - func off(CameraCallbackType, Callback1Argument\<TorchStatusInfo>)
+            - func off(CameraCallbackType)
+            - func on(CameraCallbackType, Callback1Argument\<CameraStatusInfo>)
+            - func on(CameraCallbackType, Callback1Argument\<FoldStatusInfo>)
+            - func on(CameraCallbackType, Callback1Argument\<TorchStatusInfo>)
+            - func setTorchMode(TorchMode)
+        - class MetadataObject
+            - let \`type\`
+            - let boundingBox
+            - let timestamp
+        - class MetadataOutput
+            - func off(CameraCallbackType, Callback1Argument\<Array\<MetadataObject>>)
+            - func off(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func off(CameraCallbackType)
+            - func on(CameraCallbackType, Callback1Argument\<Array\<MetadataObject>>)
+            - func on(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func release()
+            - func start()
+            - func stop()
+        - class PhotoOutput
+            - func capture()
+            - func capture(PhotoCaptureSetting)
+            - func enableMirror(Bool)
+            - func enableMovingPhoto(Bool)
+            - func getActiveProfile()
+            - func getPhotoRotation(Int32)
+            - func getSupportedMovingPhotoVideoCodecTypes()
+            - func isMirrorSupported()
+            - func isMovingPhotoSupported()
+            - func off(CameraCallbackType, Callback1Argument\<CaptureStartInfo>)
+            - func off(CameraCallbackType, Callback1Argument\<FrameShutterInfo>)
+            - func off(CameraCallbackType, Callback1Argument\<CaptureEndInfo>)
+            - func off(CameraCallbackType, Callback1Argument\<FrameShutterEndInfo>)
+            - func off(CameraCallbackType, Callback0Argument)
+            - func off(CameraCallbackType, Callback1Argument\<Int32>)
+            - func off(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func off(CameraCallbackType)
+            - func on(CameraCallbackType, Callback1Argument\<CaptureStartInfo>)
+            - func on(CameraCallbackType, Callback1Argument\<FrameShutterInfo>)
+            - func on(CameraCallbackType, Callback1Argument\<CaptureEndInfo>)
+            - func on(CameraCallbackType, Callback1Argument\<FrameShutterEndInfo>)
+            - func on(CameraCallbackType, Callback0Argument)
+            - func on(CameraCallbackType, Callback1Argument\<Int32>)
+            - func on(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func release()
+            - func setMovingPhotoVideoCodecType(VideoCodecType)
+        - class PhotoSession
+            - func canPreconfig(PreconfigType, PreconfigRatio)
+            - func off(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func off(CameraCallbackType, Callback1Argument\<FocusState>)
+            - func off(CameraCallbackType, Callback1Argument\<SmoothZoomInfo>)
+            - func off(CameraCallbackType)
+            - func on(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func on(CameraCallbackType, Callback1Argument\<FocusState>)
+            - func on(CameraCallbackType, Callback1Argument\<SmoothZoomInfo>)
+            - func preconfig(PreconfigType, PreconfigRatio)
+        - class PreviewOutput
+            - func getActiveFrameRate()
+            - func getActiveProfile()
+            - func getPreviewRotation(Int32)
+            - func getSupportedFrameRates()
+            - func off(CameraCallbackType, Callback0Argument)
+            - func off(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func off(CameraCallbackType)
+            - func on(CameraCallbackType, Callback0Argument)
+            - func on(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func release()
+            - func setFrameRate(Int32, Int32)
+            - func setPreviewRotation(ImageRotation, Bool)
+        - class Profile
+            - let format
+            - let size
+        - class SecureSession
+            - func addSecureOutput(PreviewOutput)
+            - func off(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func off(CameraCallbackType, Callback1Argument\<FocusState>)
+            - func off(CameraCallbackType)
+            - func on(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func on(CameraCallbackType, Callback1Argument\<FocusState>)
+        - class VideoOutput
+            - func getActiveFrameRate()
+            - func getActiveProfile()
+            - func getSupportedFrameRates()
+            - func getVideoRotation(Int32)
+            - func off(CameraCallbackType, Callback0Argument)
+            - func off(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func off(CameraCallbackType)
+            - func on(CameraCallbackType, Callback0Argument)
+            - func on(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func release()
+            - func setFrameRate(Int32, Int32)
+            - func start()
+            - func stop()
+        - class VideoProfile
+            - let frameRateRange
+        - class VideoSession
+            - func canPreconfig(PreconfigType, PreconfigRatio)
+            - func off(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func off(CameraCallbackType, Callback1Argument\<FocusState>)
+            - func off(CameraCallbackType, Callback1Argument\<SmoothZoomInfo>)
+            - func off(CameraCallbackType)
+            - func on(CameraCallbackType, Callback1Argument\<BusinessException>)
+            - func on(CameraCallbackType, Callback1Argument\<FocusState>)
+            - func on(CameraCallbackType, Callback1Argument\<SmoothZoomInfo>)
+            - func preconfig(PreconfigType, PreconfigRatio)
+        - class CameraOutputCapability
+            - let photoProfiles
+            - let previewProfiles
+            - let supportedMetadataObjectTypes
+            - let videoProfiles
+        - struct CameraStatusInfo
+            - var camera
+            - var status
+            - init(CameraDevice, CameraStatus)
+        - struct CaptureEndInfo
+            - var captureId
+            - var frameCount
+        - struct CaptureStartInfo
+            - var captureId
+            - var time
+        - struct FoldStatusInfo
+            - let foldStatus
+            - let supportedCameras
+            - init(Array\<CameraDevice>, FoldStatus)
+        - struct FrameRateRange
+            - let max
+            - let min
+        - struct FrameShutterEndInfo
+            - var captureId
+        - struct FrameShutterInfo
+            - var captureId
+            - var timestamp
+        - struct Location
+            - var altitude
+            - var latitude
+            - var longtitude
+            - init(Float64, Float64, Float64)
+        - struct PhotoCaptureSetting
+            - var location
+            - var mirror
+            - var quality
+            - var rotation
+            - init(QualityLevel, ImageRotation, Location, Bool)
+        - struct Point
+            - var x
+            - var y
+            - init(Float32, Float32)
+        - struct Rect
+            - var height
+            - var topLeftX
+            - var topLeftY
+            - var width
+        - struct Size
+            - var height
+            - var width
+        - struct SmoothZoomInfo
+            - var duration
+            - SmoothZoomInfo(Int32)
+        - struct TorchStatusInfo
+            - let isTorchActive
+            - let isTorchAvailable
+            - let torchLevel
+        - enum CameraCallbackType
+            - CameraError
+            - CameraStatus
+            - CaptureEnd
+            - CaptureReady
+            - CaptureStartWithInfo
+            - EstimatedCaptureDuration
+            - FocusStateChange
+            - FoldStatusChange
+            - FrameEnd
+            - FrameShutter
+            - FrameShutterEnd
+            - FrameStart
+            - MetadataObjectsAvailable
+            - SmoothZoomInfoAvailable
+            - TorchStatusChange
+            - func !=(CameraCallbackType)
+            - func ==(CameraCallbackType)
+            - func toString()
+        - enum CameraErrorCode
+            - CONFLICT_CAMERA
+            - DEVICE_DISABLED
+            - DEVICE_PREEMPTED
+            - DEVICE_SETTING_LOCKED
+            - INVALID_ARGUMENT
+            - OPERATION_NOT_ALLOWED
+            - SERVICE_FATAL_ERROR
+            - SESSION_CONFIG_LOCKED
+            - SESSION_NOT_CONFIG
+            - SESSION_NOT_RUNNING
+            - UNRESOLVED_CONFLICTS_WITH_CURRENT_CONFIGURATIONS
+            - func !=(CameraErrorCode)
+            - func ==(CameraErrorCode)
+            - func getValue()
+            - func toString()
+        - enum CameraFormat
+            - CAMERA_FORMAT_HEIC
+            - CAMERA_FORMAT_JPEG
+            - CAMERA_FORMAT_RGBA_8888
+            - CAMERA_FORMAT_YCBCR_P010
+            - CAMERA_FORMAT_YCRCB_P010
+            - CAMERA_FORMAT_YUV_420_SP
+            - func !=(CameraFormat)
+            - func ==(CameraFormat)
+            - func toString()
+        - enum CameraPosition
+            - CAMERA_POSITION_BACK
+            - CAMERA_POSITION_FRONT
+            - CAMERA_POSITION_UNSPECIFIED
+            - func !=(CameraPosition)
+            - func ==(CameraPosition)
+            - func toString()
+        - enum CameraStatus
+            - CAMERA_STATUS_APPEAR
+            - CAMERA_STATUS_AVAILABLE
+            - CAMERA_STATUS_DISAPPEAR
+            - CAMERA_STATUS_UNAVAILABL
+            - func !=(CameraStatus)
+            - func ==(CameraStatus)
+            - func toString()
+        - enum CameraType
+            - CAMERA_TYPE_DEFAULT
+            - CAMERA_TYPE_TELEPHOTO
+            - CAMERA_TYPE_TRUE_DEPTH
+            - CAMERA_TYPE_ULTRA_WIDE
+            - CAMERA_TYPE_WIDE_ANGLE
+            - func !=(CameraType)
+            - func ==(CameraType)
+            - func toString()
+        - enum ConnectionType
+            - CAMERA_CONNECTION_BUILT_IN
+            - CAMERA_CONNECTION_REMOTE
+            - CAMERA_CONNECTION_USB_PLUGIN
+            - func !=(ConnectionType)
+            - func ==(ConnectionType)
+            - func toString()
+        - enum ExposureMode
+            - EXPOSURE_MODE_AUTO
+            - EXPOSURE_MODE_CONTINUOUS_AUTO
+            - EXPOSURE_MODE_LOCKED
+            - func !=(ExposureMode)
+            - func ==(ExposureMode)
+            - func toString()
+        - enum FlashMode
+            - FLASH_MODE_ALWAYS_OPEN
+            - FLASH_MODE_AUTO
+            - FLASH_MODE_CLOSE
+            - FLASH_MODE_OPEN
+            - func !=(FlashMode)
+            - func ==(FlashMode)
+            - func toString()
+        - enum FocusMode
+            - FOCOS_MODE_AUTO
+            - FOCOS_MODE_CONTINUOUS_AUTO
+            - FOCOS_MODE_MANUAL
+            - FOCUS_MODE_LOCKED
+            - func !=(FocusMode)
+            - func ==(FocusMode)
+            - func toString()
+        - enum FocusState
+            - FOCUS_STATE_FOCUSED
+            - FOCUS_STATE_SCAN
+            - FOCUS_STATE_UNFOCUSED
+            - func !=(FocusState)
+            - func ==(FocusState)
+            - func toString()
+        - enum FoldStatus
+            - EXPANDED
+            - FOLDED
+            - NON_FOLDABLE
+            - func !=(FoldStatus)
+            - func ==(FoldStatus)
+            - func toString()
+        - enum ImageRotation
+            - ROTATION_0
+            - ROTATION_180
+            - ROTATION_270
+            - ROTATION_90
+            - func !=(ImageRotation)
+            - func ==(ImageRotation)
+            - func toString()
+        - enum MetadataObjectType
+            - FACE_DETECTION
+            - func !=(MetadataObjectType)
+            - func ==(MetadataObjectType)
+            - func toString()
+        - enum PreconfigRatio
+            - PRECONFIG_RATIO_16_9
+            - PRECONFIG_RATIO_1_1
+            - PRECONFIG_RATIO_4_3
+            - func !=(PreconfigRatio)
+            - func ==(PreconfigRatio)
+            - func toString()
+        - enum PreconfigType
+            - PRECONFIG_1080P
+            - PRECONFIG_4K
+            - PRECONFIG_720P
+            - PRECONFIG_HIGH_QUALITY
+            - func !=(PreconfigType)
+            - func ==(PreconfigType)
+            - func toString()
+        - enum QualityLevel
+            - QUALITY_LEVEL_HIGH
+            - QUALITY_LEVEL_LOW
+            - QUALITY_LEVEL_MEDIUM
+            - func !=(QualityLevel)
+            - func ==(QualityLevel)
+            - func toString()
+        - enum SceneMode
+            - NORMAL_PHOTO
+            - NORMAL_VIDEO
+            - SECURE_PHOTO
+            - func !=(SceneMode)
+            - func ==(SceneMode)
+            - func toString()
+        - enum SmoothZoomMode
+            - NORMAL
+            - func !=(SmoothZoomMode)
+            - func ==(SmoothZoomMode)
+            - func toString()
+        - enum TorchMode
+            - AUTO
+            - OFF
+            - ON
+            - func !=(TorchMode)
+            - func ==(TorchMode)
+            - func toString()
+        - enum VideoCodecType
+            - AVC
+            - HEVC
+            - func !=(VideoCodecType)
+            - func ==(VideoCodecType)
+            - func toString()
+        - enum VideoStabilizationMode
+            - AUTO
+            - HIGH
+            - LOW
+            - MIDDLE
+            - OFF
+            - func !=(VideoStabilizationMode)
+            - func ==(VideoStabilizationMode)
+            - func toString()
+            - [ohos.multimedia.camera_picker（相机选择器）](source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera_picker.md)
+    API索引列表:
+    - ohos.multimedia.camera_picker（相机选择器）
+        - 导入模块
+                import kit.CameraKit.*
+        - func pick(UIAbilityContext, Array\<PickerMediaType>, PickerProfile, Callback1Argument\<PickerResult>)
+        - struct PickerProfile
+            - var cameraPosition
+            - var saveUri
+            - var videoDuration
+            - init(CameraPosition, String, Int32)
+        - struct PickerResult
+            - let mediaType
+            - let resultCode
+            - let resultUri
+        - enum PickerMediaType
+            - PHOTO
+            - VIDEO
+            - func !=(PickerMediaType)
+            - func ==(PickerMediaType)
+            - func toString()
+        - [错误码]()
+            - [Camera错误码](source_zh_cn/errorcodes/cj-errorcode-multimedia-camera.md)
+    API索引列表:
+    - Camera错误码
+        - 7400101 无效入参
+        - 7400102 非法操作
+        - 7400103 会话未配置
+        - 7400104 会话未运行
+        - 7400105 会话配置被锁定
+        - 7400106 设备配置被锁定
+        - 7400107 相机冲突
+        - 7400108 安全策略无法使用相机
+        - 7400109 相机设备被抢占
+        - 7400110 与当前配置存在冲突
+        - 7400201 相机服务异常
+    - [Image Kit（图片处理服务）]()
+        - [仓颉API]()
+            - [ohos.image（图片处理）](source_zh_cn/apis/ImageKit/cj-apis-image.md)
+    API索引列表:
+    - ohos.image（图片处理）
+        - 导入模块
+                import kit.ImageKit.*
+        - 使用说明
+        - func CreateIncrementalSource(Array\<UInt8>, SourceOptions)
+        - func createImageCreator(Int32, Int32, Int32, Int32)
+        - func createImageCreator(Size, Int32, Int32)
+        - func createImagePacker()
+        - func createImageReceiver(Int32, Int32, ImageFormat, Int32)
+        - func createImageSource(String)
+        - func createImageSource(String, SourceOptions)
+        - func createImageSource(Int32)
+        - func createImageSource(Int32, SourceOptions)
+        - func createImageSource(Array\<UInt8>)
+        - func createImageSource(Array\<UInt8>, SourceOptions)
+        - func createImageSource(RawFileDescriptor, SourceOptions)
+        - func createPicture(PixelMap)
+        - func createPixelMap(Array\<UInt8>, InitializationOptions)
+        - func createPixelMap(InitializationOptions)
+        - func createPixelMapFromParcel(MessageSequence)
+        - func createPixelMapFromSurface(String, Region)
+        - func createPixelMapFromSurface(String)
+        - func createPremultipliedPixelMap(PixelMap, PixelMap)
+        - func createUnpremultipliedPixelMap(PixelMap, PixelMap)
+        - class DecodingOptions
+            - let desiredColorSpace
+            - let desiredDynamicRange
+            - let desiredPixelFormat
+            - let desiredRegion
+            - let desiredSize
+            - let editable
+            - let fitDensity
+            - let index
+            - let rotate
+            - let sampleSize
+            - init(UInt32, UInt32, Bool, Size, Region, PixelMapFormat, UInt32, Int32, ?ColorSpaceManager)
+            - init(DecodingDynamicRange, UInt32, UInt32, Bool, Size, Region, PixelMapFormat, UInt32, Int32, ?ColorSpaceManager)
+        - class GainmapChannel
+            - var alternateOffset
+            - var baseOffset
+            - var gainmapMax
+            - var gainmapMin
+            - var gamma
+            - GainmapChannel(Float32, Float32, Float32, Float32, Float32)
+        - class HdrGainmapMetadata
+            - var alternateHeadroom
+            - var baseHeadroom
+            - var channels
+            - var gainmapChannelCount
+            - var miniVersion
+            - var useBaseColorFlag
+            - var writerVersion
+            - HdrGainmapMetadata(UInt16, UInt16, UInt8, Bool, Float32, Float32, Array\<GainmapChannel>)
+        - class HdrStaticMetadata
+            - var displayPrimariesX
+            - var displayPrimariesY
+            - var maxContentLightLevel
+            - var maxFrameAverageLightLevel
+            - var maxLuminance
+            - var minLuminance
+            - var whitePointX
+            - var whitePointY
+            - HdrStaticMetadata(Array\<Float32>, Array\<Float32>, Float32, Float32, Float32, Float32, Float32, Float32)
+        - class Image
+            - prop clipRect
+            - prop format
+            - prop size
+            - prop timestamp
+            - func Release()<sup>(deprecated)</sup>
+            - func release()
+            - func getComponent(ComponentType)
+        - class ImageCreator
+            - prop capacity
+            - prop format
+            - func Release()<sup>(deprecated)</sup>
+            - func release()
+            - func dequeueImage()
+            - func queueImage(Image)
+        - class ImageInfo
+            - var alphaType
+            - var density
+            - var isHdr
+            - var mimeType
+            - var pixelFormat
+            - var size
+            - var stride
+            - init(Size, Int32)
+            - init(Size, Int32, Int32, PixelMapFormat, AlphaType, String, Bool)
+        - class ImagePacker
+            - prop supportedFormats
+            - func Release()<sup>(deprecated)</sup>
+            - func release()
+            - func packToData(ImageSource, PackingOption)
+            - func packToData(PixelMap, PackingOption)
+            - func packToFile(PixelMap, IntNative, PackingOption)
+            - func packToFile(ImageSource, IntNative, PackingOption)
+            - func packToFile(Picture, IntNative, PackingOption)
+            - func packing(ImageSource, PackingOption)
+            - func packing(Picture, PackingOption)
+            - func packing(PixelMap, PackingOption)
+        - class ImageReceiver
+            - prop capacity
+            - prop format
+            - prop size
+            - func Release()<sup>(deprecated)</sup>
+            - func release()
+            - func getReceivingSurfaceId()
+        - class ImageSource
+            - prop supportedFormats
+            - func Release()<sup>(deprecated)</sup>
+            - func release()
+            - func createPixelMap(DecodingOptions)
+            - func createPixelMapList(DecodingOptions)
+            - func getDelayTimeList()
+            - func getDisposalTypeList()
+            - func getFrameCount()
+            - func getImageInfo(UInt32)
+            - func getImageProperties(Array\<PropertyKey>)
+            - func getImageProperty(PropertyKey, ImagePropertyOptions)
+            - func modifyImageProperties(Array\<(PropertyKey, String)>)
+            - func modifyImageProperty(PropertyKey, String)
+            - func updateData(Array\<UInt8>, Bool, UInt32, UInt32)
+        - class InitializationOptions
+            - var alphaType
+            - var editable
+            - var pixelFormat
+            - var scaleMode
+            - var size
+            - var srcPixelFormat
+            - init(AlphaType, Bool, PixelMapFormat, ScaleMode, Size)
+            - init(PixelMapFormat, AlphaType, Bool, PixelMapFormat, ScaleMode, Size)
+        - class Metadata
+            - func getAllProperties()
+        - class Picture
+            - func getMetadata(MetadataType)
+            - func setMetadata(MetadataType, Metadata)
+        - class PackingOption
+            - var bufferSize
+            - var desiredDynamicRange
+            - var format
+            - var needsPackProperties
+            - var quality
+            - init(String, UInt8, UInt64)
+            - init(String, UInt8, PackingDynamicRange, Bool, UInt64)
+        - class PixelMap
+            - prop isEditable
+            - prop isStrideAlignment
+            - func Release()<sup>(deprecated)</sup>
+            - func release()
+            - func applyColorSpace(ColorSpaceManager)
+            - func convertPixelFormat(PixelMapFormat)
+            - func createAlphaPixelmap()
+            - func crop(Region)
+            - func flip(Bool, Bool)
+            - func getBytesNumberPerRow()
+            - func getColorSpace()
+            - func getDensity()
+            - func getImageInfo()
+            - func getPixelBytesNumber()
+            - func marshalling(MessageSequence)
+            - func unmarshalling(MessageSequence)
+            - func opacity(Float32)
+            - func readPixels(PositionArea)
+            - func readPixelsToBuffer(Array\<UInt8>)
+            - func rotate(Float32)
+            - func scale(Float32, Float32)
+            - func scale(Float32, Float32, AntiAliasingLevel)
+            - func setColorSpace(ColorSpaceManager)
+            - func toSdr()
+            - func translate(Float32, Float32)
+            - func writeBufferToPixels(Array\<UInt8>)
+            - func writePixels(PositionArea)
+        - struct Component
+            - let byteBuffer
+            - let componentType
+            - let pixelStride
+            - let rowStride
+            - Component(ComponentType, Int32, Int32, Array\<UInt8>)
+        - struct ImagePropertyOptions
+            - let defaultValue
+            - let index
+            - ImagePropertyOptions(UInt32, String)
+        - struct PositionArea
+            - let offset
+            - let pixels
+            - let region
+            - let stride
+            - PositionArea(Array\<UInt8>, UInt32, UInt32, Region)
+        - struct Region
+            - var size
+            - var x
+            - var y
+            - Region(Size, Int32, Int32)
+        - struct Size
+            - var height
+            - var width
+            - Size(Int32, Int32)
+        - struct SourceOptions
+            - var sourceDensity
+            - var sourcePixelFormat
+            - var sourceSize
+            - SourceOptions(Int32, PixelMapFormat, Size)
+        - enum AlphaType
+            - OPAQUE
+            - PREMUL
+            - UNKNOWN
+            - UNPREMUL
+            - func !=(AlphaType)
+            - func ==(AlphaType)
+            - func toString()
+        - enum AntiAliasingLevel
+            - HIGH
+            - LOW
+            - MEDIUM
+            - NONE
+            - func !=(AntiAliasingLevel)
+            - func ==(AntiAliasingLevel)
+            - func toString()
+        - enum ComponentType
+            - JPEG
+            - YUV_U
+            - YUV_V
+            - YUV_Y
+            - func !=(ComponentType)
+            - func ==(ComponentType)
+            - func toString()
+        - enum DecodingDynamicRange
+            - AUTO
+            - HDR
+            - SDR
+            - func !=(DecodingDynamicRange)
+            - func ==(DecodingDynamicRange)
+            - func toString()
+        - enum HdrMetadataKey
+            - HDR_DYNAMIC_METADATA
+            - HDR_GAINMAP_METADATA
+            - HDR_METADATA_TYPE
+            - HDR_STATIC_METADATA
+            - func !=(HdrMetadataKey)
+            - func ==(HdrMetadataKey)
+            - func toString()
+        - enum HdrMetadataType
+            - ALTERNATE
+            - BASE
+            - GAINMAP
+            - NONE
+            - func !=(HdrMetadataType)
+            - func ==(HdrMetadataType)
+            - func toString()
+        - enum ImageFormat
+            - JPEG
+            - YCBCR_422_SP
+            - func !=(ImageFormat)
+            - func ==(ImageFormat)
+            - func toString()
+        - enum MetadataType
+            - EXIF_METADATA
+            - FRAGMENT_METADATA
+        - enum PackingDynamicRange
+            - AUTO
+            - SDR
+            - prop value
+            - func !=(PackingDynamicRange)
+            - func ==(PackingDynamicRange)
+            - func toString()
+        - enum PixelMapFormat
+            - ALPHA_8
+            - BGRA_8888
+            - NV12
+            - NV21
+            - RGBA_1010102
+            - RGBA_8888
+            - RGBA_F16
+            - RGB_565
+            - RGB_888
+            - UNKNOWN
+            - YCBCR_P010
+            - YCRCB_P010
+            - func !=(PixelMapFormat)
+            - func ==(PixelMapFormat)
+            - func toString()
+        - enum PropertyKey
+            - APERTURE_VALUE
+            - ARTIST
+            - BITS_PER_SAMPLE
+            - BODY_SERIAL_NUMBER
+            - BRIGHTNESS_VALUE
+            - BURST_NUMBER
+            - CAMERA_OWNER_NAME
+            - CAPTURE_MODE
+            - CFA_PATTERN
+            - CLOUD_ENHANCEMENT_MODE
+            - COLOR_SPACE
+            - COMPONENTS_CONFIGURATION
+            - COMPOSITE_IMAGE
+            - COMPRESSED_BITS_PER_PIXEL
+            - COMPRESSION
+            - CONTRAST
+            - COPYRIGHT
+            - CUSTOM_RENDERED
+            - DATE_TIME
+            - DATE_TIME_DIGITIZED
+            - DATE_TIME_ORIGINAL
+            - DEFAULT_CROP_SIZE
+            - DEVICE_SETTING_DESCRIPTION
+            - DIGITAL_ZOOM_RATIO
+            - DNG_VERSION
+            - EXIF_VERSION
+            - EXPOSURE_BIAS_VALUE
+            - EXPOSURE_INDEX
+            - EXPOSURE_MODE
+            - EXPOSURE_PROGRAM
+            - EXPOSURE_TIME
+            - FACE_CONF
+            - FACE_COUNT
+            - FACE_LEYE_CENTER
+            - FACE_MOUTH_CENTER
+            - FACE_POINTER
+            - FACE_RECT
+            - FACE_REYE_CENTER
+            - FACE_SMILE_SCORE
+            - FACE_VERSION
+            - FILE_SOURCE
+            - FLASH
+            - FLASHPIX_VERSION
+            - FLASH_ENERGY
+            - FOCAL_LENGTH
+            - FOCAL_LENGTH_IN_35_MM_FILM
+            - FOCAL_PLANE_RESOLUTION_UNIT
+            - FOCAL_PLANE_X_RESOLUTION
+            - FOCAL_PLANE_Y_RESOLUTION
+            - FOCUS_MODE
+            - FRONT_CAMERA
+            - F_NUMBER
+            - GAIN_CONTROL
+            - GAMMA
+            - GIF_LOOP_COUNT
+            - GPS_ALTITUDE
+            - GPS_ALTITUDE_REF
+            - GPS_AREA_INFORMATION
+            - GPS_DATE_STAMP
+            - GPS_DEST_BEARING
+            - GPS_DEST_BEARING_REF
+            - GPS_DEST_DISTANCE
+            - GPS_DEST_DISTANCE_REF
+            - GPS_DEST_LATITUDE
+            - GPS_DEST_LATITUDE_REF
+            - GPS_DEST_LONGITUDE
+            - GPS_DEST_LONGITUDE_REF
+            - GPS_DIFFERENTIAL
+            - GPS_DOP
+            - GPS_H_POSITIONING_ERROR
+            - GPS_IMG_DIRECTION
+            - GPS_IMG_DIRECTION_REF
+            - GPS_LATITUDE
+            - GPS_LATITUDE_REF
+            - GPS_LONGITUDE
+            - GPS_LONGITUDE_REF
+            - GPS_MAP_DATUM
+            - GPS_MEASURE_MODE
+            - GPS_PROCESSING_METHOD
+            - GPS_SATELLITES
+            - GPS_SPEED
+            - GPS_SPEED_REF
+            - GPS_STATUS
+            - GPS_TIME_STAMP
+            - GPS_TRACK
+            - GPS_TRACK_REF
+            - GPS_VERSION_ID
+            - IMAGE_DESCRIPTION
+            - IMAGE_LENGTH
+            - IMAGE_UNIQUE_ID
+            - IMAGE_WIDTH
+            - ISO_SPEED
+            - ISO_SPEED_LATITUDE_YYY
+            - ISO_SPEED_LATITUDE_ZZZ
+            - ISO_SPEED_RATINGS
+            - IS_XMAGE_SUPPORTED
+            - JPEG_INTERCHANGE_FORMAT
+            - JPEG_INTERCHANGE_FORMAT_LENGTH
+            - LENS_MAKE
+            - LENS_MODEL
+            - LENS_SERIAL_NUMBER
+            - LENS_SPECIFICATION
+            - LIGHT_SOURCE
+            - MAKE
+            - MAKER_NOTE
+            - MAX_APERTURE_VALUE
+            - METERING_MODE
+            - MODEL
+            - NEW_SUBFILE_TYPE
+            - OECF
+            - OFFSET_TIME
+            - OFFSET_TIME_DIGITIZED
+            - OFFSET_TIME_ORIGINAL
+            - ORIENTATION
+            - PHOTOGRAPHIC_SENSITIVITY
+            - PHOTOMETRIC_INTERPRETATION
+            - PHOTO_MODE
+            - PHYSICAL_APERTURE
+            - PITCH_ANGLE
+            - PIXEL_X_DIMENSION
+            - PIXEL_Y_DIMENSION
+            - PLANAR_CONFIGURATION
+            - PRIMARY_CHROMATICITIES
+            - RECOMMENDED_EXPOSURE_INDEX
+            - REFERENCE_BLACK_WHITE
+            - RELATED_SOUND_FILE
+            - RESOLUTION_UNIT
+            - ROLL_ANGLE
+            - ROWS_PER_STRIP
+            - SAMPLES_PER_PIXEL
+            - SATURATION
+            - SCENE_BEACH_CONF
+            - SCENE_BLUE_SKY_CONF
+            - SCENE_CAPTURE_TYPE
+            - SCENE_FLOWERS_CONF
+            - SCENE_FOOD_CONF
+            - SCENE_GREEN_PLANT_CONF
+            - SCENE_NIGHT_CONF
+            - SCENE_POINTER
+            - SCENE_SNOW_CONF
+            - SCENE_STAGE_CONF
+            - SCENE_SUNSET_CONF
+            - SCENE_TEXT_CONF
+            - SCENE_TYPE
+            - SCENE_VERSION
+            - SENSING_METHOD
+            - SENSITIVITY_TYPE
+            - SHARPNESS
+            - SHUTTER_SPEED
+            - SOFTWARE
+            - SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE
+            - SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE
+            - SPATIAL_FREQUENCY_RESPONSE
+            - SPECTRAL_SENSITIVITY
+            - STANDARD_OUTPUT_SENSITIVITY
+            - STRIP_BYTE_COUNTS
+            - STRIP_OFFSETS
+            - SUBFILE_TYPE
+            - SUBJECT_AREA
+            - SUBJECT_DISTANCE
+            - SUBJECT_DISTANCE_RANGE
+            - SUBJECT_LOCATION
+            - SUBSEC_TIME
+            - SUBSEC_TIME_DIGITIZED
+            - SUBSEC_TIME_ORIGINAL
+            - TRANSFER_FUNCTION
+            - USER_COMMENT
+            - WHITE_BALANCE
+            - WHITE_POINT
+            - WIND_SNAPSHOT_MODE
+            - XMAGE_BOTTOM
+            - XMAGE_LEFT
+            - XMAGE_MODE
+            - XMAGE_RIGHT
+            - XMAGE_TOP
+            - X_RESOLUTION
+            - YCBCR_COEFFICIENTS
+            - YCBCR_POSITIONING
+            - YCBCR_SUB_SAMPLING
+            - Y_RESOLUTION
+            - func !=(PropertyKey)
+            - func ==(PropertyKey)
+            - func toString()
+        - enum ScaleMode
+            - CENTER_CROP
+            - FIT_TARGET_SIZE
+            - func !=(ScaleMode)
+            - func ==(ScaleMode)
+            - func toString()
+        - 补充说明
+            - SVG标签说明
+            - [ohos.image.interop（图片处理互操作）](source_zh_cn/apis/ImageKit/cj-apis-image-interop.md)
+    API索引列表:
+    - ohos.image.interop（图片处理互操作）
+        - 导入模块
+                import kit.ImageKit.*
+        - interface JSSystemObjectInteropType
+            - static func fromJSValue(JSContext, JSValue)
+            - func toJSValue(JSContext)
+        - class PixelMap
+            - static func fromJSValue(JSContext, JSValue)
+            - func toJSValue(JSContext): JSValue
+        - [错误码]()
+            - [Image错误码](source_zh_cn/errorcodes/cj-errorcode-image.md)
+    API索引列表:
+    - Image错误码
+        - 501 无法调用接口
+        - 62980096 操作失败
+        - 62980097 操作失败
+        - 62980098 共享内存空间错误
+        - 62980099 共享内存数据异常
+        - 62980100 图片解码错误
+        - 62980101 图片输入数据错误
+        - 62980102 图片分配内存错误
+        - 62980103 图片类型不支持
+        - 62980104 图片初始化错误
+        - 62980105 图片获取数据错误
+        - 62980106 图片数据太大
+        - 62980107 图片转换错误
+        - 62980108 图片颜色转换错误
+        - 62980109 裁剪错误
+        - 62980110 图片源数据错误
+        - 62980111 图片源数据不完整
+        - 62980112 图片格式不匹配
+        - 62980113 图片未知格式
+        - 62980114 图片源未解析
+        - 62980115 图片无效参数
+        - 62980116 解码失败
+        - 62980117 注册插件失败
+        - 62980118 创建插件失败
+        - 62980119 图片编码失败
+        - 62980120 图片添加像素映射失败
+        - 62980121 不支持图片硬解码
+        - 62980122 解码图片头异常
+        - 62980123 图片不支持exif解码
+        - 62980124 图片属性不存在
+        - 62980133 图片属性赋值超出范围
+        - 62980135 图片属性值无效
+        - 62980137 图片操作无效
+        - 62980146 图片属性值写入文件失败
+        - 62980149 图片参数无效
+        - 62980172 编码ICC失败
+        - 62980173 DMA内存空间错误
+        - 62980174 DMA内存数据异常
+        - 62980177 API环境异常
+        - 62980178 PixelMap创建失败
+        - 62980179 缓冲区大小异常
+        - 62980180 文件描述符映射失败
+        - 62980246 读取像素地图失败
+        - 62980247 写入像素映射失败
+        - 62980248 PixelMap不允许修改
+        - 62980252 创建surface失败
+        - 62980259 配置错误
+        - 62980274 图片转换失败
+        - 62980276 不支持图片转换目标类型
+        - 62980286 PixelMap设置内存标识符失败
+        - 62980302 内存拷贝失败
+        - 7600201 不支持的操作
+        - 7600202 不支持的元数据读写
+        - 7600301 申请内存失败
+        - 7600302 内存拷贝失败
+        - 7600901 未知错误
+        - 7700101 图片源存在问题
+        - 7700102 不支持的MIME类型
+        - 7700103 图片太大
+        - 7700201 不支持的内存分配类型
+        - 7700203 不支持的选项
+        - 7700301 解码失败
+        - 7700302 内存分配失败
+        - 7800201 不支持的选项
+        - 7800301 编码失败
+    - [Media Kit（媒体服务）]()
+        - [仓颉API]()
+            - [ohos.multimedia_media（媒体服务）](source_zh_cn/apis/MediaKit/cj-apis-multimedia_media.md)
+    API索引列表:
+    - ohos.multimedia_media（媒体服务）
+        - 导入模块
+                import kit.MediaKit.*
+        - 权限列表
+                ohos.permission.MICROPHONE
+        - 使用说明
+        - func createAVImageGenerator()
+        - func createAVMetadataExtractor()
+        - func createAVPlayer()
+        - func createAVRecorder()
+        - func createAVTranscoder()
+        - func createAVScreenCaptureRecorder()
+        - func createMediaSourceWithUrl(String, HashMap\<String, String>)
+        - func createSoundPool(Int32, AudioRendererInfo)
+        - class AVDataSrcDescriptor
+            - var callback
+            - var fileSize
+            - AVDataSrcDescriptor(Int64, Callback3ArgumentWithReturn\<Array\<UInt8>, UInt32, Int64, Int32>)
+        - class AVFileDescriptor
+            - var fd
+            - var length
+            - var offset
+            - AVFileDescriptor(Int32, ?Int64, ?Int64)
+            - init(Int32)
+        - class AVImageGenerator
+            - prop fdSrc
+            - func fetchFrameByTime(Int64, AVImageQueryOptions, PixelMapParams)
+            - func release()
+        - class AVMetadata
+            - var album
+            - var albumArtist
+            - var artist
+            - var author
+            - var composer
+            - var customInfo
+            - var dateTime
+            - var dateTimeFormat
+            - var duration
+            - var genre
+            - var hasAudio
+            - var hasVideo
+            - var hdrType
+            - var location
+            - var mimeType
+            - var sampleRate
+            - var title
+            - var trackCount
+            - var videoHeight
+            - var videoOrientation
+            - var videoWidth
+        - class AVScreenCaptureRecordConfig
+            - var audioBitrate
+            - var audioChannelCount
+            - var audioSampleRate
+            - var fd
+            - var frameHeight
+            - var frameWidth
+            - var preset
+            - var videoBitrate
+            - AVScreenCaptureRecordConfig(Int32, Int32, Int32, Int32, Int32, Int32, Int32, AVScreenCaptureRecordPreset)
+        - class AVTranscoder
+            - prop fdSrc
+            - prop fdDst
+            - func prepare(AVTranscoderConfig)
+            - func start()
+            - func pause()
+            - func resume()
+            - func cancel()
+            - func release()
+            - func on(AVTranscoderCallbackType, Callback1Argument\<Int32>)
+            - func on(AVTranscoderCallbackType, Callback1Argument\<BusinessException>)
+            - func on(AVTranscoderCallbackType, Callback0Argument)
+            - func off(AVTranscoderCallbackType, ?CallbackObject)
+        - class AVTranscoderConfig
+            - var audioBitrate
+            - var audioCodec
+            - var fileFormat
+            - var videoBitrate
+            - var videoCodec
+            - var videoFrameWidth
+            - var videoFrameHeight
+            - AVTranscoderConfig(Int32, ?CodecMimeType, ?ContainerFormatType, Int32, ?CodecMimeType, Int32, Int32)
+        - class AVMetadataExtractor
+            - prop dataSrc
+            - prop fdSrc
+            - func fetchAlbumCover()
+            - func fetchMetadata()
+            - func release()
+        - class AVPlayer
+            - prop audioEffectMode
+            - prop audioInterruptMode
+            - prop audioRendererInfo
+            - prop currentTime
+            - prop dataSrc
+            - prop duration
+            - prop fdSrc
+            - prop height
+            - prop loop
+            - prop state
+            - prop surfaceId
+            - prop url
+            - prop videoScaleType
+            - prop width
+            - func addSubtitleFromFd(Int32, Int64, Int64)
+            - func addSubtitleFromUrl(String)
+            - func deselectTrack(Int32)
+            - func getPlaybackInfo()
+            - func getSelectedTracks()
+            - func getTrackDescription()
+            - func off(AVPlayerCallbackType, CallbackObject)
+            - func off(AVPlayerCallbackType)
+            - func on(AVPlayerCallbackType, OnAVPlayerStateChangeHandle)
+            - func on(AVPlayerCallbackType, Callback1Argument\<BusinessException>)
+            - func on(AVPlayerCallbackType, Callback1Argument\<Int32>)
+            - func on(AVPlayerCallbackType, Callback1Argument\<Array\<Int32>>)
+            - func on(AVPlayerCallbackType, Callback1Argument\<Float32>)
+            - func on(AVPlayerCallbackType, Callback0Argument)
+            - func on(AVPlayerCallbackType, OnBufferingUpdateHandler)
+            - func on(AVPlayerCallbackType, OnVideoSizeChangeHandler)
+            - func on(AVPlayerCallbackType, Callback1Argument\<InterruptEvent>)
+            - func on(AVPlayerCallbackType, Callback1Argument\<AudioStreamDeviceChangeInfo>)
+            - func on(AVPlayerCallbackType, Callback1Argument\<SubtitleInfo>)
+            - func on(AVPlayerCallbackType, OnTrackChangeHandler)
+            - func on(AVPlayerCallbackType, Callback1Argument\<Array\<MediaDescription>>)
+            - func on(AVPlayerCallbackType, Callback1Argument\<Array\<Float32>>)
+            - func pause()
+            - func play()
+            - func prepare()
+            - func release()
+            - func reset()
+            - func seek(Int32, SeekMode)
+            - func selectTrack(Int32, SwitchMode)
+            - func setBitrate(Int32)
+            - func setMediaMuted(MediaType, Bool)
+            - func setMediaSource(MediaSource, ?PlaybackStrategy)
+            - func setPlaybackStrategy(PlaybackStrategy)
+            - func setSpeed(PlaybackSpeed)
+            - func setVolume(Float32)
+            - func stop()
+        - class AVRecorder
+            - prop state
+            - func getAVRecorderConfig()
+            - func getAudioCapturerMaxAmplitude()
+            - func getAvailableEncoder()
+            - func getCurrentAudioCapturerInfo()
+            - func getInputSurface()
+            - func off(AVRecorderCallbackType, ?CallbackObject)
+            - func on(AVRecorderCallbackType, Callback1Argument\<BusinessException>)
+            - func on(AVRecorderCallbackType, Callback1Argument\<OnAVRecorderStateChangeHandler>)
+            - func on(AVRecorderCallbackType, Callback1Argument\<AudioCapturerChangeInfo>)
+            - func on(AVRecorderCallbackType, Callback1Argument\<PhotoAsset>)
+            - func pause()
+            - func prepare(AVRecorderConfig)
+            - func release()
+            - func reset()
+            - func resume()
+            - func start()
+            - func stop()
+            - func updateRotation(Int32)
+        - class AVRecorderConfig
+            - var audioSourceType
+            - var fileGenerationMode
+            - var maxDuration
+            - var metadata
+            - var profile
+            - var url
+            - var videoSourceType
+            - AVRecorderConfig(AVRecorderProfile, String, ?AudioSourceType, ?VideoSourceType, ?FileGenerationMode, ?AVMetadata, ?Int32)
+        - class AVRecorderProfile
+            - var audioBitrate
+            - var audioChannels
+            - var audioCodec
+            - var audioSampleRate
+            - var enableTemporalScale
+            - var fileFormat
+            - var isHdr
+            - var videoBitrate
+            - var videoCodec
+            - var videoFrameHeight
+            - var videoFrameRate
+            - var videoFrameWidth
+            - AVRecorderProfile(ContainerFormatType, ?Int32, ?Int32, ?CodecMimeType, ?Int32, ?Int32, ?CodecMimeType, ?Int32, ?Int32, ?Int32, ?Bool, ?Bool)
+        - class AVScreenCaptureRecorder
+            - func initialize(AVScreenCaptureRecordConfig)
+            - func off(ProfileCallbackType, ?CallbackObject)
+            - func on(ProfileCallbackType, Callback1Argument\<AVScreenCaptureStateCode>)
+            - func on(ProfileCallbackType, Callback1Argument\<BusinessException>)
+            - func release()
+            - func setMicEnabled(Bool)
+            - func skipPrivacyMode(Array\<UInt64>)
+            - func startRecording()
+            - func stopRecording()
+        - class EncoderInfo
+            - let \`type\`
+            - let bitRate
+            - let channels
+            - let frameRate
+            - let height
+            - let mimeType
+            - let sampleRate
+            - let width
+        - class Location
+            - var latitude
+            - var longitude
+        - class MediaSource
+        - class OnAVRecorderStateChangeHandler
+            - var state
+            - var stateChangeReason
+            - init(AVRecorderState, StateChangeReason)
+        - class PlaybackStrategy
+            - var mutedMediaType
+            - var preferredAudioLanguage
+            - var preferredBufferDuration
+            - var preferredHdr
+            - var preferredHeight
+            - var preferredSubtitleLanguage
+            - var preferredWidth
+            - PlaybackStrategy(UInt32, UInt32, UInt32, Bool, ?MediaType, String, String)
+        - class Range
+            - let max
+            - let min
+            - Range(Int32, Int32)
+        - class SoundPool
+            - func load(String)
+            - func load(Int32, Int64, Int64)
+            - func off(SoundPoolEvent)
+            - func on(SoundPoolEvent, Callback1Argument\<Int32>)
+            - func on(SoundPoolEvent, Callback0Argument)
+            - func on(SoundPoolEvent, Callback1Argument\<BusinessException>)
+            - func play(Int32, ?PlayParameters)
+            - func release()
+            - func setLoop(Int32, Int32)
+            - func setPriority(Int32, Int32)
+            - func setRate(Int32, AudioRendererRate)
+            - func setVolume(Int32, Float32, Float32)
+            - func stop(Int32)
+            - func unload(Int32)
+        - class SubtitleInfo
+            - var duration
+            - var startTime
+            - var text
+            - SubtitleInfo(Int32, Int32, String)
+            - func !=(SubtitleInfo)
+            - func ==(SubtitleInfo)
+            - func toString()
+        - struct MediaDescriptionKey
+            - static const MD_KEY_AUD_CHANNEL_COUNT
+            - static const MD_KEY_AUD_SAMPLE_DEPTH
+            - static const MD_KEY_AUD_SAMPLE_RATE
+            - static const MD_KEY_BITRATE
+            - static const MD_KEY_CODEC_MIME
+            - static const MD_KEY_DURATION
+            - static const MD_KEY_FRAME_RATE
+            - static const MD_KEY_HDR_TYPE
+            - static const MD_KEY_HEIGHT
+            - static const MD_KEY_LANGUAGE
+            - static const MD_KEY_TRACK_INDEX
+            - static const MD_KEY_TRACK_NAME
+            - static const MD_KEY_TRACK_TYPE
+            - static const MD_KEY_WIDTH
+        - struct PixelMapParams
+            - var height
+            - var width
+            - PixelMapParams(Int32, Int32)
+        - struct PlayParameters
+            - var leftVolume
+            - var loop
+            - var priority
+            - var rate
+            - var rightVolume
+            - PlayParameters(Int32, AudioRendererRate, Float32, Float32, Int32)
+        - enum AVImageQueryOptions
+            - AV_IMAGE_QUERY_CLOSEST
+            - AV_IMAGE_QUERY_CLOSEST_SYNC
+            - AV_IMAGE_QUERY_NEXT_SYNC
+            - AV_IMAGE_QUERY_PREVIOUS_SYNC
+            - func !=(AVImageQueryOptions)
+            - func ==(AVImageQueryOptions)
+            - func toString()
+        - enum AVPlayerCallbackType
+            - AVError
+            - AmplitudeUpdate
+            - AudioInterrupt
+            - AudioOutputDeviceChangeWithInfo
+            - AvailableBitrates
+            - BitrateDone
+            - BufferingUpdate
+            - DurationUpdate
+            - EndOfStream
+            - SeekDone
+            - SpeedDone
+            - StartRenderFrame
+            - StateChange
+            - SubtitleUpdate
+            - TimeUpdate
+            - TrackChange
+            - TrackInfoUpdate
+            - VideoSizeChange
+            - VolumeChange
+            - func toString()
+        - enum AVPlayerState
+            - AVError
+            - Completed
+            - Idle
+            - Initialized
+            - Paused
+            - Playing
+            - Prepared
+            - Released
+            - Stopped
+            - func !=(AVPlayerState)
+            - func ==(AVPlayerState)
+            - func toString()
+        - enum AVRecorderCallbackType
+            - AVRECORDER_AUDIO_CAPTURER_CHANGE
+            - AVRECORDER_ERROR
+            - AVRECORDER_PHOTO_ASSET_AVAILABLE
+            - AVRECORDER_STATE_CHANGE
+            - func !=(AVRecorderCallbackType)
+            - func ==(AVRecorderCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AVRecorderState
+            - ERROR
+            - IDLE
+            - PAUSED
+            - PREPARED
+            - RELEASED
+            - STARTED
+            - STOPPED
+            - func !=(AVRecorderState)
+            - func ==(AVRecorderState)
+            - func toString()
+        - enum AVScreenCaptureRecordPreset
+            - SCREEN_RECORD_PRESET_H264_AAC_MP4
+            - SCREEN_RECORD_PRESET_H265_AAC_MP4
+        - enum AVScreenCaptureStateCode
+            - SCREEN_CAPTURE_STATE_CANCELED
+            - SCREEN_CAPTURE_STATE_ENTER_PRIVATE_SCENE
+            - SCREEN_CAPTURE_STATE_EXIT_PRIVATE_SCENE
+            - SCREEN_CAPTURE_STATE_INTERRUPTED_BY_OTHER
+            - SCREEN_CAPTURE_STATE_INVALID
+            - SCREEN_CAPTURE_STATE_MIC_MUTED_BY_USER
+            - SCREEN_CAPTURE_STATE_MIC_UNAVAILABLE
+            - SCREEN_CAPTURE_STATE_MIC_UNMUTED_BY_USER
+            - SCREEN_CAPTURE_STATE_STARTED
+            - SCREEN_CAPTURE_STATE_STOPPED_BY_CALL
+            - SCREEN_CAPTURE_STATE_STOPPED_BY_USER
+            - SCREEN_CAPTURE_STATE_STOPPED_BY_USER_SWITCHES
+            - func !=(AVScreenCaptureStateCode)
+            - func ==(AVScreenCaptureStateCode)
+            - func toString()
+        - enum AudioSourceType
+            - AUDIO_SOURCE_TYPE_CAMCORDER
+            - AUDIO_SOURCE_TYPE_DEFAULT
+            - AUDIO_SOURCE_TYPE_MIC
+            - AUDIO_SOURCE_TYPE_VOICE_COMMUNICATION
+            - AUDIO_SOURCE_TYPE_VOICE_MESSAGE
+            - AUDIO_SOURCE_TYPE_VOICE_RECOGNITION
+            - func toString()
+            - func !=(AudioSourceType)
+            - func ==(AudioSourceType)
+        - enum BufferingInfoType
+            - BUFFERING_END
+            - BUFFERING_PERCENT
+            - BUFFERING_START
+            - CACHED_DURATION
+            - func !=(BufferingInfoType)
+            - func ==(BufferingInfoType)
+            - func toString()
+        - enum CodecMimeType
+            - AUDIO_AAC
+            - AUDIO_FLAC
+            - AUDIO_G711MU
+            - AUDIO_MP3
+            - AUDIO_VORBIS
+            - VIDEO_AVC
+            - VIDEO_H263
+            - VIDEO_HEVC
+            - VIDEO_MPEG2
+            - VIDEO_MPEG4
+            - VIDEO_VP8
+            - func toString()
+            - func !=(CodecMimeType)
+            - func ==(CodecMimeType)
+        - enum ContainerFormatType
+            - CFT_MP3
+            - CFT_MPEG_4
+            - CFT_MPEG_4A
+            - CFT_WAV
+            - func toString()
+            - func !=(ContainerFormatType)
+            - func ==(ContainerFormatType)
+        - enum FileGenerationMode
+            - APP_CREATE
+            - AUTO_CREATE_CAMERA_SCENE
+            - func toString()
+            - func !=(FileGenerationMode)
+            - func ==(FileGenerationMode)
+        - enum HdrType
+            - AV_HDR_TYPE_NONE
+            - AV_HDR_TYPE_VIVID
+            - func toString()
+            - func !=(HdrType)
+            - func ==(HdrType)
+        - enum MediaType
+            - MEDIA_TYPE_AUD
+            - MEDIA_TYPE_SUBTITLE
+            - MEDIA_TYPE_VID
+            - func !=(MediaType)
+            - func ==(MediaType)
+            - func get()
+            - func toString()
+        - enum PlaybackInfoKey
+            - AVG_DOWNLOAD_RATE
+            - BUFFER_DURATION
+            - DOWNLOAD_RATE
+            - IS_DOWNLOADING
+            - SERVER_IP_ADDRESS
+            - func !=(PlaybackInfoKey)
+            - func ==(PlaybackInfoKey)
+            - func hashCode()
+            - func toString()
+        - enum PlaybackSpeed
+            - SPEED_FORWARD_0_125_X
+            - SPEED_FORWARD_0_25_X
+            - SPEED_FORWARD_0_50_X
+            - SPEED_FORWARD_0_75_X
+            - SPEED_FORWARD_1_00_X
+            - SPEED_FORWARD_1_25_X
+            - SPEED_FORWARD_1_50_X
+            - SPEED_FORWARD_1_75_X
+            - SPEED_FORWARD_2_00_X
+            - func !=(PlaybackSpeed)
+            - func ==(PlaybackSpeed)
+            - func toString()
+        - enum ProfileCallbackType
+            - CONNECTION_ERROR
+            - CONNECTION_STATE_CHANGE
+            - func !=(ProfileCallbackType)
+            - func ==(ProfileCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum AVTranscoderCallbackType
+            - ProgressUpdate
+            - Complete
+            - Error
+            - func !=(AVTranscoderCallbackType)
+            - func ==(AVTranscoderCallbackType)
+            - func hashCode()
+            - func toString()
+        - enum SeekMode
+            - SEEK_CLOSEST
+            - SEEK_NEXT_SYNC
+            - SEEK_PREV_SYNC
+            - func !=(SeekMode)
+            - func ==(SeekMode)
+            - func toString()
+        - enum SoundPoolEvent
+            - EventError
+            - LoadCompleted
+            - PlayFinished
+            - func toString()
+        - enum StateChangeReason
+            - BACKGROUND
+            - USER
+            - func !=(StateChangeReason)
+            - func ==(StateChangeReason)
+            - func toString()
+        - enum SwitchMode
+            - CLOSEST
+            - SEGMENT
+            - SMOOTH
+            - func !=(SwitchMode)
+            - func ==(SwitchMode)
+            - func toString()
+        - enum ValueType
+            - DOUBLE(Float64)
+            - INT(Int32)
+            - INT64(Int64)
+            - STRING(String)
+        - enum VideoScaleType
+            - VIDEO_SCALE_TYPE_FIT
+            - VIDEO_SCALE_TYPE_FIT_CROP
+            - func !=(VideoScaleType)
+            - func ==(VideoScaleType)
+            - func toString()
+        - enum VideoSourceType
+            - VIDEO_SOURCE_TYPE_SURFACE_ES
+            - VIDEO_SOURCE_TYPE_SURFACE_YUV
+            - func toString()
+            - func !=(VideoSourceType)
+            - func ==(VideoSourceType)
+        - enum AVMimeTypes
+            - ApplicationM3U8
+            - func toString()
+            - func !=(AVMimeTypes)
+            - func ==(AVMimeTypes)
+        - enum AVErrorCode
+            - AvErrOk
+            - AvErrNoPremission
+            - AvErrInvalidParameter
+            - AvErrUnsupportCapability
+            - AVERR_AvErrNoMemoryOK
+            - AvErrOperateNotPermit
+            - AvErrIo
+            - AvErrTimeout
+            - AvErrServiceDied
+            - AvErrUnsupportFormat
+            - AvErrAudioInterrupted
+            - func !=(AVErrorCode)
+            - func ==(AVErrorCode)
+            - func get()
+            - func toString()
+        - type MediaDescription
+        - type OnAVPlayerStateChangeHandle
+        - type OnBufferingUpdateHandler
+        - type OnTrackChangeHandler
+        - type OnVideoSizeChangeHandler
+        - type PlaybackInfo
+        - [错误码]()
+            - [Media错误码](source_zh_cn/errorcodes/cj-errorcode-multimedia-media.md)
+    API索引列表:
+    - Media错误码
+        - 5400101 内存分配失败
+        - 5400102 当前状态机不支持此操作
+        - 5400103 出现IO错误
+        - 5400104 操作超时
+        - 5400105 播放服务死亡
+        - 5400106 不支持的规格
+        - 5400107 音频焦点冲突
+        - 5411001 解析或链接服务端地址错误
+        - 5411002 网络连接超时
+        - 5411003 网络异常导致的数据或链路异常
+        - 5411004 网络被禁用
+        - 5411005 无权限，访问被拒绝
+        - 5411006 客户端请求参数错误或超出处理能力
+        - 5411007 无可用资源
+        - 5411008 服务端校验客户端证书失败
+        - 5411009 SSL连接失败
+        - 5411010 客户端校验服务端证书失败
+        - 5411011 网络协议的原因导致请求不受支持
+    - [Media Library Kit（媒体文件管理服务）]()
+        - [仓颉API]()
+            - [ohos.multimedia.photo_accesshelper（相册管理模块）](source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md)
+    API索引列表:
+    - ohos.multimedia.photo_accesshelper（相册管理模块）
+        - 导入模块
+                import kit.MediaLibraryKit.*
+        - 权限列表
+                ohos.permission.READ_IMAGEVIDEO
+                ohos.permission.WRITE_IMAGEVIDEO
+        - 使用说明
+        - func getPhotoAccessHelper(UIAbilityContext)
+        - interface MediaChangeRequest
+        - class Album
+            - prop albumName
+            - prop albumSubtype
+            - prop albumType
+            - prop albumUri
+            - prop count
+            - prop coverUri
+            - prop imageCount
+            - prop videoCount
+            - func commitModify()
+            - func getAssets(FetchOptions)
+        - class BaseSelectOptions
+            - var MIMEType
+            - var isPhotoTakingSupported
+            - var isPreviewForSingleSelectionSupported
+            - var isSearchSupported
+            - var maxSelectNumber
+            - var preselectedUris
+            - var recommendationOptions
+            - BaseSelectOptions(PhotoViewMIMETypes, Int32, Bool, Bool, RecommendationOptions, Array\<String>, Bool)
+        - class ChangeData
+            - let \`type\`
+            - let extraUris
+            - let uris
+        - class FetchOptions
+            - var fetchColumns
+            - var predicates
+            - FetchOptions(Array\<String>, DataSharePredicates)
+        - class FetchResult
+            - func close()
+            - func getAllObjects()
+            - func getCount()
+            - func getFirstObject()
+            - func getLastObject()
+            - func getNextObject()
+            - func getObjectByPosition(Int32)
+            - func isAfterLast()
+        - class MediaAlbumChangeRequest
+            - init(Album)
+            - func addAssets(Array\<PhotoAsset>)
+            - func getAlbum()
+            - func removeAssets(Array\<PhotoAsset>)
+            - func setAlbumName(String)
+        - class MediaAssetChangeRequest
+            - init(PhotoAsset)
+            - static func createAssetRequest(UIAbilityContext, PhotoType, String, CreateOptions)
+            - static func createImageAssetRequest(UIAbilityContext, String)
+            - static func createVideoAssetRequest(UIAbilityContext, String)
+            - static func deleteAssets(UIAbilityContext, Array\<PhotoAsset>)
+            - static func deleteAssets(UIAbilityContext, Array\<String>)
+            - func addResource(ResourceType, String)
+            - func addResource(ResourceType, Array\<Byte>)
+            - func discardCameraPhoto()
+            - func getAsset()
+            - func getWriteCacheHandler()
+            - func saveCameraPhoto()
+            - func setTitle(String)
+        - class MediaAssetDataHandler
+            - func onDataPrepared(T, HashMap\<String, String>)
+        - class MediaAssetManager
+            - static func cancelRequest(UIAbilityContext, String)
+            - static func loadMovingPhoto(UIAbilityContext, String, String)
+            - static func requestImage(UIAbilityContext, PhotoAsset, RequestOptions, MediaAssetDataHandler\<ImageSource>)
+            - static func requestImageData(UIAbilityContext, PhotoAsset, RequestOptions, MediaAssetDataHandler\<Array\<Byte>>)
+            - static func requestMovingPhoto(UIAbilityContext, PhotoAsset, RequestOptions, MediaAssetDataHandler\<MovingPhoto>)
+            - static func requestVideoFile(UIAbilityContext, PhotoAsset, RequestOptions, String, MediaAssetDataHandler\<Bool>)
+        - class MovingPhoto
+            - func getUri()
+            - func requestContent(String, String)
+            - func requestContent(ResourceType, String)
+            - func requestContent(ResourceType)
+        - class PhotoAccessHelper
+            - func applyChanges(MediaChangeRequest)
+            - func getAlbums(AlbumType, AlbumSubtype, FetchOptions)
+            - func getAssets(FetchOptions)
+            - func getBurstAssets(String, FetchOptions)
+            - func registerChange(String, Bool, Callback1Argument\<ChangeData>)
+            - func release()
+            - func showAssetsCreationDialog(Array\<String>, Array\<PhotoCreationConfig>, Callback1Argument\<Array\<String>>)
+            - func unRegisterChange(String, ?Callback1Argument\<ChangeData>)
+        - class PhotoAsset
+            - prop displayName
+            - prop photoType
+            - prop uri
+            - func commitModify()
+            - func get(String)
+            - func getThumbnail(?Size)
+            - func set(String, String)
+        - class PhotoSelectOptions
+            - var isEditSupported
+            - var isOriginalSupported
+            - var subWindowName
+            - init(PhotoViewMIMETypes, Int32, Bool, Bool, RecommendationOptions, Array\<String>, Bool, Bool, Bool, ?String)
+        - class PhotoViewPicker
+            - init(UIAbilityContext)
+            - func select(AsyncCallback\<PhotoSelectResult>, PhotoSelectOptions)
+        - class RequestOptions
+            - var deliveryMode
+            - RequestOptions(DeliveryMode)
+        - struct CreateOptions
+            - var subtype
+            - var title
+            - CreateOptions(?String, ?PhotoSubtype)
+        - struct PhotoCreationConfig
+            - let fileNameExtension
+            - let photoType
+            - let subtype
+            - let title
+            - PhotoCreationConfig(String, PhotoType, String, PhotoSubtype)
+        - struct PhotoSelectResult
+            - var isOriginalPhoto
+            - var photoUris
+            - PhotoSelectResult(Array\<String>, Bool)
+        - struct RecommendationOptions
+            - var recommendationType
+            - var textContextInfo
+            - RecommendationOptions(?RecommendationType, ?TextContextInfo)
+        - struct TextContextInfo
+            - let text
+            - TextContextInfo(String)
+        - enum AlbumKeys
+            - ALBUM_NAME
+            - URI
+            - func !=(AlbumKeys)
+            - func ==(AlbumKeys)
+            - func toString()
+        - enum AlbumSubtype
+            - ANY
+            - FAVORITE
+            - IMAGE
+            - USER_GENERIC
+            - VIDEO
+            - func !=(AlbumSubtype)
+            - func ==(AlbumSubtype)
+            - func toString()
+        - enum AlbumType
+            - SYSTEM
+            - USER
+            - func !=(AlbumType)
+            - func ==(AlbumType)
+            - func toString()
+        - enum DefaultChangeUri
+            - DEFAULT_ALBUM_URI
+            - DEFAULT_PHOTO_URI
+            - func !=(DefaultChangeUri)
+            - func ==(DefaultChangeUri)
+            - func toString()
+        - enum DeliveryMode
+            - BALANCE_MODE
+            - FAST_MODE
+            - HIGH_QUALITY_MODE
+            - func !=(DeliveryMode)
+            - func ==(DeliveryMode)
+            - func toString()
+        - enum DynamicRangeType
+            - HDR
+            - SDR
+            - func !=(DynamicRangeType)
+            - func ==(DynamicRangeType)
+            - func toString()
+        - enum MemberType
+            - BOOL(Bool)
+            - INT64(Int64)
+            - STRING(String)
+            - func getBool()
+            - func getNumber()
+            - func getString()
+        - enum NotifyType
+            - NOTIFY_ADD
+            - NOTIFY_ALBUM_ADD_ASSET
+            - NOTIFY_ALBUM_REMOVE_ASSET
+            - NOTIFY_REMOVE
+            - NOTIFY_UPDATE
+            - func !=(NotifyType)
+            - func ==(NotifyType)
+            - func toString()
+        - enum PhotoKeys
+            - BURST_KEY
+            - COVER_POSITION
+            - DATE_ADDED
+            - DATE_ADDED_MS
+            - DATE_MODIFIED
+            - DATE_MODIFIED_MS
+            - DATE_TAKEN
+            - DISPLAY_NAME
+            - DURATION
+            - DYNAMIC_RANGE_TYPE
+            - FAVORITE
+            - HEIGHT
+            - LCD_SIZE
+            - ORIENTATION
+            - PHOTO_SUBTYPE
+            - PHOTO_TYPE
+            - SIZE
+            - THM_SIZE
+            - TITLE
+            - URI
+            - WIDTH
+            - func !=(PhotoKeys)
+            - func ==(PhotoKeys)
+            - func toString()
+        - enum PhotoSubtype
+            - BURST
+            - DEFAULT
+            - MOVING_PHOTO
+            - func !=(PhotoSubtype)
+            - func ==(PhotoSubtype)
+            - func toString()
+        - enum PhotoType
+            - IMAGE
+            - VIDEO
+            - func !=(PhotoType)
+            - func ==(PhotoType)
+            - func toString()
+        - enum PhotoViewMIMETypes
+            - IMAGE_TYPE
+            - IMAGE_VIDEO_TYPE
+            - MOVING_PHOTO_IMAGE_TYPE
+            - VIDEO_TYPE
+            - func !=(PhotoViewMIMETypes)
+            - func ==(PhotoViewMIMETypes)
+            - func toString()
+        - enum RecommendationType
+            - BANK_CARD
+            - BAR_CODE
+            - DRIVER_LICENSE
+            - DRIVING_LICENSE
+            - FEATURED_SINGLE_PORTRAIT
+            - ID_CARD
+            - PASSPORT
+            - PROFILE_PICTURE
+            - QR_CODE
+            - QR_OR_BAR_CODE
+            - func !=(RecommendationType)
+            - func ==(RecommendationType)
+            - func toString()
+        - enum ResourceType
+            - IMAGE_RESOURCE
+            - VIDEO_RESOURCE
+            - func !=(ResourceType)
+            - func ==(ResourceType)
+            - func toString()
+- [图形]()
+    - [ArkGraphics2D（方舟2D图形服务）]()
+        - [仓颉API]()
+            - [ohos.effect_ Kit（图像效果）](source_zh_cn/apis/ArkGraphics2D/cj-apis-effect_kit.md)
+    API索引列表:
+    - ohos.effect_kit（图像效果）
+        - 导入模块
+                import kit.ArkGraphics2D.*
+        - 使用说明
+        - func createColorPicker(PixelMap, ?Array\<Float64>)
+        - func createEffect(PixelMap)
+        - class Color
+            - let alpha
+            - let blue
+            - let green
+            - let red
+        - class ColorPicker
+            - func getAverageColor()
+            - func getHighestSaturationColor()
+            - func getLargestProportionColor()
+            - func getMainColor()
+            - func getTopProportionColors(Float64)
+            - func isBlackOrWhiteOrGrayColor(UInt32)
+        - class Filter
+            - func blur(Float32)
+            - func brightness(Float32)
+            - func getEffectPixelMap()
+            - func grayscale()
+            - func invert()
+            - func setColorMatrix(Array\<Float32>)
+            - [ohos.color_manager（色彩管理）](source_zh_cn/apis/ArkGraphics2D/cj-apis-color_manager.md)
+    API索引列表:
+    - ohos.color_manager（色彩管理）
+        - 导入模块
+                import kit.ArkGraphics2D.*
+        - 使用说明
+        - func create(ColorSpace)
+        - func create(ColorSpacePrimaries, Float32)
+        - class ColorSpaceManager
+            - func getColorSpaceName()
+            - func getGamma()
+            - func getWhitePoint()
+        - struct ColorSpacePrimaries
+            - let blueX
+            - let blueY
+            - let greenX
+            - let greenY
+            - let redX
+            - let redY
+            - let whitePointX
+            - let whitePointY
+            - ColorSpacePrimaries(Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32)
+        - enum ColorSpace
+            - ADOBE_RGB_1998
+            - ADOBE_RGB_1998_LIMIT
+            - BT2020_HLG
+            - BT2020_HLG_LIMIT
+            - BT2020_PQ
+            - BT2020_PQ_LIMIT
+            - BT601_EBU
+            - BT601_EBU_LIMIT
+            - BT601_SMPTE_C
+            - BT601_SMPTE_C_LIMIT
+            - BT709
+            - BT709_LIMIT
+            - CUSTOM
+            - DCI_P3
+            - DISPLAY_P3
+            - DISPLAY_P3_HLG
+            - DISPLAY_P3_LIMIT
+            - DISPLAY_P3_PQ
+            - DISPLAY_P3_SRGB
+            - DISPLAY_SRGB
+            - LINEAR_BT2020
+            - LINEAR_BT709
+            - LINEAR_P3
+            - LINEAR_SRGB
+            - P3_HLG
+            - P3_HLG_LIMIT
+            - P3_PQ
+            - P3_PQ_LIMIT
+            - SRGB
+            - SRGB_LIMIT
+            - UNKNOWN
+            - static func parse(UInt32)
+            - func toString()
+            - [ohos.displaySync（可变帧率）](source_zh_cn/apis/ArkGraphics2D/cj-apis-displaySync.md)
+    API索引列表:
+    - ohos.displaySync（可变帧率）
+        - 导入模块
+                import kit.ArkGraphics2D.*
+        - 使用说明
+        - class DisplaySync
+            - static func create()
+            - func off(OnOffType, ?Callback1Argument\<IntervalInfo>)
+            - func on(OnOffType, Callback1Argument\<IntervalInfo>)
+            - func setExpectedFrameRateRange(ExpectedFrameRateRange)
+            - func start()
+            - func stop()
+        - class IntervalInfo
+            - var targetTimestamp
+            - var timestamp
+            - IntervalInfo(Int64, Int64)
+        - enum OnOffType
+            - FRAME
+            - func toString()
+        - [错误码]()
+            - [色彩管理错误码](source_zh_cn/errorcodes/cj-errorcode-colorspace-manager.md)
+    API索引列表:
+    - 色彩管理错误码
+        - 18600001 参数值异常
+- [应用服务]()
+    - [Ads Kit（广告服务）]()
+        - [仓颉API]()
+            - [ohos.advertising.advertising（广告服务框架）](source_zh_cn/apis/AdsKit/cj-apis-advertising-advertising.md)
+    API索引列表:
+    - ohos.advertising.advertising（广告服务框架）
+        - 导入模块
+                import kit.AdsKit.*
+        - 使用说明
+        - func getAdRequestBody(Array\<AdRequestParams>, AdOptions)
+        - func showAd(Advertisement, AdDisplayOptions, ?StageContext)
+        - class AdDisplayOptions
+            - let audioFocusType
+            - let customData
+            - let extraAttrs
+            - let mute
+            - let useMobileDataReminder
+            - let userId
+            - AdDisplayOptions(?String, ?String, ?Bool, ?Bool, ?UInt32, ?Array\<Parameter>)
+        - class AdInteractionListener
+            - let onStatusChanged
+            - AdInteractionListener((status:String,ad:Advertisement,data:String) -> Unit)
+        - class AdLoadListener
+            - let onAdLoadFailure
+            - let onAdLoadSuccess
+            - AdLoadListener((ads:Array\<Advertisement>) -> Unit, (errorCode:Int32,errorMsg:String) -> Unit)
+        - class AdLoader
+            - init(StageContext)
+            - func loadAd(AdRequestParams, AdOptions, AdLoadListener)
+            - func loadAdWithMultiSlots(Array\<AdRequestParams>, AdOptions, MultiSlotsAdLoadListener)
+        - class AdOptions
+            - let adContentClassification
+            - let extraAttrs
+            - let nonPersonalizedAd
+            - let tagForChildProtection
+            - AdOptions(?Int32, ?String, ?UInt32, ?Array\<Parameter>)
+        - class AdRequestParams
+            - let adCount
+            - let adHeight
+            - let adId
+            - let adSearchKeyword
+            - let adType
+            - let adWidth
+            - let extraAttrs
+            - AdRequestParams(String, ?UInt32, ?UInt32, ?UInt32, ?UInt32, ?String, ?Array\<Parameter>)
+        - class Advertisement
+            - let adType
+            - let clicked
+            - let extraAttrs
+            - let rewardVerifyConfig
+            - let rewarded
+            - let shown
+            - let uniqueId
+            - Advertisement(UInt32, String, Bool, Bool, Bool, HashMap\<String,String>, Array\<Parameter>)
+        - class MultiSlotsAdLoadListener
+            - let onAdLoadFailure
+            - let onAdLoadSuccess
+            - MultiSlotsAdLoadListener((adsMap:HashMap\<String,Array\<Advertisement>>) -> Unit, (errorCode:Int32,errorMsg:String) -> Unit)
+        - class Parameter
+            - Parameter(String, ValueType)
+        - enum ValueType
+            - BOOL(Bool)
+            - INT(Int32)
+            - STRING(String)
+        - [错误码]()
+            - [advertising错误码](source_zh_cn/errorcodes/cj-errorcode-advertising.md)
+    API索引列表:
+    - advertising错误码
+        - 21800001 系统内部错误
+        - 21800003 广告请求加载失败
+        - 21800004 广告展示失败
+        - 21800005 广告数据解析失败
+        - 401 请求广告参数错误
+        - 801 请求广告返回错误码
+    - [Contacts Kit（联系人服务）]()
+        - [仓颉API]()
+            - [ohos.contact（联系人）](source_zh_cn/apis/ContactsKit/cj-apis-contact.md)
+    API索引列表:
+    - ohos.contact（联系人）
+        - 导入模块
+                import kit.ContactsKit.*
+        - 权限列表
+                ohos.permission.READ_CONTACTS
+                ohos.permission.WRITE_CONTACTS
+        - 使用说明
+        - func addContact(Context, Contact)
+        - func deleteContact(Context, String)
+        - func isLocalContact(Context, Int64)
+        - func isMyCard(Context, Int64)
+        - func queryContact(Context, String, Holder, ContactAttributes)
+        - func queryContacts(Context, Holder, ContactAttributes)
+        - func queryContactsByEmail(Context, String, Holder, ContactAttributes)
+        - func queryContactsByPhoneNumber(Context, String, Holder, ContactAttributes)
+        - func queryGroups(Context, Holder)
+        - func queryHolders(Context)
+        - func queryKey(Context, Int64, Holder)
+        - func queryMyCard(Context, ContactAttributes)
+        - func selectContacts(Context, AsyncCallback\<Array\<Contact>>, ContactSelectOptions)
+        - func updateContact(Context, Contact, ContactAttributes)
+        - class ContactSelectOptions
+            - var isMultiSelect
+            - ContactSelectOptions(Bool)
+        - struct Contact
+            - static const INVALID_CONTACT_ID
+            - var emails
+            - var events
+            - var groups
+            - var id
+            - var imAddresses
+            - var key
+            - var name
+            - var nickName
+            - var note
+            - var organization
+            - var phoneNumbers
+            - var portrait
+            - var postalAddresses
+            - var relations
+            - var sipAddresses
+            - var websites
+            - Contact(Int64, String, Name, NickName, Note, Organization, Portrait, ArrayList\<Email>, ArrayList\<Event>, ArrayList\<Group>, ArrayList\<ImAddress>, ArrayList\<PhoneNumber>, ArrayList\<PostalAddress>, ArrayList\<Relation>, ArrayList\<SipAddress>, ArrayList\<Website>)
+        - struct ContactAttributes
+            - static let ALL
+            - ContactAttributes(Array\<Attribute>)
+        - struct Email
+            - static const CUSTOM_LABEL
+            - static const EMAIL_HOME
+            - static const EMAIL_OTHER
+            - static const EMAIL_WORK
+            - static const INVALID_LABEL_ID
+            - var displayName
+            - var email
+            - var labelId
+            - var labelName
+            - Email(String, String, String, Int32)
+        - struct Event
+            - static const CUSTOM_LABEL
+            - static const EVENT_ANNIVERSARY
+            - static const EVENT_BIRTHDAY
+            - static const EVENT_OTHER
+            - static const INVALID_LABEL_ID
+            - var eventDate
+            - var labelId
+            - var labelName
+            - Event(String, String, Int32)
+        - struct Group
+            - var groupId
+            - var title
+            - Group(String, Int64)
+        - struct Holder
+            - var bundleName
+            - var displayName
+            - var holderId
+            - Holder(String, Int64, String)
+        - struct ImAddress
+            - static const CUSTOM_LABEL
+            - static const IM_AIM
+            - static const IM_ICQ
+            - static const IM_JABBER
+            - static const IM_MSN
+            - static const IM_QQ
+            - static const IM_SKYPE
+            - static const IM_YAHOO
+            - static const INVALID_LABEL_ID
+            - var imAddress
+            - var labelId
+            - var labelName
+            - ImAddress(String, String, Int32)
+        - struct Name
+            - var familyName
+            - var familyNamePhonetic
+            - var fullName
+            - var givenName
+            - var givenNamePhonetic
+            - var middleName
+            - var middleNamePhonetic
+            - var namePrefix
+            - var nameSuffix
+            - Name(String, String, String, String, String, String, String, String, String)
+        - struct NickName
+            - let nickName
+            - NickName(String)
+        - struct Note
+            - let noteContent
+            - Note(String)
+        - struct Organization
+            - var name
+            - var title
+            - Organization(String, String)
+        - struct PhoneNumber
+            - static const CUSTOM_LABEL
+            - static const INVALID_LABEL_ID
+            - static const NUM_ASSISTANT
+            - static const NUM_CALLBACK
+            - static const NUM_CAR
+            - static const NUM_COMPANY_MAIN
+            - static const NUM_FAX_HOME
+            - static const NUM_FAX_WORK
+            - static const NUM_HOME
+            - static const NUM_ISDN
+            - static const NUM_MAIN
+            - static const NUM_MMS
+            - static const NUM_MOBILE
+            - static const NUM_OTHER
+            - static const NUM_OTHER_FAX
+            - static const NUM_PAGER
+            - static const NUM_RADIO
+            - static const NUM_TELEX
+            - static const NUM_TTY_TDD
+            - static const NUM_WORK
+            - static const NUM_WORK_MOBILE
+            - static const NUM_WORK_PAGER
+            - var labelId
+            - var labelName
+            - var phoneNumber
+            - PhoneNumber(String, String, Int32)
+        - struct Portrait
+            - let uri
+            - Portrait(String)
+        - struct PostalAddress
+            - static const ADDR_HOME
+            - static const ADDR_OTHER
+            - static const ADDR_WORK
+            - static const CUSTOM_LABEL
+            - static const INVALID_LABEL_ID
+            - var city
+            - var country
+            - var labelId
+            - var labelName
+            - var neighborhood
+            - var pobox
+            - var postalAddress
+            - var postcode
+            - var region
+            - var street
+            - PostalAddress(String, String, String, String, String, String, String, String, String, Int32)
+        - struct Relation
+            - static const CUSTOM_LABEL
+            - static const INVALID_LABEL_ID
+            - static const RELATION_ASSISTANT
+            - static const RELATION_BROTHER
+            - static const RELATION_CHILD
+            - static const RELATION_DOMESTIC_PARTNER
+            - static const RELATION_FATHER
+            - static const RELATION_FRIEND
+            - static const RELATION_MANAGER
+            - static const RELATION_MOTHER
+            - static const RELATION_PARENT
+            - static const RELATION_PARTNER
+            - static const RELATION_REFERRED_BY
+            - static const RELATION_RELATIVE
+            - static const RELATION_SISTER
+            - static const RELATION_SPOUSE
+            - var labelId
+            - var labelName
+            - var relationName
+            - Relation(String, String, Int32)
+        - struct SipAddress
+            - static const CUSTOM_LABEL
+            - static const INVALID_LABEL_ID
+            - static const SIP_HOME
+            - static const SIP_OTHER
+            - static const SIP_WORK
+            - var labelId
+            - var labelName
+            - var sipAddress
+            - SipAddress(String, String, Int32)
+        - struct Website
+            - let website
+            - Website(String)
+        - enum Attribute
+            - ATTR_CONTACT_EVENT
+            - ATTR_EMAIL
+            - ATTR_GROUP_MEMBERSHIP
+            - ATTR_IM
+            - ATTR_NAME
+            - ATTR_NICKNAME
+            - ATTR_NOTE
+            - ATTR_ORGANIZATION
+            - ATTR_PHONE
+            - ATTR_PORTRAIT
+            - ATTR_POSTAL_ADDRESS
+            - ATTR_RELATION
+            - ATTR_SIP_ADDRESS
+            - ATTR_WEBSITE
+    - [Location Kit（位置服务）]()
+        - [仓颉API]()
+            - [ohos.geo_location_manager (位置服务)](source_zh_cn/apis/LocationKit/cj-apis-geo_location_manager.md)
+    API索引列表:
+    - ohos.geo_location_manager（位置服务）
+        - 导入模块
+                import kit.LocationKit.*
+        - 权限列表
+                应用在使用Location Kit系统能力前，需要检查是否已经获取用户授权访问设备位置信息。如未获得授权，可以向用户申请需要的位置权限。
+                系统提供的定位权限有：
+                ohos.permission.APPROXIMATELY_LOCATION：用于获取模糊位置，精确度为5公里。
+                ohos.permission.LOCATION：用于获取精准位置，精准度在米级别。
+                ohos.permission.LOCATION_IN_BACKGROUND：用于应用切换到后台仍然需要获取定位信息的场景。
+        - 使用说明
+        - class CachedGnssLocationsRequest
+            - var reportingPeriodSec
+            - var wakeUpCacheQueueFull
+            - init(Int32, Bool)
+        - class ContinuousLocationRequest
+            - prop locationScenario
+            - var interval
+            - init(Int32, UserActivityScenario)
+            - init(Int32, PowerConsumptionScenario)
+        - class CountryCode
+            - var \`type\`
+            - var country
+            - init(String, CountryCodeType)
+        - class CurrentLocationRequest
+            - var maxAccuracy
+            - var priority
+            - var scenario
+            - var timeoutMs
+            - init(LocationRequestPriority, LocationRequestScenario, Float32, Int32)
+        - class GeoAddress
+            - var addressUrl
+            - var administrativeArea
+            - var countryCode
+            - var countryName
+            - var descriptions
+            - var descriptionsSize
+            - var latitude
+            - var locale
+            - var locality
+            - var longitude
+            - var phoneNumber
+            - var placeName
+            - var postalCode
+            - var premises
+            - var roadName
+            - var subAdministrativeArea
+            - var subLocality
+            - var subRoadName
+            - GeoAddress(Float64, Float64, String, String, String, String, String, String, String, String, String, String, String, String, String, String, Array\<String>, Int32)
+        - class GeoCodeRequest
+            - var country
+            - var description
+            - var locale
+            - var maxItems
+            - var maxLatitude
+            - var maxLongitude
+            - var minLatitude
+            - var minLongitude
+            - init(String, String, String, Int32, Float64, Float64, Float64, Float64)
+        - class GeoLocationManager
+            - static func flushCachedGnssLocations()
+            - static func getAddressesFromLocation(ReverseGeoCodeRequest)
+            - static func getAddressesFromLocationName(GeoCodeRequest)
+            - static func getCachedGnssLocationsSize()
+            - static func getCountryCode()
+            - static func getCurrentLocation()
+            - static func getCurrentLocation(CurrentLocationRequest)
+            - static func getCurrentLocation(SingleLocationRequest)
+            - static func getGeofenceSupportedCoordTypes()
+            - static func getLastLocation()
+            - static func isGeocoderAvailable()
+            - static func isLocationEnabled()
+            - static func off(CallbackType, Callback1Argument\<Location>)
+            - static func off(CallbackType, Callback1Argument\<LocationError>)
+            - static func off(CallbackType, Callback1Argument\<Bool>)
+            - static func off(CallbackType, Callback1Argument\<Array\<Location>>)
+            - static func off(CallbackType, Callback1Argument\<SatelliteStatusInfo>)
+            - static func off(CallbackType, Callback1Argument\<String>)
+            - static func off(CallbackType, Callback1Argument\<CountryCode>)
+            - static func off(CallbackType)
+            - static func on(CallbackType, LocationRequest, Callback1Argument\<Location>)
+            - static func on(CallbackType, ContinuousLocationRequest, Callback1Argument\<Location>)
+            - static func on(CallbackType, Callback1Argument\<LocationError>)
+            - static func on(CallbackType, Callback1Argument\<Bool>)
+            - static func on(CallbackType, CachedGnssLocationsRequest, Callback1Argument\<Array\<Location>>)
+            - static func on(CallbackType, Callback1Argument\<SatelliteStatusInfo>)
+            - static func on(CallbackType, Callback1Argument\<String>)
+            - static func on(CallbackType, Callback1Argument\<CountryCode>)
+            - static func sendCommand(LocationCommand)
+        - class Location
+            - var accuracy
+            - var additionSize
+            - var additions
+            - var additionsMap
+            - var altitude
+            - var altitudeAccuracy
+            - var direction
+            - var directionAccuracy
+            - var latitude
+            - var longitude
+            - var sourceType
+            - var speed
+            - var speedAccuracy
+            - var timeSinceBoot
+            - var timeStamp
+            - var uncertaintyOfTimeSinceBoot
+        - class LocationCommand
+            - var command
+            - var scenario
+            - init(LocationRequestScenario, String)
+        - class LocationRequest
+            - var distanceInterval
+            - var maxAccuracy
+            - var priority
+            - var scenario
+            - var timeInterval
+            - init(LocationRequestPriority, LocationRequestScenario, Int32, Float64, Float32)
+        - class ReverseGeoCodeRequest
+            - var country
+            - var latitude
+            - var locale
+            - var longitude
+            - var maxItems
+            - init(Float64, Float64, String, String, Int32)
+        - class SatelliteStatusInfo
+            - var altitudes
+            - var azimuths
+            - var carrierFrequencies
+            - var carrierToNoiseDensitys
+            - var satelliteAdditionalInfo
+            - var satelliteConstellation
+            - var satelliteIds
+            - var satellitesNumber
+            - init(Int32, Array\<Int32>, Array\<Float64>, Array\<Float64>, Array\<Float64>, Array\<Float64>, Array\<SatelliteConstellationCategory>, Array\<Int32>)
+        - class SingleLocationRequest
+            - var locatingPriority
+            - var locatingTimeoutMs
+            - init(LocatingPriority, Int32)
+        - enum CallbackType
+            - CachedGnssLocationsChange
+            - CountryCodeChange
+            - LocationChange
+            - LocationEnabledChange
+            - LocationErr
+            - NmeaMessage
+            - SatelliteStatusChange
+        - enum CoordinateSystemType
+            - GCJ02
+            - WGS84
+        - enum CountryCodeType
+            - COUNTRY_CODE_FROM_LOCALE
+            - COUNTRY_CODE_FROM_LOCATION
+            - COUNTRY_CODE_FROM_NETWORK
+            - COUNTRY_CODE_FROM_SIM
+        - enum LocatingPriority
+            - PRIORITY_ACCURACY
+            - PRIORITY_LOCATING_SPEED
+        - enum LocationError
+            - LOCATING_FAILED_BACKGROUND_PERMISSION_DENIED
+            - LOCATING_FAILED_DEFAULT
+            - LOCATING_FAILED_INTERNET_ACCESS_FAILURE
+            - LOCATING_FAILED_LOCATION_PERMISSION_DENIED
+            - LOCATING_FAILED_LOCATION_SWITCH_OFF
+        - enum LocationRequestPriority
+            - ACCURACY
+            - FIRST_FIX
+            - LOW_POWER
+            - UNSET
+        - enum LocationRequestScenario
+            - CAR_HAILING
+            - DAILY_LIFE_SERVICE
+            - NAVIGATION
+            - NO_POWER
+            - TRAJECTORY_TRACKING
+            - UNSET
+        - enum LocationSourceType
+            - GNSS
+            - INDOOR
+            - NETWORK
+            - RTK
+        - enum PowerConsumptionScenario
+            - HIGH_POWER_CONSUMPTION
+            - LOW_POWER_CONSUMPTION
+            - NO_POWER_CONSUMPTION
+        - enum SatelliteAdditionalInfo
+            - SATELLITES_ADDITIONAL_INFO_ALMANAC_DATA_EXIST
+            - SATELLITES_ADDITIONAL_INFO_CARRIER_FREQUENCY_EXIST
+            - SATELLITES_ADDITIONAL_INFO_EPHEMERIS_DATA_EXIST
+            - SATELLITES_ADDITIONAL_INFO_NULL
+            - SATELLITES_ADDITIONAL_INFO_USED_IN_FIX
+        - enum SatelliteConstellationCategory
+            - CONSTELLATION_CATEGORY_BEIDOU
+            - CONSTELLATION_CATEGORY_GALILEO
+            - CONSTELLATION_CATEGORY_GLONASS
+            - CONSTELLATION_CATEGORY_GPS
+            - CONSTELLATION_CATEGORY_IRNSS
+            - CONSTELLATION_CATEGORY_QZSS
+            - CONSTELLATION_CATEGORY_SBAS
+            - CONSTELLATION_CATEGORY_UNKNOWN
+        - enum UserActivityScenario
+            - DAILY_LIFE_SERVICE
+            - NAVIGATION
+            - SPORT
+            - TRANSPORT
+        - [错误码]()
+            - [位置服务错误码](source_zh_cn/errorcodes/cj-errorcode-geo_location_manager.md)
+    API索引列表:
+    - 位置服务错误码
+        - 3301000 位置服务不可用
+        - 3301100 位置功能的开关未开启导致功能失败
+        - 3301200 定位失败，未获取到定位结果
+        - 3301300 逆地理编码查询失败
+        - 3301400 地理编码查询失败
+        - 3301500 区域信息（包含国家码）查询失败
+        - 3301600 地理围栏操作失败
+        - 3301601 地理围栏个数超过最大值限制导致添加围栏失败
+        - 3301602 地理围栏ID错误导致删除围栏失败
+        - 3301700 请求无响应
+        - 3301800 启动WiFi或蓝牙扫描失败
+    - [Notification Kit（用户通知服务）]()
+        - [仓颉API]()
+            - [ohos.notification_manager（通知管理模块）](source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md)
+    API索引列表:
+    - ohos.notification_manager（通知管理模块）
+        - 导入模块
+                import kit.NotificationKit.*
+        - 使用说明
+        - func addSlot(SlotType)
+        - func cancel(Int32, String)
+        - func cancelAll()
+        - func cancelGroup(String)
+        - func getActiveNotificationCount()
+        - func getActiveNotifications()
+        - func getSlot(SlotType)
+        - func getSlots()
+        - func isDistributedEnabled()
+        - func isNotificationEnabled()
+        - func isSupportTemplate(String)
+        - func publish(NotificationRequest)
+        - func removeAllSlots()
+        - func removeSlot(SlotType)
+        - func requestEnableNotification()
+        - func requestEnableNotification(UIAbilityContext)
+        - func setBadgeNumber(Int32)
+        - class NotificationBasicContent
+            - var additionalText
+            - var lockscreenPicture
+            - var text
+            - var title
+            - init(String, String)
+        - class NotificationButton
+            - var icons
+            - var names
+            - NotificationButton(Array\<String>, Array\<PixelMap>)
+        - class NotificationCapsule
+            - var backgroundColor
+            - var icon
+            - var title
+            - NotificationCapsule(String, Option\<PixelMap>, String)
+        - class NotificationContent
+            - var longText
+            - var multiLine
+            - var normal
+            - var notificationContentType
+            - var picture
+            - var systemLiveView
+            - init(ContentType, Option\<NotificationBasicContent>, Option\<NotificationLongTextContent>, Option\<NotificationMultiLineContent>)
+        - class NotificationFlags
+            - let soundEnabled
+            - let vibrationEnabled
+            - NotificationFlags(NotificationFlagStatus, NotificationFlagStatus)
+        - class NotificationLongTextContent
+            - var briefText
+            - var expandedTitle
+            - var longText
+            - init(String, String, Option\<PixelMap>, String, String, String, String)
+        - class NotificationMultiLineContent
+            - var briefText
+            - var lines
+            - var longTitle
+            - init(String, String, String, String, Array\<String>)
+        - class NotificationPictureContent
+            - var briefText
+            - var expandedTitle
+            - var picture
+            - init(String, String, Option\<PixelMap>, String, String, PixelMap, String)
+        - class NotificationProgress
+            - var currentValue
+            - var isPercentage
+            - var maxValue
+            - NotificationProgress(Int32, Int32, Bool)
+        - class NotificationRequest
+            - var appMessageId
+            - var autoDeletedTime
+            - var badgeIconStyle
+            - var badgeNumber
+            - var color
+            - var colorEnabled
+            - var content
+            - var deliveryTime
+            - var distributedOption
+            - var groupName
+            - var id
+            - var isAlertOnce
+            - var isCountDown
+            - var isFloatingIcon
+            - var isOngoing
+            - var isStopwatch
+            - var isUnremovable
+            - var label
+            - var largeIcon
+            - var notificationSlotType
+            - var showDeliveryTime
+            - var smallIcon
+            - var tapDismissed
+            - let creatorBundleName
+            - let creatorPid
+            - let creatorUid
+            - let creatorUserId
+            - let hashCode
+            - let notificationFlags
+            - init(NotificationContent, Int32, String)
+            - NotificationRequest(NotificationContent, String, Int32, Int32, Int32, String, Option\<NotificationFlags>)
+        - class NotificationSlot
+            - var badgeFlag
+            - var bypassDnd
+            - var desc
+            - var level
+            - var lightColor
+            - var lightEnabled
+            - var lockscreenVisibility
+            - var notificationType
+            - var sound
+            - var vibrationEnabled
+            - var vibrationValues
+            - let enabled
+        - class NotificationSystemLiveViewContent
+            - var button
+            - var capsule
+            - var progress
+            - var time
+            - var typeCode
+            - init(String, String, Int32)
+        - class NotificationTime
+            - var initialTime
+            - var isCountDown
+            - var isInTitle
+            - var isPaused
+            - NotificationTime(Int32, Bool, Bool, Bool)
+        - struct DistributedOptions
+            - DistributedOptions(Bool, Array\<String>, Array\<String>)
+        - enum ContentType
+            - NOTIFICATION_CONTENT_BASIC_TEXT
+            - NOTIFICATION_CONTENT_CONVERSATION
+            - NOTIFICATION_CONTENT_LIVE_VIEW
+            - NOTIFICATION_CONTENT_LONG_TEXT
+            - NOTIFICATION_CONTENT_MULTILINE
+            - NOTIFICATION_CONTENT_PICTURE
+            - NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW
+        - enum NotificationFlagStatus
+            - TYPE_CLOSE
+            - TYPE_NONE
+            - TYPE_OPEN
+        - enum SlotLevel
+            - LEVEL_DEFAULT
+            - LEVEL_HIGH
+            - LEVEL_LOW
+            - LEVEL_MIN
+            - LEVEL_NONE
+        - enum SlotType
+            - CONTENT_INFORMATION
+            - CUSTOMER_SERVICE
+            - LIVE_VIEW
+            - OTHER_TYPES
+            - SERVICE_INFORMATION
+            - SOCIAL_COMMUNICATION
+            - UNKNOWN_TYPE
+        - [错误码]()
+            - [通知错误码](source_zh_cn/errorcodes/cj-errorcode-notification.md)
+    API索引列表:
+    - 通知管理错误码
+        - 1600001 内部错误
+        - 1600002 序列化或反序列化错误
+        - 1600003 连接通知服务失败
+        - 1600004 通知开关关闭
+        - 1600005 通知渠道关闭
+        - 1600006 通知删除失败
+        - 1600007 通知不存在
+        - 1600008 用户不存在
+        - 1600009 通知发布频度超过限制
+        - 1600010 分布式操作失败
+        - 1600011 读模板配置文件错误
+        - 1600012 内存空间不够
+        - 17700001 包名不存在
+- [公共基础能力]()
+    - [SysCap（系统能力）](source_zh_cn/apis/Common_basic_ability/cj-syscap.md)
+    API索引列表:
+    - SysCap（系统能力）
+        - func canIUse(String)
+    - [Timer（定时器）](source_zh_cn/apis/Common_basic_ability/cj-timer.md)
+    API索引列表:
+    - Timer（定时器）
+        - 导入
+        - static func once(Duration, ()->Unit)
+        - static func repeat(Duration, Duration, ()->Unit, CatchupStyle)
+        - func cancel()
+        - 示例
+            - 设置一次性定时器任务
+            - 设置重复性定时器任务
+            - 取消定时器任务
+            - 设置定时器任务对组件进行修改
+        - 其他说明
+            - 超时延迟
+            - 最大延时值
+- [仓颉与ArkTS互操作库]()
+    - [ohos.ark_interop（ArkTS互操作库）](source_zh_cn/arkinterop/cj-apis-ark_interop.md)
+    API索引列表:
+    - ohos.ark_interop
+        - 导入模块
+                import ohos.ark_interop.*
+        - interface JSInteropType
+            - static func fromJSValue(JSContext, JSValue)
+            - static func toArkTsType()
+            - func toJSValue(JSContext)
+        - interface JSKeyable
+            - func toJSValue(JSContext)
+        - class JSArray
+            - prop size
+            - func \[](Int64)
+            - func \[](Int64, JSValue)
+            - func \[](Int64, JSHeapObject)
+        - class JSArrayBuffer
+            - prop byteLength
+            - func readBytes()
+            - func toArrayBufferJSValue()
+            - func toFloat32Array()
+            - func toFloat32ArrayJSValue()
+            - func toFloat64Array()
+            - func toFloat64ArrayJSValue()
+            - func toInt16Array()
+            - func toInt16ArrayJSValue()
+            - func toInt32Array()
+            - func toInt32ArrayJSValue()
+            - func toInt64Array()
+            - func toInt64ArrayJSValue()
+            - func toInt8Array()
+            - func toInt8ArrayJSValue()
+            - func toUInt16Array()
+            - func toUInt16ArrayJSValue()
+            - func toUInt32Array()
+            - func toUInt32ArrayJSValue()
+            - func toUInt64Array()
+            - func toUInt64ArrayJSValue()
+            - func toUInt8Array()
+            - func toUInt8ArrayJSValue()
+            - func toUInt8ClampedArrayJSValue()
+        - class JSArrayEx
+            - prop size
+            - init(Array\<T>)
+            - static func fromJSValue(JSContext, JSValue)
+            - static func toArkTsType()
+            - func clone()
+            - func concat(JSArrayEx\<T>)
+            - func get(Int64)
+            - func isEmpty()
+            - func set(Int64, T)
+            - func toArray()
+            - func toJSValue(JSContext)
+            - func \[](Int64)
+            - func \[](Int64, T)
+        - class JSArrayRangeMisMatch
+            - init(Int64, Int64, Int64, String)
+        - class JSBigInt
+            - func toBigInt()
+        - class JSClass
+            - prop prototype
+            - func addAccessor(JSKeyable, ?JSFunction, ?JSFunction)
+            - func addAccessor(JSKeyable, ?JSLambda, ?JSLambda)
+            - func addMethod(JSKeyable, JSFunction)
+            - func addMethod(JSKeyable, JSLambda)
+            - func addProperty(JSKeyable, JSValue)
+            - func new()
+            - func new(JSValue)
+            - func new(Array\<JSValue>)
+        - class JSCodeError
+            - let code
+            - let jsError
+            - let jsStack
+            - init(String, Array\<String>)
+        - class JSContext
+            - prop env
+            - prop global
+            - func array(Array\<JSValue>)
+            - func arrayBuffer(Int32)
+            - func arrayBuffer(Array\<Byte>)
+            - func arrayBuffer(Array\<Int8>)
+            - func arrayBuffer(Array\<Int16>)
+            - func arrayBuffer(Array\<UInt16>)
+            - func arrayBuffer(Array\<UInt32>)
+            - func arrayBuffer(Array\<Int32>)
+            - func arrayBuffer(Array\<Float32>)
+            - func arrayBuffer(Array\<Int64>)
+            - func arrayBuffer(Array\<UInt64>)
+            - func arrayBuffer(Array\<Float64>)
+            - func arrayBuffer(CPointer\<Byte>, Int32, JSBufferFinalizer)
+            - func bigint(Int64)
+            - func bigint(BigInt)
+            - func boolean(Bool)
+            - func clazz(JSLambda, ?JSClass)
+            - func external(SharedObject)
+            - func function(JSLambda)
+            - func getNapiEnv()
+            - func isInBindThread()
+            - func null()
+            - func number(Float64)
+            - func number(Int32)
+            - func object()
+            - func postJSTask(() -> Unit)
+            - func promiseCapability()
+            - func requireAppNativeModule(String, String) <sub>(deprecated)</sub>
+            - func requireJSModule(String) <sub>(deprecated)</sub>
+            - func requireSystemNativeModule(String, ?String)
+            - func string(String)
+            - func string(Utf16String)
+            - func symbol(String)
+            - func undefined()
+        - class JSCurrentJSContext
+            - static func get()
+            - static func set(?JSContext)
+            - static func unset()
+        - class JSExternal
+            - func cast\<T>() where T <: SharedObject
+            - func getData()
+        - class JSFunction
+            - func call(JSValue)
+            - func call(JSValue, JSValue)
+            - func call(Array\<JSValue>, JSValue)
+        - class JSHashMapEx
+            - prop size
+            - init(HashMap\<K,V>)
+            - init()
+            - static func fromJSValue(JSContext, JSValue)
+            - static func toArkTsType()
+            - func clear()
+            - func clone()
+            - func contiansAll(Collection\<K>)
+            - func delete(K)
+            - func deleteAll(Collection\<K>)
+            - func deleteIf((K,V) -> Bool)
+            - func get(K)
+            - func has(K)
+            - func isEmpty()
+            - func keys()
+            - func set(K, V)
+            - func setAll(Collection\<(K,V)>)
+            - func setIfAbsent(K, V)
+            - func toHashMap()
+            - func toJSValue(JSContext)
+            - func values()
+            - func \[](K)
+            - func \[](K, V)
+        - class JSHeapObject
+            - func toJSValue()
+        - class JSInteropException
+        - class JSInteropNativeError
+            - init(String)
+        - class JSModule
+            - static func registerClass(String, ClassRegister)
+            - static func registerFunc(String, FuncRegister)
+            - static func registerFunc(String, JSLambda)
+            - static func registerModule(ModuleRegister)
+        - class JSObjUseAfterFree
+            - init(String)
+        - class JSObject
+        - class JSObjectBase
+            - func attachCJObject(JSExternal)
+            - func callMethod(JSKeyable, Array\<JSValue>)
+            - func defineOwnAccessor(JSKeyable, ?JSFunction, ?JSFunction, Bool, Bool)
+            - func defineOwnAccessor(JSKeyable, ?JSLambda, ?JSLambda, Bool, Bool)
+            - func defineOwnProperty(JSKeyable, JSValue, Bool, Bool, Bool)
+            - func getAttachInfo()
+            - func getProperty(JSKeyable)
+            - func hasProperty(JSKeyable)
+            - func instanceOf(JSClass)
+            - func keys()
+            - func setProperty(JSKeyable, JSValue)
+            - func \[](JSKeyable)
+            - func \[](JSKeyable, JSValue)
+        - class JSPromise
+            - func catchError(JSFunction)
+            - func then(JSFunction, ?JSFunction)
+        - class JSPromiseCapability
+            - init(JSContext)
+            - func reject(JSValue)
+            - func resolve(JSValue)
+            - func toJSValue()
+        - class JSRuntime
+            - prop mainContext
+            - init()
+            - func getNapiEnv()
+            - func importFromEntry(String, String)
+            - func loadEntryFromAbc(String, String, Bool)
+        - class JSString
+            - func toJSValue(JSContext)
+            - func toString()
+            - func toUtf16String()
+        - class JSStringEx
+            - prop size
+            - init(String)
+            - static func fromJSValue(JSContext, JSValue)
+            - static func toArkTsType()
+            - func toJSValue(JSContext)
+            - func toString()
+            - func !=(JSStringEx)
+            - func ==(JSStringEx)
+        - class JSSymbol
+            - prop description
+            - func toJSValue(JSContext)
+            - func toString()
+        - class JSThreadMisMatch
+            - init(UInt64, UInt64, String)
+        - class JSTypeMisMatch
+            - init(String, JSType, String)
+            - init(JSType, JSType, String)
+        - class SharedObject
+            - prop nativeId
+            - init()
+        - struct JSBoolean
+            - func toBool()
+            - func toJSValue()
+        - struct JSCallInfo
+            - prop count
+            - prop thisArg
+            - func \[](Int64)
+        - struct JSNull
+            - func toJSValue()
+        - struct JSNumber
+            - func toFloat64()
+            - func toJSValue()
+        - struct JSType
+            - static let BIGINT
+            - static let BOOLEAN
+            - static let EXTERNAL
+            - static let FUNCTION
+            - static let NULL
+            - static let NUMBER
+            - static let OBJECT
+            - static let STRING
+            - static let SYMBOL
+            - static let UNDEFINED
+            - func toString()
+            - func !=(JSType)
+            - func ==(JSType)
+        - struct JSUndefined
+            - func toJSValue()
+        - struct JSValue
+            - func asArray()
+            - func asArray(JSContext) <sub>(deprecated)</sub>
+            - func asArrayBuffer()
+            - func asArrayBuffer(JSContext) <sub>(deprecated)</sub>
+            - func asBigInt()
+            - func asBigInt(JSContext) <sub>(deprecated)</sub>
+            - func asBoolean()
+            - func asClass()
+            - func asClass(JSContext) <sub>(deprecated)</sub>
+            - func asExternal()
+            - func asExternal(JSContext) <sub>(deprecated)</sub>
+            - func asFunction()
+            - func asFunction(JSContext) <sub>(deprecated)</sub>
+            - func asNull()
+            - func asNumber()
+            - func asObject()
+            - func asObject(JSContext) <sub>(deprecated)</sub>
+            - func asPromise()
+            - func asPromise(JSContext) <sub>(deprecated)</sub>
+            - func asString()
+            - func asString(JSContext) <sub>(deprecated)</sub>
+            - func asSymbol()
+            - func asSymbol(JSContext) <sub>(deprecated)</sub>
+            - func asUndefined()
+            - func bindObject(JSValue)
+            - func bindObject(JSContext, JSValue) <sub>(deprecated)</sub>
+            - func bindObject(SharedObject)
+            - func bindObject(JSContext, SharedObject) <sub>(deprecated)</sub>
+            - func getBindingObject()
+            - func getBindingObject(JSContext) <sub>(deprecated)</sub>
+            - func getElement(Int64)
+            - func getElement(JSContext, Int64) <sub>(deprecated)</sub>
+            - func getProperty(JSKeyable)
+            - func getProperty(JSContext, JSKeyable) <sub>(deprecated)</sub>
+            - func isArray(JSContext) <sub>(deprecated)</sub>
+            - func isArray()
+            - func isArrayBuffer()
+            - func isBigInt()
+            - func isBoolean()
+            - func isClass()
+            - func isExternal()
+            - func isFunction()
+            - func isNull()
+            - func isNumber()
+            - func isObject()
+            - func isPromise()
+            - func isString()
+            - func isSymbol()
+            - func isUndefined()
+            - func setElement(Int64, JSValue)
+            - func setElement(JSContext, Int64, JSValue) <sub>(deprecated)</sub>
+            - func setProperty(JSKeyable, JSValue)
+            - func setProperty(JSContext, JSKeyable, JSValue) <sub>(deprecated)</sub>
+            - func strictEqual(JSValue)
+            - func strictEqual(JSContext, JSValue) <sub>(deprecated)</sub>
+            - func toBigInt()
+            - func toBoolean()
+            - func toNumber()
+            - func toString()
+            - func toString(JSContext) <sub>(deprecated)</sub>
+            - func toUtf16String()
+            - func typeof()
+        - type ClassRegister
+        - type FuncRegister
+        - type JSBufferFinalizer
+        - type JSLambda
+        - type ModuleRegister
+        - type napi_env
+        - type napi_value
+        - class Utf16String
+            - prop accessible
+            - prop size
+            - prop totalChars
+            - static let empty
+            - init(String)
+            - static func fromJSValue(JSContext, JSValue)
+            - static func toArkTsType()
+            - func compare(Utf16String)
+            - func contains(Utf16String)
+            - func count(Utf16String)
+            - func dispose()
+            - func endsWith(Utf16String)
+            - func hashCode()
+            - func indexOf(Utf16String)
+            - func indexOf(Utf16String, Int64)
+            - func isEmpty()
+            - func isCompressed()
+            - func lastIndexOf(Utf16String)
+            - func lastIndexOf(Utf16String, Int64)
+            - func lazySplit(Utf16String, Bool)
+            - func lazySplit(Utf16String, Int64, Bool)
+            - func lines()
+            - func replace(Utf16String, Utf16String, Int64)
+            - func runes()
+            - func split(Utf16String, Bool)
+            - func split(Utf16String, Int64, Bool)
+            - func startsWith(Utf16String)
+            - func toJSValue(JSContext)
+            - func toString()
+            - func !=(Utf16String)
+            - func +(Utf16String)
+            - func \<(Utf16String)
+            - func \<=(Utf16String)
+            - func ==(Utf16String)
+            - func >(Utf16String)
+            - func >=(Utf16String)
+            - func \[](Int64)
+            - func \[](Range\<Int64>)
+    - [ohos.ark_interop_helper（ArkTS互操作公共辅助功能函数）](source_zh_cn/arkinterop/cj-apis-ark_interop_helper.md)
+    API索引列表:
+    - ohos.ark_interop_helper
+        - 导入模块
+                import ohos.ark_interop_helper.*
+        - func arkTsValuetoNapiValue(napi_env, JSValue)
+        - func getContextStageMode(napi_env, napi_value)
+        - func getJSContext(JSRuntime, UIAbilityContext)
+        - func isStageMode(napi_env, napi_value)
+        - func mapFromJSValue\<T>(JSContext, JSValue, (JSContext,JSValue) -> T)
+        - func mapToJSValue\<T>(JSContext, ?HashMap\<String,T>, (JSContext,T) -> JSValue)
+        - type FAContext
+        - type StageContext
+- [仓颉编程语言库API](source_zh_cn/cj-libs-api.md)
+    API索引列表:
+    - 仓颉编程语言库API

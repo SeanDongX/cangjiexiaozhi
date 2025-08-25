@@ -1,0 +1,6620 @@
+# 仓颉编程语言标准库 API 索引
+
+- [仓颉编程语言标准库 API](std/std_module_overview.md)
+    - [std.core](std/core/core_package_overview.md)
+        - [函数](std/core/core_package_api/core_package_funcs.md)
+          - func acquireArrayRawData\<T>(Array\<T>) where T <: CType
+          - func alignOf\<T>() where T <: CType
+          - func eprint(String, Bool)
+          - func eprintln(String)
+          - func eprint\<T>(T, Bool) where T <: ToString
+          - func eprintln\<T>(T) where T <: ToString
+          - func ifNone\<T>(Option\<T>, () -> Unit)
+          - func ifSome\<T>(Option\<T>, (T) -> Unit)
+          - func max\<T>(T, T, Array\<T>) where T <: Comparable\<T>
+          - func min\<T>(T, T, Array\<T>) where T <: Comparable\<T>
+          - func print(Bool, Bool)
+          - func print(Float16, Bool)
+          - func print(Float32, Bool)
+          - func print(Float64, Bool)
+          - func print(Int16, Bool)
+          - func print(Int32, Bool)
+          - func print(Int64, Bool)
+          - func print(Int8, Bool)
+          - func print(Rune, Bool)
+          - func print(String, Bool)
+          - func print(UInt16, Bool)
+          - func print(UInt32, Bool)
+          - func print(UInt64, Bool)
+          - func print(UInt8, Bool)
+          - func print\<T>(T, Bool) where T <: ToString
+          - func println()
+          - func println(Bool)
+          - func println(Float16)
+          - func println(Float32)
+          - func println(Float64)
+          - func println(Int16)
+          - func println(Int32)
+          - func println(Int64)
+          - func println(Int8)
+          - func println(Rune)
+          - func println(String)
+          - func println(UInt16)
+          - func println(UInt32)
+          - func println(UInt64)
+          - func println(UInt8)
+          - func println\<T>(T) where T <: ToString
+          - func readln()
+          - func refEq(Object, Object)
+          - func releaseArrayRawData\<T>(CPointerHandle\<T>) where T <: CType
+          - func sizeOf\<T>() where T <: CType
+          - func sleep(Duration)
+          - func zeroValue\<T>()
+        - [类型别名](std/core/core_package_api/core_package_types.md)
+          - type Byte
+          - type Int
+          - type UInt
+        - [内置类型](std/core/core_package_api/core_package_intrinsics.md)
+          - Bool
+            - extend Bool <: Equatable\<Bool>
+            - extend Bool <: Hashable
+              - func hashCode()
+            - extend Bool <: ToString
+              - func toString()
+          - CPointer\<T>
+            - extend\<T> CPointer\<T>
+              - func asResource()
+              - func isNotNull()
+              - func isNull()
+              - func read()
+              - func read(Int64)
+              - func toUIntNative()
+              - func write(Int64, T)
+              - func write(T)
+              - operator func +(Int64)
+              - operator func -(Int64)
+          - CString
+            - extend CString <: ToString
+              - func asResource()
+              - func compare(CString)
+              - func endsWith(CString)
+              - func equals(CString)
+              - func equalsLower(CString)
+              - func getChars()
+              - func isEmpty()
+              - func isNotEmpty()
+              - func isNull()
+              - func size()
+              - func startsWith(CString)
+              - func subCString(UIntNative)
+              - func subCString(UIntNative, UIntNative)
+              - func toString()
+          - Float16
+            - extend Float16
+              - static prop Inf
+              - static prop Max
+              - static prop Min
+              - static prop MinDenormal
+              - static prop MinNormal
+              - static prop NaN
+              - static func max(Float16, Float16, Array\<Float16>)
+              - static func min(Float16, Float16, Array\<Float16>)
+              - func isInf()
+              - func isNaN()
+              - func isNormal()
+            - extend Float16 <: Comparable\<Float16>
+              - func compare(Float16)
+            - extend Float16
+              - static func fromBits(UInt16)
+              - func toBits()
+            - extend Float16 <: Hashable
+              - func hashCode()
+            - extend Float16 <: ToString
+              - func toString()
+          - Float32
+            - extend Float32
+              - static prop Inf
+              - static prop Max
+              - static prop Min
+              - static prop MinDenormal
+              - static prop MinNormal
+              - static prop NaN
+              - static func max(Float32, Float32, Array\<Float32>)
+              - static func min(Float32, Float32, Array\<Float32>)
+              - func isInf()
+              - func isNaN()
+              - func isNormal()
+            - extend Float32 <: Comparable\<Float32>
+              - func compare(Float32)
+            - extend Float32
+              - static func fromBits(UInt32)
+              - func toBits()
+            - extend Float32 <: Hashable
+              - func hashCode()
+            - extend Float32 <: ToString
+              - func toString()
+          - Float64
+            - extend Float64
+              - static prop Inf
+              - static prop Max
+              - static prop Min
+              - static prop MinDenormal
+              - static prop MinNormal
+              - static prop NaN
+              - static func max(Float64, Float64, Array\<Float64>)
+              - static func min(Float64, Float64, Array\<Float64>)
+              - func isInf()
+              - func isNaN()
+              - func isNormal()
+            - extend Float64 <: Comparable\<Float64>
+              - func compare(Float64)
+            - extend Float64
+              - static func fromBits(UInt64)
+              - func toBits()
+            - extend Float64 <: Hashable
+              - func hashCode()
+            - extend Float64 <: ToString
+              - func toString()
+          - Int16
+            - extend Int16
+              - static prop Max
+              - static prop Min
+            - extend Int16 <: Comparable\<Int16>
+              - func compare(Int16)
+            - extend Int16 <: Countable\<Int16>
+              - func next(Int64)
+              - func position()
+            - extend Int16 <: Hashable
+              - func hashCode()
+            - extend Int16 <: ToString
+              - func toString()
+          - Int32
+            - extend Int32
+              - static prop Max
+              - static prop Min
+            - extend Int32 <: Comparable\<Int32>
+              - func compare(Int32)
+            - extend Int32 <: Countable\<Int32>
+              - func next(Int64)
+              - func position()
+            - extend Int32 <: Hashable
+              - func hashCode()
+            - extend Int32 <: ToString
+              - func toString()
+          - Int64
+            - extend Int64
+              - static prop Max
+              - static prop Min
+            - extend Int64 <: Comparable\<Int64>
+              - func compare(Int64)
+            - extend Int64 <: Countable\<Int64>
+              - func next(Int64)
+              - func position()
+            - extend Int64 <: Hashable
+              - func hashCode()
+            - extend Int64 <: ToString
+              - func toString()
+          - Int8
+            - extend Int8
+              - static prop Max
+              - static prop Min
+            - extend Int8 <: Comparable\<Int8>
+              - func compare(Int8)
+            - extend Int8 <: Countable\<Int8>
+              - func next(Int64)
+              - func position()
+            - extend Int8 <: Hashable
+              - func hashCode()
+            - extend Int8 <: ToString
+              - func toString()
+          - IntNative
+            - extend IntNative
+              - static prop Max
+              - static prop Min
+            - extend IntNative <: Comparable\<IntNative>
+              - func compare(IntNative)
+            - extend IntNative <: Countable\<IntNative>
+              - func next(Int64)
+              - func position()
+            - extend IntNative <: Hashable
+              - func hashCode()
+            - extend IntNative <: ToString
+              - func toString()
+          - Rune
+            - extend Rune
+              - static func fromUtf8(Array\<UInt8>, Int64)
+              - static func getPreviousFromUtf8(Array\<UInt8>, Int64)
+              - static func intoUtf8Array(Rune, Array\<UInt8>, Int64)
+              - static func utf8Size(Array\<UInt8>, Int64)
+              - static func utf8Size(Rune)
+              - func isAscii()
+              - func isAsciiControl()
+              - func isAsciiGraphic()
+              - func isAsciiHex()
+              - func isAsciiLetter()
+              - func isAsciiLowerCase()
+              - func isAsciiNumber()
+              - func isAsciiNumberOrLetter()
+              - func isAsciiOct()
+              - func isAsciiPunctuation()
+              - func isAsciiUpperCase()
+              - func isAsciiWhiteSpace()
+              - func toAsciiLowerCase()
+              - func toAsciiUpperCase()
+            - extend Rune <: Comparable\<Rune>
+              - func compare(Rune)
+            - extend Rune <: Countable\<Rune>
+              - func next(Int64)
+              - func position()
+            - extend Rune <: Hashable
+              - func hashCode()
+            - extend Rune <: ToString
+              - func toString()
+          - UInt16
+            - extend UInt16
+              - static prop Max
+              - static prop Min
+            - extend UInt16 <: Comparable\<UInt16>
+              - func compare(UInt16)
+            - extend UInt16 <: Countable\<UInt16>
+              - func next(Int64)
+              - func position()
+            - extend UInt16 <: Hashable
+              - func hashCode()
+            - extend UInt16 <: ToString
+              - func toString()
+          - UInt32
+            - extend UInt32
+              - static prop Max
+              - static prop Min
+            - extend UInt32 <: Comparable\<UInt32>
+              - func compare(UInt32)
+            - extend UInt32 <: Countable\<UInt32>
+              - func next(Int64)
+              - func position()
+            - extend UInt32 <: Hashable
+              - func hashCode()
+            - extend UInt32 <: ToString
+              - func toString()
+          - UInt64
+            - extend UInt64
+              - static prop Max
+              - static prop Min
+            - extend UInt64 <: Comparable\<UInt64>
+              - func compare(UInt64)
+            - extend UInt64 <: Countable\<UInt64>
+              - func next(Int64)
+              - func position()
+            - extend UInt64 <: Hashable
+              - func hashCode()
+            - extend UInt64 <: ToString
+              - func toString()
+          - UInt8
+            - extend UInt8
+              - static prop Max
+              - static prop Min
+            - extend UInt8 <: Comparable\<UInt8>
+              - func compare(UInt8)
+            - extend UInt8 <: Countable\<UInt8>
+              - func next(Int64)
+              - func position()
+            - extend UInt8 <: Hashable
+              - func hashCode()
+            - extend UInt8 <: ToString
+              - func toString()
+          - UIntNative
+            - extend UIntNative
+              - static prop Max
+              - static prop Min
+            - extend UIntNative <: Comparable\<UIntNative>
+              - func compare(UIntNative)
+            - extend UIntNative <: Countable
+              - func next(Int64)
+              - func position()
+            - extend UIntNative <: Hashable
+              - func hashCode()
+            - extend UIntNative <: ToString
+              - func toString()
+          - Unit
+            - extend Unit <: Equatable\<Unit>
+            - extend Unit <: Hashable
+              - func hashCode()
+            - extend Unit <: ToString
+              - func toString()
+        - [接口](std/core/core_package_api/core_package_interfaces.md)
+          - interface Any
+            - extend Byte
+              - func isAscii()
+              - func isAsciiControl()
+              - func isAsciiGraphic()
+              - func isAsciiHex()
+              - func isAsciiLetter()
+              - func isAsciiLowerCase()
+              - func isAsciiNumber()
+              - func isAsciiNumberOrLetter()
+              - func isAsciiOct()
+              - func isAsciiPunctuation()
+              - func isAsciiUpperCase()
+              - func isAsciiWhiteSpace()
+              - func toAsciiLowerCase()
+              - func toAsciiUpperCase()
+          - interface CType
+          - interface Collection\<T>
+            - prop size
+            - func isEmpty()
+            - func toArray()
+          - interface Comparable\<T>
+            - func compare(T)
+            - operator func <(T)
+            - operator func <=(T)
+            - operator func ==(T)
+            - operator func >(T)
+            - operator func >=(T)
+          - interface Countable\<T>
+            - func next(Int64)
+            - func position()
+            - extend Float64
+              - operator func *(Duration)
+            - extend Int64
+              - operator func *(Duration)
+          - interface Equal\<T>
+            - operator func ==(T)
+          - interface Equatable\<T>
+            - operator func !=(T)
+          - interface GreaterOrEqual\<T>
+            - operator func >=(T)
+          - interface Greater\<T>
+            - operator func >(T)
+          - interface Hashable
+            - func hashCode()
+          - interface Hasher
+            - func finish()
+            - func reset()
+            - func write(Bool)
+            - func write(Float16)
+            - func write(Float32)
+            - func write(Float64)
+            - func write(Int16)
+            - func write(Int32)
+            - func write(Int64)
+            - func write(Int8)
+            - func write(Rune)
+            - func write(String)
+            - func write(UInt16)
+            - func write(UInt32)
+            - func write(UInt64)
+            - func write(UInt8)
+          - interface Iterable\<E>
+            - func iterator()
+          - interface LessOrEqual\<T>
+            - operator func <=(T)
+          - interface Less\<T>
+            - operator func <(T)
+          - interface NotEqual\<T>
+            - operator func !=(T)
+          - interface Resource
+            - func isClosed()
+              - func close()
+          - interface ThreadContext
+            - func end()
+            - func hasEnded()
+          - interface ToString
+            - func toString()
+        - [类](std/core/core_package_api/core_package_classes.md)
+          - class ArrayIterator\<T>
+            - init(Array\<T>)
+            - func next()
+          - class Box\<T>
+            - var value
+            - init(T)
+            - extend\<T> Box\<T> <: Comparable\<Box\<T>> where T <: Comparable\<T>
+              - func compare(Box\<T>)
+              - operator func !=(Box\<T>)
+              - operator func <(Box\<T>)
+              - operator func <=(Box\<T>)
+              - operator func ==(Box\<T>)
+              - operator func >(Box\<T>)
+              - operator func >=(Box\<T>)
+            - extend\<T> Box\<T> <: Hashable where T <: Hashable
+              - func hashCode()
+            - extend\<T> Box\<T> <: ToString where T <: ToString
+              - func toString()
+          - class Future\<T>
+            - prop thread
+            - func cancel()
+            - func get()
+            - func get(Duration)
+            - func tryGet()
+          - class Iterator\<T>
+            - func iterator()
+            - func next()
+            - extend\<T> Iterator\<T>
+              - func all((T) -> Bool)
+              - func any((T) -> Bool)
+              - func at(Int64)
+              - func concat(Iterator\<T>)
+              - func count()
+              - func enumerate()
+              - func filter((T) -> Bool)
+              - func filterMap\<R>((T) -> Option\<R>)
+              - func first()
+              - func flatMap\<R>((T) -> Iterator\<R>)
+              - func fold\<R>(R, (R, T) -> R)
+              - func forEach((T) -> Unit)
+              - func inspect((T) -> Unit)
+              - func intersperse(T)
+              - func isEmpty()
+              - func last()
+              - func map\<R>((T) -> R)
+              - func none((T) -> Bool)
+              - func reduce((T, T) -> T)
+              - func skip(Int64)
+              - func step(Int64)
+              - func take(Int64)
+              - func zip\<R>(Iterator\<R>)
+            - extend\<T> Iterator\<T> where T <: Comparable\<T>
+              - func max()
+              - func min()
+            - extend\<T> Iterator\<T> where T <: Equatable\<T>
+              - func contains(T)
+          - class Object
+            - init()
+          - class RangeIterator\<T> <: Iterator\<T> where T <: Countable\<T> & Comparable\<T> & Equatable\<T>
+            - func next()
+          - class StackTraceElement
+            - let declaringClass
+            - let fileName
+            - let lineNumber
+            - let methodName
+            - init(String, String, String, Int64)
+          - class StringBuilder
+            - prop capacity
+            - prop size
+            - init()
+            - init(Array\<Rune>)
+            - init(Int64)
+            - init(Rune, Int64)
+            - init(String)
+            - func append(Array\<Rune>)
+            - func append\<T>(Array\<T>) where T <: ToString
+            - func append(Bool)
+            - func append(CString)
+            - func append(Float16)
+            - func append(Float32)
+            - func append(Float64)
+            - func append(Int16)
+            - func append(Int32)
+            - func append(Int64)
+            - func append(Int8)
+            - func append(Rune)
+            - func append(String)
+            - func append(StringBuilder)
+            - func append\<T>(T) where T <: ToString
+            - func append(UInt16)
+            - func append(UInt32)
+            - func append(UInt64)
+            - func append(UInt8)
+            - func appendFromUtf8(Array\<Byte>)
+            - func appendFromUtf8Unchecked(Array\<Byte>)
+            - func reserve(Int64)
+            - func reset(Option\<Int64>)
+            - func toString()
+          - class Thread
+            - static prop currentThread
+            - prop hasPendingCancellation
+            - prop id
+            - prop name
+            - static func handleUncaughtExceptionBy((Thread, Exception) -> Unit)
+          - class ThreadLocal\<T>
+            - func get()
+            - func set(?T)
+        - [枚举](std/core/core_package_api/core_package_enums.md)
+          - enum AnnotationKind
+            - EnumConstructor
+            - Extension
+            - Init
+            - GlobalFunction
+            - GlobalVariable
+            - MemberFunction
+            - MemberProperty
+            - MemberVariable
+            - Parameter
+            - Type
+          - enum Endian
+            - Big
+            - Little
+            - static prop Platform
+          - enum Option\<T>
+            - None
+            - Some(T)
+            - func filter((T)->Bool)
+            - func flatMap\<R>((T) -> Option\<R>)
+            - func getOrDefault(() -> T)
+            - func getOrThrow(() -> Exception)
+            - func getOrThrow()
+            - func isNone()
+            - func isSome()
+            - func map\<R>((T)->R)
+            - extend\<T> Option\<T> <: Equatable\<Option\<T>> where T <: Equatable\<T>
+              - operator func !=(Option\<T>)
+              - operator func ==(Option\<T>)
+            - extend\<T> Option\<T> <: Hashable where T <: Hashable
+              - func hashCode()
+            - extend\<T> Option\<T> <: ToString where T <: ToString
+              - func toString()
+            - extend\<T> Option\<Option\<T>>
+              - func flatten()
+          - enum Ordering
+            - EQ
+            - GT
+            - LT
+            - extend Ordering <: Comparable
+              - func compare(Ordering)
+            - extend Ordering <: Hashable
+              - func hashCode
+            - extend Ordering <: ToString
+              - func toString()
+        - [结构体](std/core/core_package_api/core_package_structs.md)
+          - struct Array\<T>
+            - prop first
+            - prop last
+            - init()
+            - init(Int64, (Int64) -> T)
+            - init(Int64, T)
+            - func clone()
+            - func clone(Range\<Int64>)
+            - func concat(Array\<T>)
+            - func copyTo(Array\<T>)
+            - func copyTo(Array\<T>, Int64, Int64, Int64)
+            - func fill(T)
+            - func get(Int64)
+            - func map\<R>((T)->R)
+            - func repeat(Int64)
+            - func reverse()
+            - func slice(Int64, Int64)
+            - func splitAt(Int64)
+            - func swap(Int64, Int64)
+            - operator func \[](Int64)
+            - operator func \[](Int64, T)
+            - operator func \[](Range\<Int64>)
+            - operator func \[](Range\<Int64>, Array\<T>)
+            - extend\<T> Array\<T> <: Collection\<T>
+              - prop size
+              - func isEmpty()
+              - func iterator()
+              - func toArray()
+            - extend\<T> Array\<T> <: Equatable\<Array\<T>> where T <: Equatable\<T>
+              - func contains(T)
+              - func indexOf(Array\<T>)
+              - func indexOf(Array\<T>, Int64)
+              - func indexOf(T)
+              - func indexOf(T, Int64)
+              - func lastIndexOf(Array\<T>)
+              - func lastIndexOf(Array\<T>, Int64)
+              - func lastIndexOf(T)
+              - func lastIndexOf(T, Int64)
+              - func removePrefix(Array\<T>)
+              - func removeSuffix(Array\<T>)
+              - func trimEnd(Array\<T>)
+              - func trimEnd((T)->Bool)
+              - func trimStart(Array\<T>)
+              - func trimStart((T)->Bool)
+              - operator func !=(Array\<T>)
+              - operator func ==(Array\<T>)
+            - extend\<T> Array\<T> where T <: ToString
+              - func toString()
+            - extend\<T> Array\<Array\<T>>
+              - func flatten()
+          - struct CPointerHandle\<T> where T <: CType
+            - let array
+            - let pointer
+            - init() <sup>(deprecated)</sup>
+            - init(CPointer\<T>, Array\<T>) <sup>(deprecated)</sup>
+          - struct CPointerResource\<T> where T <: CType
+            - let value
+            - func close()
+            - func isClosed()
+          - struct CStringResource
+            - let value
+            - func close()
+            - func isClosed()
+          - struct DefaultHasher
+            - init(Int64)
+            - func finish()
+            - func reset()
+            - func write(Bool)
+            - func write(Float16)
+            - func write(Float32)
+            - func write(Float64)
+            - func write(Int16)
+            - func write(Int32)
+            - func write(Int64)
+            - func write(Int8)
+            - func write(Rune)
+            - func write(String)
+            - func write(UInt16)
+            - func write(UInt32)
+            - func write(UInt64)
+            - func write(UInt8)
+          - struct Duration
+            - static const Max
+            - static const Min
+            - static const Zero
+            - static const day
+            - static const hour
+            - static const microsecond
+            - static const millisecond
+            - static const minute
+            - static const nanosecond
+            - static const second
+            - func abs()
+            - func compare(Duration)
+            - func hashCode()
+            - func toDays()
+            - func toHours()
+            - func toMicroseconds()
+            - func toMilliseconds()
+            - func toMinutes()
+            - func toNanoseconds()
+            - func toSeconds()
+            - func toString()
+            - operator func !=(Duration)
+            - operator func *(Float64)
+            - operator func *(Int64)
+            - operator func +(Duration)
+            - operator func -(Duration)
+            - operator func /(Duration)
+            - operator func /(Float64)
+            - operator func /(Int64)
+            - operator func <(Duration)
+            - operator func <=(Duration)
+            - operator func ==(Duration)
+            - operator func >(Duration)
+            - operator func >=(Duration)
+          - struct LibC
+            - static func free\<T>(CPointer\<T>) where T <: CType
+            - static func free(CString)
+            - static func mallocCString(String)
+            - static func malloc\<T>(Int64) where T <: CType
+          - struct Range\<T> where T <: Countable\<T> & Comparable\<T> & Equatable\<T>
+            - let end
+            - let hasEnd
+            - let hasStart
+            - let isClosed
+            - let start
+            - let step
+            - init(T, T, Int64, Bool, Bool, Bool)
+            - func isEmpty()
+            - func iterator()
+            - extend\<T> Range\<T> <: Equatable\<Range\<T>> where T <: Countable\<T> & Comparable\<T> & Equatable\<T>
+              - operator func ==(Range\<T>)
+            - extend\<T> Range\<T> <: Hashable where T <: Hashable & Countable\<T> & Comparable\<T> & Equatable\<T>
+              - func hashCode()
+          - struct String
+            - static const empty
+            - prop size
+            - init()
+            - init(Array\<Rune>)
+            - init(Collection\<Rune>)
+            - static func fromUtf8(Array\<UInt8>)
+            - static func fromUtf8Unchecked(Array\<UInt8>)
+            - static func join(Array\<String>, String)
+            - func clone()
+            - func compare(String)
+            - func contains(String)
+            - func count(String)
+            - func endsWith(String)
+            - func equalsIgnoreAsciiCase(String): Bool
+            - func get(Int64)
+            - func hashCode()
+            - func indexOf(Byte)
+            - func indexOf(Byte, Int64)
+            - func indexOf(String)
+            - func indexOf(String, Int64)
+            - func isAscii()
+            - func isAsciiBlank()
+            - func isEmpty()
+            - func iterator()
+            - func lastIndexOf(Byte)
+            - func lastIndexOf(Byte, Int64)
+            - func lastIndexOf(String)
+            - func lastIndexOf(String, Int64)
+            - func lazySplit(String, Bool)
+            - func lazySplit(String, Int64, Bool)
+            - func lines()
+            - func padEnd(Int64, String)
+            - func padStart(Int64, String)
+            - func rawData()
+            - func removePrefix(String)
+            - func removeSuffix(String)
+            - func replace(String, String)
+            - func runes()
+            - func split(String, Bool)
+            - func split(String, Int64, Bool)
+            - func startsWith(String)
+            - func toArray()
+            - func toAsciiLower()
+            - func toAsciiTitle()
+            - func toAsciiUpper()
+            - func toRuneArray()
+            - func toString()
+            - func trimAscii()
+            - func trimAsciiEnd()
+            - func trimAsciiStart()
+            - func trimEnd((Rune)->Bool)
+            - func trimEnd(Array\<Rune>)
+            - func trimEnd(String)
+            - func trimStart((Rune)->Bool)
+            - func trimStart(Array\<Rune>)
+            - func trimStart(String)
+            - operator func !=(String)
+            - operator func *(Int64)
+            - operator func +(String)
+            - operator func <(String)
+            - operator func <=(String)
+            - operator func ==(String)
+            - operator func >(String)
+            - operator func >=(String)
+            - operator func \[](Int64)
+            - operator func \[](Range\<Int64>)
+        - [异常类](std/core/core_package_api/core_package_exceptions.md)
+          - class ArithmeticException
+            - init()
+            - init(String)
+            - func getClassName()
+          - class Error
+            - prop message
+            - func getClassName()
+            - func getStackTrace()
+            - func getStackTraceMessage()
+            - func printStackTrace()
+            - func toString()
+          - class Exception
+            - prop message
+            - init()
+            - init(String)
+            - func getClassName()
+            - func getStackTrace()
+            - func printStackTrace()
+            - func toString()
+          - class IllegalArgumentException
+            - init()
+            - init(String)
+            - func getClassName()
+          - class IllegalFormatException
+            - init()
+            - init(String)
+          - class IllegalMemoryException
+            - init()
+            - init(String)
+          - class IllegalStateException
+            - init()
+            - init(String)
+          - class IncompatiblePackageException
+            - init()
+            - init(String)
+          - class IndexOutOfBoundsException
+            - init()
+            - init(String)
+          - class InternalError
+          - class NegativeArraySizeException
+            - init()
+            - init(String)
+          - class NoneValueException
+            - init()
+            - init(String)
+          - class OutOfMemoryError
+          - class OverflowException
+            - init()
+            - init(String)
+          - class SpawnException
+            - init()
+            - init(String)
+          - class StackOverflowError
+            - func printStackTrace()
+          - class TimeoutException
+            - init()
+            - init(String)
+          - class UnsupportedException
+            - init()
+            - init(String)
+            - [仓颉并发编程示例](std/core/core_samples/core_spawn_sample.md)
+            - [使用 CString 与 C 代码交互示例](std/core/core_samples/core_cstring_sample.md)
+    - [std.argopt](std/argopt/argopt_package_overview.md)
+        - [函数](std/argopt/argopt_package_api/argopt_package_function.md)
+          - func parseArguments(Array\<String>, Array\<ArgumentSpec>)
+        - [类](std/argopt/argopt_package_api/argopt_package_classes.md)
+          - class ArgOpt <sup>(deprecated)</sup>
+            - init(Array\<String>)
+            - init(Array\<String>, String, Array\<String>)
+            - init(String)
+            - init(String, Array\<String>)
+            - func getArg(String)
+            - func getArgumentsMap()
+            - func getUnparseArgs()
+        - [枚举](std/argopt/argopt_package_api/argopt_package_enums.md)
+          - enum ArgumentMode
+            - NoValue
+            - OptionalValue
+            - RequiredValue
+            - func toString()
+            - operator func ==(ArgumentMode)
+          - enum ArgumentSpec
+            - Full(String, Rune, ArgumentMode)
+            - Full(String, Rune, ArgumentMode, (String) -> Unit)
+            - Long(String, ArgumentMode)
+            - Long(String, ArgumentMode, (String) -> Unit)
+            - NonOptions((Array\<String>) -> Unit)
+            - Short(Rune, ArgumentMode)
+            - Short(Rune, ArgumentMode, (String) -> Unit)
+        - [结构体](std/argopt/argopt_package_api/argopt_package_struct.md)
+          - struct ParsedArguments
+            - prop nonOptions
+            - prop options
+        - [异常类](std/argopt/argopt_package_api/argopt_package_exception.md)
+          - class ArgumentParseException
+            - init()
+            - init(String)
+            - [命令行参数解析](std/argopt/argopt_samples/argument_parse.md)
+            - [长命令行参数解析 <sup>(deprecated)</sup>](std/argopt/argopt_samples/long_argument_parse.md)
+            - [短命令行参数解析 <sup>(deprecated)</sup>](std/argopt/argopt_samples/short_argument_parse.md)
+    - [std.ast](std/ast/ast_package_overview.md)
+        - [函数](std/ast/ast_package_api/ast_package_funcs.md)
+          - func assertParentContext(String)
+          - func cangjieLex(String)
+          - func cangjieLex(String, Bool)
+          - func compareTokens(Tokens, Tokens)
+          - func diagReport(DiagReportLevel, Tokens, String, String)
+          - func getChildMessages(String)
+          - func getTokenKind(UInt16)
+          - func insideParentContext(String)
+          - func parseDecl(Tokens, String)
+          - func parseDeclFragment(Tokens, Int64)
+          - func parseExpr(Tokens)
+          - func parseExprFragment(Tokens, Int64)
+          - func parsePattern(Tokens)
+          - func parsePatternFragment(Tokens, Int64)
+          - func parseProgram(Tokens)
+          - func parseType(Tokens)
+          - func parseTypeFragment(Tokens, Int64)
+          - func setItem(String, Bool)
+          - func setItem(String, Int64)
+          - func setItem(String, String)
+          - func setItem(String, Tokens)
+        - [接口](std/ast/ast_package_api/ast_package_interfaces.md)
+          - interface ToBytes
+            - func toBytes()
+          - interface ToTokens
+            - func toTokens()
+            - extend Array <: ToTokens
+              - func toTokens()
+            - extend ArrayList <: ToTokens
+              - func toTokens()
+            - extend Bool <: ToTokens
+              - func toTokens()
+            - extend Float16 <: ToTokens
+              - func toTokens()
+            - extend Float32 <: ToTokens
+              - func toTokens()
+            - extend Float64 <: ToTokens
+              - func toTokens()
+            - extend Int16 <: ToTokens
+              - func toTokens()
+            - extend Int32 <: ToTokens
+              - func toTokens()
+            - extend Int64 <: ToTokens
+              - func toTokens()
+            - extend Int8 <: ToTokens
+              - func toTokens()
+            - extend Rune <: ToTokens
+              - func toTokens()
+            - extend String <: ToTokens
+              - func toTokens()
+            - extend Token <: ToTokens
+              - func toTokens()
+            - extend Tokens <: ToTokens
+              - func toTokens()
+            - extend UInt16 <: ToTokens
+              - func toTokens()
+            - extend UInt32 <: ToTokens
+              - func toTokens()
+            - extend UInt64 <: ToTokens
+              - func toTokens()
+            - extend UInt8 <: ToTokens
+              - func toTokens()
+        - [类](std/ast/ast_package_api/ast_package_classes.md)
+          - class Annotation
+            - prop arguments
+            - prop at
+            - prop attributes
+            - prop condition
+            - prop identifier
+            - init()
+            - init(Tokens)
+          - class Argument
+            - prop colon
+            - prop expr
+            - prop identifier
+            - prop keyword
+            - init()
+          - class ArrayLiteral
+            - prop elements
+            - prop lSquare
+            - prop rSquare
+            - init()
+            - init(Tokens)
+          - class AsExpr
+            - prop expr
+            - prop keyword
+            - prop shiftType
+            - init()
+            - init(Tokens)
+          - class AssignExpr
+            - prop assign
+            - prop leftExpr
+            - prop rightExpr
+            - init()
+            - init(Tokens)
+          - class BinaryExpr
+            - prop leftExpr
+            - prop op
+            - prop rightExpr
+            - init()
+            - init(Tokens)
+          - class Block
+            - prop lBrace
+            - prop nodes
+            - prop rBrace
+            - init()
+          - class Body
+            - prop decls
+            - prop lBrace
+            - prop rBrace
+            - init()
+            - init(ArrayList\<Decl>)
+          - class CallExpr
+            - prop arguments
+            - prop callFunc
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class ClassDecl
+            - prop body
+            - prop superTypeBitAnds
+            - prop superTypes
+            - prop upperBound
+            - init()
+            - init(Tokens)
+          - class ConstPattern
+            - prop litConstExpr
+            - init()
+            - init(Tokens)
+          - class Constructor
+            - prop identifier
+            - prop lParen
+            - prop rParen
+            - prop typeArguments
+            - init()
+          - class Decl
+            - prop annotations
+            - prop constraintCommas
+            - prop genericConstraint
+            - prop genericParam
+            - prop identifier
+            - prop isGenericDecl
+            - prop keyword
+            - prop modifiers
+            - func getAttrs()
+            - func hasAttr(String)
+          - class DoWhileExpr
+            - prop block
+            - prop condition
+            - prop keywordD
+            - prop keywordW
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class EnumDecl
+            - prop constructors
+            - prop annotations
+            - prop decls
+            - prop ellipsis
+            - prop lBrace
+            - prop rBrace
+            - prop superTypeBitAnds
+            - prop superTypes
+            - prop upperBound
+            - init()
+            - init(Tokens)
+          - class EnumPattern
+            - prop commas
+            - prop constructor
+            - prop lParen
+            - prop patterns
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class ExceptTypePattern
+            - prop colon
+            - prop pattern
+            - prop types
+            - init()
+            - init(Tokens)
+          - class Expr
+          - class ExtendDecl
+            - prop body
+            - prop extendType
+            - prop identifier
+            - prop superTypeBitAnds
+            - prop superTypes
+            - prop upperBound
+            - init()
+            - init(Tokens)
+          - class ForInExpr
+            - prop block
+            - prop expr
+            - prop keywordF
+            - prop keywordI
+            - prop keywordW
+            - prop lParen
+            - prop pattern
+            - prop patternGuard
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class FuncDecl
+            - prop block
+            - prop colon
+            - prop declType
+            - prop funcParams
+            - prop lParen
+            - prop overloadOp
+            - prop rParen
+            - init()
+            - init(Tokens)
+            - func isConst()
+          - class FuncParam
+            - prop assign
+            - prop colon
+            - prop expr
+            - prop not
+            - prop paramType
+            - init()
+            - init(Tokens)
+            - func isMemberParam()
+          - class FuncType
+            - prop arrow
+            - prop commas
+            - prop keyword
+            - prop lParen
+            - prop rParen
+            - prop returnType
+            - prop types
+            - init()
+            - init(Tokens)
+          - class GenericConstraint
+            - prop bitAnds
+            - prop keyword
+            - prop typeArgument
+            - prop upperBound
+            - prop upperBounds
+            - init()
+          - class GenericParam
+            - prop lAngle
+            - prop parameters
+            - prop rAngle
+            - init()
+            - init(Tokens)
+          - class IfExpr
+            - prop condition
+            - prop elseExpr
+            - prop ifBlock
+            - prop keywordE
+            - prop keywordI
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class ImportContent
+            - prop importKind
+            - prop prefixPaths
+            - prop prefixDots
+            - prop identifier
+            - prop importAlias
+            - prop lBrace
+            - prop items
+            - prop commas
+            - prop rBrace
+            - init()
+            - func isImportAlias()
+            - func isImportAll()
+            - func isImportMulti()
+            - func isImportSingle()
+          - class ImportList
+            - prop modifier
+            - prop keywordI
+            - prop content
+            - init()
+            - init(Tokens)
+            - func isImportMulti()
+          - class IncOrDecExpr
+            - prop expr
+            - prop op
+            - init()
+            - init(Tokens)
+          - class InterfaceDecl
+            - prop body
+            - prop superTypeBitAnds
+            - prop superTypes
+            - prop upperBound
+            - init()
+            - init(Tokens)
+          - class IsExpr
+            - prop expr
+            - prop keyword
+            - prop shiftType
+            - init()
+            - init(Tokens)
+          - class JumpExpr
+            - prop keyword
+            - init()
+            - init(Tokens)
+          - class LambdaExpr
+            - prop doubleArrow
+            - prop funcParams
+            - prop lBrace
+            - prop nodes
+            - prop rBrace
+            - init()
+            - init(Tokens)
+          - class LetPatternExpr
+            - prop backArrow
+            - prop expr
+            - prop keyword
+            - prop pattern
+            - init()
+            - init(Tokens)
+          - class LitConstExpr
+            - prop literal
+            - init()
+            - init(Tokens)
+          - class MacroDecl
+            - prop block
+            - prop colon
+            - prop declType
+            - prop funcParams
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class MacroExpandDecl
+            - prop fullIdentifier
+            - prop lParen
+            - prop lSquare
+            - prop macroAttrs
+            - prop macroInputDecl
+            - prop macroInputs
+            - prop rParen
+            - prop rSquare
+            - init()
+            - init(Tokens)
+          - class MacroExpandExpr
+            - prop at
+            - prop identifier
+            - prop lParen
+            - prop lSquare
+            - prop macroAttrs
+            - prop macroInputs
+            - prop rParen
+            - prop rSquare
+            - init()
+            - init(Tokens)
+          - class MacroExpandParam
+            - prop fullIdentifier
+            - prop lParen
+            - prop lSquare
+            - prop macroAttrs
+            - prop macroInputDecl
+            - prop macroInputs
+            - prop rParen
+            - prop rSquare
+            - init()
+          - class MacroMessage
+            - func getBool(String)
+            - func getInt64(String)
+            - func getString(String)
+            - func getTokens(String)
+            - func hasItem(String)
+          - class MainDecl
+            - prop block
+            - prop colon
+            - prop declType
+            - prop funcParams
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class MatchCase
+            - prop arrow
+            - prop bitOrs
+            - prop block
+            - prop expr
+            - prop keywordC
+            - prop keywordW
+            - prop patternGuard
+            - prop patterns
+            - init()
+          - class MatchExpr
+            - prop keyword
+            - prop lBrace
+            - prop lParen
+            - prop matchCases
+            - prop rBrace
+            - prop rParen
+            - prop selector
+            - init()
+            - init(Tokens)
+          - class MemberAccess
+            - prop baseExpr
+            - prop commas
+            - prop dot
+            - prop field
+            - prop lAngle
+            - prop rAngle
+            - prop typeArguments
+            - init()
+            - init(Tokens)
+          - class Modifier
+            - prop keyword(Token)
+            - init()
+            - init(Token)
+          - class Node
+            - prop beginPos
+            - prop endPos
+            - func dump()
+            - func toTokens()
+            - func traverse(Visitor)
+          - class OptionalExpr
+            - prop baseExpr
+            - prop quest
+            - init()
+            - init(Tokens)
+          - class PackageHeader
+            - prop accessible
+            - prop keywordM
+            - prop keywordP
+            - prop prefixPaths
+            - prop prefixDots
+            - prop packageIdentifier
+            - init()
+            - init(Tokens)
+          - class ParenExpr
+            - prop lParen
+            - prop parenthesizedExpr
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class ParenType
+            - prop lParen
+            - prop parenthesizedType
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class Pattern
+          - class PrefixType
+            - prop baseType
+            - prop prefixOps
+            - init()
+            - init(Tokens)
+          - class PrimaryCtorDecl
+            - prop block
+            - prop funcParams
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+            - func isConst()
+          - class PrimitiveType
+            - prop keyword
+            - init()
+            - init(Tokens)
+          - class PrimitiveTypeExpr
+            - prop keyword
+            - init()
+            - init(Tokens)
+          - class Program
+            - prop decls
+            - prop importLists
+            - prop packageHeader
+            - init()
+            - init(Tokens)
+          - class PropDecl
+            - prop colon
+            - prop declType
+            - prop getter
+            - prop lBrace
+            - prop rBrace
+            - prop setter
+            - init()
+            - init(Tokens)
+          - class QualifiedType
+            - prop baseType
+            - prop commas
+            - prop dot
+            - prop identifier
+            - prop lAngle
+            - prop rAngle
+            - prop typeArguments
+            - init()
+            - init(Tokens)
+          - class QuoteExpr
+            - prop exprs
+            - prop keyword
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class QuoteToken
+            - prop tokens
+          - class RangeExpr
+            - prop colon
+            - prop end
+            - prop op
+            - prop start
+            - prop step
+            - init()
+            - init(Tokens)
+          - class RefExpr
+            - prop commas
+            - prop identifier
+            - prop lAngle
+            - prop rAngle
+            - prop typeArguments
+            - init()
+            - init(Tokens)
+          - class RefType
+            - prop commas
+            - prop identifier
+            - prop lAngle
+            - prop rAngle
+            - prop typeArguments
+            - init()
+            - init(Tokens)
+          - class ReturnExpr
+            - prop expr
+            - prop keyword
+            - init()
+            - init(Tokens)
+          - class SpawnExpr
+            - prop keyword
+            - prop lParen
+            - prop lambdaExpr
+            - prop rParen
+            - prop threadContext
+            - init()
+            - init(Tokens)
+          - class StructDecl
+            - prop body
+            - prop superTypeBitAnds
+            - prop superTypes
+            - prop upperBound
+            - init()
+            - init(Tokens)
+          - class SubscriptExpr
+            - prop baseExpr
+            - prop indexList
+            - prop lSquare
+            - prop rSquare
+            - init()
+            - init(Tokens)
+          - class SynchronizedExpr
+            - prop block
+            - prop keyword
+            - prop lParen
+            - prop rParen
+            - prop structuredMutex
+            - init()
+            - init(Tokens)
+          - class ThisType
+            - prop keyword
+            - init()
+            - init(Tokens)
+          - class ThrowExpr
+            - prop expr
+            - prop keyword
+            - init()
+            - init(Tokens)
+          - class Tokens
+            - prop size
+            - init()
+            - init(Array\<Token>)
+            - init(ArrayList\<Token>)
+            - func append(Node)
+            - func append(Token)
+            - func append(Tokens)
+            - func concat(Tokens)
+            - func dump()
+            - func get(Int64)
+            - func iterator()
+            - func remove(Int64)
+            - func toBytes()
+            - func toString()
+            - operator func +(Token)
+            - operator func +(Tokens)
+            - operator func \[](Int64)
+            - operator func \[](Range\<Int64>)
+          - class TokensIterator
+            - init(Tokens)
+            - func iterator()
+            - func next()
+            - func peek()
+            - func seeing(TokenKind)
+          - class TrailingClosureExpr
+            - prop expr
+            - prop lambdaExpr
+            - init()
+            - init(Tokens)
+          - class TryExpr
+            - prop catchBlocks
+            - prop catchPatterns
+            - prop finallyBlock
+            - prop keywordF
+            - prop keywordT
+            - prop keywordsC
+            - prop resourceSpec
+            - prop tryBlock
+            - init()
+            - init(Tokens)
+          - class TupleLiteral
+            - prop elements
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class TuplePattern
+            - prop commas
+            - prop lParen
+            - prop patterns
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class TupleType
+            - prop lParen
+            - prop rParen
+            - prop types
+            - init()
+            - init(Tokens)
+          - class TypeAliasDecl
+            - prop aliasType
+            - prop assign
+            - init()
+            - init(Tokens)
+          - class TypeConvExpr
+            - prop expr
+            - prop lParen
+            - prop rParen
+            - prop targetType
+            - init()
+            - init(Tokens)
+          - class TypeNode
+            - prop typeParameterName
+            - prop colon
+          - class TypePattern
+            - prop colon
+            - prop pattern
+            - prop patternType
+            - init()
+            - init(Tokens)
+          - class UnaryExpr
+            - prop expr
+            - prop op
+            - init()
+            - init(Tokens)
+          - class VArrayExpr
+            - prop arguments
+            - prop lParen
+            - prop rParen
+            - prop vArrayType
+            - init()
+            - init(Tokens)
+          - class VArrayType
+            - prop dollar
+            - prop elementTy
+            - prop keyword
+            - prop lAngle
+            - prop rAngle
+            - prop size
+            - init()
+            - init(Tokens)
+          - class VarDecl
+            - prop assign
+            - prop colon
+            - prop declType
+            - prop expr
+            - prop pattern
+            - init()
+            - init(Tokens)
+            - func isConst()
+          - class VarOrEnumPattern
+            - prop identifier
+            - init()
+            - init(Tokens)
+          - class VarPattern
+            - prop identifier
+            - init()
+            - init(Tokens)
+          - class Visitor
+            - func breakTraverse()
+          - class WhileExpr
+            - prop block
+            - prop condition
+            - prop keyword
+            - prop lParen
+            - prop rParen
+            - init()
+            - init(Tokens)
+          - class WildcardExpr
+            - prop keyword
+            - init()
+            - init(Tokens)
+          - class WildcardPattern
+            - prop wildcard
+            - init()
+            - init(Tokens)
+        - [枚举](std/ast/ast_package_api/ast_package_enums.md)
+          - enum DiagReportLevel
+            - ERROR
+            - WARNING
+            - func level()
+          - enum ImportKind
+            - Single
+            - Alias
+            - All
+            - Multi
+            - func toString()
+          - enum TokenKind
+            - ABSTRACT
+            - ADD
+            - ADD_ASSIGN
+            - AND
+            - AND_ASSIGN
+            - ANNOTATION
+            - ARROW
+            - AS
+            - ASSIGN
+            - AT
+            - AT_EXCL
+            - BACKARROW
+            - BITAND
+            - BITAND_ASSIGN
+            - BITNOT
+            - BITOR
+            - BITOR_ASSIGN
+            - BITXOR
+            - BITXOR_ASSIGN
+            - BOOLEAN
+            - BOOL_LITERAL
+            - BREAK
+            - CASE
+            - CATCH
+            - CLASS
+            - CLOSEDRANGEOP
+            - COALESCING
+            - COLON
+            - COMMA
+            - COMMENT
+            - COMPOSITION
+            - CONST
+            - CONTINUE
+            - DECR
+            - DIV
+            - DIV_ASSIGN
+            - DO
+            - DOLLAR
+            - DOLLAR_IDENTIFIER
+            - DOT
+            - DOUBLE_ARROW
+            - ELLIPSIS
+            - ELSE
+            - END
+            - ENUM
+            - EQUAL
+            - EXP
+            - EXP_ASSIGN
+            - EXTEND
+            - FINALLY
+            - FLOAT16
+            - FLOAT32
+            - FLOAT64
+            - FLOAT_LITERAL
+            - FOR
+            - FOREIGN
+            - FUNC
+            - GE
+            - GT
+            - HASH
+            - IDENTIFIER
+            - PACKAGE_IDENTIFIER
+            - IF
+            - ILLEGAL
+            - IMPORT
+            - IN
+            - INCR
+            - INIT
+            - INOUT
+            - INT16
+            - INT32
+            - INT64
+            - INT8
+            - INTEGER_LITERAL
+            - INTERFACE
+            - INTERNAL
+            - INTNATIVE
+            - IS
+            - JSTRING_LITERAL
+            - LCURL
+            - LE
+            - LET
+            - LPAREN
+            - LSHIFT
+            - LSHIFT_ASSIGN
+            - LSQUARE
+            - LT
+            - MACRO
+            - MAIN
+            - MATCH
+            - MOD
+            - MOD_ASSIGN
+            - MUL
+            - MULTILINE_RAW_STRING
+            - MULTILINE_STRING
+            - MUL_ASSIGN
+            - MUT
+            - NL
+            - NOT
+            - NOTEQ
+            - NOTHING
+            - NOT_IN
+            - OPEN
+            - OPERATOR
+            - OR
+            - OR_ASSIGN
+            - OVERRIDE
+            - PACKAGE
+            - PIPELINE
+            - PRIVATE
+            - PROP
+            - PROTECTED
+            - PUBLIC
+            - QUEST
+            - QUOTE
+            - RANGEOP
+            - RCURL
+            - REDEF
+            - RETURN
+            - RPAREN
+            - RSHIFT
+            - RSHIFT_ASSIGN
+            - RSQUARE
+            - RUNE
+            - RUNE_BYTE_LITERAL
+            - RUNE_LITERAL
+            - SEALED
+            - SEMI
+            - SENTINEL
+            - SINGLE_QUOTED_STRING_LITERAL
+            - SPAWN
+            - STATIC
+            - STRING_LITERAL
+            - STRUCT
+            - SUB
+            - SUB_ASSIGN
+            - SUPER
+            - SYNCHRONIZED
+            - THIS
+            - THISTYPE
+            - THROW
+            - TRY
+            - TYPE
+            - UINT16
+            - UINT32
+            - UINT64
+            - UINT8
+            - UINTNATIVE
+            - UNIT
+            - UNIT_LITERAL
+            - UNSAFE
+            - UPPERBOUND
+            - VAR
+            - VARRAY
+            - WHERE
+            - WHILE
+            - WILDCARD
+            - WITH
+            - func !=(TokenKind)
+            - func ==(TokenKind)
+            - func toString()
+        - [结构体](std/ast/ast_package_api/ast_package_structs.md)
+          - struct Position
+            - let column
+            - let fileID
+            - let line
+            - init()
+            - init(UInt32, Int32, Int32)
+            - func dump()
+            - func isEmpty()
+            - func toBytes()
+            - operator func !=(Position)
+            - operator func ==(Position)
+          - struct Token
+            - let kind
+            - let pos
+            - let value
+            - var delimiterNum
+            - init()
+            - init(TokenKind)
+            - init(TokenKind, String)
+            - func addPosition(UInt32, Int32, Int32)
+            - func dump()
+            - func toBytes()
+            - operator func !=(Token)
+            - operator func +(Token)
+            - operator func +(Tokens)
+            - operator func ==(Token)
+        - [异常类](std/ast/ast_package_api/ast_package_exceptions.md)
+          - class ASTException
+            - init()
+            - init(String)
+          - class MacroContextException
+            - init()
+            - init(String)
+          - class ParseASTException
+            - init()
+            - init(String)
+            - [Macro With Context](std/ast/ast_samples/context.md)
+            - [语法树节点打印](std/ast/ast_samples/dump.md)
+            - [操作 AST 对象示例](std/ast/ast_samples/operate.md)
+            - [将仓颉源码解析为 AST 对象示例](std/ast/ast_samples/parse.md)
+            - [自定义报错接口](std/ast/ast_samples/report.md)
+            - [自定义访问函数遍历 AST 对象示例](std/ast/ast_samples/traverse.md)
+    - [std.binary](std/binary/binary_package_overview.md)
+        - [接口](std/binary/binary_package_api/binary_package_interfaces.md)
+          - interface BigEndianOrder\<T>
+            - static func readBigEndian(Array\<Byte>)
+            - func writeBigEndian(Array\<Byte>)
+            - extend Bool <: BigEndianOrder\<Bool>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend Float16 <: BigEndianOrder\<Float16>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend Float32 <: BigEndianOrder\<Float32>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend Float64 <: BigEndianOrder\<Float64>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend Int16 <: BigEndianOrder\<Int16>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend Int32 <: BigEndianOrder\<Int32>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend Int64 <: BigEndianOrder\<Int64>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend Int8 <: BigEndianOrder\<Int8>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend UInt16 <: BigEndianOrder\<UInt16>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend UInt32 <: BigEndianOrder\<UInt32>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend UInt64 <: BigEndianOrder\<UInt64>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+            - extend UInt8 <: BigEndianOrder\<UInt8>
+              - static func readBigEndian(Array\<Byte>)
+              - func writeBigEndian(Array\<Byte>)
+          - interface LittleEndianOrder\<T>
+            - static func readLittleEndian(Array\<Byte>)
+            - func writeLittleEndian(Array\<Byte>)
+            - extend Bool <: LittleEndianOrder\<Bool>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend Float16 <: LittleEndianOrder\<Float16>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend Float32 <: LittleEndianOrder\<Float32>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend Float64 <: LittleEndianOrder\<Float64>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend Int16 <: LittleEndianOrder\<Int16>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend Int32 <: LittleEndianOrder\<Int32>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend Int64 <: LittleEndianOrder\<Int64>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend Int8 <: LittleEndianOrder\<Int8>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend UInt16 <: LittleEndianOrder\<UInt16>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend UInt32 <: LittleEndianOrder\<UInt32>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend UInt64 <: LittleEndianOrder\<UInt64>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+            - extend UInt8 <: LittleEndianOrder\<UInt8>
+              - static func readLittleEndian(Array\<Byte>)
+              - func writeLittleEndian(Array\<Byte>)
+          - interface SwapEndianOrder\<T>
+            - func swapBytes()
+            - extend Int16 <: SwapEndianOrder\<Int16>
+              - func swapBytes()
+            - extend Int32 <: SwapEndianOrder\<Int32>
+              - func swapBytes()
+            - extend Int64 <: SwapEndianOrder\<Int64>
+              - func swapBytes()
+            - extend Int8 <: SwapEndianOrder\<Int8>
+              - func swapBytes()
+            - extend UInt16 <: SwapEndianOrder\<UInt16>
+              - func swapBytes()
+            - extend UInt32 <: SwapEndianOrder\<UInt32>
+              - func swapBytes()
+            - extend UInt64 <: SwapEndianOrder\<UInt64>
+              - func swapBytes()
+            - extend UInt8 <: SwapEndianOrder\<UInt8>
+              - func swapBytes()
+    - [std.collection](std/collection/collection_package_overview.md)
+        - [函数](std/collection/collection_package_api/collection_package_function.md)
+          - func all\<T>((T) -> Bool)
+          - func any\<T>((T) -> Bool)
+          - func at\<T>(Int64)
+          - func collectArrayList\<T>(Iterable\<T>)
+          - func collectArray\<T>(Iterable\<T>)
+          - func collectHashMap\<K, V>(Iterable\<(K, V)>) where K <: Hashable & Equatable\<K>
+          - func collectHashSet\<T>(Iterable\<T>) where T <: Hashable & Equatable\<T>
+          - func collectString\<T>(String) where T <: ToString
+          - func concat\<T>(Iterable\<T>)
+          - func contains\<T>(T) where T <: Equatable\<T>
+          - func count\<T>(Iterable\<T>)
+          - func enumerate\<T>(Iterable\<T>)
+          - func filter\<T>((T) -> Bool)
+          - func filterMap\<T, R>((T) -> ?R)
+          - func first\<T>(Iterable\<T>)
+          - func flatMap\<T, R>( (T) -> Iterable\<R>)
+          - func flatten\<T, R>(Iterable\<T>) where T <: Iterable\<R>
+          - func fold\<T, R>(R, (R, T) -> R)
+          - func forEach\<T>((T) -> Unit)
+          - func inspect\<T>((T) -> Unit)
+          - func isEmpty\<T>(Iterable\<T>)
+          - func last\<T>(Iterable\<T>)
+          - func map\<T, R>((T) -> R)
+          - func max\<T>(Iterable\<T>) where T <: Comparable\<T>
+          - func min\<T>(Iterable\<T>) where T <: Comparable\<T>
+          - func none\<T>((T) -> Bool)
+          - func reduce\<T>((T, T) -> T)
+          - func skip\<T>(Int64)
+          - func step\<T>(Int64)
+          - func take\<T>(Int64)
+          - func zip\<T, R>(Iterable\<R>)
+        - [接口](std/collection/collection_package_api/collection_package_interface.md)
+          - interface Deque\<T>
+            - prop first
+            - prop last
+            - func addFirst(T)
+            - func addLast(T)
+            - func removeFirst()
+            - func removeLast()
+          - interface EquatableCollection\<T>
+            - func contains(T)
+            - func contains(Collection\<T>)
+          - interface List\<T>
+            - func add(T)
+            - func add(Collection\<T>)
+            - func add(T, Int64)
+            - func add(Collection\<T>, Int64)
+            - func clear()
+            - func remove(Int64)
+            - func remove(Range\<Int64>)
+            - func removeIf((T) -> Bool)
+            - operator func []\(Int64, T)
+          - interface Map\<K, V>
+            - func add(K, V)
+            - func add(Collection\<(K, V)>)
+            - func addIfAbsent(K, V)
+            - func clear()
+            - func entryView(K)
+            - func remove(K)
+            - func remove(Collection\<K>)
+            - func removeIf((K, V) -> Bool)
+            - func replace(K, V)
+            - operator func []\(K, V)
+          - interface MapEntryView\<K, V>
+            - prop key
+            - prop value
+          - interface OrderedMap\<K, V>
+            - prop first
+            - prop last
+            - func removeFirst()
+            - func removeLast()
+            - func backward(K, Bool)
+            - func forward(K, Bool)
+          - interface OrderedSet\<T>
+            - prop first
+            - prop last
+            - func removeFirst()
+            - func removeLast()
+            - func backward(T, Bool)
+            - func forward(T, Bool)
+          - interface Queue\<T>
+            - func add(T)
+            - func peek()
+            - func remove()
+          - interface ReadOnlyList\<T>
+            - prop first
+            - prop last
+            - func get(Int64)
+            - operator func []\(Int64)
+          - interface ReadOnlyMap\<K, V>
+            - func get(K)
+            - func contains(K)
+            - func contains(Collection\<K>)
+            - func keys()
+            - func values()
+            - operator func []\(K)
+          - interface ReadOnlySet\<T>
+            - func contains(T)
+            - func contains(Collection\<T>)
+            - func subsetOf(ReadOnlySet\<T>)
+          - interface Set\<T>
+            - func add(T)
+            - func add(Collection\<T>)
+            - func remove(T)
+            - func remove(Collection\<T>)
+            - func removeIf((T) -> Bool)
+            - func clear()
+            - func retain(Set\<T>)
+          - interface Stack\<T>
+            - func add(T)
+            - func peek()
+            - func remove()
+        - [类](std/collection/collection_package_api/collection_package_class.md)
+          - class ArrayDeque\<T>
+            - prop capacity
+            - prop first
+            - prop last
+            - prop size
+            - init()
+            - init(Int64)
+            - func addFirst(T)
+            - func addLast(T)
+            - func clear()
+            - func iterator()
+            - func isEmpty()
+            - func removeFirst()
+            - func removeLast()
+            - func reserve(Int64)
+            - func toArray()
+            - extend\<T> ArrayDeque\<T> <: ToString where T <: ToString
+              - func toString()
+          - class ArrayList\<T>
+            - prop size
+            - prop capacity
+            - prop first
+            - prop last
+            - init()
+            - init(Collection\<T>)
+            - init(Int64)
+            - init(Int64, (Int64) -> T)
+            - static func of(Array\<T>)
+            - func add(T)
+            - func add(Collection\<T>)
+            - func add(T, Int64)
+            - func add(Collection\<T>, Int64)
+            - func clear()
+            - func clone()
+            - func get(Int64)
+            - func getRawArray()
+            - func isEmpty()
+            - func iterator()
+            - func remove(Int64)
+            - func remove(Range\<Int64>)
+            - func removeIf((T) -> Bool)
+            - func reserve(Int64)
+            - func reverse()
+            - func slice(Range\<Int64>)
+            - func sortBy((T, T) -> Ordering) <sup>(deprecated)</sup>
+            - func sortBy(Bool, (T, T) -> Ordering) <sup>(deprecated)</sup>
+            - func toArray()
+            - operator func []\(Int64)
+            - operator func []\(Int64, T)
+            - operator func []\(Range\<Int64>)
+            - extend\<T> ArrayList\<T> <: Equatable\<ArrayList\<T>> where T <: Equatable\<T>
+              - operator func ==(ArrayList\<T>)
+              - operator func !=(ArrayList\<T>)
+              - func contains(T)
+            - extend\<T> ArrayList\<T> <: SortExtension where T <: Comparable\<T> <sup>(deprecated)</sup>
+              - func sort() <sup>(deprecated)</sup>
+              - func sort(Bool) <sup>(deprecated)</sup>
+              - func sortDescending() <sup>(deprecated)</sup>
+              - func sortDescending(Bool) <sup>(deprecated)</sup>
+            - extend\<T> ArrayList\<T> <: ToString where T <: ToString
+              - func toString()
+          - class ArrayQueue\<T>
+            - prop capacity
+            - prop size
+            - init()
+            - init(Int64)
+            - func add(T)
+            - func clear()
+            - func iterator()
+            - func isEmpty()
+            - func peek()
+            - func remove()
+            - func reserve(Int64)
+            - func toArray()
+            - extend\<T> ArrayQueue\<T> <: ToString where T <: ToString
+              - func toString()
+          - class ArrayStack\<T>
+            - prop capacity
+            - prop size
+            - func init()
+            - func init(Int64)
+            - func add(T)
+            - func clear()
+            - func isEmpty()
+            - func iterator()
+            - func peek()
+            - func remove()
+            - func reserve(Int64)
+            - func toArray()
+            - extend\<T> ArrayStack\<T> <: ToString where T <: ToString
+              - func toString()
+          - class HashMapIterator\<K, V> where K <: Hashable & Equatable\<K>
+            - init(HashMap\<K, V>)
+            - func next()
+            - func remove()
+          - class HashMap\<K, V> where K <: Hashable & Equatable\<K>
+            - prop capacity
+            - prop size
+            - init()
+            - init(Array\<(K, V)>)
+            - init(Collection\<(K, V)>)
+            - init(Int64)
+            - init(Int64, (Int64) -> (K, V))
+            - func add(K, V)
+            - func add(Collection\<(K, V)>)
+            - func addIfAbsent(K, V)
+            - func clear()
+            - func clone()
+            - func contains(K)
+            - func contains(Collection\<K>)
+            - func entryView(K)
+            - func get(K)
+            - func isEmpty()
+            - func iterator()
+            - func keys()
+            - func remove(Collection\<K>)
+            - func remove(K)
+            - func removeIf((K, V) -> Bool)
+            - func replace(K, V)
+            - func reserve(Int64)
+            - func toArray()
+            - func values()
+            - operator func []\(K, V)
+              - operator func []\(K)
+            - extend\<K, V> HashMap\<K, V> <: Equatable\<HashMap\<K, V>> where V <: Equatable\<V>
+              - operator func ==(HashMap\<K, V>)
+              - operator func !=(HashMap\<K, V>)
+            - extend\<K, V> HashMap\<K, V> <: ToString where V <: ToString, K <: ToString
+              - func toString()
+          - class HashSet\<T> where T <: Hashable & Equatable\<T>
+            - prop size
+            - init(Int64, (Int64) -> T)
+            - init()
+            - init(Array\<T>)
+            - init(Collection\<T>)
+            - init(Int64)
+            - func add(T)
+            - func add(Collection\<T>)
+            - prop capacity
+            - func clear()
+            - func clone()
+            - func contains(T)
+            - func contains(Collection\<T>)
+            - func isEmpty()
+            - func iterator()
+            - func remove(T)
+            - func remove(Collection\<T>)
+            - func removeIf((T) -> Bool)
+            - func reserve(Int64)
+            - func retain(Set\<T>)
+            - func subsetOf(ReadOnlySet\<T>)
+            - func toArray()
+            - operator func &(ReadOnlySet\<T>)
+            - operator func |(ReadOnlySet\<T>)
+            - operator func -(ReadOnlySet\<T>)
+            - extend\<T> HashSet\<T> <: Equatable\<HashSet\<T>>
+              - operator func ==(HashSet\<T>)
+              - operator func !=(HashSet\<T>)
+            - extend\<T> HashSet\<T> <: ToString where T <: ToString
+              - func toString()
+          - class LinkedListNode\<T>
+            - prop next
+            - prop prev
+            - prop value
+          - class LinkedList\<T>
+            - prop first
+            - prop firstNode
+            - prop last
+            - prop lastNode
+            - prop size
+            - init
+            - init(Array\<T>)
+            - init(Collection\<T>)
+            - init(Int64, (Int64)-> T)
+            - func addLast(T)
+            - func backward(LinkedListNode\<T>)
+            - func clear()
+            - func forward(LinkedListNode\<T>)
+            - func addAfter(LinkedListNode\<T>,T)
+            - func addBefore(LinkedListNode\<T>,T)
+            - func isEmpty()
+            - func iterator()
+            - func nodeAt(Int64)
+            - func removeFirst()
+            - func removeLast()
+            - func addFirst(T)
+            - func remove(LinkedListNode\<T>)
+            - func removeIf((T)-> Bool)
+            - func reverse()
+            - func splitOff(LinkedListNode\<T>)
+            - func toArray()
+            - extend\<T> LinkedList\<T> <: Equatable\<LinkedList\<T>> where T <: Equatable\<T>
+              - operator func ==(LinkedList\<T>)
+              - operator func !=(LinkedList\<T>)
+            - extend\<T> LinkedList\<T> <: ToString where T <: ToString
+              - func toString()
+          - class TreeMap\<K, V> where K <: Comparable\<K>
+            - prop first
+            - prop last
+            - prop size
+            - init()
+            - init(Array\<(K,V)>)
+            - init(Collection\<(K, V)>)
+            - init(Int64, (Int64) -> (K, V))
+            - func add(K, V)
+            - func add(Collection\<(K, V)>)
+            - func backward(K, Bool)
+            - func clear()
+            - func clone()
+            - func contains(K)
+            - func contains(Collection\<K>)
+            - func entryView(K)
+            - func forward(K, Bool)
+            - func get(K)
+            - func isEmpty()
+            - func iterator()
+            - func keys()
+            - func removeFirst()
+            - func removeLast()
+            - func remove(K)
+            - func remove(Collection\<K>)
+            - func removeIf((K, V) -> Bool)
+            - func values()
+            - operator func \[](K, V)
+            - operator func \[](K)
+            - extend\<K, V> TreeMap\<K, V> <: Equatable\<TreeMap\<K, V>> where V <: Equatable\<V>
+              - operator func ==(TreeMap\<K, V>)
+              - operator func !=(TreeMap\<K, V>)
+            - extend\<K, V> TreeMap\<K, V> <: ToString where V <: ToString, K <: ToString & Comparable\<K>
+              - func toString()
+          - class TreeSet\<T> where T <: Comparable\<T>
+            - prop first
+            - prop last
+            - prop size
+            - init()
+            - init(Collection\<T>)
+            - init(Int64, (Int64) -> T)
+            - static func of(Array\<T>)
+            - func add(T)
+            - func add(Collection\<T>)
+            - func backward(T, Bool)
+            - func clear()
+            - func clone()
+            - func contains(T)
+            - func contains(Collection\<T>)
+            - func forward(T, Bool)
+            - func isEmpty()
+            - func iterator()
+            - func removeFirst()
+            - func removeLast()
+            - func remove(T)
+            - func remove(Collection\<T>)
+            - func removeIf((T) -> Bool)
+            - func retain(Set\<T>)
+            - func subsetOf(ReadOnlySet\<T>)
+            - func toArray()
+            - operator func &(ReadOnlySet\<T>)
+            - operator func |(ReadOnlySet\<T>)
+            - operator func -(ReadOnlySet\<T>)
+            - extend\<T> TreeSet\<T> <: Equatable\<TreeSet\<T>>
+              - operator func ==(TreeSet\<T>)
+              - operator func !=(TreeSet\<T>)
+            - extend\<T> TreeSet\<T> <: ToString where T <: ToString
+              - func toString()
+        - [异常类](std/collection/collection_package_api/collection_package_exception.md)
+          - class ConcurrentModificationException
+            - init()
+            - init(String)
+            - [ArrayList 的 add 函数](std/collection/collection_package_samples/sample_arraylist_add.md)
+            - [ArrayList 的 get/set 函数](std/collection/collection_package_samples/sample_arraylist_get_set.md)
+            - [ArrayList 的 remove/clear/slice 函数](std/collection/collection_package_samples/sample_arraylist_remove_clear_slice.md)
+            - [HashMap 的 get/add/contains 函数](std/collection/collection_package_samples/sample_hashmap_get_add_contains.md)
+            - [HashMap 的 add/remove/clear 函数](std/collection/collection_package_samples/sample_hashmap_add_remove_clear.md)
+            - [HashSet 的 add/iterator/remove 函数](std/collection/collection_package_samples/sample_hashset_add_iterator_remove.md)
+            - [TreeSet 的 add/iterator/remove 函数](std/collection/collection_package_samples/sample_treeset_add_iterator_remove.md)
+            - [迭代器操作函数](std/collection/collection_package_samples/sample_iterator.md)
+    - [std.collection.concurrent](std/collection_concurrent/collection_concurrent_package_overview.md)
+        - [类型别名](std/collection_concurrent/collection_concurrent_package_api/collection_concurrent_types.md)
+          - type BlockingQueue\<E> <sup>(deprecated)</sup>
+          - type NonBlockingQueue\<E> <sup>(deprecated)</sup>
+        - [接口](std/collection_concurrent/collection_concurrent_package_api/collection_concurrent_interface.md)
+          - interface ConcurrentMap\<K, V>
+            - func add(K, V)
+            - func addIfAbsent(K, V)
+            - func contains(K)
+            - func entryView(K, (MapEntryView\<K, V>) -> Unit)
+            - func get(K)
+            - func put(K, V) <sup>(deprecated)</sup>
+            - func putIfAbsent(K, V) <sup>(deprecated)</sup>
+            - func remove(K)
+            - func remove(K, (V) -> Bool) <sup>(deprecated)</sup>
+            - func replace(K, (V) -> Bool, (V) -> V) <sup>(deprecated)</sup>
+            - func replace(K, (V) -> V) <sup>(deprecated)</sup>
+            - func replace(K, V)
+            - operator func \[](K)
+            - operator func \[](K, V)
+        - [类](std/collection_concurrent/collection_concurrent_package_api/collection_concurrent_class.md)
+          - class ArrayBlockingQueue\<E>
+            - prop size
+            - let capacity
+            - init(Int64)
+            - init(Int64, Collection\<E>) <sup>(deprecated)</sup>
+            - func add(E)
+            - func add(E, Duration)
+            - func dequeue() <sup>(deprecated)</sup>
+            - func dequeue(Duration) <sup>(deprecated)</sup>
+            - func enqueue(E) <sup>(deprecated)</sup>
+            - func enqueue(E, Duration) <sup>(deprecated)</sup>
+            - func head() <sup>(deprecated)</sup>
+            - func peek()
+            - func remove()
+            - func remove(Duration)
+            - func tryAdd(E)
+            - func tryDequeue() <sup>(deprecated)</sup>
+            - func tryEnqueue(E) <sup>(deprecated)</sup>
+            - func tryRemove()
+          - class LinkedBlockingQueue\<E>
+            - let capacity
+            - prop size
+            - init()
+            - init(Int64)
+            - init(Int64, Array\<E>) <sup>(deprecated)</sup>
+            - init(Int64, Collection\<E>) <sup>(deprecated)</sup>
+            - func add(E)
+            - func add(E, Duration)
+            - func dequeue() <sup>(deprecated)</sup>
+            - func dequeue(Duration) <sup>(deprecated)</sup>
+            - func enqueue(E) <sup>(deprecated)</sup>
+            - func enqueue(E, Duration) <sup>(deprecated)</sup>
+            - func head() <sup>(deprecated)</sup>
+            - func peek()
+            - func remove()
+            - func remove(Duration)
+            - func tryAdd(E)
+            - func tryDequeue() <sup>(deprecated)</sup>
+            - func tryEnqueue(E) <sup>(deprecated)</sup>
+            - func tryRemove()
+          - class ConcurrentHashMapIterator\<K, V> where K <: Hashable & Equatable\<K>
+            - init(ConcurrentHashMap\<K, V>)
+            - func next()
+          - class ConcurrentHashMap\<K, V> where K <: Hashable & Equatable\<K>
+            - prop size
+            - init(Collection\<(K, V)>, Int64)
+            - init(Int64)
+            - init(Int64, (Int64) -> (K, V), Int64)
+            - init(Int64, Int64)
+            - func add(K, V)
+            - func addIfAbsent(K, V)
+            - func contains(K)
+            - func entryView(K, (MapEntryView\<K, V>) -> Unit)
+            - func get(K)
+            - func isEmpty()
+            - func iterator()
+            - func put(K, V) <sup>(deprecated)</sup>
+            - func putIfAbsent(K, V) <sup>(deprecated)</sup>
+            - func remove((K, (V) -> Bool)) <sup>(deprecated)</sup>
+            - func remove(K)
+            - func replace(K, (V) -> Bool, (V) -> V) <sup>(deprecated)</sup>
+            - func replace(K, (V) -> V) <sup>(deprecated)</sup>
+            - func replace(K, V)
+            - operator func \[](K)
+            - operator func \[](K, V)
+          - class ConcurrentLinkedQueue\<E>
+            - prop size
+            - init()
+            - init(Collection\<E>) <sup>(deprecated)</sup>
+            - func add(E)
+            - func dequeue() <sup>(deprecated)</sup>
+            - func enqueue(E) <sup>(deprecated)</sup>
+            - func head() <sup>(deprecated)</sup>
+            - func isEmpty()
+            - func iterator()
+            - func peek()
+            - func remove()
+            - func toArray()
+            - [ConcurrentHashMap 使用示例](std/collection_concurrent/collection_concurrent_samples/sample_concurrenthashmap.md)
+            - [ConcurrentLinkedQueue 使用示例](std/collection_concurrent/collection_concurrent_samples/sample_concurrent_linked_queue.md)
+    - [std.console](std/console/console_package_overview.md)
+        - [类](std/console/console_package_api/console_package_class.md)
+          - class Console <sup>(deprecated)</sup>
+            - static prop stdErr
+            - static prop stdIn
+            - static prop stdOut
+          - class ConsoleReader <sup>(deprecated)</sup>
+            - func read()
+            - func read(Array\<Byte>)
+            - func readToEnd()
+            - func readUntil((Rune) -> Bool)
+            - func readUntil(Rune)
+            - func readln()
+          - class ConsoleWriter <sup>(deprecated)</sup>
+            - func flush()
+            - func write(Array\<Byte>)
+            - func write(Bool)
+            - func write(Float16)
+            - func write(Float32)
+            - func write(Float64)
+            - func write(Int16)
+            - func write(Int32)
+            - func write(Int64)
+            - func write(Int8)
+            - func write(Rune)
+            - func write(String)
+            - func write(UInt16)
+            - func write(UInt32)
+            - func write(UInt64)
+            - func write(UInt8)
+            - func write\<T>(T) where T <: ToString
+            - func writeln(Array\<Byte>)
+            - func writeln(Bool)
+            - func writeln(Float16)
+            - func writeln(Float32)
+            - func writeln(Float64)
+            - func writeln(Int16)
+            - func writeln(Int32)
+            - func writeln(Int64)
+            - func writeln(Int8)
+            - func writeln(Rune)
+            - func writeln(String)
+            - func writeln(UInt16)
+            - func writeln(UInt32)
+            - func writeln(UInt64)
+            - func writeln(UInt8)
+            - func writeln\<T>(T) where T <: ToString
+            - [Console 示例](std/console/console_samples/console_sample.md)
+    - [std.convert](std/convert/convert_package_overview.md)
+        - [接口](std/convert/convert_package_api/convert_package_interfaces.md)
+          - interface Formattable
+            - func format(String)
+            - extend Float16 <: Formattable
+              - func format(String)
+            - extend Float32 <: Formattable
+              - func format(String)
+            - extend Float64 <: Formattable
+              - func format(String)
+            - extend Int16 <: Formattable
+              - func format(String)
+            - extend Int32 <: Formattable
+              - func format(String)
+            - extend Int64 <: Formattable
+              - func format(String)
+            - extend Int8 <: Formattable
+              - func format(String)
+            - extend Rune <: Formattable
+              - func format(String)
+            - extend UInt16 <: Formattable
+              - func format(String)
+            - extend UInt32 <: Formattable
+              - func format(String)
+            - extend UInt64 <: Formattable
+              - func format(String)
+            - extend UInt8 <: Formattable
+              - func format(String)
+          - interface Parsable\<T>
+            - static func parse(String)
+            - static func tryParse(String)
+            - extend Bool <: Parsable\<Bool>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend Float16 <: Parsable\<Float16>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend Float32 <: Parsable\<Float32>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend Float64 <: Parsable\<Float64>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend Int16 <: Parsable\<Int16>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend Int32 <: Parsable\<Int32>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend Int64 <: Parsable\<Int64>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend Int8 <: Parsable\<Int8>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend Rune <: Parsable\<Rune>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend UInt16 <: Parsable\<UInt16>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend UInt32 <: Parsable\<UInt32>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend UInt64 <: Parsable\<UInt64>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend UInt8 <: Parsable\<UInt8>
+              - static func parse(String)
+              - static func tryParse(String)
+          - interface RadixConvertible\<T>
+            - static func parse(String, Int64)
+            - static func tryParse(String, Int64)
+            - func toString(Int64)
+            - extend Int8 <: RadixConvertible\<Int8>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+            - extend Int16 <: RadixConvertible\<Int16>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+            - extend Int32 <: RadixConvertible\<Int32>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+            - extend Int64 <: RadixConvertible\<Int64>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+            - extend UInt8 <: RadixConvertible\<UInt8>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+            - extend UInt16 <: RadixConvertible\<UInt16>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+            - extend UInt32 <: RadixConvertible\<UInt32>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+            - extend UInt64 <: RadixConvertible\<UInt64>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+            - [covert 使用示例](std/convert/convert_samples/convert_samples.md)
+    - [std.crypto.cipher](std/crypto/cipher/cipher_package_overview.md)
+        - [接口](std/crypto/cipher/cipher_package_api/cipher_package_interfaces.md)
+          - interface BlockCipher
+            - prop algorithm
+            - prop blockSize
+            - func encrypt(Array\<Byte>)
+            - func decrypt(Array\<Byte>)
+            - func encrypt(Array\<Byte>, Array\<Byte>)
+            - func decrypt(Array\<Byte>, Array\<Byte>)
+    - [std.crypto.digest](std/crypto/digest/digest_package_overview.md)
+        - [函数](std/crypto/digest/digest_package_api/digest_package_funcs.md)
+          - func digest\<T>(T, Array\<Byte>) where T <: Digest
+          - func digest\<T>(T, String) where T <: Digest <sup>(deprecated)</sup>
+          - func digest\<T>(T, InputStream) where T <: Digest
+        - [接口](std/crypto/digest/digest_package_api/digest_package_interfaces.md)
+          - interface Digest
+            - prop algorithm
+            - prop blockSize
+            - prop size
+            - func finish()
+            - func finish(Array\<Byte>)
+            - func reset()
+            - func write(Array\<Byte>)
+    - [std.database.sql](std/database_sql/database_sql_package_overview.md)
+        - [接口](std/database_sql/database_sql_package_api/database_sql_package_interfaces.md)
+          - interface ColumnInfo
+            - prop displaySize
+            - prop length
+            - prop name
+            - prop nullable
+            - prop scale
+            - prop typeName
+          - interface Connection
+            - prop state
+            - func createTransaction()
+            - func getMetaData()
+            - func prepareStatement(String)
+          - interface Datasource
+            - func connect()
+            - func setOption(String, String)
+          - interface Driver
+            - prop name
+            - prop preferredPooling
+            - prop version
+            - func open(String, Array\<(String, String)>)
+          - interface QueryResult
+            - prop columnInfos
+            - func get\<T>(Int64)
+            - func getOrNull\<T>(Int64)
+            - func next()
+            - func next(Array\<SqlDbType>) <sup>(deprecated)</sup>
+          - interface SqlDbType <sup>(deprecated)</sup>
+            - prop name
+          - interface SqlNullableDbType <sup>(deprecated)</sup>
+          - interface Statement
+            - prop parameterColumnInfos
+            - func query()
+            - func query(Array\<SqlDbType>) <sup>(deprecated)</sup>
+            - func set\<T>(Int64, T)
+            - func setNull(Int64)
+            - func setOption(String, String)
+            - func update(Array\<SqlDbType>) <sup>(deprecated)</sup>
+            - func update()
+          - interface Transaction
+            - prop accessMode
+            - prop deferrableMode
+            - prop isoLevel
+            - func begin()
+            - func commit()
+            - func release(String)
+            - func rollback()
+            - func rollback(String)
+            - func save(String)
+          - interface UpdateResult
+            - prop lastInsertId
+            - prop rowCount
+        - [类](std/database_sql/database_sql_package_api/database_sql_package_classes.md)
+          - class DriverManager
+            - static func deregister(String)
+            - static func drivers()
+            - static func getDriver(String)
+            - static func register(String, Driver)
+          - class PooledDatasource
+            - prop connectionTimeout
+            - prop idleTimeout
+            - prop keepaliveTime
+            - prop maxIdleSize
+            - prop maxLifeTime
+            - prop maxSize
+            - init(Datasource)
+            - func close()
+            - func connect()
+            - func isClosed()
+            - func setOption(String, String)
+          - class SqlBigInt <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Int64)
+          - class SqlBinary <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Array\<Byte>)
+          - class SqlBlob <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(InputStream)
+          - class SqlBool <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Bool)
+          - class SqlByte <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Int8)
+          - class SqlChar <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(String)
+          - class SqlClob <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(InputStream)
+          - class SqlDate <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(DateTime)
+          - class SqlDecimal <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Decimal)
+          - class SqlDouble <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Float64)
+          - class SqlInteger <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Int32)
+          - class SqlInterval <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Duration)
+          - class SqlNullableBigInt <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Int64)
+          - class SqlNullableBinary <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Array\<Byte>)
+          - class SqlNullableBlob <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?InputStream)
+          - class SqlNullableBool <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Bool)
+          - class SqlNullableByte <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Int8)
+          - class SqlNullableChar <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?String)
+          - class SqlNullableClob <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?InputStream)
+          - class SqlNullableDate <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?DateTime)
+          - class SqlNullableDecimal <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Decimal)
+          - class SqlNullableDouble <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Float64)
+          - class SqlNullableInteger <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Int32)
+          - class SqlNullableInterval <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Duration)
+          - class SqlNullableReal <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Float32)
+          - class SqlNullableSmallInt <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Int16)
+          - class SqlNullableTime <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?DateTime)
+          - class SqlNullableTimeTz <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?DateTime)
+          - class SqlNullableTimestamp <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?DateTime)
+          - class SqlNullableVarBinary <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?Array\<Byte>)
+          - class SqlNullableVarchar <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(?String)
+          - class SqlOption
+            - static const ConnectionTimeout
+            - static const Database
+            - static const Driver
+            - static const Encoding
+            - static const FetchRows
+            - static const Host
+            - static const Password
+            - static const QueryTimeout
+            - static const SSLCA
+            - static const SSLCert
+            - static const SSLKey
+            - static const SSLKeyPassword
+            - static const SSLMode
+            - static const SSLModeDisabled
+            - static const SSLModePreferred
+            - static const SSLModeRequired
+            - static const SSLModeVerifyCA
+            - static const SSLModeVerifyFull
+            - static const SSLSni
+            - static const Tls12Ciphersuites
+            - static const Tls13Ciphersuites
+            - static const TlsVersion
+            - static const URL
+            - static const UpdateTimeout
+            - static const Username
+          - class SqlReal <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Float32)
+          - class SqlSmallInt <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Int16)
+          - class SqlTime <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(DateTime)
+          - class SqlTimeTz <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(DateTime)
+          - class SqlTimestamp <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(DateTime)
+          - class SqlVarBinary <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(Array\<Byte>)
+          - class SqlVarchar <sup>(deprecated)</sup>
+            - prop name
+            - prop value
+            - init(String)
+        - [枚举](std/database_sql/database_sql_package_api/database_sql_package_enums.md)
+          - enum ConnectionState
+            - Broken
+            - Closed
+            - Connected
+            - Connecting
+            - operator func !=(ConnectionState)
+            - operator func ==(ConnectionState)
+          - enum TransactionAccessMode
+            - ReadOnly
+            - ReadWrite
+            - Unspecified
+            - func hashCode()
+            - func toString()
+            - operator func !=(TransactionAccessMode)
+            - operator func ==(TransactionAccessMode)
+          - enum TransactionDeferrableMode
+            - Deferrable
+            - NotDeferrable
+            - Unspecified
+            - func hashCode()
+            - func toString()
+            - operator func !=(TransactionDeferrableMode)
+            - operator func ==(TransactionDeferrableMode)
+          - enum TransactionIsoLevel
+            - Chaos
+            - Linearizable
+            - ReadCommitted
+            - ReadUncommitted
+            - RepeatableRead
+            - Serializable
+            - Snapshot
+            - Unspecified
+            - func hashCode()
+            - func toString()
+            - operator func !=(TransactionIsoLevel)
+            - operator func ==(TransactionIsoLevel)
+        - [异常类](std/database_sql/database_sql_package_api/database_sql_package_exceptions.md)
+          - class SqlException
+            - prop errorCode
+            - prop message
+            - prop sqlState
+            - init()
+            - init(String)
+            - init(String, String, Int64)
+            - [获取数据库连接示例](std/database_sql/database_sql_samples/db_get_connection.md)
+            - [删除表、创建表示例](std/database_sql/database_sql_samples/db_modify_table.md)
+            - [执行数据库操作语句示例](std/database_sql/database_sql_samples/db_operations.md)
+            - [执行事务控制语句示例](std/database_sql/database_sql_samples/db_transactions.md)
+    - [std.deriving](std/deriving/deriving_package_overview.md)
+        - [宏](std/deriving/deriving_package_api/deriving_package_macros.md)
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+            - [Deriving 示例](std/deriving/deriving_samples/deriving_user_guide.md)
+    - [std.env](std/env/env_package_overview.md)
+        - [函数](std/env/env_package_api/env_package_funcs.md)
+          - func atExit(() -> Unit)
+          - func exit(Int64)
+          - func getCommand()
+          - func getCommandLine()
+          - func getHomeDirectory()
+          - func getProcessId()
+          - func getStdErr()
+          - func getStdIn()
+          - func getStdOut()
+          - func getTempDirectory()
+          - func getVariable(String)
+          - func getVariables()
+          - func getWorkingDirectory()
+          - func removeVariable(String)
+          - func setVariable(String, String)
+        - [类](std/env/env_package_api/env_package_classes.md)
+          - class ConsoleReader
+            - func read()
+            - func read(Array\<Byte>)
+            - func readToEnd()
+            - func readUntil((Rune) -> Bool)
+            - func readUntil(Rune)
+            - func readln()
+          - class ConsoleWriter
+            - func flush()
+            - func write(Array\<Byte>)
+            - func write(Bool)
+            - func write(Float16)
+            - func write(Float32)
+            - func write(Float64)
+            - func write(Int16)
+            - func write(Int32)
+            - func write(Int64)
+            - func write(Int8)
+            - func write(Rune)
+            - func write(String)
+            - func write(UInt16)
+            - func write(UInt32)
+            - func write(UInt64)
+            - func write(UInt8)
+            - func write\<T>(T) where T <: ToString
+            - func writeln(Array\<Byte>)
+            - func writeln(Bool)
+            - func writeln(Float16)
+            - func writeln(Float32)
+            - func writeln(Float64)
+            - func writeln(Int16)
+            - func writeln(Int32)
+            - func writeln(Int64)
+            - func writeln(Int8)
+            - func writeln(Rune)
+            - func writeln(String)
+            - func writeln(UInt16)
+            - func writeln(UInt32)
+            - func writeln(UInt64)
+            - func writeln(UInt8)
+            - func writeln\<T>(T) where T <: ToString
+        - [异常类](std/env/env_package_api/env_package_exceptions.md)
+          - class EnvException
+            - init(String)
+            - [env 示例](std/env/env_samples/env_sample.md)
+    - [std.fs](std/fs/fs_package_overview.md)
+        - [函数](std/fs/fs_package_api/fs_package_funcs.md)
+          - func canonicalize(Path)
+          - func canonicalize(String)
+          - func copy(Path, Path, Bool)
+          - func copy(String, String, Bool)
+          - func exists(Path)
+          - func exists(String)
+          - func rename(Path, Path, Bool)
+          - func rename(String, String, Bool)
+          - func remove(Path, Bool)
+          - func remove(String, Bool)
+          - func removeIfExists(Path, Bool)
+          - func removeIfExists(String, Bool)
+        - [类](std/fs/fs_package_api/fs_package_classes.md)
+          - class Directory
+            - static func create(Path, Bool)
+            - static func create(String, Bool)
+            - static func createTemp(Path)
+            - static func createTemp(String)
+            - static func isEmpty(Path)
+            - static func isEmpty(String)
+            - static func readFrom(Path)
+            - static func readFrom(String)
+            - static func walk(Path, (FileInfo)->Bool)
+            - static func walk(String, (FileInfo)->Bool)
+          - class File
+            - prop fileDescriptor
+            - prop info
+            - prop length
+            - init(Path, OpenMode)
+            - init(String, OpenMode)
+            - static func appendTo(Path, Array\<Byte>)
+            - static func appendTo(String, Array\<Byte>)
+            - static func create(Path)
+            - static func create(String)
+            - static func createTemp(Path)
+            - static func createTemp(String)
+            - static func readFrom(Path)
+            - static func readFrom(String)
+            - static func writeTo(Path, Array\<Byte>)
+            - static func writeTo(String, Array\<Byte>)
+            - func canRead()
+            - func canWrite()
+            - func close()
+            - func flush()
+            - func isClosed()
+            - func read(Array\<Byte>)
+            - func seek(SeekPosition)
+            - func setLength(Int64)
+            - func write(Array\<Byte>)
+          - class HardLink
+            - static func create(Path, Path)
+            - static func create(String, String)
+          - class SymbolicLink
+            - static func create(Path, Path)
+            - static func create(String, String)
+            - static func readFrom(Path, Bool)
+            - static func readFrom(String, Bool)
+        - [枚举](std/fs/fs_package_api/fs_package_enums.md)
+          - enum OpenMode
+            - Read
+            - Write
+            - Append
+            - ReadWrite
+            - func toString()
+            - func operator func ==(OpenMode)
+            - func operator func !=(OpenMode)
+        - [结构体](std/fs/fs_package_api/fs_package_structs.md)
+          - struct FileDescriptor
+            - prop fileHandle
+          - struct FileInfo
+            - prop creationTime
+            - prop lastAccessTime
+            - prop lastModificationTime
+            - prop name
+            - prop parentDirectory
+            - prop path
+            - prop size
+            - init(Path)
+            - init(String)
+            - func canExecute()
+            - func canRead()
+            - func canWrite()
+            - func isDirectory()
+            - func isRegular()
+            - func isHidden()
+            - func isReadOnly()
+            - func isSymbolicLink()
+            - func setExecutable(Bool)
+            - func setReadable(Bool)
+            - func setWritable(Bool)
+            - operator func ==(FileInfo)
+          - struct Path
+            - static const ListSeparator
+            - static const Separator
+            - prop extensionName
+            - prop fileName
+            - prop fileNameWithoutExtension
+            - prop parent
+            - init(String)
+            - func hashCode()
+            - func isAbsolute()
+            - func isEmpty()
+            - func isRelative()
+            - func join(Path)
+            - func join(String)
+            - func normalize()
+            - func toString()
+            - operator func ==(Path)
+        - [异常类](std/fs/fs_package_api/fs_package_exceptions.md)
+          - class FSException
+            - init()
+            - init(String)
+            - [Directory 示例](std/fs/fs_samples/directory_samples.md)
+            - [File 示例](std/fs/fs_samples/file_samples.md)
+            - [FileInfo 示例](std/fs/fs_samples/fileinfo_samples.md)
+            - [Path 示例](std/fs/fs_samples/path_samples.md)
+    - [std.io](std/io/io_package_overview.md)
+        - [函数](std/io/io_package_api/io_package_funcs.md)
+          - func copy(InputStream, OutputStream)
+          - func readString\<T>(T) where T <: InputStream & Seekable
+          - func readStringUnchecked\<T>(T) where T <: InputStream & Seekable
+          - func readToEnd\<T>(T) where T <: InputStream & Seekable
+        - [接口](std/io/io_package_api/io_package_interfaces.md)
+          - interface IOStream
+          - interface InputStream
+            - func read(Array\<Byte>)
+          - interface OutputStream
+            - func flush()
+            - func write(Array\<Byte>)
+          - interface Seekable
+            - prop length
+            - prop position
+            - prop remainLength
+            - func seek(SeekPosition)
+        - [类](std/io/io_package_api/io_package_classes.md)
+          - class BufferedInputStream\<T> where T <: InputStream
+            - init(T)
+            - init(T, Array\<Byte>)
+            - init(T, Int64)
+            - func read(Array\<Byte>)
+            - func readByte()
+            - func reset(T)
+            - extend\<T> BufferedInputStream\<T> <: Resource where T <: Resource
+              - func close()
+              - func isClosed()
+            - extend\<T> BufferedInputStream\<T> <: Seekable where T <: Seekable
+              - prop length
+              - prop position
+              - prop remainLength
+              - func seek(SeekPosition)
+          - class BufferedOutputStream\<T> where T <: OutputStream
+            - init(T)
+            - init(T, Array\<Byte>)
+            - init(T, Int64)
+            - func flush()
+            - func reset(T)
+            - func write(Array\<Byte>)
+            - func writeByte(Byte)
+            - extend\<T> BufferedOutputStream\<T> <: Resource where T <: Resource
+              - func close()
+              - func isClosed()
+            - extend\<T> BufferedOutputStream\<T> <: Seekable where T <: Seekable
+              - prop length
+              - prop position
+              - prop remainLength
+              - func seek(SeekPosition)
+          - class ByteBuffer
+            - prop capacity
+            - init()
+            - init(Array\<Byte>)
+            - init(Int64)
+            - func bytes()
+            - func clear()
+            - func clone()
+            - func read(Array\<Byte>)
+            - func readByte()
+            - func reserve(Int64)
+            - func seek(SeekPosition)
+            - func setLength(Int64)
+            - func write(Array\<Byte>)
+            - func writeByte(Byte)
+          - class ChainedInputStream\<T> where T <: InputStream
+            - init(Array\<T>)
+            - func read(Array\<Byte>)
+          - class MultiOutputStream\<T> where T <: OutputStream
+            - init(Array\<T>)
+            - func flush()
+            - func write(Array\<Byte>)
+          - class StringReader\<T> where T <: InputStream
+            - init(T)
+            - func lines()
+            - func read()
+            - func readToEnd()
+            - func readUntil((Rune)->Bool)
+            - func readUntil(Rune)
+            - func readln()
+            - func runes()
+            - extend\<T> StringReader\<T> <: Resource where T <: Resource
+              - func close()
+              - func isClosed()
+            - extend\<T> StringReader\<T> <: Seekable where T <: Seekable
+              - prop position
+              - func seek(SeekPosition)
+          - class StringWriter\<T> where T <: OutputStream
+            - init(T)
+            - func flush()
+            - func write(Bool)
+            - func write(Float16)
+            - func write(Float32)
+            - func write(Float64)
+            - func write(Int16)
+            - func write(Int32)
+            - func write(Int64)
+            - func write(Int8)
+            - func write(Rune)
+            - func write(String)
+            - func write(UInt16)
+            - func write(UInt32)
+            - func write(UInt64)
+            - func write(UInt8)
+            - func write\<T>(T) where T <: ToString
+            - func writeln()
+            - func writeln(Bool)
+            - func writeln(Float16)
+            - func writeln(Float32)
+            - func writeln(Float64)
+            - func writeln(Int16)
+            - func writeln(Int32)
+            - func writeln(Int64)
+            - func writeln(Int8)
+            - func writeln(Rune)
+            - func writeln(String)
+            - func writeln(UInt16)
+            - func writeln(UInt32)
+            - func writeln(UInt64)
+            - func writeln(UInt8)
+            - func writeln\<T>(T) where T <: ToString
+            - extend\<T> StringWriter\<T> <: Resource where T <: Resource
+              - func close()
+              - func isClosed()
+            - extend\<T> StringWriter\<T> <: Seekable where T <: Seekable
+              - func seek(SeekPosition)
+        - [枚举](std/io/io_package_api/io_package_enums.md)
+          - enum SeekPosition
+            - Begin(Int64)
+            - Current(Int64)
+            - End(Int64)
+        - [异常类](std/io/io_package_api/io_package_exceptions.md)
+          - class ContentFormatException
+            - init()
+            - init(String)
+          - class IOException
+            - init()
+            - init(String)
+            - func getClassName()
+            - [BufferedInputStream 示例](std/io/io_samples/buffered_input_stream.md)
+            - [BufferedOutputStream 示例](std/io/io_samples/buffered_output_stream.md)
+            - [ByteBuffer 示例](std/io/io_samples/byte_buffer.md)
+            - [ChainedInputStream 示例](std/io/io_samples/chained_input_stream.md)
+            - [MultiOutputStream 示例](std/io/io_samples/multi_output_stream.md)
+            - [StringReader 示例](std/io/io_samples/string_reader.md)
+            - [StringWriter 示例](std/io/io_samples/string_writer.md)
+    - [std.math](std/math/math_package_overview.md)
+        - [接口](std/math/math_package_api/math_package_interfaces.md)
+          - interface FloatingPoint\<T>
+            - static func getE()
+            - static func getInf()
+            - static func getPI()
+            - static func getMinDenormal()
+            - static func getMinNormal()
+            - static func getNaN()
+            - func isInf()
+            - func isNaN()
+            - func isNormal()
+            - extend Float16 <: FloatingPoint\<Float16>
+              - static func getE()
+              - static func getInf()
+              - static func getPI()
+              - static func getMinDenormal()
+              - static func getMinNormal()
+              - static func getNaN()
+            - extend Float32 <: FloatingPoint\<Float32>
+              - static func getE()
+              - static func getInf()
+              - static func getPI()
+              - static func getMinDenormal()
+              - static func getMinNormal()
+              - static func getNaN()
+            - extend Float64 <: FloatingPoint\<Float64>
+              - static func getE()
+              - static func getInf()
+              - static func getPI()
+              - static func getMinDenormal()
+              - static func getMinNormal()
+              - static func getNaN()
+          - interface Integer\<T>
+            - static func isSigned()
+            - operator func %(T)
+            - operator func &(T)
+            - operator func |(T)
+            - operator func ^(T)
+            - operator func !()
+            - operator func >>(Int64)
+            - operator func <<(Int64)
+            - extend Int16 <: Integer\<Int16>
+              - static func isSigned()
+            - extend Int32 <: Integer\<Int32>
+              - static func isSigned()
+            - extend Int64 <: Integer\<Int64>
+              - static func isSigned()
+            - extend Int8 <: Integer\<Int8>
+              - static func isSigned()
+            - extend IntNative <: Integer\<IntNative>
+              - static func isSigned()
+            - extend UInt16 <: Integer\<UInt16>
+              - static func isSigned()
+            - extend UInt32 <: Integer\<UInt32>
+              - static func isSigned()
+            - extend UInt64 <: Integer\<UInt64>
+              - static func isSigned()
+            - extend UInt8 <: Integer\<UInt8>
+              - static func isSigned()
+            - extend UIntNative <: Integer\<UIntNative>
+              - static func isSigned()
+          - interface MathExtension\<T> <sup>(deprecated)</sup>
+            - static func GetPI()
+            - static func GetE()
+            - extend Float16 <: MathExtension\<Float16>
+              - static func GetPI()
+              - static func GetE()
+            - extend Float32 <: MathExtension\<Float32>
+              - static func GetPI()
+              - static func GetE()
+            - extend Float64 <: MathExtension\<Float64>
+              - static func GetPI()
+              - static func GetE()
+          - interface MaxMinValue\<T>
+            - static func getMax()
+            - static func getMax()
+            - extend Float16 <: MaxMinValue\<Float16>
+              - static func getMax()
+              - static func getMin()
+            - extend Float32 <: MaxMinValue\<Float32>
+              - static func getMax()
+              - static func getMin()
+            - extend Float64 <: MaxMinValue\<Float64>
+              - static func getMax()
+              - static func getMin()
+            - extend Int16 <: MaxMinValue\<Int16>
+              - static func getMax()
+              - static func getMin()
+            - extend Int32 <: MaxMinValue\<Int32>
+              - static func getMax()
+              - static func getMin()
+            - extend Int64 <: MaxMinValue\<Int64>
+              - static func getMax()
+              - static func getMin()
+            - extend Int8 <: MaxMinValue\<Int8>
+              - static func getMax()
+              - static func getMin()
+            - extend IntNative <: MaxMinValue\<IntNative>
+              - static func getMax()
+              - static func getMin()
+            - extend UInt16 <: MaxMinValue\<UInt16>
+              - static func getMax()
+              - static func getMin()
+            - extend UInt32 <: MaxMinValue\<UInt32>
+              - static func getMax()
+              - static func getMin()
+            - extend UInt64 <: MaxMinValue\<UInt64>
+              - static func getMax()
+              - static func getMin()
+            - extend UInt8 <: MaxMinValue\<UInt8>
+              - static func getMax()
+              - static func getMin()
+            - extend UIntNative <: MaxMinValue\<UIntNative>
+              - static func getMax()
+              - static func getMin()
+          - interface Number\<T>
+            - operator func +(T)
+            - operator func -(T)
+            - operator func *(T)
+            - operator func /(T)
+            - operator func -()
+            - extend Float16 <: Number\<Float16>
+            - extend Float32 <: Number\<Float32>
+            - extend Float64 <: Number\<Float64>
+            - extend Int16 <: Number\<Int16>
+            - extend Int32 <: Number\<Int32>
+            - extend Int64 <: Number\<Int64>
+            - extend Int8 <: Number\<Int8>
+            - extend IntNative <: Number\<IntNative>
+            - extend UInt16 <: Number\<UInt16>
+            - extend UInt32 <: Number\<UInt32>
+            - extend UInt64 <: Number\<UInt64>
+            - extend UInt8 <: Number\<UInt8>
+            - extend UIntNative <: Number\<UIntNative>
+        - [函数](std/math/math_package_api/math_package_funcs.md)
+          - func abs(Float16)
+          - func abs(Float32)
+          - func abs(Float64)
+          - func abs(Int16)
+          - func abs(Int32)
+          - func abs(Int64)
+          - func abs(Int8)
+          - func acos(Float16)
+          - func acos(Float32)
+          - func acos(Float64)
+          - func acosh(Float16)
+          - func acosh(Float32)
+          - func acosh(Float64)
+          - func asin(Float16)
+          - func asin(Float32)
+          - func asin(Float64)
+          - func asinh(Float16)
+          - func asinh(Float32)
+          - func asinh(Float64)
+          - func atan(Float16)
+          - func atan(Float32)
+          - func atan(Float64)
+          - func atan2(Float16, Float16)
+          - func atan2(Float32, Float32)
+          - func atan2(Float64, Float64)
+          - func atanh(Float16)
+          - func atanh(Float32)
+          - func atanh(Float64)
+          - func cbrt(Float16)
+          - func cbrt(Float32)
+          - func cbrt(Float64)
+          - func ceil(Float16)
+          - func ceil(Float32)
+          - func ceil(Float64)
+          - func checkedAbs(Int16)
+          - func checkedAbs(Int32)
+          - func checkedAbs(Int64)
+          - func checkedAbs(Int8)
+          - func clamp(Float16, Float16, Float16)
+          - func clamp(Float32, Float32, Float32)
+          - func clamp(Float64, Float64, Float64)
+          - func cos(Float16)
+          - func cos(Float32)
+          - func cos(Float64)
+          - func cosh(Float16)
+          - func cosh(Float32)
+          - func cosh(Float64)
+          - func countOne(Int16) <sup>(deprecated)<sup>
+          - func countOnes(Int16)
+          - func countOne(Int32) <sup>(deprecated)<sup>
+          - func countOnes(Int32)
+          - func countOne(Int64) <sup>(deprecated)<sup>
+          - func countOnes(Int64)
+          - func countOne(Int8) <sup>(deprecated)<sup>
+          - func countOnes(Int8)
+          - func countOne(UInt16) <sup>(deprecated)<sup>
+          - func countOnes(UInt16)
+          - func countOne(UInt32) <sup>(deprecated)<sup>
+          - func countOnes(UInt32)
+          - func countOne(UInt64) <sup>(deprecated)<sup>
+          - func countOnes(UInt64)
+          - func countOne(UInt8) <sup>(deprecated)<sup>
+          - func countOnes(UInt8)
+          - func erf(Float16)
+          - func erf(Float32)
+          - func erf(Float64)
+          - func exp(Float16)
+          - func exp(Float32)
+          - func exp(Float64)
+          - func exp2(Float16)
+          - func exp2(Float32)
+          - func exp2(Float64)
+          - func floor(Float16)
+          - func floor(Float32)
+          - func floor(Float64)
+          - func fmod(Float16, Float16)
+          - func fmod(Float32, Float32)
+          - func fmod(Float64, Float64)
+          - func gamma(Float16)
+          - func gamma(Float32)
+          - func gamma(Float64)
+          - func gcd(Int16, Int16)
+          - func gcd(Int32, Int32)
+          - func gcd(Int64, Int64)
+          - func gcd(Int8, Int8)
+          - func gcd(UInt16, UInt16)
+          - func gcd(UInt32, UInt32)
+          - func gcd(UInt64, UInt64)
+          - func gcd(UInt8, UInt8)
+          - func lcm(Int16, Int16)
+          - func lcm(Int32, Int32)
+          - func lcm(Int64, Int64)
+          - func lcm(Int8, Int8)
+          - func lcm(UInt16, UInt16)
+          - func lcm(UInt32, UInt32)
+          - func lcm(UInt64, UInt64)
+          - func lcm(UInt8, UInt8)
+          - func leadingZeros(Int16)
+          - func leadingZeros(Int32)
+          - func leadingZeros(Int64)
+          - func leadingZeros(Int8)
+          - func leadingZeros(UInt16)
+          - func leadingZeros(UInt32)
+          - func leadingZeros(UInt64)
+          - func leadingZeros(UInt8)
+          - func log(Float16)
+          - func log(Float32)
+          - func log(Float64)
+          - func log10(Float16)
+          - func log10(Float32)
+          - func log10(Float64)
+          - func log2(Float16)
+          - func log2(Float32)
+          - func log2(Float64)
+          - func logBase(Float16, Float16)
+          - func logBase(Float32, Float32)
+          - func logBase(Float64, Float64)
+          - func pow(Float32, Float32)
+          - func pow(Float32, Int32)
+          - func pow(Float64, Float64)
+          - func pow(Float64, Int64)
+          - func reverse(UInt16)
+          - func reverse(UInt32)
+          - func reverse(UInt64)
+          - func reverse(UInt8)
+          - func rotate(Int16, Int8)
+          - func rotate(Int32, Int8)
+          - func rotate(Int64, Int8)
+          - func rotate(Int8, Int8)
+          - func rotate(UInt16, Int8)
+          - func rotate(UInt32, Int8)
+          - func rotate(UInt64, Int8)
+          - func rotate(UInt8, Int8)
+          - func round(Float16)
+          - func round(Float32)
+          - func round(Float64)
+          - func sin(Float16)
+          - func sin(Float32)
+          - func sin(Float64)
+          - func sinh(Float16)
+          - func sinh(Float32)
+          - func sinh(Float64)
+          - func sqrt(Float16)
+          - func sqrt(Float32)
+          - func sqrt(Float64)
+          - func tan(Float16)
+          - func tan(Float32)
+          - func tan(Float64)
+          - func tanh(Float16)
+          - func tanh(Float32)
+          - func tanh(Float64)
+          - func trailingZeros(Int16)
+          - func trailingZeros(Int32)
+          - func trailingZeros(Int64)
+          - func trailingZeros(Int8)
+          - func trailingZeros(UInt16)
+          - func trailingZeros(UInt32)
+          - func trailingZeros(UInt64)
+          - func trailingZeros(UInt8)
+          - func trunc(Float16)
+          - func trunc(Float32)
+          - func trunc(Float64)
+        - [枚举](std/math/math_package_api/math_package_enums.md)
+          - enum RoundingMode
+            - Ceiling
+            - Down
+            - Floor
+            - HalfEven
+            - HalfUp
+            - Up
+            - func toString()
+            - operator func ==(RoundingMode)
+            - [数学基础运算示例](std/math/math_samples/math_basic_operation.md)
+    - [std.math.numeric](std/math_numeric/math_numeric_package_overview.md)
+        - [函数](std/math_numeric/math_numeric_package_api/math_numeric_package_funcs.md)
+          - func abs(BigInt)
+          - func abs(Decimal)
+          - func countOne(BigInt) <sup>(deprecated)<sup>
+          - func countOnes(BigInt)
+          - func gcd(BigInt, BigInt)
+          - func lcm(BigInt, BigInt)
+          - func round(Decimal, RoundingMode)
+          - func sqrt(BigInt)
+          - func sqrt(Decimal)
+          - func trailingZeros(BigInt)
+        - [枚举](std/math_numeric/math_numeric_package_api/math_numeric_package_enums.md)
+          - enum OverflowStrategy
+            - Saturating
+            - Throwing
+            - Wrapping
+            - func toString()
+            - operator func ==(OverflowStrategy)
+        - [结构体](std/math_numeric/math_numeric_package_api/math_numeric_package_structs.md)
+          - struct BigInt
+            - prop bitLen
+            - prop sign
+            - init(Array\<Byte>)
+            - init(Bool, Array\<Byte>)
+            - init(Bool, Int64, Random)
+            - init(Float16)
+            - init(Float32)
+            - init(Float64)
+            - init(Int16)
+            - init(Int32)
+            - init(Int64)
+            - init(Int8)
+            - init(IntNative)
+            - init(String, Int64) <sup>(deprecated)<sup>
+            - init(UInt16)
+            - init(UInt32)
+            - init(UInt64)
+            - init(UInt8)
+            - init(UIntNative)
+            - static func randomProbablePrime(Int64, UInt64, Random)
+            - func clearBit(Int64)
+            - func compare(BigInt)
+            - func divAndMod(BigInt)
+            - func flipBit(Int64)
+            - func hashCode()
+            - func isProbablePrime(UInt64)
+            - func lowestOneBit() <sup>(deprecated)<sup>
+            - func modInverse(BigInt)
+            - func modPow(BigInt, ?BigInt)
+            - func quo(BigInt) <sup>(deprecated)<sup>
+            - func quoAndRem(BigInt) <sup>(deprecated)<sup>
+            - func rem(BigInt) <sup>(deprecated)<sup>
+            - func setBit(Int64)
+            - func testBit(Int64)
+            - func toBytes()
+            - func toFloat16()
+            - func toFloat32()
+            - func toFloat64()
+            - func toInt16(OverflowStrategy)
+            - func toInt32(OverflowStrategy)
+            - func toInt64(OverflowStrategy)
+            - func toInt8(OverflowStrategy)
+            - func toIntNative(OverflowStrategy)
+            - func toString()
+            - func toUInt16(OverflowStrategy)
+            - func toUInt32(OverflowStrategy)
+            - func toUInt64(OverflowStrategy)
+            - func toUInt8(OverflowStrategy)
+            - func toUIntNative(OverflowStrategy)
+            - operator func !()
+            - operator func !=(BigInt)
+            - operator func %(BigInt)
+            - operator func &(BigInt)
+            - operator func *(BigInt)
+            - operator func **(UInt64)
+            - operator func +(BigInt)
+            - operator func -()
+            - operator func -(BigInt)
+            - operator func <(BigInt)
+            - operator func <<(Int64)
+            - operator func <=(BigInt)
+            - operator func ==(BigInt)
+            - operator func >(BigInt)
+            - operator func >=(BigInt)
+            - operator func >>(Int64)
+            - operator func \/(BigInt)
+            - operator func ^(BigInt)
+            - operator func |(BigInt)
+            - extend BigInt <: Integer\<BigInt>
+              - static func isSigned()
+            - extend BigInt <: Formattable
+              - func format(String)
+            - extend BigInt <: Number\<BigInt>
+            - extend BigInt <: Parsable\<BigInt>
+              - static func parse(String)
+              - static func tryParse(String)
+            - extend BigInt <: RadixConvertible\<BigInt>
+              - static func parse(String, Int64)
+              - static func tryParse(String, Int64)
+              - func toString(Int64)
+          - struct Decimal
+            - prop precision
+            - prop scale
+            - prop sign
+            - prop value
+            - init(BigInt)
+            - init(BigInt, Int32)
+            - init(Float16)
+            - init(Float32)
+            - init(Float64)
+            - init(Int16)
+            - init(Int32)
+            - init(Int64)
+            - init(Int8)
+            - init(IntNative)
+            - init(String) <sup>(deprecated)<sup>
+            - init(UInt16)
+            - init(UInt32)
+            - init(UInt64)
+            - init(UInt8)
+            - init(UIntNative)
+            - func compare(Decimal)
+            - func divWithPrecision(Decimal, Int64, RoundingMode)
+            - func divAndRem(Decimal) <sup>(deprecated)<sup>
+            - func divAndMod(Decimal)
+            - func hashCode()
+            - func isInteger()
+            - func powWithPrecision(Int64, Int64, RoundingMode)
+            - func reScale(Int32, RoundingMode)
+            - func removeTrailingZeros()
+            - func roundWithPrecision(Int64, RoundingMode)
+            - func scaleUnit()
+            - func shiftPoint(Int32)
+            - func sqrtWithPrecision(Int64, RoundingMode)
+            - func toBigInt()
+            - func toEngString()
+            - func toSciString()
+            - func toFloat16()
+            - func toFloat32()
+            - func toFloat64()
+            - func toInt16(OverflowStrategy)
+            - func toInt32(OverflowStrategy)
+            - func toInt64(OverflowStrategy)
+            - func toInt8(OverflowStrategy)
+            - func toIntNative(OverflowStrategy)
+            - func toString()
+            - func toUInt16(OverflowStrategy)
+            - func toUInt32(OverflowStrategy)
+            - func toUInt64(OverflowStrategy)
+            - func toUInt8(OverflowStrategy)
+            - func toUIntNative(OverflowStrategy)
+            - operator func !=(Decimal)
+            - operator func *(Decimal)
+            - operator func **(Int64)
+            - operator func +(Decimal)
+            - operator func -()
+            - operator func -(Decimal)
+            - operator func <(Decimal)
+            - operator func <=(Decimal)
+            - operator func ==(Decimal)
+            - operator func >(Decimal)
+            - operator func >=(Decimal)
+            - operator func \/(Decimal)
+            - extend Decimal <: Formattable
+              - func format(String)
+            - extend Decimal <: Number\<Decimal>
+            - extend Decimal <: Parsable\<Decimal>
+              - static func parse(String)
+              - static func tryParse(String)
+            - [BigInt 基础数学运算示例](std/math_numeric/math_numeric_samples/bigInt_basic_arithmetic.md)
+            - [BigInt 基本属性示例](std/math_numeric/math_numeric_samples/bigInt_basic_prop.md)
+            - [BigInt 大小比较示例](std/math_numeric/math_numeric_samples/bigInt_compare_opration.md)
+            - [Decimal 基础数学运算示例](std/math_numeric/math_numeric_samples/decimal_basic_arithmetic.md)
+            - [Decimal 基本属性示例](std/math_numeric/math_numeric_samples/decimal_basic_prop.md)
+            - [Decimal 大小比较示例](std/math_numeric/math_numeric_samples/decimal_compare_opration.md)
+    - [std.net](std/net/net_package_overview.md)
+        - [接口](std/net/net_package_api/net_package_interfaces.md)
+          - interface DatagramSocket
+            - prop localAddress
+            - prop receiveTimeout
+            - prop remoteAddress
+            - prop sendTimeout
+            - func receiveFrom(Array\<Byte>)
+            - func sendTo(SocketAddress, Array\<Byte>)
+          - interface ServerSocket
+            - prop localAddress
+            - func accept()
+            - func accept(?Duration)
+            - func bind()
+          - interface StreamingSocket
+            - prop localAddress
+            - prop readTimeout
+            - prop remoteAddress
+            - prop writeTimeout
+        - [类](std/net/net_package_api/net_package_classes.md)
+          - class IPAddress
+            - prop hostName
+            - prop size
+            - static func parse(String)
+            - static func readBigEndian(Array\<Byte>)
+            - static func resolve(AddressFamily, String)
+            - static func resolve(String)
+            - static func tryParse(String)
+            - func getAddressBytes()
+            - func getPrefix(UInt8)
+            - func hashCode()
+            - func isGlobalUnicast()
+            - func isIPv4()
+            - func isIPv6()
+            - func isLinkLocal()
+            - func isLoopback()
+            - func isMulticast()
+            - func isPrivate()
+            - func isUnspecified()
+            - func writeBigEndian(Array\<Byte>)
+            - operator func ==(IPAddress)
+            - operator func !=(IPAddress)
+          - class IPPrefix
+            - prop address
+            - prop prefixLength
+            - static func parse(String)
+            - static func tryParse(String)
+            - func broadcast()
+            - func contains(IPAddress)
+            - func contains(IPPrefix)
+            - func hostmask()
+            - func masked()
+            - func netmask()
+            - func network()
+            - func overlaps(IPPrefix)
+            - func toString()
+            - operator func ==(IPPrefix)
+            - operator func !=(IPPrefix)
+          - class IPSocketAddress
+            - prop address
+            - prop family
+            - prop port
+            - prop size
+            - init(Array\<Byte>, UInt16)
+            - init(String, UInt16)
+            - init(IPAddress, UInt16)
+            - static func parse(String)
+            - static func tryParse(String)
+            - func getAddressBytes()
+            - func hashCode()
+            - func isIPv4()
+            - func isIPv6()
+            - func toString()
+            - operator func ==(IPSocketAddress)
+            - operator func !=(IPSocketAddress)
+          - class IPv4Address
+            - static let broadcast
+            - static let localhost
+            - static let unspecified
+            - init(UInt32)
+            - init(Byte, Byte, Byte, Byte)
+            - static func readBigEndian(Array\<Byte>)
+            - func getPrefix(UInt8)
+            - func isBroadcast()
+            - func isGlobalUnicast()
+            - func isLinkLocal()
+            - func isLoopback()
+            - func isMulticast()
+            - func isPrivate()
+            - func isUnspecified()
+            - func toBits()
+            - func toIPv6Compatible()
+            - func toIPv6Mapped()
+            - func writeBigEndian(Array\<Byte>)
+            - func toString()
+            - operator func <=(IPv4Address)
+            - operator func ==(IPv4Address)
+            - operator func !=(IPv4Address)
+          - class IPv6Address
+            - static let localhost
+            - static let unspecified
+            - prop scopeId
+            - init(Array\<Byte>, ?UInt32)
+            - init(UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, ?UInt32)
+            - static func readBigEndian(Array\<Byte>)
+            - func getPrefix(UInt8)
+            - func isGlobalUnicast()
+            - func isIPv4Mapped()
+            - func isLinkLocal()
+            - func isLoopback()
+            - func isMulticast()
+            - func isPrivate()
+            - func isTeredo()
+            - func isUnspecified()
+            - func scope(?UInt32)
+            - func toIPv4()
+            - func toIPv4Mapped()
+            - func writeBigEndian(Array\<Byte>)
+            - func toString()
+            - operator func <=(IPv6Address)
+            - operator func ==(IPv6Address)
+            - operator func !=(IPv6Address)
+          - class RawSocket
+            - prop localAddr <sup>(deprecated)</sup>
+            - prop localAddress
+            - prop readTimeout
+            - prop remoteAddr <sup>(deprecated)</sup>
+            - prop remoteAddress
+            - prop writeTimeout
+            - init(SocketDomain, SocketType, ProtocolType)
+            - func accept(?Duration)
+            - func bind(RawAddress)
+            - func close()
+            - func connect(RawAddress, ?Duration)
+            - func getSocketOption(Int32, Int32, CPointer\<Byte>, CPointer\<Int32>)
+            - func listen(Int32)
+            - func receive(Array\<Byte>, Int32)
+            - func receiveFrom(Array\<Byte>, Int32)
+            - func send(Array\<Byte>, Int32)
+            - func sendTo(RawAddress, Array\<Byte>, Int32)
+            - func setSocketOption(Int32, Int32, CPointer\<Byte>, Int32)
+          - class SocketAddress
+            - prop size
+            - prop family
+            - func getAddressBytes()
+            - operator func ==(SocketAddress)
+            - operator func !=(SocketAddress)
+          - class TcpServerSocket
+            - prop backlogSize
+            - prop bindToDevice
+            - prop localAddress
+            - prop receiveBufferSize
+            - prop reuseAddress
+            - prop reusePort
+            - prop sendBufferSize
+            - init(SocketAddress)
+            - init(UInt16)
+            - func accept()
+            - func accept(?Duration)
+            - func bind()
+            - func close()
+            - func getSocketOption(Int32, Int32, CPointer\<Unit>, CPointer\<UIntNative>)
+            - func getSocketOptionBool(Int32, Int32)
+            - func getSocketOptionIntNative(Int32, Int32)
+            - func isClosed()
+            - func setSocketOption(Int32, Int32, CPointer\<Unit>, UIntNative)
+            - func setSocketOptionBool(Int32, Int32，Bool)
+            - func setSocketOptionIntNative(Int32, Int32, IntNative)
+            - func toString()
+          - class TcpSocket
+            - prop bindToDevice
+            - prop keepAlive
+            - prop linger
+            - prop localAddress
+            - prop noDelay
+            - prop quickAcknowledge
+            - prop readTimeout
+            - prop receiveBufferSize
+            - prop remoteAddress
+            - prop sendBufferSize
+            - prop writeTimeout
+            - init(SocketAddress)
+            - init(SocketAddress, ?SocketAddress)
+            - init(String, UInt16)
+            - func close()
+            - func connect(?Duration)
+            - func getSocketOption(Int32, Int32, CPointer\<Unit>, CPointer\<UIntNative>)
+            - func getSocketOptionBool(Int32, Int32)
+            - func getSocketOptionIntNative(Int32, Int32)
+            - func hashCode()
+            - func isClosed()
+            - func read(Array\<Byte>)
+            - func setSocketOption(Int32, Int32, CPointer\<Unit>, UIntNative)
+            - func setSocketOptionBool(Int32, Int32, Bool)
+            - func setSocketOptionIntNative(Int32, Int32, IntNative)
+            - func toString()
+            - func write(Array\<Byte>)
+            - operator func !=(TcpSocket)
+            - operator func ==(TcpSocket)
+          - class UdpSocket
+            - prop localAddress
+            - prop receiveBufferSize
+            - prop receiveTimeout
+            - prop remoteAddress
+            - prop reuseAddress
+            - prop reusePort
+            - prop sendBufferSize
+            - prop sendTimeout
+            - init(SocketAddress)
+            - init(UInt16)
+            - func bind()
+            - func close()
+            - func connect(SocketAddress)
+            - func disconnect()
+            - func getSocketOption(Int32, Int32, CPointer\<Unit>, CPointer\<UIntNative>)
+            - func getSocketOptionBool(Int32, Int32)
+            - func getSocketOptionIntNative(Int32, Int32)
+            - func isClosed()
+            - func receive(Array\<Byte>)
+            - func receiveFrom(Array\<Byte>)
+            - func send(Array\<Byte>)
+            - func sendTo(SocketAddress, Array\<Byte>)
+            - func setSocketOption(Int32, Int32, CPointer\<Unit>, UIntNative)
+            - func setSocketOptionBool(Int32, Int32, Bool)
+            - func setSocketOptionIntNative(Int32, Int32, IntNative)
+            - func toString()
+          - class UnixDatagramSocket
+            - prop localAddress
+            - prop receiveBufferSize
+            - prop receiveTimeout
+            - prop remoteAddress
+            - prop sendBufferSize
+            - prop sendTimeout
+            - init(SocketAddress)
+            - init(String)
+            - func bind()
+            - func close()
+            - func connect(SocketAddress)
+            - func connect(String)
+            - func disconnect()
+            - func getSocketOption(Int32, Int32, CPointer\<Unit>, CPointer\<UIntNative>)
+            - func getSocketOptionIntNative(Int32, Int32)
+            - func isClosed()
+            - func receive(Array\<Byte>)
+            - func receiveFrom(Array\<Byte>)
+            - func send(Array\<Byte>)
+            - func sendTo(SocketAddress, Array\<Byte>)
+            - func setSocketOption(Int32, Int32, CPointer\<Unit>, UIntNative)
+            - func setSocketOptionBool(Int32, Int32, Bool)
+            - func setSocketOptionIntNative(Int32, Int32，IntNative)
+              - func getSocketOptionBool(Int32, Int32)
+            - func toString()
+          - class UnixServerSocket
+            - prop backlogSize
+            - prop localAddress
+            - prop receiveBufferSize
+            - prop sendBufferSize
+            - init(SocketAddress)
+            - init(String)
+            - func accept()
+            - func accept(?Duration)
+            - func bind()
+            - func close()
+            - func getSocketOption(Int32, Int32, CPointer\<Unit>, CPointer\<UIntNative>)
+            - func getSocketOptionBool(Int32, Int32）
+            - func getSocketOptionIntNative(Int32, Int32)
+            - func isClosed()
+            - func setSocketOption(Int32, Int32, CPointer\<Unit>, UIntNative)
+            - func setSocketOptionBool(Int32, Int32, Bool）
+            - func setSocketOptionIntNative(Int32, Int32, IntNative)
+            - func toString()
+          - class UnixSocket
+            - prop localAddress
+            - prop readTimeout
+            - prop receiveBufferSize
+            - prop remoteAddress
+            - prop sendBufferSize
+            - prop writeTimeout
+            - init(SocketAddress, ?SocketAddress)
+            - init(String, ?String)
+            - func close()
+            - func connect(?Duration)
+            - func getSocketOption(Int32, Int32, CPointer\<Unit>, CPointer\<UIntNative>)
+            - func getSocketOptionBool(Int32, Int32)
+            - func getSocketOptionIntNative(Int32, Int32)
+            - func isClosed()
+            - func read(Array\<Byte>)
+            - func setSocketOption(Int32, Int32, CPointer\<Unit>, UIntNative)
+            - func setSocketOptionBool(Int32, Int32, Bool）
+            - func setSocketOptionIntNative(Int32, Int32, IntNative)
+            - func toString()
+            - func write(Array\<Byte>)
+          - class UnixSocketAddress
+            - prop family
+            - prop size
+            - init(Array\<Byte>)
+            - init(String)
+            - func getAddressBytes()
+            - func hashCode()
+            - func toString()
+            - operator func ==(UnixSocketAddress)
+            - operator func !=(UnixSocketAddress)
+        - [枚举](std/net/net_package_api/net_package_enums.md)
+          - enum SocketNet
+            - TCP
+            - UDP
+            - UNIX
+            - func toString()
+            - operator func !=(SocketNet)
+            - operator func ==(SocketNet)
+        - [结构体](std/net/net_package_api/net_package_structs.md)
+          - struct AddressFamily
+            - static const INET
+            - static const INET6
+            - static const NETLINK
+            - static const UNIX
+            - static const UNSPEC
+            - let name
+            - let value
+            - init(String, UInt16)
+            - func toString()
+            - operator func ==(AddressFamily)
+            - operator func !=(AddressFamily)
+          - struct OptionLevel
+            - static const ICMP
+            - static const IP
+            - static const RAW
+            - static const SOCKET
+            - static const TCP
+            - static const UDP
+          - struct OptionName
+            - static const IP_HDRINCL
+            - static const IP_TOS
+            - static const IP_TTL
+            - static const SO_ACCEPTCONN
+            - static const SO_BROADCAST
+            - static const SO_DEBUG
+            - static const SO_DONTROUTE
+            - static const SO_ERROR
+            - static const SO_KEEPALIVE
+            - static const SO_LINGER
+            - static const SO_OOBINLINE
+            - static const SO_RCVBUF
+            - static const SO_RCVTIMEO
+            - static const SO_REUSEADDR
+            - static const SO_SNDBUF
+            - static const SO_SNDTIMEO
+            - static const TCP_KEEPCNT
+            - static const TCP_KEEPIDLE
+            - static const TCP_KEEPINTVL
+            - static const TCP_NODELAY
+          - struct ProtocolType
+            - static let ICMP
+            - static let IPV4
+            - static let IPV6
+            - static let RAW
+            - static let TCP
+            - static let UDP
+            - static let Unspecified
+            - init(Int32)
+            - func hashCode()
+            - func toString()
+            - operator func !=(ProtocolType)
+            - operator func ==(ProtocolType)
+          - struct RawAddress
+            - prop addr
+            - init(Array\<Byte>)
+          - struct SocketDomain
+            - static let IPV4
+            - static let IPV6
+            - static let NETLINK
+            - static let PACKET
+            - static let UNIX
+            - init(Int32)
+            - func hashCode()
+            - func toString()
+            - operator func !=(SocketDomain)
+            - operator func ==(SocketDomain)
+          - struct SocketKeepAliveConfig
+            - let count
+            - let idle
+            - let interval
+            - init(Duration, Duration, UInt32)
+            - func toString()
+            - operator func !=(SocketKeepAliveConfig)
+            - operator func ==(SocketKeepAliveConfig)
+          - struct SocketOptions
+            - const IPPROTO_TCP <sup>(deprecated)</sup>
+            - const IPPROTO_UDP <sup>(deprecated)</sup>
+            - const SOL_SOCKET <sup>(deprecated)</sup>
+            - const SO_BINDTODEVICE
+            - const SO_KEEPALIVE
+            - const SO_LINGER
+            - const SO_RCVBUF
+            - const SO_REUSEADDR
+            - const SO_REUSEPORT
+            - const SO_SNDBUF
+            - const TCP_NODELAY
+            - const TCP_QUICKACK
+          - struct SocketType
+            - static let DATAGRAM
+            - static let RAW
+            - static let SEQPACKET
+            - static let STREAM
+            - init(Int32)
+            - func hashCode()
+            - func toString()
+            - operator func !=(SocketType)
+            - operator func ==(SocketType)
+        - [异常类](std/net/net_package_api/net_package_exceptions.md)
+          - class SocketException
+            - init()
+            - init(String)
+          - class SocketTimeoutException
+            - init()
+            - init(String)
+            - [属性配置使用用例](std/net/net_samples/socket_option.md)
+            - [TCP 使用示例](std/net/net_samples/tcp.md)
+            - [UDP 使用示例](std/net/net_samples/udp.md)
+            - [UNIX 使用示例](std/net/net_samples/unix.md)
+            - [UnixDatagram 使用示例](std/net/net_samples/unix_datagram.md)
+    - [std.objectpool](std/objectpool/objectpool_package_overview.md)
+        - [类](std/objectpool/objectpool_package_api/objectpool_package_classes.md)
+          - class ObjectPool\<T> where T <: Object <sup>(deprecated)</sup>
+            - init(() -> T, Option\<(T) -> T>)
+            - func get()
+            - func put(T)
+    - [std.overflow](std/overflow/overflow_package_overview.md)
+        - [接口](std/overflow/overflow_package_api/overflow_package_interfaces.md)
+          - interface CarryingOp\<T>
+            - func carryingAdd(T)
+            - func carryingDec()
+            - func carryingDiv(T)
+            - func carryingInc()
+            - func carryingMod(T)
+            - func carryingMul(T)
+            - func carryingNeg()
+            - func carryingShl(UInt64)
+            - func carryingShr(UInt64)
+            - func carryingSub(T)
+            - extend Int16 <: CarryingOp\<Int16>
+              - func carryingAdd(Int16)
+              - func carryingDec()
+              - func carryingDiv(Int16)
+              - func carryingInc()
+              - func carryingMod(Int16)
+              - func carryingMul(Int16)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(Int16)
+            - extend Int32 <: CarryingOp\<Int32>
+              - func carryingAdd(Int32)
+              - func carryingDec()
+              - func carryingDiv(Int32)
+              - func carryingInc()
+              - func carryingMod(Int32)
+              - func carryingMul(Int32)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(Int32)
+            - extend Int64 <: CarryingOp\<Int64> & CarryingPow
+              - func carryingAdd(Int64)
+              - func carryingDec()
+              - func carryingDiv(Int64)
+              - func carryingInc()
+              - func carryingMod(Int64)
+              - func carryingMul(Int64)
+              - func carryingNeg()
+              - func carryingPow(UInt64)
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(Int64)
+            - extend Int8 <: CarryingOp\<Int8>
+              - func carryingAdd(Int8)
+              - func carryingDec()
+              - func carryingDiv(Int8)
+              - func carryingInc()
+              - func carryingMod(Int8)
+              - func carryingMul(Int8)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(Int8)
+            - extend IntNative <: CarryingOp\<IntNative>
+              - func carryingAdd(IntNative)
+              - func carryingDec()
+              - func carryingDiv(IntNative)
+              - func carryingInc()
+              - func carryingMod(IntNative)
+              - func carryingMul(IntNative)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(IntNative)
+            - extend UInt16 <: CarryingOp\<UInt16>
+              - func carryingAdd(UInt16)
+              - func carryingDec()
+              - func carryingDiv(UInt16)
+              - func carryingInc()
+              - func carryingMod(UInt16)
+              - func carryingMul(UInt16)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(UInt16)
+            - extend UInt32 <: CarryingOp\<UInt32>
+              - func carryingAdd(UInt32)
+              - func carryingDec()
+              - func carryingDiv(UInt32)
+              - func carryingInc()
+              - func carryingMod(UInt32)
+              - func carryingMul(UInt32)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(UInt32)
+            - extend UInt64 <: CarryingOp\<UInt64>
+              - func carryingAdd(UInt64)
+              - func carryingDec()
+              - func carryingDiv(UInt64)
+              - func carryingInc()
+              - func carryingMod(UInt64)
+              - func carryingMul(UInt64)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(UInt64)
+            - extend UInt8 <: CarryingOp\<UInt8>
+              - func carryingAdd(UInt8)
+              - func carryingDec()
+              - func carryingDiv(UInt8)
+              - func carryingInc()
+              - func carryingMod(UInt8)
+              - func carryingMul(UInt8)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(UInt8)
+            - extend UIntNative <: CarryingOp\<UIntNative>
+              - func carryingAdd(UIntNative)
+              - func carryingDec()
+              - func carryingDiv(UIntNative)
+              - func carryingInc()
+              - func carryingMod(UIntNative)
+              - func carryingMul(UIntNative)
+              - func carryingNeg()
+              - func carryingShl(UInt64)
+              - func carryingShr(UInt64)
+              - func carryingSub(UIntNative)
+          - interface CarryingPow
+            - func carryingPow(UInt64)
+          - interface CheckedOp\<T>
+            - func checkedAdd(T)
+            - func checkedDec()
+            - func checkedDiv(T)
+            - func checkedInc()
+            - func checkedMod(T)
+            - func checkedMul(T)
+            - func checkedNeg()
+            - func checkedShl(UInt64)
+            - func checkedShr(UInt64)
+            - func checkedSub(T)
+            - extend Int16 <: CheckedOp\<Int16>
+              - func checkedAdd(Int16)
+              - func checkedDec()
+              - func checkedDiv(Int16)
+              - func checkedInc()
+              - func checkedMod(Int16)
+              - func checkedMul(Int16)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(Int16)
+            - extend Int32 <: CheckedOp\<Int32>
+              - func checkedAdd(Int32)
+              - func checkedDec()
+              - func checkedDiv(Int32)
+              - func checkedInc()
+              - func checkedMod(Int32)
+              - func checkedMul(Int32)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(Int32)
+            - extend Int64 <: CheckedOp\<Int64> & CheckedPow
+              - func checkedAdd(Int64)
+              - func checkedDec()
+              - func checkedDiv(Int64)
+              - func checkedInc()
+              - func checkedMod(Int64)
+              - func checkedMul(Int64)
+              - func checkedNeg()
+              - func checkedPow(UInt64)
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(Int64)
+            - extend Int8 <: CheckedOp\<Int8>
+              - func checkedAdd(Int8)
+              - func checkedDec()
+              - func checkedDiv(Int8)
+              - func checkedInc()
+              - func checkedMod(Int8)
+              - func checkedMul(Int8)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(Int8)
+            - extend IntNative <: CheckedOp\<IntNative>
+              - func checkedAdd(IntNative)
+              - func checkedDec()
+              - func checkedDiv(IntNative)
+              - func checkedInc()
+              - func checkedMod(IntNative)
+              - func checkedMul(IntNative)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(IntNative)
+            - extend UInt16 <: CheckedOp\<UInt16>
+              - func checkedAdd(UInt16)
+              - func checkedDec()
+              - func checkedDiv(UInt16)
+              - func checkedInc()
+              - func checkedMod(UInt16)
+              - func checkedMul(UInt16)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(UInt16)
+            - extend UInt32 <: CheckedOp\<UInt32>
+              - func checkedAdd(UInt32)
+              - func checkedDec()
+              - func checkedDiv(UInt32)
+              - func checkedInc()
+              - func checkedMod(UInt32)
+              - func checkedMul(UInt32)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(UInt32)
+            - extend UInt64 <: CheckedOp\<UInt64>
+              - func checkedAdd(UInt64)
+              - func checkedDec()
+              - func checkedDiv(UInt64)
+              - func checkedInc()
+              - func checkedMod(UInt64)
+              - func checkedMul(UInt64)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(UInt64)
+            - extend UInt8 <: CheckedOp\<UInt8>
+              - func checkedAdd(UInt8)
+              - func checkedDec()
+              - func checkedDiv(UInt8)
+              - func checkedInc()
+              - func checkedMod(UInt8)
+              - func checkedMul(UInt8)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(UInt8)
+            - extend UIntNative <: CheckedOp\<UIntNative>
+              - func checkedAdd(UIntNative)
+              - func checkedDec()
+              - func checkedDiv(UIntNative)
+              - func checkedInc()
+              - func checkedMod(UIntNative)
+              - func checkedMul(UIntNative)
+              - func checkedNeg()
+              - func checkedShl(UInt64)
+              - func checkedShr(UInt64)
+              - func checkedSub(UIntNative)
+          - interface CheckedPow
+            - func checkedPow(UInt64)
+          - interface SaturatingOp\<T>
+            - func saturatingAdd(T)
+            - func saturatingDec()
+            - func saturatingDiv(T)
+            - func saturatingInc()
+            - func saturatingMod(T)
+            - func saturatingMul(T)
+            - func saturatingNeg()
+            - func saturatingShl(UInt64)
+            - func saturatingShr(UInt64)
+            - func saturatingSub(T)
+            - extend Int16 <: SaturatingOp\<Int16>
+              - func saturatingAdd(Int16)
+              - func saturatingDec()
+              - func saturatingDiv(Int16)
+              - func saturatingInc()
+              - func saturatingMod(Int16)
+              - func saturatingMul(Int16)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(Int16)
+            - extend Int32 <: SaturatingOp\<Int32>
+              - func saturatingAdd(Int32)
+              - func saturatingDec()
+              - func saturatingDiv(Int32)
+              - func saturatingInc()
+              - func saturatingMod(Int32)
+              - func saturatingMul(Int32)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(Int32)
+            - extend Int64 <: SaturatingOp\<Int64> & SaturatingPow
+              - func saturatingAdd(Int64)
+              - func saturatingDec()
+              - func saturatingDiv(Int64)
+              - func saturatingInc()
+              - func saturatingMod(Int64)
+              - func saturatingMul(Int64)
+              - func saturatingNeg()
+              - func saturatingPow(UInt64)
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(Int64)
+            - extend Int8 <: SaturatingOp\<Int8>
+              - func saturatingAdd(Int8)
+              - func saturatingDec()
+              - func saturatingDiv(Int8)
+              - func saturatingInc()
+              - func saturatingMod(Int8)
+              - func saturatingMul(Int8)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(Int8)
+            - extend IntNative <: SaturatingOp\<IntNative>
+              - func saturatingAdd(IntNative)
+              - func saturatingDec()
+              - func saturatingDiv(IntNative)
+              - func saturatingInc()
+              - func saturatingMod(IntNative)
+              - func saturatingMul(IntNative)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(IntNative)
+            - extend UInt16 <: SaturatingOp\<UInt16>
+              - func saturatingAdd(UInt16)
+              - func saturatingDec()
+              - func saturatingDiv(UInt16)
+              - func saturatingInc()
+              - func saturatingMod(UInt16)
+              - func saturatingMul(UInt16)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(UInt16)
+            - extend UInt32 <: SaturatingOp\<UInt32>
+              - func saturatingAdd(UInt32)
+              - func saturatingDec()
+              - func saturatingDiv(UInt32)
+              - func saturatingInc()
+              - func saturatingMod(UInt32)
+              - func saturatingMul(UInt32)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(UInt32)
+            - extend UInt64 <: SaturatingOp\<UInt64>
+              - func saturatingAdd(UInt64)
+              - func saturatingDec()
+              - func saturatingDiv(UInt64)
+              - func saturatingInc()
+              - func saturatingMod(UInt64)
+              - func saturatingMul(UInt64)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(UInt64)
+            - extend UInt8 <: SaturatingOp\<UInt8>
+              - func saturatingAdd(UInt8)
+              - func saturatingDec()
+              - func saturatingDiv(UInt8)
+              - func saturatingInc()
+              - func saturatingMod(UInt8)
+              - func saturatingMul(UInt8)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(UInt8)
+            - extend UIntNative <: SaturatingOp\<UIntNative>
+              - func saturatingAdd(UIntNative)
+              - func saturatingDec()
+              - func saturatingDiv(UIntNative)
+              - func saturatingInc()
+              - func saturatingMod(UIntNative)
+              - func saturatingMul(UIntNative)
+              - func saturatingNeg()
+              - func saturatingShl(UInt64)
+              - func saturatingShr(UInt64)
+              - func saturatingSub(UIntNative)
+          - interface SaturatingPow
+            - func saturatingPow(UInt64)
+          - interface ThrowingOp\<T>
+            - func throwingAdd(T)
+            - func throwingDec()
+            - func throwingDiv(T)
+            - func throwingInc()
+            - func throwingMod(T)
+            - func throwingMul(T)
+            - func throwingNeg()
+            - func throwingShl(UInt64)
+            - func throwingShr(UInt64)
+            - func throwingSub(T)
+            - extend Int16 <: ThrowingOp\<Int16>
+              - func throwingAdd(Int16)
+              - func throwingDec()
+              - func throwingDiv(Int16)
+              - func throwingInc()
+              - func throwingMod(Int16)
+              - func throwingMul(Int16)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(Int16)
+            - extend Int32 <: ThrowingOp\<Int32>
+              - func throwingAdd(Int32)
+              - func throwingDec()
+              - func throwingDiv(Int32)
+              - func throwingInc()
+              - func throwingMod(Int32)
+              - func throwingMul(Int32)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(Int32)
+            - extend Int64 <: ThrowingOp\<Int64> & ThrowingPow
+              - func throwingAdd(Int64)
+              - func throwingDec()
+              - func throwingDiv(Int64)
+              - func throwingInc()
+              - func throwingMod(Int64)
+              - func throwingMul(Int64)
+              - func throwingNeg()
+              - func throwingPow(UInt64)
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(Int64)
+            - extend Int8 <: ThrowingOp\<Int8>
+              - func throwingAdd(Int8)
+              - func throwingDec()
+              - func throwingDiv(Int8)
+              - func throwingInc()
+              - func throwingMod(Int8)
+              - func throwingMul(Int8)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(Int8)
+            - extend IntNative <: ThrowingOp\<IntNative>
+              - func throwingAdd(IntNative)
+              - func throwingDec()
+              - func throwingDiv(IntNative)
+              - func throwingInc()
+              - func throwingMod(IntNative)
+              - func throwingMul(IntNative)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(IntNative)
+            - extend UInt16 <: ThrowingOp\<UInt16>
+              - func throwingAdd(UInt16)
+              - func throwingDec()
+              - func throwingDiv(UInt16)
+              - func throwingInc()
+              - func throwingMod(UInt16)
+              - func throwingMul(UInt16)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(UInt16)
+            - extend UInt32 <: ThrowingOp\<UInt32>
+              - func throwingAdd(UInt32)
+              - func throwingDec()
+              - func throwingDiv(UInt32)
+              - func throwingInc()
+              - func throwingMod(UInt32)
+              - func throwingMul(UInt32)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(UInt32)
+            - extend UInt64 <: ThrowingOp\<UInt64>
+              - func throwingAdd(UInt64)
+              - func throwingDec()
+              - func throwingDiv(UInt64)
+              - func throwingInc()
+              - func throwingMod(UInt64)
+              - func throwingMul(UInt64)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(UInt64)
+            - extend UInt8 <: ThrowingOp\<UInt8>
+              - func throwingAdd(UInt8)
+              - func throwingDec()
+              - func throwingDiv(UInt8)
+              - func throwingInc()
+              - func throwingMod(UInt8)
+              - func throwingMul(UInt8)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(UInt8)
+            - extend UIntNative <: ThrowingOp\<UIntNative>
+              - func throwingAdd(UIntNative)
+              - func throwingDec()
+              - func throwingDiv(UIntNative)
+              - func throwingInc()
+              - func throwingMod(UIntNative)
+              - func throwingMul(UIntNative)
+              - func throwingNeg()
+              - func throwingShl(UInt64)
+              - func throwingShr(UInt64)
+              - func throwingSub(UIntNative)
+          - interface ThrowingPow
+            - func throwingPow(UInt64)
+          - interface WrappingOp\<T>
+            - func wrappingAdd(T)
+            - func wrappingDec()
+            - func wrappingDiv(T)
+            - func wrappingInc()
+            - func wrappingMod(T)
+            - func wrappingMul(T)
+            - func wrappingNeg()
+            - func wrappingShl(UInt64)
+            - func wrappingShr(UInt64)
+            - func wrappingSub(T)
+            - extend Int16 <: WrappingOp\<Int16>
+              - func wrappingAdd(Int16)
+              - func wrappingDec()
+              - func wrappingDiv(Int16)
+              - func wrappingInc()
+              - func wrappingMod(Int16)
+              - func wrappingMul(Int16)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(Int16)
+            - extend Int32 <: WrappingOp\<Int32>
+              - func wrappingAdd(Int32)
+              - func wrappingDec()
+              - func wrappingDiv(Int32)
+              - func wrappingInc()
+              - func wrappingMod(Int32)
+              - func wrappingMul(Int32)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(Int32)
+            - extend Int64 <: WrappingOp\<Int64> & WrappingPow
+              - func wrappingAdd(Int64)
+              - func wrappingDec()
+              - func wrappingDiv(Int64)
+              - func wrappingInc()
+              - func wrappingMod(Int64)
+              - func wrappingMul(Int64)
+              - func wrappingNeg()
+              - func wrappingPow(UInt64)
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(Int64)
+            - extend Int8 <: WrappingOp\<Int8>
+              - func wrappingAdd(Int8)
+              - func wrappingDec()
+              - func wrappingDiv(Int8)
+              - func wrappingInc()
+              - func wrappingMod(Int8)
+              - func wrappingMul(Int8)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(Int8)
+            - extend IntNative <: WrappingOp\<IntNative>
+              - func wrappingAdd(IntNative)
+              - func wrappingDec()
+              - func wrappingDiv(IntNative)
+              - func wrappingInc()
+              - func wrappingMod(IntNative)
+              - func wrappingMul(IntNative)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(IntNative)
+            - extend UInt16 <: WrappingOp\<UInt16>
+              - func wrappingAdd(UInt16)
+              - func wrappingDec()
+              - func wrappingDiv(UInt16)
+              - func wrappingInc()
+              - func wrappingMod(UInt16)
+              - func wrappingMul(UInt16)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(UInt16)
+            - extend UInt32 <: WrappingOp\<UInt32>
+              - func wrappingAdd(UInt32)
+              - func wrappingDec()
+              - func wrappingDiv(UInt32)
+              - func wrappingInc()
+              - func wrappingMod(UInt32)
+              - func wrappingMul(UInt32)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(UInt32)
+            - extend UInt64 <: WrappingOp\<UInt64>
+              - func wrappingAdd(UInt64)
+              - func wrappingDec()
+              - func wrappingDiv(UInt64)
+              - func wrappingInc()
+              - func wrappingMod(UInt64)
+              - func wrappingMul(UInt64)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(UInt64)
+            - extend UInt8 <: WrappingOp\<UInt8>
+              - func wrappingAdd(UInt8)
+              - func wrappingDec()
+              - func wrappingDiv(UInt8)
+              - func wrappingInc()
+              - func wrappingMod(UInt8)
+              - func wrappingMul(UInt8)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(UInt8)
+            - extend UIntNative <: WrappingOp\<UIntNative>
+              - func wrappingAdd(UIntNative)
+              - func wrappingDec()
+              - func wrappingDiv(UIntNative)
+              - func wrappingInc()
+              - func wrappingMod(UIntNative)
+              - func wrappingMul(UIntNative)
+              - func wrappingNeg()
+              - func wrappingShl(UInt64)
+              - func wrappingShr(UInt64)
+              - func wrappingSub(UIntNative)
+          - interface WrappingPow
+            - func wrappingPow(UInt64)
+        - [异常类](std/overflow/overflow_package_api/overflow_package_exceptions.md)
+          - class OvershiftException
+            - init()
+            - init(String)
+          - class UndershiftException
+            - init()
+            - init(String)
+            - [返回 `Option` 策略的示例](std/overflow/overflow_samples/option.md)
+            - [饱和策略的示例](std/overflow/overflow_samples/saturating.md)
+            - [抛出异常策略的示例](std/overflow/overflow_samples/throwing.md)
+            - [高位截断策略的示例](std/overflow/overflow_samples/wrapping.md)
+    - [std.posix](std/posix/posix_package_overview.md)
+        - [变量&常量](std/posix/posix_package_api/posix_package_constants_vars.md)
+          - const AT_EMPTY_PATH <sup>(deprecated)</sup>
+          - const AT_REMOVEDIR <sup>(deprecated)</sup>
+          - const F_OK <sup>(deprecated)</sup>
+          - const O_APPEND <sup>(deprecated)</sup>
+          - const O_CLOEXEC <sup>(deprecated)</sup>
+          - const O_CREAT <sup>(deprecated)</sup>
+          - const O_DIRECTORY <sup>(deprecated)</sup>
+          - const O_DSYNC <sup>(deprecated)</sup>
+          - const O_EXCL <sup>(deprecated)</sup>
+          - const O_NOCTTY <sup>(deprecated)</sup>
+          - const O_NOFOLLOW <sup>(deprecated)</sup>
+          - const O_NONBLOCK <sup>(deprecated)</sup>
+          - const O_RDONLY <sup>(deprecated)</sup>
+          - const O_RDWR <sup>(deprecated)</sup>
+          - const O_RSYNC <sup>(deprecated)</sup>
+          - const O_SYNC <sup>(deprecated)</sup>
+          - const O_TRUNC <sup>(deprecated)</sup>
+          - const O_WRONLY <sup>(deprecated)</sup>
+          - const R_OK <sup>(deprecated)</sup>
+          - const SEEK_CUR <sup>(deprecated)</sup>
+          - const SEEK_END <sup>(deprecated)</sup>
+          - const SEEK_SET <sup>(deprecated)</sup>
+          - const SIGABRT <sup>(deprecated)</sup>
+          - const SIGALRM <sup>(deprecated)</sup>
+          - const SIGBUS <sup>(deprecated)</sup>
+          - const SIGCHLD <sup>(deprecated)</sup>
+          - const SIGCONT <sup>(deprecated)</sup>
+          - const SIGFPE <sup>(deprecated)</sup>
+          - const SIGHUP <sup>(deprecated)</sup>
+          - const SIGILL <sup>(deprecated)</sup>
+          - const SIGINT <sup>(deprecated)</sup>
+          - const SIGIO <sup>(deprecated)</sup>
+          - const SIGIOT <sup>(deprecated)</sup>
+          - const SIGKILL <sup>(deprecated)</sup>
+          - const SIGPIPE <sup>(deprecated)</sup>
+          - const SIGPROF <sup>(deprecated)</sup>
+          - const SIGPWR <sup>(deprecated)</sup>
+          - const SIGQUIT <sup>(deprecated)</sup>
+          - const SIGSEGV <sup>(deprecated)</sup>
+          - const SIGSTKFLT <sup>(deprecated)</sup>
+          - const SIGSTOP <sup>(deprecated)</sup>
+          - const SIGTERM <sup>(deprecated)</sup>
+          - const SIGTRAP <sup>(deprecated)</sup>
+          - const SIGTSTP <sup>(deprecated)</sup>
+          - const SIGTTIN <sup>(deprecated)</sup>
+          - const SIGTTOU <sup>(deprecated)</sup>
+          - const SIGURG <sup>(deprecated)</sup>
+          - const SIGUSR1 <sup>(deprecated)</sup>
+          - const SIGUSR2 <sup>(deprecated)</sup>
+          - const SIGVTALRM <sup>(deprecated)</sup>
+          - const SIGWINCH <sup>(deprecated)</sup>
+          - const SIGXCPU <sup>(deprecated)</sup>
+          - const SIGXFSZ <sup>(deprecated)</sup>
+          - const S_IFBLK <sup>(deprecated)</sup>
+          - const S_IFCHR <sup>(deprecated)</sup>
+          - const S_IFDIR <sup>(deprecated)</sup>
+          - const S_IFIFO <sup>(deprecated)</sup>
+          - const S_IFLNK <sup>(deprecated)</sup>
+          - const S_IFREG <sup>(deprecated)</sup>
+          - const S_IFSOCK <sup>(deprecated)</sup>
+          - const S_IRGRP <sup>(deprecated)</sup>
+          - const S_IROTH <sup>(deprecated)</sup>
+          - const S_IRUSR <sup>(deprecated)</sup>
+          - const S_IRWXG <sup>(deprecated)</sup>
+          - const S_IRWXO <sup>(deprecated)</sup>
+          - const S_IRWXU <sup>(deprecated)</sup>
+          - const S_IWGRP <sup>(deprecated)</sup>
+          - const S_IWOTH <sup>(deprecated)</sup>
+          - const S_IWUSR <sup>(deprecated)</sup>
+          - const S_IXGRP <sup>(deprecated)</sup>
+          - const S_IXOTH <sup>(deprecated)</sup>
+          - const S_IXUSR <sup>(deprecated)</sup>
+          - const W_OK <sup>(deprecated)</sup>
+          - const X_OK <sup>(deprecated)</sup>
+        - [函数](std/posix/posix_package_api/posix_package_funcs.md)
+          - func (String, Int32) <sup>(deprecated)</sup>
+          - func (String, Int32, UInt32) <sup>(deprecated)</sup>
+          - func access(String, Int32) <sup>(deprecated)</sup>
+          - func chdir(String) <sup>(deprecated)</sup>
+          - func chmod(String, UInt32) <sup>(deprecated)</sup>
+          - func chown(String, UInt32, UInt32) <sup>(deprecated)</sup>
+          - func close(Int32) <sup>(deprecated)</sup>
+          - func creat(String, UInt32) <sup>(deprecated)</sup>
+          - func dup(Int32) <sup>(deprecated)</sup>
+          - func dup2(Int32, Int32) <sup>(deprecated)</sup>
+          - func faccessat(Int32, String, Int32, Int32) <sup>(deprecated)</sup>
+          - func fchdir(Int32) <sup>(deprecated)</sup>
+          - func fchmod(Int32, UInt32) <sup>(deprecated)</sup>
+          - func fchmodat(Int32, String, UInt32, Int32) <sup>(deprecated)</sup>
+          - func fchown(Int32, UInt32, UInt32) <sup>(deprecated)</sup>
+          - func fchownat(Int32, String, UInt32, UInt32, Int32) <sup>(deprecated)</sup>
+          - func getcwd() <sup>(deprecated)</sup>
+          - func getgid() <sup>(deprecated)</sup>
+          - func getgroups(Int32, CPointer\<UInt32>) <sup>(deprecated)</sup>
+          - func gethostname() <sup>(deprecated)</sup>
+          - func getlogin() <sup>(deprecated)</sup>
+          - func getos() <sup>(deprecated)</sup>
+          - func getpgid(Int32) <sup>(deprecated)</sup>
+          - func getpgrp() <sup>(deprecated)</sup>
+          - func getpid() <sup>(deprecated)</sup>
+          - func getppid() <sup>(deprecated)</sup>
+          - func getuid() <sup>(deprecated)</sup>
+          - func isBlk(String) <sup>(deprecated)</sup>
+          - func isChr(String) <sup>(deprecated)</sup>
+          - func isDir(String) <sup>(deprecated)</sup>
+          - func isFIFO(String) <sup>(deprecated)</sup>
+          - func isLnk(String) <sup>(deprecated)</sup>
+          - func isReg(String) <sup>(deprecated)</sup>
+          - func isSock(String) <sup>(deprecated)</sup>
+          - func isType(String, UInt32) <sup>(deprecated)</sup>
+          - func isatty(Int32) <sup>(deprecated)</sup>
+          - func kill(Int32, Int32) <sup>(deprecated)</sup>
+          - func killpg(Int32, Int32) <sup>(deprecated)</sup>
+          - func lchown(String, UInt32, UInt32) <sup>(deprecated)</sup>
+          - func link(String, String) <sup>(deprecated)</sup>
+          - func linkat(Int32, String, Int32, String, Int32) <sup>(deprecated)</sup>
+          - func lseek(Int32, Int64, Int32) <sup>(deprecated)</sup>
+          - func nice(Int32) <sup>(deprecated)</sup>
+          - func open64(String, Int32) <sup>(deprecated)</sup>
+          - func open64(String, Int32, UInt32) <sup>(deprecated)</sup>
+          - func openat(Int32, String, Int32) <sup>(deprecated)</sup>
+          - func openat(Int32, String, Int32, UInt32) <sup>(deprecated)</sup>
+          - func openat64(Int32, String, Int32) <sup>(deprecated)</sup>
+          - func openat64(Int32, String, Int32, UInt32) <sup>(deprecated)</sup>
+          - func pread(Int32, CPointer\<UInt8>, UIntNative, Int32) <sup>(deprecated)</sup>
+          - func pwrite(Int32, CPointer\<UInt8>, UIntNative, Int32) <sup>(deprecated)</sup>
+          - func read(Int32, CPointer\<UInt8>, UIntNative) <sup>(deprecated)</sup>
+          - func remove(String) <sup>(deprecated)</sup>
+          - func rename(String, String) <sup>(deprecated)</sup>
+          - func renameat(Int32, String, Int32, String) <sup>(deprecated)</sup>
+          - func setgid(UInt32) <sup>(deprecated)</sup>
+          - func sethostname(String) <sup>(deprecated)</sup>
+          - func setpgid(Int32, Int32) <sup>(deprecated)</sup>
+          - func setpgrp() <sup>(deprecated)</sup>
+          - func setuid(UInt32) <sup>(deprecated)</sup>
+          - func symlink(String, String) <sup>(deprecated)</sup>
+          - func symlinkat(String, Int32, String) <sup>(deprecated)</sup>
+          - func ttyname(Int32) <sup>(deprecated)</sup>
+          - func umask(UInt32) <sup>(deprecated)</sup>
+          - func unlink(String) <sup>(deprecated)</sup>
+          - func unlinkat(Int32, String, Int32) <sup>(deprecated)</sup>
+          - func write(Int32, CPointer\<UInt8>, UIntNative) <sup>(deprecated)</sup>
+            - [文件内容相关操作](std/posix/posix_samples/posix_get_file_content_samples.md)
+            - [文件信息相关操作](std/posix/posix_samples/posix_get_file_info_samples.md)
+            - [获取各类系统信息](std/posix/posix_samples/posix_get_os_envinfo_samples.md)
+            - [进程相关信息操作](std/posix/posix_samples/posix_process_samples.md)
+    - [std.process](std/process/process_package_overview.md)
+        - [函数](std/process/process_package_api/process_package_funcs.md)
+          - func execute(String, Array\<String>, ?Path, ?Map\<String, String>, ProcessRedirect, ProcessRedirect,ProcessRedirect, ?Duration)
+          - func executeWithOutput(String, Array\<String>, ?Path, ?Map\<String, String>, ProcessRedirect, ProcessRedirect, ProcessRedirect)
+          - func findProcess(Int64)
+          - func launch(String, Array\<String>, ?Path, ?Map\<String, String>, ProcessRedirect, ProcessRedirect, ProcessRedirect)
+        - [类](std/process/process_package_api/process_package_classes.md)
+          - class CurrentProcess <sup>(deprecated)</sup>
+            - prop arguments
+            - prop homeDirectory
+            - prop stdErr
+            - prop stdIn
+            - prop stdOut
+            - prop tempDirectory
+            - func atExit(() -> Unit)
+            - func exit(Int64)
+            - func getEnv(String)
+            - func removeEnv(String)
+            - func setEnv(String, String)
+          - class Process
+            - static prop current <sup>(deprecated)</sup>
+            - prop arguments <sup>(deprecated)</sup>
+            - prop command
+            - prop commandLine <sup>(deprecated)</sup>
+            - prop environment <sup>(deprecated)</sup>
+            - prop name
+            - prop pid
+            - prop startTime
+            - prop systemTime
+            - prop userTime
+            - prop workingDirectory <sup>(deprecated)</sup>
+            - func isAlive()
+            - static func of(Int64) <sup>(deprecated)</sup>
+            - static func run(String, Array\<String>, ?Path, ?Map\<String, String>, ProcessRedirect, ProcessRedirect,ProcessRedirect, ?Duration) <sup>(deprecated)</sup>
+            - static func runOutput(String, Array\<String>, ?Path, ?Map\<String, String>, ProcessRedirect, ProcessRedirect, ProcessRedirect) <sup>(deprecated)</sup>
+            - static func start(String, Array\<String>, ?Path, ?Map\<String, String>, ProcessRedirect, ProcessRedirect, ProcessRedirect) <sup>(deprecated)</sup>
+            - func terminate(Bool)
+            - func terminateAliveProcess(Int32, Bool)
+          - class SubProcess
+            - prop stdErr <sup>(deprecated)</sup>
+            - prop stdErrPipe
+            - prop stdIn <sup>(deprecated)</sup>
+            - prop stdInPipe
+            - prop stdOut <sup>(deprecated)</sup>
+            - prop stdOutPipe
+            - func wait(?Duration)
+            - func waitOutput()
+        - [枚举](std/process/process_package_api/process_package_enums.md)
+          - enum ProcessRedirect
+            - Discard
+            - FromFile(File)
+            - Inherit
+            - Pipe
+        - [异常类](std/process/process_package_api/process_package_exceptions.md)
+          - class ProcessException
+            - init(String)
+            - [任意进程相关操作](std/process/process_samples/process_sample.md)
+            - [子进程相关操作](std/process/process_samples/process_subprocess_sample.md)
+    - [std.random](std/random/random_package_overview.md)
+        - [类](std/random/random_package_api/random_package_classes.md)
+          - class Random
+            - prop seed
+            - init()
+            - init(UInt64)
+            - func next(UInt64) <sup>(deprecated)</sup>
+            - func nextBits(UInt64)
+            - func nextBool()
+            - func nextFloat16()
+            - func nextFloat32()
+            - func nextFloat64()
+            - func nextGaussianFloat16(Float16, Float16)
+            - func nextGaussianFloat32(Float32, Float32)
+            - func nextGaussianFloat64(Float64, Float64)
+            - func nextInt16()
+            - func nextInt16(Int16)
+            - func nextInt32()
+            - func nextInt32(Int32)
+            - func nextInt64()
+            - func nextInt64(Int64)
+            - func nextInt8()
+            - func nextInt8(Int8): Int8
+            - func nextUInt16()
+            - func nextUInt16(UInt16)
+            - func nextUInt32()
+            - func nextUInt32(UInt32)
+            - func nextUInt64()
+            - func nextUInt64(UInt64)
+            - func nextUInt8()
+            - func nextUInt8(UInt8)
+            - func nextUInt8s(Array\<UInt8>) <sup>(deprecated)</sup>
+            - func nextBytes(Array\<Byte>)
+            - func nextBytes(Int32)
+    - [std.ref](std/ref/ref_package_overview.md)
+        - [类](std/ref/ref_package_api/ref_package_classes.md)
+          - class WeakRef\<T> where T <: Object
+            - prop cleanupPolicy
+            - prop value
+            - init(T, CleanupPolicy)
+            - func clear()
+          - class WeakRefBase
+        - [枚举](std/ref/ref_package_api/ref_package_enums.md)
+          - enum CleanupPolicy
+            - EAGER
+            - DEFERRED
+            - operator func ==(CleanupPolicy)
+            - operator func !=(CleanupPolicy)
+            - [WeakRef 用于缓存](std/ref/ref_samples/weakref_in_cache.md)
+    - [std.reflect](std/reflect/reflect_package_overview.md)
+        - [函数](std/reflect/reflect_package_api/reflect_package_funcs.md)
+          - func parseParameterTypes(String)
+        - [类型别名](std/reflect/reflect_package_api/reflect_package_types.md)
+          - type Annotation = Object
+        - [类](std/reflect/reflect_package_api/reflect_package_classes.md)
+          - class ClassTypeInfo
+            - prop constructors
+            - prop instanceVariables
+            - prop sealedSubclasses
+            - prop staticVariables
+            - prop superClass
+            - func construct(Array\<Any>)
+            - func getConstructor(Array\<TypeInfo>)
+            - func getInstanceVariable(String)
+            - func getStaticVariable(String)
+            - func isAbstract()
+            - func isOpen()
+            - func isSealed()
+            - static func get(String)
+            - static func of(Any)
+            - static func of(Object)
+            - static func of\<T>()
+          - class ConstructorInfo
+            - prop annotations
+            - prop parameters
+            - func apply(Array\<Any>)
+            - func findAnnotation\<T>() where T <: Annotation
+            - func hashCode()
+            - func toString()
+            - operator func !=(ConstructorInfo)
+            - operator func ==(ConstructorInfo)
+          - class GenericTypeInfo
+            - operator func ==(GenericTypeInfo)
+          - class GlobalFunctionInfo
+            - prop annotations
+            - prop genericParams
+            - prop name
+            - prop parameters
+            - prop returnType
+            - func apply(Array\<Any>)
+            - func apply(Array\<TypeInfo>, Array\<Any>)
+            - func findAnnotation\<T>() where T <: Annotation
+            - func hashCode()
+            - func toString()
+            - operator func ==(GlobalFunctionInfo)
+            - operator func !=(GlobalFunctionInfo)
+          - class GlobalVariableInfo
+            - prop annotations
+            - prop name
+            - prop typeInfo
+            - func findAnnotation\<T>() where T <: Annotation
+            - func getValue()
+            - func hashCode()
+            - func isMutable()
+            - func setValue(Any)
+            - func toString()
+            - operator func ==(GlobalVariableInfo)
+            - operator func !=(GlobalVariableInfo)
+          - class InstanceFunctionInfo
+            - prop annotations
+            - prop genericParams
+            - prop modifiers
+            - prop name
+            - prop parameters
+            - prop returnType
+            - func apply(Any, Array\<Any>)
+            - func apply(Any, Array\<TypeInfo>, Array\<Any>)
+            - func findAnnotation\<T>() where T <: Annotation
+            - func hashCode()
+            - func isAbstract()
+            - func isOpen()
+            - func toString()
+            - operator func ==(InstanceFunctionInfo)
+            - operator func !=(InstanceFunctionInfo)
+          - class InstancePropertyInfo
+            - prop annotations
+            - prop modifiers
+            - prop name
+            - prop typeInfo
+            - func findAnnotation\<T>() where T <: Annotation
+            - func getValue(Any)
+            - func hashCode()
+            - func isAbstract()
+            - func isOpen()
+            - func isMutable()
+            - func setValue(Any, Any)
+            - func toString()
+            - operator func !=(InstancePropertyInfo)
+            - operator func ==(InstancePropertyInfo)
+          - class InstanceVariableInfo
+            - prop annotations
+            - prop modifiers
+            - prop name
+            - prop typeInfo
+            - func findAnnotation\<T>() where T <: Annotation
+            - func getValue(Any)
+            - func hashCode()
+            - func isMutable()
+            - func setValue(Any, Any)
+            - func toString()
+            - operator func ==(InstanceVariableInfo)
+            - operator func !=(InstanceVariableInfo)
+          - class InterfaceTypeInfo
+            - prop sealedSubtypes
+            - func isSealed()
+            - static func get(String)
+            - static func of(Any)
+            - static func of\<T>()
+          - class PackageInfo
+            - prop functions
+            - prop name
+            - prop parentPackage
+            - prop qualifiedName
+            - prop rootPackage
+            - prop subPackages
+            - prop typeInfos
+            - prop variables
+            - prop version
+            - static func get(String)
+            - static func load(String)
+            - func getFunction(String, Array\<TypeInfo>)
+            - func getFunctions(String)
+            - func getSubPackage(String)
+            - func getTypeInfo(String)
+            - func getVariable(String)
+            - func hashCode()
+            - func toString()
+            - operator func !=(PackageInfo)
+            - operator func ==(PackageInfo)
+          - class ParameterInfo
+            - prop annotations
+            - prop index
+            - prop name
+            - prop typeInfo
+            - func findAnnotation\<T>() where T <: Annotation
+            - func hashCode()
+            - func toString()
+            - operator func !=(ParameterInfo)
+            - operator func ==(ParameterInfo)
+          - class PrimitiveTypeInfo
+            - static func get(String)
+            - static func of(Any)
+            - static func of\<T>()
+          - class StaticFunctionInfo
+            - prop annotations
+            - prop genericParams
+            - prop modifiers
+            - prop name
+            - prop parameters
+            - prop returnType
+            - func apply(TypeInfo, Array\<Any>)
+            - func apply(TypeInfo, Array\<TypeInfo>, Array\<Any>)
+            - func findAnnotation\<T>() where T <: Annotation
+            - func hashCode()
+            - func toString()
+            - operator func !=(StaticFunctionInfo)
+            - operator func ==(StaticFunctionInfo)
+          - class StaticPropertyInfo
+            - prop annotations
+            - prop modifiers
+            - prop name
+            - prop typeInfo
+            - func findAnnotation\<T>() where T <: Annotation
+            - func getValue()
+            - func hashCode()
+            - func isMutable()
+            - func setValue(Any)
+            - func toString()
+            - operator func !=(StaticPropertyInfo)
+            - operator func ==(StaticPropertyInfo)
+          - class StaticVariableInfo
+            - prop annotations
+            - prop modifiers
+            - prop name
+            - prop typeInfo
+            - func findAnnotation\<T>() where T <: Annotation
+            - func getValue()
+            - func hashCode()
+            - func isMutable()
+            - func setValue(Any)
+            - func toString()
+            - operator func !=(StaticVariableInfo)
+            - operator func ==(StaticVariableInfo)
+          - class StructTypeInfo
+            - prop constructors
+            - prop instanceVariables
+            - prop staticVariables
+            - func construct(Array\<Any>)
+            - func getConstructor(Array\<TypeInfo>)
+            - func getInstanceVariable(String)
+            - func getStaticVariable(String)
+            - static func get(String)
+            - static func of(Any)
+            - static func of\<T>()
+          - class TypeInfo
+            - prop annotations
+            - prop instanceFunctions
+            - prop instanceProperties
+            - prop modifiers
+            - prop name
+            - prop qualifiedName
+            - prop staticFunctions
+            - prop staticProperties
+            - prop superInterfaces
+            - static func get(String)
+            - static func of(Any)
+            - static func of(Object) <sup>(deprecated)</sup>
+            - static func of\<T>()
+            - func findAnnotation\<T>()
+            - func getInstanceFunction(String, Array\<TypeInfo>)
+            - func getInstanceFunctions(String)
+            - func getInstanceProperty(String)
+            - func getStaticFunction(String, Array\<TypeInfo>)
+            - func getStaticFunctions(String)
+            - func getStaticProperty(String)
+            - func hashCode()
+            - func isSubtypeOf(TypeInfo)
+            - func toString()
+            - operator func !=(TypeInfo)
+            - operator func ==(TypeInfo)
+        - [枚举](std/reflect/reflect_package_api/reflect_package_enums.md)
+          - enum ModifierInfo
+            - Abstract
+            - Mut
+            - Open
+            - Override
+            - Redef
+            - Sealed
+            - Static
+            - func hashCode()
+            - func toString()
+            - operator func ==(ModifierInfo)
+            - operator func !=(ModifierInfo)
+        - [异常类](std/reflect/reflect_package_api/reflect_package_exceptions.md)
+          - class IllegalSetException
+            - init()
+            - init(String)
+          - class IllegalTypeException
+            - init()
+            - init(String)
+          - class InfoNotFoundException
+            - init()
+            - init(String)
+          - class InvocationTargetException
+            - init()
+            - init(String)
+          - class MisMatchException
+            - init()
+            - init(String)
+          - class ReflectException
+            - init()
+            - init(String)
+            - func getClassName()
+            - [注解的使用](std/reflect/reflect_samples/annotation.md)
+            - [动态加载的使用](std/reflect/reflect_samples/dynload.md)
+            - [成员信息的使用](std/reflect/reflect_samples/memberInfo.md)
+            - [TypeInfo 的使用](std/reflect/reflect_samples/typeInfo.md)
+    - [std.regex](std/regex/regex_package_overview.md)
+        - [类](std/regex/regex_package_api/regex_package_classes.md)
+          - class Matcher <sup>(deprecated)</sup>
+            - init(Regex, String)
+            - func allCount()
+            - func find()
+            - func find(Int64)
+            - func findAll()
+            - func fullMatch()
+            - func getString()
+            - func matchStart()
+            - func region()
+            - func replace(String)
+            - func replace(String, Int64)
+            - func replaceAll(String)
+            - func replaceAll(String, Int64)
+            - func resetRegion()
+            - func resetString(String)
+            - func setRegion(Int64, Int64)
+            - func split()
+            - func split(Int64)
+          - class Regex
+            - init(String, Array\<RegexFlag>)
+            - init(String, RegexOption) <sup>(deprecated)</sup>
+            - func find(String, Bool)
+            - func findAll(String, Bool)
+            - func getNamedGroups()
+            - func lazyFindAll(String, Bool)
+            - func matcher(String) <sup>(deprecated)</sup>
+            - func matches(String)
+            - func replace(String, String)
+            - func replace(String, String, Int64)
+            - func replaceAll(String, String)
+            - func replaceAll(String, String, Int64)
+            - func split(String)
+            - func split(String, Int64)
+            - func string()
+          - class RegexOption <sup>(deprecated)</sup>
+            - init()
+            - func ignoreCase()
+            - func multiLine()
+            - func toString()
+        - [枚举](std/regex/regex_package_api/regex_package_enums.md)
+          - enum RegexFlag
+            - IgnoreCase
+            - MultiLine
+            - Unicode
+        - [结构体](std/regex/regex_package_api/regex_package_structs.md)
+          - struct MatchData
+            - func groupCount()
+            - func groupNumber() <sup>(deprecated)</sup>
+            - func matchPosition()
+            - func matchPosition(Int64)
+            - func matchPosition(String)
+            - func matchString()
+            - func matchString(Int64)
+            - func matchString(String)
+          - struct Position
+            - let end
+            - let start
+        - [异常类](std/regex/regex_package_api/regex_package_exceptions.md)
+          - class RegexException
+            - init()
+            - init(String)
+            - [Regex 示例](std/regex/regex_samples/regex_sample.md)
+    - [std.runtime](std/runtime/runtime_package_overview.md)
+        - [函数](std/runtime/runtime_package_api/runtime_package_funcs.md)
+          - func dumpHeapData(Path)
+          - func GC(Bool) <sup>(deprecated)</sup>
+          - func gc(Bool)
+          - func getAllocatedHeapSize()
+          - func getBlockingThreadCount()
+          - func getGCCount()
+          - func getGCFreedSize()
+          - func getGCTime()
+          - func getMaxHeapSize()
+          - func getNativeThreadCount()
+          - func getProcessorCount()
+          - func getThreadCount()
+          - func getUsedHeapSize()
+          - func SetGCThreshold(UInt64) <sup>(deprecated)</sup>
+          - func setGCThreshold(UInt64)
+          - func startCPUProfiling()
+          - func stopCPUProfiling(Path)
+        - [结构体](std/runtime/runtime_package_api/runtime_package_structs.md)
+          - struct MemoryInfo <sup>(deprecated)</sup>
+            - static prop allocatedHeapSize
+            - static prop heapPhysicalMemory
+            - static prop maxHeapSize
+          - struct ProcessorInfo <sup>(deprecated)</sup>
+            - static prop processorCount
+          - struct ThreadInfo <sup>(deprecated)</sup>
+            - static prop blockingThreadCount
+            - static prop nativeThreadCount
+            - static prop threadCount
+    - [std.sort](std/sort/sort_package_overview.md)
+        - [函数](std/sort/sort_package_api/sort_package_funcs.md)
+          - func sort\<T>(Array\<T>, Bool, Bool) where T <: Comparable\<T>
+          - func sort\<T>(Array\<T>, (T, T) -> Ordering, Bool, Bool)
+          - func sort\<T>(Array\<T>, (T, T) -> Bool, Bool, Bool)
+          - func sort\<T, K>(Array\<T>, (T) -> K, Bool, Bool) where K <: Comparable\<K>
+          - func sort\<T>(ArrayList\<T>, Bool, Bool) where T <: Comparable\<T>
+          - func sort\<T>(ArrayList\<T>, (T, T) -> Ordering, Bool, Bool)
+          - func sort\<T>(ArrayList\<T>, (T, T) -> Bool, Bool, Bool)
+          - func sort\<T, K>(ArrayList\<T>, (T) -> K, Bool, Bool) where K <: Comparable\<K>
+          - func sort\<T>(List\<T>, Bool, Bool) where T <: Comparable\<T>
+          - func sort\<T>(List\<T>, (T, T) -> Ordering, Bool, Bool)
+          - func sort\<T>(List\<T>, (T, T) -> Bool, Bool, Bool)
+          - func sort\<T, K>(List\<T>, (T) -> K, Bool, Bool) where K <: Comparable\<K>
+          - func stableSort\<T>(Array\<T>) where T <: Comparable\<T> <sup>(deprecated)</sup>
+          - func stableSort\<T>(Array\<T>, (T, T) -> Ordering) <sup>(deprecated)</sup>
+          - func unstableSort\<T>(Array\<T>) where T <: Comparable\<T> <sup>(deprecated)</sup>
+          - func unstableSort\<T>(Array\<T>, (T, T) -> Ordering) <sup>(deprecated)</sup>
+        - [接口](std/sort/sort_package_api/sort_package_interfaces.md)
+          - interface SortByExtension\<T> <sup>(deprecated)</sup>
+            - func sortBy((T, T) -> Ordering) <sup>(deprecated)</sup>
+            - func sortBy(Bool, (T, T) -> Ordering) <sup>(deprecated)</sup>
+            - extend\<T> Array\<T> <: SortByExtension\<T> <sup>(deprecated)</sup>
+              - func sortBy((T, T) -> Ordering) <sup>(deprecated)</sup>
+              - func sortBy(Bool, (T, T) -> Ordering) <sup>(deprecated)</sup>
+          - interface SortExtension <sup>(deprecated)</sup>
+            - func sort() <sup>(deprecated)</sup>
+            - func sort(Bool) <sup>(deprecated)</sup>
+            - func sortDescending() <sup>(deprecated)</sup>
+            - func sortDescending(Bool) <sup>(deprecated)</sup>
+            - extend\<T> Array\<T> <: SortExtension where T <: Comparable\<T> <sup>(deprecated)</sup>
+              - func sort() <sup>(deprecated)</sup>
+              - func sort(Bool) <sup>(deprecated)</sup>
+              - func sortDescending() <sup>(deprecated)</sup>
+              - func sortDescending(Bool) <sup>(deprecated)</sup>
+            - [对 Array 进行排序](std/sort/sort_samples/sort_sample_array.md)
+    - [std.sync](std/sync/sync_package_overview.md)
+        - [变量&常量](std/sync/sync_package_api/sync_package_constants_vars.md)
+          - let DefaultMemoryOrder <sup>(deprecated)</sup>
+        - [接口](std/sync/sync_package_api/sync_package_interfaces.md)
+          - interface Condition
+            - func notify()
+            - func notifyAll()
+            - func wait()
+            - func wait(Duration)
+            - func waitUntil(()->Bool)
+            - func waitUntil(()->Bool,Duration)
+          - interface IReentrantMutex <sup>(deprecated)<sup>
+            - func lock()
+            - func tryLock()
+            - func unlock()
+          - interface Lock
+            - func lock()
+            - func tryLock()
+            - func unlock()
+          - interface UniqueLock
+            - func condition()
+        - [类](std/sync/sync_package_api/sync_package_classes.md)
+          - class AtomicBool
+            - init(Bool)
+            - func compareAndSwap(Bool, Bool)
+            - func compareAndSwap(Bool, Bool, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(Bool)
+            - func store(Bool, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(Bool)
+            - func swap(Bool, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicInt16
+            - init(Int16)
+            - func compareAndSwap(Int16, Int16)
+            - func compareAndSwap(Int16, Int16, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAdd(Int16)
+            - func fetchAdd(Int16, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAnd(Int16)
+            - func fetchAnd(Int16, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchOr(Int16)
+            - func fetchOr(Int16, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchSub(Int16)
+            - func fetchSub(Int16, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchXor(Int16)
+            - func fetchXor(Int16, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(Int16)
+            - func store(Int16, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(Int16)
+            - func swap(Int16, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicInt32
+            - init(Int32)
+            - func compareAndSwap(Int32, Int32)
+            - func compareAndSwap(Int32, Int32, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAdd(Int32)
+            - func fetchAdd(Int32, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAnd(Int32)
+            - func fetchAnd(Int32, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchOr(Int32)
+            - func fetchOr(Int32, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchSub(Int32)
+            - func fetchSub(Int32, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchXor(Int32)
+            - func fetchXor(Int32, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(Int32)
+            - func store(Int32, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(Int32)
+            - func swap(Int32, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicInt64
+            - init(Int64)
+            - func compareAndSwap(Int64, Int64)
+            - func compareAndSwap(Int64, Int64, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAdd(Int64)
+            - func fetchAdd(Int64, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAnd(Int64)
+            - func fetchAnd(Int64, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchOr(Int64)
+            - func fetchOr(Int64, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchSub(Int64)
+            - func fetchSub(Int64, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchXor(Int64)
+            - func fetchXor(Int64, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(Int64)
+            - func store(Int64, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(Int64)
+            - func swap(Int64, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicInt8
+            - init(Int8)
+            - func compareAndSwap(Int8, Int8)
+            - func compareAndSwap(Int8, Int8, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAdd(Int8)
+            - func fetchAdd(Int8, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAnd(Int8)
+            - func fetchAnd(Int8, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchOr(Int8)
+            - func fetchOr(Int8, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchSub(Int8)
+            - func fetchSub(Int8, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchXor(Int8)
+            - func fetchXor(Int8, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(Int8)
+            - func store(Int8, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(Int8)
+            - func swap(Int8, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicOptionReference\<T> where T <: Object
+            - init()
+            - init(Option\<T>)
+            - func compareAndSwap(Option\<T>, Option\<T>)
+            - func compareAndSwap(Option\<T>, Option\<T>, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(Option\<T>)
+            - func store(Option\<T>, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(Option\<T>)
+            - func swap(Option\<T>, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicReference\<T> where T <: Object
+            - init(T)
+            - func compareAndSwap(T, T)
+            - func compareAndSwap(T, T, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(T)
+            - func store(T, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(T)
+            - func swap(T, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicUInt16
+            - init(UInt16)
+            - func compareAndSwap(UInt16, UInt16)
+            - func compareAndSwap(UInt16, UInt16, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAdd(UInt16)
+            - func fetchAdd(UInt16, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAnd(UInt16)
+            - func fetchAnd(UInt16, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchOr(UInt16)
+            - func fetchOr(UInt16, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchSub(UInt16)
+            - func fetchSub(UInt16, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchXor(UInt16)
+            - func fetchXor(UInt16, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(UInt16)
+            - func store(UInt16, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(UInt16)
+            - func swap(UInt16, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicUInt32
+            - init(UInt32)
+            - func compareAndSwap(UInt32, UInt32)
+            - func compareAndSwap(UInt32, UInt32, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAdd(UInt32)
+            - func fetchAdd(UInt32, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAnd(UInt32)
+            - func fetchAnd(UInt32, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchOr(UInt32)
+            - func fetchOr(UInt32, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchSub(UInt32)
+            - func fetchSub(UInt32, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchXor(UInt32)
+            - func fetchXor(UInt32, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(UInt32)
+            - func store(UInt32, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(UInt32)
+            - func swap(UInt32, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicUInt64
+            - init(UInt64)
+            - func compareAndSwap(UInt64, UInt64)
+            - func compareAndSwap(UInt64, UInt64, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAdd(UInt64)
+            - func fetchAdd(UInt64, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAnd(UInt64)
+            - func fetchAnd(UInt64, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchOr(UInt64)
+            - func fetchOr(UInt64, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchSub(UInt64)
+            - func fetchSub(UInt64, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchXor(UInt64)
+            - func fetchXor(UInt64, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(UInt64)
+            - func store(UInt64, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(UInt64)
+            - func swap(UInt64, MemoryOrder) <sup>(deprecated)</sup>
+          - class AtomicUInt8
+            - init(UInt8)
+            - func compareAndSwap(UInt8, UInt8)
+            - func compareAndSwap(UInt8, UInt8, MemoryOrder, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAdd(UInt8)
+            - func fetchAdd(UInt8, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchAnd(UInt8)
+            - func fetchAnd(UInt8, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchOr(UInt8)
+            - func fetchOr(UInt8, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchSub(UInt8)
+            - func fetchSub(UInt8, MemoryOrder) <sup>(deprecated)</sup>
+            - func fetchXor(UInt8)
+            - func fetchXor(UInt8, MemoryOrder) <sup>(deprecated)</sup>
+            - func load()
+            - func load(MemoryOrder) <sup>(deprecated)</sup>
+            - func store(UInt8)
+            - func store(UInt8, MemoryOrder) <sup>(deprecated)</sup>
+            - func swap(UInt8)
+            - func swap(UInt8, MemoryOrder) <sup>(deprecated)</sup>
+          - class Barrier
+            - init(Int64)
+            - func wait(Duration)
+          - class Monitor <sup>(deprecated)<sup>
+            - init()
+            - func notify()
+            - func notifyAll()
+            - func wait(Duration)
+          - class MultiConditionMonitor <sup>(deprecated)<sup>
+            - init()
+            - func newCondition()
+            - func notify(ConditionID)
+            - func notifyAll(ConditionID)
+            - func wait(ConditionID, Duration)
+          - class Mutex
+            - init()
+            - func condition()
+            - func lock()
+            - func tryLock()
+            - func unlock
+          - class ReadWriteLock
+            - prop readLock
+            - prop writeLock
+            - init(Bool)
+            - func isFair()
+          - class ReentrantMutex <sup>(deprecated)<sup>
+            - init()
+            - func lock()
+            - func tryLock()
+            - func unlock
+          - class ReentrantReadMutex <sup>(deprecated)<sup>
+            - func lock()
+            - func tryLock()
+            - func unlock()
+          - class ReentrantReadWriteMutex <sup>(deprecated)<sup>
+            - prop readMutex
+            - prop writeMutex
+            - init(ReadWriteMutexMode)
+          - class ReentrantWriteMutex <sup>(deprecated)<sup>
+            - func lock()
+            - func tryLock()
+            - func unlock()
+          - class Semaphore
+            - prop count
+            - init(Int64)
+            - func acquire(Int64)
+            - func release(Int64)
+            - func tryAcquire(Int64)
+          - class SyncCounter
+            - prop count
+            - init(Int64)
+            - func dec()
+            - func waitUntilZero(Duration)
+          - class Timer
+            - static func after(Duration, ()->Option\<Duration>)
+            - static func once(Duration, ()->Unit)
+            - static func repeat(Duration, Duration, ()->Unit, CatchupStyle)
+            - static func repeatDuring(Duration, Duration, Duration, ()->Unit, CatchupStyle)
+            - static func repeatTimes(Int64, Duration, Duration, ()->Unit, CatchupStyle)
+            - func cancel()
+            - func hashCode()
+            - operator func !=(Timer)
+            - operator func ==(Timer)
+        - [枚举](std/sync/sync_package_api/sync_package_enums.md)
+          - enum CatchupStyle
+            - Burst
+            - Delay
+            - Skip
+          - enum MemoryOrder <sup>(deprecated)</sup>
+            - SeqCst
+          - enum ReadWriteMutexMode <sup>(deprecated)<sup>
+            - Fair
+            - Unfair
+        - [结构体](std/sync/sync_package_api/sync_package_structs.md)
+          - struct ConditionID <sup>(deprecated)<sup>
+        - [异常类](std/sync/sync_package_api/sync_package_exceptions.md)
+          - class IllegalSynchronizationStateException
+            - init()
+            - init(String)
+            - [示例](std/sync/sync_samples/sync_samples.md)
+    - [std.time](std/time/time_package_overview.md)
+        - [类](std/time/time_package_api/time_package_classes.md)
+          - class DateTimeFormat
+            - static const RFC1123
+            - static const RFC3339
+            - static const RFC822
+            - static const RFC850
+            - prop format: String <sup>(deprecated)</sup>
+            - static func of(String) <sup>(deprecated)</sup>
+          - class TimeZone
+            - static let Local
+            - static let UTC
+            - prop id
+            - init(String, Duration)
+            - static func load(String)
+            - static func loadFromPaths(String, Array\<String>)
+            - static func loadFromTZData(String, Array\<UInt8>)
+            - func toString()
+            - operator func !=(TimeZone)
+            - operator func ==(TimeZone)
+        - [枚举](std/time/time_package_api/time_package_enums.md)
+          - enum DayOfWeek
+            - Friday
+            - Monday
+            - Saturday
+            - Sunday
+            - Thursday
+            - Tuesday
+            - Wednesday
+            - static func of(Int64)
+            - func toString()
+            - func toInteger()
+            - func value() <sup>(deprecated)</sup>
+            - operator func !=(DayOfWeek)
+            - operator func ==(DayOfWeek)
+            - operator func +(Int64)
+            - operator func -(Int64)
+          - enum Month
+            - April
+            - August
+            - December
+            - February
+            - January
+            - July
+            - June
+            - March
+            - May
+            - November
+            - October
+            - September
+            - static func of(Int64)
+            - func toString()
+            - func toInteger()
+            - func value() <sup>(deprecated)</sup>
+            - operator func !=(Month)
+            - operator func +(Int64)
+            - operator func -(Int64)
+            - operator func ==(Month)
+        - [结构体](std/time/time_package_api/time_package_structs.md)
+          - struct DateTime
+            - static prop UnixEpoch
+            - prop dayOfMonth
+            - prop dayOfWeek
+            - prop dayOfYear
+            - prop date
+            - prop hour
+            - prop isoWeek
+            - prop minute
+            - prop month
+            - prop monthValue <sup>(deprecated)</sup>
+            - prop nanosecond
+            - prop second
+            - prop year
+            - prop time
+            - prop zone
+            - prop zoneId
+            - prop zoneOffset
+            - static func fromUnixTimeStamp(Duration)
+            - static func now(TimeZone)
+            - static func nowUTC()
+            - static func of(Int64, Int64, Int64, Int64, Int64, Int64, Int64, TimeZone)
+            - static func of(Int64, Month, Int64, Int64, Int64, Int64, Int64, TimeZone)
+            - static func ofEpoch(Int64, Int64)
+            - static func ofUTC(Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+            - static func ofUTC(Int64, Month, Int64, Int64, Int64, Int64, Int64)
+            - static func parse(String)
+            - static func parse(String, String)
+            - static func parse(String, DateTimeFormat) <sup>(deprecated)</sup>
+            - static func tryParse(String)
+            - func addDays(Int64)
+            - func addHours(Int64)
+            - func addMinutes(Int64)
+            - func addMonths(Int64)
+            - func addNanoseconds(Int64)
+            - func addSeconds(Int64)
+            - func addWeeks(Int64)
+            - func addYears(Int64)
+            - func compare(DateTime)
+            - func hashCode()
+            - func inLocal()
+            - func inTimeZone(TimeZone)
+            - func inUTC()
+            - func toString()
+            - func format(String)
+            - func toString(DateTimeFormat) <sup>(deprecated)</sup>
+            - func toUnixTimeStamp()
+            - operator func !=(DateTime)
+            - operator func +(Duration)
+            - operator func -(DateTime)
+            - operator func -(Duration)
+            - operator func <(DateTime)
+            - operator func <=(DateTime)
+            - operator func ==(DateTime)
+            - operator func >(DateTime)
+            - operator func >=(DateTime)
+          - struct MonoTime
+            - static func now()
+            - func compare(MonoTime)
+            - func hashCode()
+            - operator func !=(MonoTime)
+            - operator func +(Duration)
+            - operator func -(Duration)
+            - operator func -(MonoTime)
+            - operator func <(MonoTime)
+            - operator func <=(MonoTime)
+            - operator func ==(MonoTime)
+            - operator func >(MonoTime)
+            - operator func >=(MonoTime)
+        - [异常类](std/time/time_package_api/time_package_exceptions.md)
+          - class InvalidDataException
+            - init()
+            - init(String)
+          - class TimeParseException
+            - init()
+            - init(String)
+            - [DateTime 比较](std/time/time_samples/datetime_compare.md)
+            - [DateTime 与 String 类型的转换](std/time/time_samples/datetime_parse.md)
+            - [获取日期时间信息](std/time/time_samples/datetime_prop.md)
+            - [同一时间在不同时区的本地时间](std/time/time_samples/datetime_tz.md)
+            - [利用 MonoTime 作计时](std/time/time_samples/monotime_test.md)
+    - [std.unicode](std/unicode/unicode_package_overview.md)
+        - [接口](std/unicode/unicode_package_api/unicode_package_interfaces.md)
+          - interface UnicodeRuneExtension
+            - func isLetter()
+            - func isLowerCase()
+            - func isNumber()
+            - func isTitleCase()
+            - func isUpperCase()
+            - func isWhiteSpace()
+            - func toLowerCase()
+            - func toTitleCase()
+            - func toUpperCase()
+            - func toLowerCase(CasingOption)
+            - func toTitleCase(CasingOption)
+            - func toUpperCase(CasingOption)
+            - extend Rune <: UnicodeRuneExtension
+              - func isLetter()
+              - func isLowerCase()
+              - func isNumber()
+              - func isTitleCase()
+              - func isUpperCase()
+              - func isWhiteSpace()
+              - func toLowerCase()
+              - func toLowerCase(CasingOption)
+              - func toTitleCase()
+              - func toTitleCase(CasingOption)
+              - func toUpperCase()
+              - func toUpperCase(CasingOption)
+          - interface UnicodeStringExtension
+            - func isBlank()
+            - func toLower()
+            - func toLower(CasingOption)
+            - func toTitle()
+            - func toTitle(CasingOption)
+            - func toUpper()
+            - func toUpper(CasingOption)
+            - func trim()
+            - func trimEnd()
+            - func trimLeft() <sup>(deprecated)</sup>
+            - func trimRight() <sup>(deprecated)</sup>
+            - func trimStart()
+            - extend String <: UnicodeStringExtension
+              - func isBlank()
+              - func toLower()
+              - func toLower(CasingOption)
+              - func toTitle()
+              - func toTitle(CasingOption)
+              - func toUpper()
+              - func toUpper(CasingOption)
+              - func trim()
+              - func trimEnd()
+              - func trimLeft() <sup>(deprecated)</sup>
+              - func trimRight() <sup>(deprecated)</sup>
+              - func trimStart()
+        - [枚举](std/unicode/unicode_package_api/unicode_package_enums.md)
+          - enum CasingOption
+            - TR
+            - AZ
+            - LT
+            - Other
+    - [std.unittest](std/unittest/unittest_package_overview.md)
+        - [函数](std/unittest/unittest_package_api/unittest_package_functions.md)
+          - func assertCaughtUnexpectedE(String, String, String, Option\<AssertionCtx>)
+          - func assertEqual\<T>(String, String, T, T, Option\<AssertionCtx>): Unit where T <: Equatable\<T>
+          - func defaultConfiguration()
+          - func entryMain(TestPackage)
+          - func expectCaughtUnexpectedE(String, String, String, Option\<AssertionCtx>)
+          - func expectEqual\<T>(String, String, T, T, Option\<AssertionCtx>): Unit where T <: Equatable\<T>
+          - func fail(String)
+          - func failExpect(String)
+          - func invokeCustomAssert\<T>(Array\<String>, String, (AssertionCtx) -> T, Option\<AssertionCtx>)
+          - func invokeCustomExpect(Array\<String>, String, (AssertionCtx) -> Any, Option\<AssertionCtx>)
+        - [类型别名](std/unittest/unittest_package_api/unittest_package_types.md)
+          - type MeasurementUnitTable
+        - [接口](std/unittest/unittest_package_api/unittest_package_interfaces.md)
+          - interface BenchInputProvider
+            - mut func get(Int64)
+            - mut func reset(Int64)
+          - interface BenchmarkConfig
+            - func batchSize(Int64)
+            - func batchSize(Range\<Int64>): Unit
+            - func explicitGC(ExplicitGcType)
+            - func minBatches(Int64)
+            - func minDuration(Duration)
+            - func warmup(Int64)
+            - func warmup(Duration)
+          - interface BenchmarkInputMarker
+          - interface Generator\<T>
+            - func next()
+          - interface Measurement
+            - prop conversionTable
+            - prop name
+            - prop textDescription
+            - func measure()
+            - func setup()
+          - interface Reporter
+          - interface TestClass
+            - func asTestSuite()
+        - [类](std/unittest/unittest_package_api/unittest_package_classes.md)
+          - class AssertionCtx
+            - prop args
+            - prop caller
+            - prop hasErrors
+            - func arg(String)
+            - func fail(String)
+            - func fail\<PP>(PP)
+            - func failExpect(String)
+            - func failExpect\<PP>(PP)
+            - func setArgsAliases(Array\<String>)
+          - class Benchmark
+            - prop name
+            - func run()
+            - static func create(String, Configuration, () -> Unit)
+            - static func createParameterized\<T>(String, DataStrategy\<T>, Configuration, (T) -> Unit)
+            - static func createParameterized\<T>(String, DataStrategyProcessor\<T>, Configuration, (T) -> Unit)
+          - class BenchReport
+            - func reportTo\<T>(Reporter\<BenchReport, T>)
+          - class CartesianProductProcessor\<T0,T1>
+            - CartesianProductProcessor(DataStrategyProcessor\<T0>, DataStrategyProcessor\<T1>)
+          - class ConsoleReporter
+            - ConsoleReporter(Bool)
+          - class TextReporter\<PP>
+            - TextReporter(PP)
+          - class CsvReporter
+            - CsvReporter(Path)
+          - class CsvRawReporter
+            - CsvRawReporter(Path)
+          - class DataStrategyProcessor\<T>
+            - prop isInfinite
+            - func intoBenchmark(String, Configuration, (T, Int64, Int64) -> Float64)
+            - func intoUnitTestCase(String, Configuration, (T) -> Unit)
+            - func lastItemInfo()
+            - func lastItem(Configuration)
+            - func provide(Configuration)
+            - func shrinkLastItem(Configuration, LazyCyclicNode)
+            - static func start(DataStrategy\<T>, String)
+            - static func start\<U>(() -> DataStrategy\<U>, String)
+            - static func start(() -> DataStrategy\<T>, String, Int64)
+            - static func start(() -> DataStrategyProcessor\<T>, String)
+            - static func start\<U>(() -> DataStrategyProcessor\<U>, String, Int64)
+            - extend \<T> DataStrategyProcessor\<T>
+              - func map\<R>((T) -> R)
+              - func mapWithConfig\<R>((T, Configuration) -> R)
+              - func flatMap\<R>((T) -> DataProvider\<R>)
+              - func flatMapStrategy((T) -> DataStrategy\<R>)
+              - func product(DataStrategyProcessor\<R>)
+          - class FlatMapProcessor\<T,R>
+          - class FlatMapStrategyProcessor\<T,R>
+          - class InputParameter
+          - class LazyCyclicNode
+            - func advance()
+            - func recover()
+          - class MapProcessor\<T,R>
+          - class PowerAssertDiagramBuilder
+            - init(String)
+            - func r\<T>(T, String, Int64)
+            - func r(String, String, Int64)
+            - func r(Rune, String, Int64)
+            - func h(Exception, String, Int64)
+            - func w(Bool)
+          - class RandomDataProvider\<T>
+            - RandomDataProvider(Configuration)
+            - prop isInfinite
+            - func provide()
+          - class RandomDataShrinker\<T>
+            - func shrinker(T)
+          - class RandomDataStrategy\<T>
+            - func provider(Configuration)
+            - func shrinker(Configuration)
+          - class Report
+            - prop errorCount
+            - prop caseCount
+            - prop passedCount
+            - prop failedCount
+            - prop skippedCount
+          - class RawStatsReporter
+            - RawStatsReporter()
+          - class SimpleProcessor\<T>
+            - SimpleProcessor(() -> DataStrategy\<T>, String)
+          - class TestGroup
+            - prop name
+            - func runBenchmarks()
+            - func runBenchmarks(Configuration)
+            - func runTests()
+            - func runTests(Configuration)
+            - static func builder(String)
+            - static func builder(TestGroup)
+          - class TestGroupBuilder
+            - func add(Benchmark)
+            - func add(TestSuite)
+            - func add(UnitTestCase)
+            - func build()
+            - func configure(Configuration)
+            - func setName(String)
+          - class TestPackage
+            - TestPackage(String)
+            - func registerCase(() -> UnitTestCase)
+            - func registerSuite(() -> TestSuite)
+            - func registerBench(() -> Benchmark)
+          - class TestReport
+            - func reportTo\<T>(Reporter\<TestReport, T>)
+          - class TestSuite
+            - prop name
+            - func runBenchmarks()
+            - func runBenchmarks(Configuration)
+            - func runTests()
+            - func runTests(Configuration)
+            - static func builder(String)
+            - static func builder(TestSuite)
+          - class TestSuiteBuilder
+            - func add(Benchmark)
+            - func add(UnitTestCase)
+            - func afterAll(() -> Unit)
+            - func afterEach(() -> Unit)
+            - func afterEach((String) -> Unit)
+            - func beforeAll(() -> Unit)
+            - func beforeEach(() -> Unit)
+            - func beforeEach((String) -> Unit)
+            - func template(TestSuite)
+            - func build()
+            - func configure(Configuration)
+            - func setName(String)
+          - class UnitTestCase
+            - prop name
+            - func run()
+            - static func create(String, Configuration, () -> Unit)
+            - static func createParameterized\<T>(String, DataStrategy\<T>, Configuration, (T) -> Unit)
+            - static func createParameterized\<T>(String, DataStrategyProcessor\<T>, Configuration, (T) -> Unit)
+          - class XmlReporter
+            - XmlReporter(Path)
+        - [枚举](std/unittest/unittest_package_api/unittest_package_enums.md)
+          - enum ExplicitGcType
+            - Disabled
+            - Heavy
+            - Light
+            - func toString()
+          - enum TimeUnit
+            - Micros
+            - Millis
+            - Nanos
+            - Seconds
+            - func toString()
+          - enum PerfCounter
+            - HW_CPU_CYCLES
+            - HW_INSTRUCTIONS
+            - HW_CACHE_REFERENCES
+            - HW_CACHE_MISSES
+            - HW_BRANCH_INSTRUCTIONS
+            - HW_BRANCH_MISSES
+            - HW_BUS_CYCLES
+            - HW_STALLED_CYCLES_FRONTEND
+            - HW_STALLED_CYCLES_BACKEND
+            - HW_REF_CPU_CYCLES
+            - SW_CPU_CLOCK
+            - SW_TASK_CLOCK
+            - SW_PAGE_FAULTS
+            - SW_CONTEXT_SWITCHES
+            - SW_CPU_MIGRATIONS
+            - SW_PAGE_FAULTS_MIN
+            - SW_PAGE_FAULTS_MAJ
+            - SW_EMULATION_FAULTS
+            - func toString()
+        - [结构体](std/unittest/unittest_package_api/unittest_package_structs.md)
+          - struct BatchInputProvider\<T>
+            - BatchInputProvider(() -> T)
+            - mut func get(Int64)
+            - mut func reset(Int64)
+          - struct BatchSizeOneInputProvider\<T>
+            - BatchSizeOneInputProvider(() -> T)
+            - mut func get(Int64)
+            - mut func reset(Int64)
+          - struct CpuCycles
+            - prop conversionTable
+            - prop name
+            - func measure()
+            - func setup()
+          - struct GenerateEachInputProvider\<T>
+            - GenerateEachInputProvider(() -> T)
+            - mut func get(Int64)
+            - mut func reset(Int64)
+          - struct ImmutableInputProvider\<T>
+            - ImmutableInputProvider(T)
+            - mut func get(Int64)
+            - static func createOrExisting(T, Int64)
+            - static func createOrExisting\<U>(U): U where U <: BenchInputProvider\<T>
+          - struct Perf
+            - prop conversionTable
+            - prop name
+            - init()
+            - init(PerfCounter)
+            - func measure()
+            - func setup()
+          - struct TimeNow
+            - prop conversionTable
+            - prop name
+            - prop textDescription
+            - init()
+            - init(?TimeUnit)
+            - func measure()
+        - [异常类](std/unittest/unittest_package_api/unittest_package_exceptions.md)
+          - class AssertException
+            - init()
+            - init(String)
+          - class AssertIntermediateException
+            - let expression
+            - let originalException
+            - func getOriginalStackTrace
+          - class UnittestCliOptionsFormatException
+          - class UnittestException
+            - [快速入门](std/unittest/unittest_samples/unittest_getting_started.md)
+            - [基础概念](std/unittest/unittest_samples/unittest_basics.md)
+            - [参数化测试](std/unittest/unittest_samples/unittest_parameterized_tests.md)
+            - [动态测试](std/unittest/unittest_samples/unittest_dynamic_tests.md)
+            - [测试模版](std/unittest/unittest_samples/unittest_test_templates.md)
+            - [基准测试](std/unittest/unittest_samples/unittest_benchmarks.md)
+    - [std.unittest.mock](std/unittest_mock/unittest_mock_package_overview.md)
+        - [函数](std/unittest_mock/unittest_mock_package_api/unittest_mock_package_functions.md)
+          - func mock\<T>()
+          - func mock\<T>(Array\<StubMode>)
+          - func spy\<T>(T)
+        - [接口](std/unittest_mock/unittest_mock_package_api/unittest_mock_package_interfaces.md)
+          - interface ValueListener\<T>
+            - func addCallback((T) -> Unit)
+            - func allValues()
+            - func lastValue()
+            - func new()
+            - func onEach((T) -> Unit)
+        - [类](std/unittest_mock/unittest_mock_package_api/unittest_mock_package_classes.md)
+          - class ActionSelector
+            - func fails()
+          - class AnyMatcher
+            - func matchesAny(Any)
+            - extend AnyMatcher
+              - func value\<T>()
+          - class ArgumentMatcher
+            - func withDescription(String)
+            - func forParameter(String)
+            - func matchesAny(Any)
+          - class CardinalitySelector\<A>
+            - func anyTimes()
+            - func atLeastOnce()
+            - func atLeastTimes(Int64)
+            - func once()
+            - func times(Int64)
+            - func times(Int64, Int64)
+          - class ConfigureMock
+            - static func stubGetter\<TObj, TRet>(() -> TRet,TObj,String,String,String,Int64)
+            - static func stubMethod\<TObj, TRet>(() -> TRet,Array\<ArgumentMatcher>,TObj,String,String,String,Int64)
+            - static func stubSetter\<TObj, TRet>(() -> Unit, () -> TArg,ArgumentMatcher,TObj,String,String,String,Int64)
+          - class Continuation\<A>
+            - func then()
+          - class GetterActionSelector\<TRet>
+            - func getsField(SyntheticField\<TRet>)
+            - func getsOriginal()
+            - func returns(TRet)
+            - func returns(() -> TRet)
+            - func returnsConsecutively(Array\<TRet>)
+            - func returnsConsecutively(ArrayList\<TRet>)
+            - func throws(Exception)
+            - func throws(() -> Exception)
+            - extend MethodActionSelector\<Unit>
+              - func returns()
+          - class Matchers
+            - static func any()
+            - static func argThat\<T>(ValueListener\<T>, (T) -> Bool)
+            - static func argThat\<T>((T) -> Bool)
+            - static func argThatNot\<T>((T) -> Bool)
+            - static func capture\<T>(ValueListener\<T>)
+            - static func default\<T>(T)
+            - static func eq\<T>(T)
+            - static func ofType\<T>()
+            - static func same\<T>(T) where T <: Object
+            - extend Matchers
+              - static func none()
+          - class MethodActionSelector\<TRet>
+            - func callsOriginal()
+            - func returns(() -> R)
+            - func returns(R)
+            - func returnsConsecutively(Array\<R>)
+            - func returnsConsecutively(ArrayList\<R>)
+            - func throws(() -> Exception)
+            - func throws(Exception)
+          - class MockFramework
+            - static func openSession
+            - static func closeSession
+          - class NoneMatcher
+            - func matchesAny
+            - extend NoneMatcher
+              - func value\<T>()
+          - class OrderedVerifier
+            - func checkThat(VerifyStatement)
+          - class SetterActionSelector\<TRet>
+            - func doesNothing()
+            - func setsOriginal()
+            - func setsField(SyntheticField\<TRet>)
+            - func throws(Exception)
+            - func throws(() -> Exception)
+          - class SyntheticField\<T>
+            - static func create(T)
+          - class TypedMatcher\<T>
+            - func matches(T)
+            - func matchesAny(Any)
+            - extend\<T> TypedMatcher\<T>
+              - func value\<T>()
+          - class UnorderedVerifier
+            - func checkThat(VerifyStatement)
+          - class Verify
+            - static func clearInvocationLog()
+            - static func noInteractions(Array\<Object>)
+            - static func ordered((OrderedVerifier) -> Unit)
+            - static func ordered(Array\<VerifyStatement>)
+            - static func that(VerifyStatement)
+            - static func unordered((UnorderedVerifier) -> Unit)
+            - static func unordered(Array\<VerifyStatement>)
+            - static func unordered(Exhaustiveness, (UnorderedVerifier) -> Unit)
+            - static func unordered(Exhaustiveness, Array\<VerifyStatement>)
+          - class VerifyStatement
+            - func atLeastOnce()
+            - func atLeastTimes(Int64)
+            - func once()
+            - func times(Int64)
+            - func times(Int64, Int64)
+        - [枚举](std/unittest_mock/unittest_mock_package_api/unittest_mock_package_enums.md)
+          - enum Exhaustiveness
+            - Exhaustive
+            - Partial
+          - enum MockSessionKind
+            - Forbidden
+            - Stateless
+            - Verifiable
+          - enum StubMode
+            - ReturnsDefaults
+            - SyntheticFields
+        - [异常类](std/unittest_mock/unittest_mock_package_api/unittest_mock_package_exceptions.md)
+          - class ExpectationFailedException
+          - class MockFrameworkException
+          - class MockFrameworkInternalError
+          - class PrettyException
+            - func pprint
+          - class UnhandledCallException
+          - class UnnecessaryStubbingException
+          - class UnstubbedInvocationException
+          - class VerificationFailedException
+            - [快速入门](std/unittest_mock/unittest_mock_samples/mock_framework_getting_started.md)
+            - [基础概念](std/unittest_mock/unittest_mock_samples/mock_framework_basics.md)
+            - [桩](std/unittest_mock/unittest_mock_samples/mock_framework_stubs.md)
+            - [验证](std/unittest_mock/unittest_mock_samples/mock_framework_verification.md)
+    - [std.unittest.mock.mockmacro](std/unittest_mock_mockmacro/unittest_mock_mockmacro_package_overview.md)
+        - [宏](std/unittest_mock_mockmacro/unittest_mock_mockmacro_package_api/unittest_mock_mockmacro_package_macros.md)
+          - 宏
+          - 宏
+    - [std.unittest.testmacro](std/unittest_testmacro/unittest_testmacro_package_overview.md)
+        - [宏](std/unittest_testmacro/unittest_testmacro_package_api/unittest_testmacro_package_macros.md)
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+            - 返回值
+            - 嵌套断言
+            - 指定泛型类型
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+            - 支持的语法
+            - 规则与约束
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+          - 宏
+    - [std.unittest.common](std/unittest_common/unittest_common_package_overview.md)
+        - [函数](std/unittest_common/unittest_common_package_api/unittest_common_package_functions.md)
+          - func registerOptionValidator(String, (Any) -> OptionValidity)
+          - func setOptionInfo(String, Array\<String\>, ?String)
+          - func setOrUpdateOptionInfo(String, ?String, String, String)
+          - func toStringOrPlaceholder\<T>(T)
+        - [接口](std/unittest_common/unittest_common_package_api/unittest_common_package_interfaces.md)
+          - interface DataProvider
+            - prop isInfinite
+            - func provide()
+            - func positions()
+            - extend\<T> Array\<T> <: DataProvider\<T>
+            - extend\<T> Range\<T> <: DataProvider\<T>
+          - interface DataShrinker\<T>
+            - func shrink(T)
+          - interface DataStrategy
+            - func provider(Configuration)
+            - func shrinker(Configuration)
+            - extend\<T> Array\<T> <: DataStrategy\<T>
+            - extend\<T> Range\<T> <: DataStrategy\<T>
+          - interface PrettyPrintable
+            - func pprint(PrettyPrinter)
+            - extend\<T> Array\<T> <: PrettyPrintable where T <: PrettyPrintable
+              - func pprint(PrettyPrinter)
+            - extend\<T> ArrayList\<T> <: PrettyPrintable where T <: PrettyPrintable
+              - func pprint(PrettyPrinter)
+          - interface KeyFor
+            - prop name
+        - [类](std/unittest_common/unittest_common_package_api/unittest_common_package_classes.md)
+          - class Configuration
+            - init()
+            - func clone()
+            - func get\<T>(KeyFor\<T>)
+            - func getByName\<T>(name: String): ?T
+            - func remove\<T>(KeyFor\<T>)
+            - func removeByName\<T>(String)
+            - func set\<T>(KeyFor\<T>, T)
+            - func setByName\<T>(name: String, value: T)
+            - func toString()
+            - static func merge(Configuration, Configuration)
+            - extend Configuration <: BenchmarkConfig
+              - func batchSize(Int64)
+              - func batchSize(Range\<Int64>)
+              - func explicitGC(ExplicitGcType)
+              - func minBatches(Int64)
+              - func minDuration(Duration)
+              - func warmup(Int64)
+              - func warmup(Duration)
+          - class ConfigurationKey
+            - func equals(ConfigurationKey)
+            - func hashCode
+            - operator func ==(ConfigurationKey)
+            - public override operator func !=(that: ConfigurationKey)
+          - class PrettyPrinter
+            - PrettyPrinter(UInt64,UInt64)
+            - prop isTopLevel
+            - func append(String)
+            - func append\<PP>(PP)where PP <: PrettyPrintable
+            - func appendCentered(String, UInt64)
+            - func appendLeftAligned(String, UInt64)
+            - func appendLine(String): PrettyPrinter
+            - func appendLine\<PP>(PP) where PP <: PrettyPrintable
+            - func appendRightAligned(String, UInt64)
+            - func colored(Color, body: () -> Unit)
+            - func colored(Color, String)
+            - func customOffset(UInt64, body: () -> Unit)
+            - func indent(body: () -> Unit)
+            - func indent(UInt64, body: () -> Unit)
+            - func newLine()
+            - func put(String)
+            - func putNewLine()
+            - func setColor(Color)
+          - class PrettyText
+            - init()
+            - init(String)
+            - func isEmpty()
+            - func pprint(PrettyPrinter)
+            - func toString()
+            - static func of\<PP>(PP) where PP <: PrettyPrintable
+        - [枚举](std/unittest_common/unittest_common_package_api/unittest_common_package_enums.md)
+          - enum Color
+            - RED
+            - GREEN
+            - YELLOW
+            - BLUE
+            - CYAN
+            - MAGENTA
+            - GRAY
+            - DEFAULT_COLOR
+            - operator func ==(Color)
+            - operator func !=(Color)
+          - enum OptionValidity
+            - UnknownOptionType
+            - InvalidOption(String)
+            - ValidOption(ConfigurationKey)
+        - [结构体](std/unittest_common/unittest_common_package_api/unittest_common_package_structs.md)
+          - struct OptionInfo
+            - let description
+            - let name
+            - let types
+            - let userDefined
+        - [异常类](std/unittest_common/unittest_common_package_api/unittest_common_package_exceptions.md)
+          - class UnittestOptionValidationException
+    - [std.unittest.diff](std/unittest_diff/unittest_diff_package_overview.md)
+        - [接口](std/unittest_diff/unittest_diff_package_api/unittest_diff_package_interfaces.md)
+          - interface AssertPrintable
+            - prop hasNestedDiff
+            - func pprintForAssertion(PrettyPrinter, T, String, String, Int64)
+    - [std.unittest.prop_test](std/unittest_prop_test/unittest_prop_test_package_overview.md)
+        - [函数](std/unittest_prop_test/unittest_prop_test_package_api/unittest_prop_test_package_functions.md)
+          - func emptyIterable\<T>()
+          - func random\<T>() where T <: Arbitrary\<T>
+        - [接口](std/unittest_prop_test/unittest_prop_test_package_api/unittest_prop_test_package_interfaces.md)
+          - interface Arbitrary\<T>
+            - static func arbitrary(RandomSource)
+            - extend Bool <: Arbitrary\<Bool>
+              - static func arbitrary(RandomSource)
+            - extend Float16 <: Arbitrary\<Float16>
+              - static func arbitrary(RandomSource)
+            - extend Float32 <: Arbitrary\<Float32>
+              - static func arbitrary(RandomSource)
+            - extend Float64 <: Arbitrary\<Float64>
+              - static func arbitrary(RandomSource)
+            - extend Int16 <: Arbitrary\<Int16>
+              - static func arbitrary(RandomSource)
+            - extend Int32 <: Arbitrary\<Int32>
+              - static func arbitrary(RandomSource)
+            - extend Int64 <: Arbitrary\<Int64>
+              - static func arbitrary(RandomSource)
+            - extend Int8 <: Arbitrary\<Int8>
+              - static func arbitrary(RandomSource)
+            - extend IntNative <: Arbitrary\<IntNative>
+              - static func arbitrary(RandomSource)
+            - extend Ordering <: Arbitrary\<Ordering>
+              - static func arbitrary(RandomSource)
+            - extend Rune <: Arbitrary\<Rune>
+              - static func arbitrary(RandomSource)
+            - extend String <: Arbitrary\<String>
+              - static func arbitrary(RandomSource)
+            - extend UInt16 <: Arbitrary\<UInt16>
+              - static func arbitrary(RandomSource)
+            - extend UInt32 <: Arbitrary\<UInt32>
+              - static func arbitrary(RandomSource)
+            - extend UInt64 <: Arbitrary\<UInt64>
+              - static func arbitrary(RandomSource)
+            - extend UInt8 <: Arbitrary\<UInt8>
+              - static func arbitrary(RandomSource)
+            - extend UIntNative <: Arbitrary\<UIntNative>
+              - static func arbitrary(RandomSource)
+            - extend Unit <: Arbitrary\<Unit>
+              - static func arbitrary(RandomSource)
+            - extend\<T> Array\<T> <: Arbitrary\<Array\<T>> where T <: Arbitrary\<T>
+              - static func arbitrary(RandomSource)
+            - extend\<T> Option\<T> <: Arbitrary\<Option\<T>> where T <: Arbitrary\<T>
+              - static func arbitrary(RandomSource)
+            - extend\<T> ArrayList\<T> <: Arbitrary\<ArrayList\<T>> where T <: Arbitrary\<T>
+              - static func arbitrary(RandomSource)
+            - extend\<T> HashSet\<T> <: Arbitrary\<HashSet\<T>> where T <: Arbitrary\<T>
+              - static func arbitrary(RandomSource)
+            - extend\<K, V> HashMap\<K, V> <: Arbitrary\<HashMap\<K, V>> where K <: Arbitrary\<K>, V <: Arbitrary\<V>
+              - static func arbitrary(RandomSource)
+          - interface IndexAccess
+            - func getElementAsAny(Int64)
+          - interface RandomSource
+            - func nextBool()
+            - func nextFloat16()
+            - func nextFloat32()
+            - func nextFloat64()
+            - func nextGaussianFloat64(Float64, Float64)
+            - func nextInt16()
+            - func nextInt16(Int16)
+            - func nextInt32()
+            - func nextInt32(Int32)
+            - func nextInt64()
+            - func nextInt64(Int64)
+            - func nextInt8()
+            - func nextInt8(Int8): Int8
+            - func nextIntNative():IntNative
+            - func nextUInt16()
+            - func nextUInt16(UInt16)
+            - func nextUInt32()
+            - func nextUInt32(UInt32)
+            - func nextUInt64()
+            - func nextUInt64(UInt64)
+            - func nextUInt8()
+            - func nextUInt8(UInt8)
+            - func nextUIntNative():UIntNative
+            - func suggestBool()
+            - func suggestRune()
+            - func suggestFloat16()
+            - func suggestFloat32()
+            - func suggestFloat64()
+            - func suggestInt16()
+            - func suggestInt32()
+            - func suggestInt64()
+            - func suggestInt8()
+            - func suggestIntNative():IntNative
+            - func suggestUInt16()
+            - func suggestUInt32()
+            - func suggestUInt64()
+            - func suggestUInt8()
+            - func suggestUIntNative():UIntNative
+          - interface Shrink\<T>
+            - func shrink()
+            - extend Bool <: Shrink\<Bool>
+              - func shrink()
+            - extend Int16 <: Shrink\<Int16>
+              - func shrink()
+            - extend Int32 <: Shrink\<Int32>
+              - func shrink()
+            - extend Int64 <: Shrink\<Int64>
+              - func shrink()
+            - extend Int8 <: Shrink\<Int8>
+              - func shrink()
+            - extend IntNative <: Shrink\<IntNative>
+              - func shrink()
+            - extend Rune <: Shrink\<Rune>
+              - func shrink()
+            - extend String <: Shrink\<String>
+              - func shrink()
+            - extend UInt16 <: Shrink\<UInt16>
+              - func shrink()
+            - extend UInt32 <: Shrink\<UInt32>
+              - func shrink()
+            - extend UInt64 <: Shrink\<UInt64>
+              - func shrink()
+            - extend UInt8 <: Shrink\<UInt8>
+              - func shrink()
+            - extend UIntNative <: Shrink\<UIntNative>
+              - func shrink()
+            - extend Unit <: Shrink\<Unit>
+              - func shrink()
+            - extend Float16 <: Shrink\<Float16>
+              - func shrink()
+            - extend Float32 <: Shrink\<Float32>
+              - func shrink()
+            - extend Float64 <: Shrink\<Float64>
+              - func shrink()
+            - extend\<T> Array\<T> <: Shrink\<Array\<T>>
+              - func shrink()
+            - extend\<T> Option\<T> <: Shrink\<Option\<T>>
+              - func shrink()
+            - extend\<T> ArrayList\<T> <: Shrink\<ArrayList\<T>>
+              - func shrink()
+            - extend\<T> HashSet\<T> <: Shrink\<HashSet\<T>>
+              - func shrink()
+            - extend\<K, V> HashMap\<K, V> <: Shrink\<HashMap\<K, V>>
+              - func shrink()
+        - [类](std/unittest_prop_test/unittest_prop_test_package_api/unittest_prop_test_package_classes.md)
+          - class Generators
+            - static func generate\<T>(() -> T)
+            - static func iterable\<T>(RandomSource, Array\<T>)
+            - static func lookup\<T>(RandomSource) where T <: Arbitrary\<T>
+            - static func mapped\<T, R>(RandomSource,(T) -> R) where T <: Arbitrary\<T>
+            - static func mapped\<T1, T2, R>(RandomSource, (T1, T2) -> R) where T1 <: Arbitrary\<T1>, T2 <: Arbitrary\<T2>
+            - static func mapped\<T1, T2, T3, R>(RandomSource, (T1, T2, T3) -> R) where T1 <: Arbitrary\<T1>, T2 <: Arbitrary\<T2>, T3 <: Arbitrary\<T3>
+            - static func mapped\<T1, T2, T3, T4, R>(RandomSource, (T1, T2, T3, T4) -> R) where T1 <: Arbitrary\<T1>, T2 <: Arbitrary\<T2>, T3 <: Arbitrary\<T3>, T4 <: Arbitrary\<T4>
+            - static func pick\<T>(RandomSource, Array\<Generator\<T>>)
+            - static func single\<T>(T)
+            - static func weighted\<T>(RandomSource, Array\<(UInt64, Generator\<T>)>)
+          - class LazySeq\<T>
+            - init()
+            - init(T)
+            - func append(T)
+            - func concat(LazySeq\<T>)
+            - func iterator()
+            - func map\<U>((T) -> U)
+            - func mixWith(LazySeq\<T>)
+            - func prepend(T)
+            - static func mix(LazySeq\<T>,LazySeq\<T>)
+            - static func mix(LazySeq\<T>,LazySeq\<T>,LazySeq\<T>)
+            - static func mix(LazySeq\<T>,LazySeq\<T>,LazySeq\<T>,LazySeq\<T>)
+            - static func mix(LazySeq\<T>,LazySeq\<T>,LazySeq\<T>,LazySeq\<T>,LazySeq\<T>)
+            - static func of(Iterable\<T>)
+            - static func of(Array\<T>)
+          - class ShrinkHelpers
+            - static func shrinkTuple\<T0, T1>((T0, T1),Iterable\<T0>,Iterable\<T1>)
+            - static func shrinkTuple\<T0, T1, T2>((T0, T1, T2),Iterable\<T0>,Iterable\<T1>,Iterable\<T2>)
+            - static func shrinkTuple\<T0, T1, T2, T3>((T0, T1, T2, T3),Iterable\<T0>,Iterable\<T1>,Iterable\<T2>,Iterable\<T3>)
+            - static func shrinkTuple\<T0, T1, T2, T3, T4>((T0, T1, T2, T3, T4),Iterable\<T0>,Iterable\<T1>,Iterable\<T2>,Iterable\<T3>,Iterable\<T4>)
+        - [结构体](std/unittest_prop_test/unittest_prop_test_package_api/unittest_prop_test_package_structs.md)
+          - struct Function0Wrapper\<R>
+            - Function0Wrapper(() -> R)
+            - operator func ()()
+            - extend\<R> Function0Wrapper\<R> <: Arbitrary\<Function0Wrapper\<R>> where R <: Arbitrary\<R>
+              - static func arbitrary(RandomSource)
+          - struct TupleWrapper2\<T0, T1>
+            - TupleWrapper2((T0, T1))
+            - func apply\<R>(f: (T0, T1) -> R)
+            - extend\<T0, T1> TupleWrapper2\<T0, T1> <: ToString
+              - func toString()
+            - extend\<T0, T1> TupleWrapper2\<T0, T1> <: Equatable\<TupleWrapper2\<T0, T1>>
+              - operator func ==(TupleWrapper2\<T0, T1>)
+              - operator func !=(TupleWrapper2\<T0, T1>)
+            - extend\<T0, T1> TupleWrapper2\<T0, T1> <: IndexAccess
+              - func getElementAsAny(Int64)
+            - extend\<T0, T1> TupleWrapper2\<T0, T1> <: Arbitrary\<TupleWrapper2\<T0, T1>> where T0 <: Arbitrary\<T0>,T1 <: Arbitrary\<T1>
+              - static func arbitrary(RandomSource)
+          - struct TupleWrapper3\<T0, T1, T2>
+            - TupleWrapper3((T0, T1,T2))
+            - func apply\<R>(f: (T0, T1,T2) -> R)
+            - extend\<T0, T1, T2> TupleWrapper3\<T0, T1, T2> <: ToString
+              - func toString()
+            - extend\<T0, T1, T2> TupleWrapper3\<T0, T1, T2> <: Equatable\<TupleWrapper3\<T0, T1, T2>>
+              - operator func ==(TupleWrapper3\<T0, T1, T2>)
+              - operator func !=(TupleWrapper3\<T0, T1, T2>)
+            - extend\<T0, T1, T2> TupleWrapper3\<T0, T1, T2> <: IndexAccess
+              - func getElementAsAny(Int64)
+            - extend\<T0, T1, T2> TupleWrapper3\<T0, T1, T2> <: Arbitrary\<TupleWrapper3\<T0, T1, T2>>  where T0 <: Arbitrary\<T0>,T1 <: Arbitrary\<T1>,T2 <: Arbitrary\<T2>
+              - static func arbitrary(RandomSource)
+          - struct TupleWrapper4\<T0, T1, T2, T3>
+            - TupleWrapper4((T0, T1, T2, T3))
+            - func apply\<R>(f: (T0, T1, T2, T3) -> R)
+            - extend\<T0, T1, T2, T3> TupleWrapper4\<T0, T1, T2, T3> <: ToString
+              - func toString()
+            - extend\<T0, T1, T2, T3> TupleWrapper4\<T0, T1, T2, T3> <: Equatable\<TupleWrapper4\<T0, T1, T2, T3>>
+              - operator func ==(TupleWrapper4\<T0, T1, T2, T3>)
+              - operator func !=(TupleWrapper4\<T0, T1, T2, T3>)
+            - extend\<T0, T1, T2, T3> TupleWrapper4\<T0, T1, T2, T3> <: IndexAccess
+              - func getElementAsAny(Int64)
+            - extend\<T0, T1, T2, T3> TupleWrapper4\<T0, T1, T2, T3><: Arbitrary\<TupleWrapper4\<T0, T1, T2, T3>> where where T0 <: Arbitrary\<T0>,T1 <: Arbitrary\<T1>,T2 <: Arbitrary\<T2>,T3 <: Arbitrary\<T3>
+              - static func arbitrary(RandomSource)
+          - struct TupleWrapper5\<T0, T1, T2, T3, T4>
+            - TupleWrapper5((T0, T1, T2, T3, T4))
+            - func apply\<R>(f: (T0, T1, T2, T3, T4) -> R)
+            - extend\<T0, T1, T2, T3, T4> TupleWrapper5\<T0, T1, T2, T3, T4> <: ToString
+              - func toString()
+            - extend\<T0, T1, T2, T3, T4> TupleWrapper5\<T0, T1, T2, T3, T4> <: Equatable\<TupleWrapper5\<T0, T1, T2, T3, T4>>
+              - operator func ==(TupleWrapper5\<T0, T1, T2, T3, T4>)
+              - operator func !=(TupleWrapper5\<T0, T1, T2, T3, T4>)
+            - extend\<T0, T1, T2, T3, T4> TupleWrapper5\<T0, T1, T2, T3, T4> <: IndexAccess
+              - func getElementAsAny(Int64)
+            - extend\<T0, T1, T2, T3, T4> TupleWrapper5\<T0, T1, T2, T3, T4> <: Arbitrary\<TupleWrapper2\<T0, T1, T2, T3, T4>> where T0 <: Arbitrary\<T0>,T1 <: Arbitrary\<T1>,T2 <: Arbitrary\<T2>,T3 <: Arbitrary\<T3>,T4 <: Arbitrary\<T4>
+              - static func arbitrary(RandomSource)
